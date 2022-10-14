@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+	version="3.0">
+
+	<persistence-unit name="dafi-pu" transaction-type="RESOURCE_LOCAL">
+
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		
+		<class>group.acensi.dafi.entities.BusinessUnit</class>
+		<class>group.acensi.dafi.entities.Collaborateur</class>
+		<class>group.acensi.dafi.entities.Contrat</class>
+		<class>group.acensi.dafi.entities.ContratCategorie</class>
+		<class>group.acensi.dafi.entities.ContratStatut</class>
+		<class>group.acensi.dafi.entities.Devise</class>
+		<class>group.acensi.dafi.entities.Droit</class>
+		<class>group.acensi.dafi.entities.Etablissement</class>
+		<class>group.acensi.dafi.entities.Filiale</class>
+		<class>group.acensi.dafi.entities.Role</class>
+		<class>group.acensi.dafi.entities.PeriodeEssai</class>
+		<class>group.acensi.dafi.entities.Poste</class>
+		<class>group.acensi.dafi.entities.Service</class>
+		<class>group.acensi.dafi.entities.Societe</class>
+		<class>group.acensi.dafi.entities.Utilisateur</class>
+		
+				
+		<class>group.acensi.dafi.entities.parametrage.ParametrageCollaborateur</class>
+		<class>group.acensi.dafi.entities.parametrage.ParametrageContrat</class>
+		
+		<shared-cache-mode>DISABLE_SELECTIVE</shared-cache-mode>
+		<validation-mode>AUTO</validation-mode>
+
+		<properties>
+		
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.show_sql" value="false" />
+			
+			<property name="hibernate.hbm2ddl.auto" value="validate" />
+			
+			 <!-- The SQL will show on multiple lines if you set this to true, it will confuse any logging parser like LogStash -->
+            <property name="hibernate.format_sql" value="false"/>
+            
+            <!-- used by micrometer -->
+            <property name="hibernate.generate_statistics" value="true"/>
+            
+			<!-- Forces Hibernate to order SQL updates by the primary key value of the items being updated.  This will result in fewer transaction deadlocks in highly concurrent systems -->
+            <property name="hibernate.order_updates" value="true"/>
+			
+			<!-- Cache Configuration -->
+			<property name="hibernate.cache.region.factory_class" value="jcache" />
+			<property name="hibernate.javax.cache.provider" value="org.ehcache.jsr107.EhcacheCachingProvider"/>
+			<property name="hibernate.javax.cache.uri" value="/META-INF/ehcache.xml"/>
+			<property name="hibernate.cache.use_second_level_cache" value="true" />
+		 	<property name="hibernate.cache.use_query_cache" value="true" />
+		 	<property name="hibernate.javax.cache.missing_cache_strategy" value="create"/>	
+ 		
+ 			<!-- Optimisations -->
+ 			<property name="hibernate.bytecode.use_reflection_optimizer" value="true" />
+ 			<property name="hibernate.max_fetch_depth" value="0"/>
+ 			
+ 			<!-- Query settings -->
+ 			<property name="hibernate.query.plan_cache_max_size" value="256"/>
+ 			<property name="hibernate.query.plan_parameter_metadata_max_size" value="128"/>
+ 			<property name="hibernate.query.jpaql_strict_compliance" value="true"/>
+ 			
+            <!-- 
+            	Used to control whether we should consult the JDBC metadata to determine
+				certain Settings default values; it is useful to *not* do this when the database
+				may not be available (mainly in tools usage) 
+			-->
+			<property name="hibernate.temp.use_jdbc_metadata_defaults" value="false" />
+			
+			<property name="hibernate.implicit_naming_strategy" value="jpa"/>
+			
+			<property name="hibernate.default_schema" value="public"/>
+			
+		</properties>
+
+	</persistence-unit>
+
+</persistence>

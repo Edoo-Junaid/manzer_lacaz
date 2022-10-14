@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>group.acensi.dafi</groupId>
+	<artifactId>dafi-parent</artifactId>
+	<version>2.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>dafi-parent</name>
+
+	<scm>
+		<developerConnection>scm:git:https://bitbucket.acensi.fr/scm/ad/backend.git</developerConnection>
+	</scm>
+
+	<!-- 	<distributionManagement>
+		<repository>
+			<id>Intracens-releases</id>
+			<name>Nexus releases repository</name>
+			<url>https://repo.acensi.delivery/repository/dafi-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>Intracens-snapshots</id>
+			<name>Nexus Snapshot Repository</name>
+			<url>https://repo.acensi.delivery/repository/dafi-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement> -->
+	<properties>
+		<java.version>17</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<spring.version>6.0.0-M5</spring.version>
+		<springboot.version>3.0.0-M4</springboot.version>
+		<mapstruct.version>1.5.2.Final</mapstruct.version>
+		<lombok.version>1.18.24</lombok.version>
+		<hibernate.version>6.1.2.Final</hibernate.version>
+		<m2e.apt.activation>jdt_apt</m2e.apt.activation>
+		<logback.version>1.4.0</logback.version>
+		<slf4j.version>2.0.0</slf4j.version>
+	</properties>
+	<modules>
+		<module>../dafi-testing</module>
+		<module>../dafi-entities</module>
+		<module>../dafi-dao</module>
+		<module>../dafi-service-impl</module>
+		<module>../dafi-service-api</module>
+		<module>../dafi-web</module>
+		<module>../dafi-integrations</module>
+	</modules>
+	<build>
+<!-- 		<plugins>
+			<plugin>
+				<groupId>org.cyclonedx</groupId>
+				<artifactId>cyclonedx-maven-plugin</artifactId>
+				<inherited>false</inherited>
+			 </plugin>
+		</plugins> -->
+		<pluginManagement>
+			<plugins>
+	            <plugin>
+	                <groupId>org.owasp</groupId>
+	                <artifactId>dependency-check-maven</artifactId>
+	                <version>7.1.2</version>
+	                <configuration>
+	                    <skipProvidedScope>false</skipProvidedScope>
+	                    <skipRuntimeScope>false</skipRuntimeScope>
+	                </configuration>
+	            </plugin>
+				<plugin>
+					<groupId>org.cyclonedx</groupId>
+					<artifactId>cyclonedx-maven-plugin</artifactId>
+					<version>2.7.1</version>
+					<configuration>
+						<includeCompileScope>true</includeCompileScope>
+						<includeProvidedScope>true</includeProvidedScope>
+						<includeRuntimeScope>true</includeRuntimeScope>
+						<includeSystemScope>true</includeSystemScope>
+						<includeTestScope>false</includeTestScope>
+					 </configuration>
+				 </plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.10.1</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>3.3.0</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.0.0-M7</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>3.0.0-M7</version>
+				</plugin>
+				<plugin>
+					<groupId>com.amashchenko.maven.plugin</groupId>
+					<artifactId>gitflow-maven-plugin</artifactId>
+					<version>1.18.0</version>
+					<configuration>
+						<installProject>false</installProject>
+						<verbose>true</verbose>
+						<gitFlowConfig>
+							<productionBranch>master</productionBranch>
+							<developmentBranch>develop</developmentBranch>
+							<featureBranchPrefix>feature/</featureBranchPrefix>
+							<releaseBranchPrefix>release/</releaseBranchPrefix>
+							<hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
+							<supportBranchPrefix>support/</supportBranchPrefix>
+							<versionTagPrefix></versionTagPrefix>
+							<origin>origin</origin>
+						</gitFlowConfig>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+<!-- 	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories> -->
+</project>
