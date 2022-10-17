@@ -23,6 +23,9 @@
 		<class>group.acensi.dafi.entities.Service</class>
 		<class>group.acensi.dafi.entities.Societe</class>
 		<class>group.acensi.dafi.entities.Utilisateur</class>
+
+		<class>group.acensi.dafi.entities.Menu</class>
+
 		
 				
 		<class>group.acensi.dafi.entities.parametrage.ParametrageCollaborateur</class>
@@ -34,9 +37,9 @@
 		<properties>
 		
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
-			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.show_sql" value="true" />
 			
-			<property name="hibernate.hbm2ddl.auto" value="validate" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 			
 			 <!-- The SQL will show on multiple lines if you set this to true, it will confuse any logging parser like LogStash -->
             <property name="hibernate.format_sql" value="false"/>

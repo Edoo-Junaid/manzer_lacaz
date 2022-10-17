@@ -119,5 +119,9 @@ public class AuthenticationController {
 		jwtUtils.invalidateToken(request);
 		
 	}
+	@GetMapping("triaal")
+	public String getHello() {
+		return "hello world";
+	}
 
 }

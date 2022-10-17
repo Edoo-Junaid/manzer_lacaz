@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DafiWebApplication<dafi-web>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "group.acensi.dafi.web.DafiWebApplication",
+            "projectName": "dafi-web",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

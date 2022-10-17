@@ -8,7 +8,7 @@ debug: 'false'
 
 spring:
   application:
-    name: Dafi v2
+    name: ManzerLacaz
   profiles:
     active: default
   banner:
