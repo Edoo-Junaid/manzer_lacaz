@@ -1,6 +1,14 @@
 package group.acensi.dafi.service.api;
 
-import group.acensi.dafi.entities.*;
+import java.util.List;
+
+import group.acensi.dafi.entities.Menu;
+import group.acensi.dafi.service.dto.MenuDto;
+
+
+
+
 public interface MenuService {
-    public void createMenu(Menu menu);
+    public Menu createMenu(MenuDto menuDto);
+    public List<Menu> listAllMenu();
 }

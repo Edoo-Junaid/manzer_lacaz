@@ -24,6 +24,7 @@ import group.acensi.dafi.service.dto.UtilisateurDto;
  * @author Nadeem Nayeck <nadeem.nayeck@acensi.group>
  *
  */
+
 @org.mapstruct.Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface UtilisateurMapper {
 
