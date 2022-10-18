@@ -27,10 +27,11 @@ public class MenuController {
     @PostMapping("/addMenu")
     public  ResponseEntity<Menu> addMenu(@RequestBody Menu menu) {
        MenuDto menuDto = new MenuDto();
-       menuDto.setName(menu.getName());
-       menuDto.setDay(menu.getDay());
+       menuDto.setDescription(menu.getDescription());
        menuDto.setPrice(menu.getPrice());
-       menuDto.setOption(menu.getPrice());
+       menuDto.setDate(menu.getDate());
+       
+    
 
        return new ResponseEntity<Menu>(menuService.createMenu(menuDto), HttpStatus.CREATED);
     }

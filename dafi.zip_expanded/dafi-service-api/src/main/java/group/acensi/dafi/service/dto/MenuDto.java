@@ -10,10 +10,9 @@ import lombok.Data;
 @Data
 public class MenuDto {
     private Long id;
-    private String day;
-    private String name;
+    private String description;
     private String price;
-    private String option;
+    private String date;
     @JsonFormat
     (shape = JsonFormat.Shape.STRING, pattern = DateTimeConstants.DATE_TIME_FORMAT)
     private ZonedDateTime lastModified;
