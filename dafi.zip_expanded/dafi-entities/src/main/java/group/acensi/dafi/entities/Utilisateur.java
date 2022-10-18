@@ -9,11 +9,15 @@
 
 package group.acensi.dafi.entities;
 
+import java.util.List;
+
 import group.acensi.dafi.entities.base.AbstractEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -52,6 +56,10 @@ public class Utilisateur extends AbstractEntity {
 	@JoinColumn(name = "collaborateur_id")
 	private Collaborateur collaborateur;
 
+	@ManyToMany
+	@JoinTable(name = "order", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "menu_id") })
+	private List<Menu> menu;
 
 
 }
