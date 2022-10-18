@@ -5,6 +5,7 @@ import group.acensi.dafi.entities.Menu;
 import group.acensi.dafi.service.api.MenuService;
 import group.acensi.dafi.service.dto.MenuDto;
 import group.acensi.dafi.service.mapper.MenuMapper;
+import group.acensi.dafi.service.mapper.UtilisateurMapper;
 
 import java.util.List;
 
@@ -24,9 +25,10 @@ public class MenuServiceImpl implements MenuService{
           return menurepository.save(menu);
     }
 
+    
     @Override
-    public List<Menu> listAllMenu() {
-       return  menurepository.findAll();
+    public List<MenuDto> listAllMenu() {
+       return  menurepository.findAll().stream().map(MenuMapper.INSTANCE::toDto).toList();
     }
     
 }

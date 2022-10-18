@@ -30,9 +30,6 @@ public class MenuController {
        menuDto.setDescription(menu.getDescription());
        menuDto.setPrice(menu.getPrice());
        menuDto.setDate(menu.getDate());
-       
-    
-
        return new ResponseEntity<Menu>(menuService.createMenu(menuDto), HttpStatus.CREATED);
     }
     
@@ -43,7 +40,7 @@ public class MenuController {
     }
     
 	@GetMapping("/getAllMenu")
-	public List<Menu> getMenu() {
+	public List<MenuDto> getMenu() {
         return menuService.listAllMenu();
 	}
 	

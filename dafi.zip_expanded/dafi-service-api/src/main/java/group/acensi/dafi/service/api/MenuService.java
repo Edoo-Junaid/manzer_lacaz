@@ -10,5 +10,5 @@ import group.acensi.dafi.service.dto.MenuDto;
 
 public interface MenuService {
     public Menu createMenu(MenuDto menuDto);
-    public List<Menu> listAllMenu();
+    public List<MenuDto> listAllMenu();
 }

@@ -22,5 +22,4 @@ public class OrderDto {
 	    @JsonFormat
 	    (shape = JsonFormat.Shape.STRING, pattern = DateTimeConstants.DATE_TIME_FORMAT)
 	    private ZonedDateTime created;
-
 }

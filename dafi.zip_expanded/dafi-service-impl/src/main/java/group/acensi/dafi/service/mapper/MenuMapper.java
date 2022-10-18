@@ -10,5 +10,6 @@ import group.acensi.dafi.service.dto.MenuDto;
 public interface MenuMapper {
     MenuMapper INSTANCE = Mappers.getMapper(MenuMapper.class);
     Menu toEntity(MenuDto dto);
+    MenuDto toDto(Menu menu);
     
 }

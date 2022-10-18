@@ -9,8 +9,10 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class Order extends AbstractEntity {
-
+    
+    private long user_id;
+    private long menu_id;
 	private long payment;
 	private String option;
-
+	
 }
