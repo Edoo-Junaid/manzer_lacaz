@@ -41,6 +41,7 @@ public class MenuController {
 		
 	}
 //
+
 //	@GetMapping("/getAllMenu")
 //	public List<Menu> getAllMenu() {
 //		String type[]={"Veg","Non-Veg"};

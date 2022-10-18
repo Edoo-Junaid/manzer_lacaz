@@ -52,4 +52,6 @@ public class Utilisateur extends AbstractEntity {
 	@JoinColumn(name = "collaborateur_id")
 	private Collaborateur collaborateur;
 
+
+
 }

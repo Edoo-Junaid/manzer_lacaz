@@ -23,6 +23,7 @@
 		<class>group.acensi.dafi.entities.Service</class>
 		<class>group.acensi.dafi.entities.Societe</class>
 		<class>group.acensi.dafi.entities.Utilisateur</class>
+		<class>group.acensi.dafi.entities.Order</class>
 
 		<class>group.acensi.dafi.entities.Menu</class>
 
