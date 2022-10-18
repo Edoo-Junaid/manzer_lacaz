@@ -35,11 +35,17 @@ public class MenuController {
        return new ResponseEntity<Menu>(menuService.createMenu(menuDto), HttpStatus.CREATED);
     }
     
+    @PostMapping("/addFullMenu")
+    public List<Menu> addFullMenu(@RequestBody List<Menu> menu){
+        System.out.println(menu);
+        return menu;
+    }
+    
 	@GetMapping("/getAllMenu")
 	public List<Menu> getMenu() {
         return menuService.listAllMenu();
-		
 	}
+	
 //
 
 //	@GetMapping("/getAllMenu")
