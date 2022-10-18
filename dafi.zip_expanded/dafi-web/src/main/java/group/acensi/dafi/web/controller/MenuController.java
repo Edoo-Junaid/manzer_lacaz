@@ -2,6 +2,7 @@ package group.acensi.dafi.web.controller;
 
 import group.acensi.dafi.entities.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import group.acensi.dafi.service.api.MenuService;
 import group.acensi.dafi.service.dto.MenuDto;
+import group.acensi.dafi.service.mapper.MenuMapper;
 
 
 @RestController
@@ -24,13 +26,20 @@ public class MenuController {
     @Autowired
     private MenuService menuService;
     
+//    @PostMapping("/addMenu")
+//    public  ResponseEntity<Menu> addMenu(@RequestBody Menu menu) {
+//        MenuDto menuDto = MenuMapper.INSTANCE.toDto(menu);
+//       return new ResponseEntity<Menu>(menuService.createMenu(menuDto), HttpStatus.CREATED);
+//    }
+    
     @PostMapping("/addMenu")
-    public  ResponseEntity<Menu> addMenu(@RequestBody Menu menu) {
-       MenuDto menuDto = new MenuDto();
-       menuDto.setDescription(menu.getDescription());
-       menuDto.setPrice(menu.getPrice());
-       menuDto.setDate(menu.getDate());
-       return new ResponseEntity<Menu>(menuService.createMenu(menuDto), HttpStatus.CREATED);
+    public List<Menu> addMenu(@RequestBody List<Menu> menu){
+        List<Menu> returnMenuList = new ArrayList<>();
+        for(Menu menuInList: menu) {
+            MenuDto menuDto = MenuMapper.INSTANCE.toDto(menuInList);
+            returnMenuList.add(menuService.createMenu(menuDto));
+        }
+        return returnMenuList;
     }
     
     @PostMapping("/addFullMenu")
