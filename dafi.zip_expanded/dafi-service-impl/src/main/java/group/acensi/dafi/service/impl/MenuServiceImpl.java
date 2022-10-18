@@ -21,11 +21,6 @@ public class MenuServiceImpl implements MenuService{
     @Override
     public Menu createMenu(MenuDto menuDto) {
         Menu menu = MenuMapper.INSTANCE.toEntity(menuDto);
-        System.out.println("********************************");
-        System.out.println(menuDto);
-        System.out.println("********************************");
-        System.out.println(menu);
-      //  return menurepository.save(menu);
           return menurepository.save(menu);
     }
 
