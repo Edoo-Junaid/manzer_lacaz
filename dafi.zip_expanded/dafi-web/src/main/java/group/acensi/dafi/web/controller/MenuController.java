@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import group.acensi.dafi.service.api.MenuService;
 import group.acensi.dafi.service.dto.MenuDto;
+import group.acensi.dafi.service.mapper.MenuMapper;
 
 
 @RestController
@@ -26,18 +27,11 @@ public class MenuController {
     
     @PostMapping("/addMenu")
     public  ResponseEntity<Menu> addMenu(@RequestBody Menu menu) {
-       MenuDto menuDto = new MenuDto();
-       menuDto.setDescription(menu.getDescription());
-       menuDto.setPrice(menu.getPrice());
-       menuDto.setDate(menu.getDate());
+    	MenuDto menuDto=MenuMapper.INSTANCE.toDto(menu);
        return new ResponseEntity<Menu>(menuService.createMenu(menuDto), HttpStatus.CREATED);
     }
     
-    @PostMapping("/addFullMenu")
-    public List<Menu> addFullMenu(@RequestBody List<Menu> menu){
-        System.out.println(menu);
-        return menu;
-    }
+
     
 	@GetMapping("/getAllMenu")
 	public List<MenuDto> getMenu() {
