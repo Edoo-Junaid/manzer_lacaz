@@ -42,11 +42,7 @@ public class MenuController {
         return returnMenuList;
     }
     
-    @PostMapping("/addFullMenu")
-    public List<Menu> addFullMenu(@RequestBody List<Menu> menu){
-        System.out.println(menu);
-        return menu;
-    }
+
     
 	@GetMapping("/getAllMenu")
 	public List<MenuDto> getMenu() {

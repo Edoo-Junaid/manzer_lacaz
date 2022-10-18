@@ -23,6 +23,7 @@ public class Menu extends AbstractEntity {
 	private List<Utilisateur> users;
 	private String description;
 	private String price;
-	private String date;
+	private String day;
+	private String option;
 
 }
