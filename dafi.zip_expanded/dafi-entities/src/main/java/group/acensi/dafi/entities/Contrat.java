@@ -15,7 +15,6 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import group.acensi.dafi.entities.base.AbstractEntity;
-import group.acensi.dafi.entities.parametrage.ParametrageContrat;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -55,10 +54,6 @@ public class Contrat extends AbstractEntity {
 	@OneToMany(mappedBy = "contrat")
 	private SortedSet<PeriodeEssai> periodeEssais = new TreeSet<>();
 
-	@OneToMany(mappedBy = "contrat")
-	@ElementCollection
-	@MapKey(name = "cle")
-	private Map<String, ParametrageContrat> parametrage;
 
 	@ManyToOne
 	@JoinColumn(name = "poste_id")

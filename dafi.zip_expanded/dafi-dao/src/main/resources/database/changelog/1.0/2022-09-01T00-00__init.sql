@@ -81,14 +81,6 @@ CREATE SEQUENCE parametragecollaborateur_id_seq
     NO CYCLE;
 /
 
-CREATE SEQUENCE parametragecontrat_id_seq
-    INCREMENT BY 1
-    MINVALUE 1
-    MAXVALUE 9223372036854775807
-    START 1
-    CACHE 1
-    NO CYCLE;
-/
 
 CREATE SEQUENCE periodeessai_id_seq
     INCREMENT BY 1
@@ -336,24 +328,6 @@ CREATE TABLE parametragecollaborateur (
     CONSTRAINT fkh0ketq9hqq2n0c1cxbeaqxuwj FOREIGN KEY (collaborateur_id) REFERENCES collaborateur(id)
 );
 /
-
-
-CREATE TABLE parametragecontrat (
-    id bigserial NOT NULL,
-    created timestamp(6) NULL,
-    lastmodified timestamp(6) NULL,
-    cle varchar(255) NULL,
-    datetimevalue timestamp(6) NULL,
-    datevalue date NULL,
-    groupe varchar(255) NULL,
-    numbervalue float8 NULL,
-    stringvalue varchar(255) NULL,
-    contrat_id int8 NULL,
-    CONSTRAINT parametragecontrat_pkey PRIMARY KEY (id),
-    CONSTRAINT fk4ce88xgl59s1hoq40hcn535bc FOREIGN KEY (contrat_id) REFERENCES contrat(id)
-);
-/
-
 
 
 CREATE TABLE periodeessai (
