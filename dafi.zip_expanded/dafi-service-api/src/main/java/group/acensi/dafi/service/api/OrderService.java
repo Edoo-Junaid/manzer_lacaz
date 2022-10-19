@@ -7,4 +7,7 @@ import group.acensi.dafi.service.dto.OrderDto;
 
 public interface OrderService {
     public Order createOrder(OrderDto orderDto);
+    public int getCurrentWeekNumber();
+    public Long getOrderCountByDay(String day);
+
 }

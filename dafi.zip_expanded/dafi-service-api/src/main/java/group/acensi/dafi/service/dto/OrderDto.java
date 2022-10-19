@@ -14,6 +14,7 @@ public class OrderDto {
 	private long menu_id;
 	private long payment;
 	private String option;
+	private int weekNum;
 
 	 @JsonFormat
 	    (shape = JsonFormat.Shape.STRING, pattern = DateTimeConstants.DATE_TIME_FORMAT)

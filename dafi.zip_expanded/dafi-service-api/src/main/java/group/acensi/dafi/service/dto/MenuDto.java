@@ -14,6 +14,7 @@ public class MenuDto {
     private String price;
     private String day;
     private String option;
+  
     @JsonFormat
     (shape = JsonFormat.Shape.STRING, pattern = DateTimeConstants.DATE_TIME_FORMAT)
     private ZonedDateTime lastModified;

@@ -1,5 +1,7 @@
 package group.acensi.dafi.service.impl;
 
+import java.util.Calendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +21,17 @@ public class OrderSericeImpl implements OrderService{
     public Order createOrder(OrderDto orderDto) {
         Order order = OrderMapper.INSTANCE.toEntity(orderDto);
         return orderRepository.save(order);
+    }
+
+    @Override
+    public int getCurrentWeekNumber() {
+        Calendar cal = Calendar.getInstance();
+        return cal.get(Calendar.WEEK_OF_YEAR);
+    }
+
+    @Override
+    public Long getOrderCountByDay(String day) {
+    System.out.println(this.getCurrentWeekNumber() +" "+ day);
+        return orderRepository.countOrdersByDayAndWeekNum(this.getCurrentWeekNumber(), day);
     }
 }
