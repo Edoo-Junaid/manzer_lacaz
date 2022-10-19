@@ -31,9 +31,6 @@ public class Role extends AbstractEntity {
 	
 	private String nom;
 	
-	@ManyToMany
-	@JoinTable(name = "role_droit", joinColumns = { @JoinColumn(name = "role_id") }, inverseJoinColumns = {
-			@JoinColumn(name = "droit_id") })
-	private List<Droit> droits;
+
 	
 }

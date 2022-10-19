@@ -52,14 +52,7 @@ CREATE SEQUENCE devise_id_seq
     NO CYCLE;
 /
 
-CREATE SEQUENCE droit_id_seq
-    INCREMENT BY 1
-    MINVALUE 1
-    MAXVALUE 9223372036854775807
-    START 1
-    CACHE 1
-    NO CYCLE;
-/
+
 
 CREATE SEQUENCE etablissement_id_seq
     INCREMENT BY 1
@@ -221,14 +214,8 @@ CREATE TABLE devise (
 /
 
 
-CREATE TABLE droit (
-    id bigserial NOT NULL,
-    created timestamp(6) NULL,
-    lastmodified timestamp(6) NULL,
-    nom varchar(255) NULL,
-    CONSTRAINT droit_pkey PRIMARY KEY (id)
-);
-/
+
+
 
 
 CREATE TABLE etablissement (
@@ -383,13 +370,8 @@ CREATE TABLE periodeessai (
 
 
 
-CREATE TABLE role_droit (
-    role_id int8 NOT NULL,
-    droit_id int8 NOT NULL,
-    CONSTRAINT fki72n8u499iho2wbsi4pljiqs5 FOREIGN KEY (role_id) REFERENCES "role"(id),
-    CONSTRAINT fksvggn9u23hirh35nfxrnryciu FOREIGN KEY (droit_id) REFERENCES droit(id)
-);
-/
+
+
 
 
 

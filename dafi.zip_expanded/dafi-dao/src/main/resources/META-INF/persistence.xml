@@ -14,7 +14,6 @@
 		<class>group.acensi.dafi.entities.ContratCategorie</class>
 		<class>group.acensi.dafi.entities.ContratStatut</class>
 		<class>group.acensi.dafi.entities.Devise</class>
-		<class>group.acensi.dafi.entities.Droit</class>
 		<class>group.acensi.dafi.entities.Etablissement</class>
 		<class>group.acensi.dafi.entities.Filiale</class>
 		<class>group.acensi.dafi.entities.Role</class>
