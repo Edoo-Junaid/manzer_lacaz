@@ -22,7 +22,5 @@ import lombok.Data;
 public class RoleDto {
 	
 	private String nom;
-	
-	private List<String> droits;
 
 }

@@ -32,13 +32,10 @@ public interface UserDetailsMapper {
 		userDetails.setAccountNonExpired(dto.isAccountNonExpired());
 		userDetails.setAccountNonLocked(userDetails.isAccountNonLocked());
 		userDetails.setId(dto.getId());
-		if (dto.getRole() != null && dto.getRole().getDroits() != null) {
+		if (dto.getRole() != null ){//&& dto.getRole().getDroits() != null) {
 			
 			userDetails.setRole(dto.getRole().getNom());
 			
-			for (String droit : dto.getRole().getDroits()) {
-				userDetails.getAuthorities().add(new SimpleGrantedAuthority(droit));
-			}
 		}
 		
 		userDetails.setCredentialsNonExpired(dto.isCredentialsNonExpired());

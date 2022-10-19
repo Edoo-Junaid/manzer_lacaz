@@ -49,12 +49,6 @@ public class Utilisateur extends AbstractEntity {
 	@JoinColumn(name = "role_id")
 	private Role role;
 	
-	/**
-	 * On peut creer plusieurs comptes de login pour le meme employe/collaborateur 
-	 */
-	@ManyToOne
-	@JoinColumn(name = "collaborateur_id")
-	private Collaborateur collaborateur;
 
 	@ManyToMany
 	@JoinTable(name = "order", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = {
