@@ -7,5 +7,6 @@ public interface OrderService {
     public Order createOrder(OrderDto orderDto);
     public int getCurrentWeekNumber();
     public Long getOrderCountByDay(String day);
+	Long getOrderOptionCountByDay(String option,String day);
 
 }

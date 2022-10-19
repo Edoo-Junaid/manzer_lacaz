@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import group.acensi.dafi.entities.Order;
 import group.acensi.dafi.service.api.OrderService;
 import group.acensi.dafi.service.dto.OrderDto;
+import group.acensi.dafi.web.payload.OrderOptionCountRequest;
 
 
 @RestController
@@ -40,5 +41,11 @@ public class OrderController {
     @PostMapping("/getOrderCountByDay")
     public Long getOrderCountByDay(@RequestBody String day) {
         return orderService.getOrderCountByDay(day);
+    }
+    
+    
+    @PostMapping("/getOrderOptionCountByDay")
+    public Long getOrderOptionCountByDay(@RequestBody OrderOptionCountRequest o) {
+        return orderService.getOrderOptionCountByDay(o.option(),o.day());
     }
 }
