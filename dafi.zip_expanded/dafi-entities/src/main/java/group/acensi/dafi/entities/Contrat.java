@@ -43,23 +43,6 @@ public class Contrat extends AbstractEntity {
 	@Temporal(TemporalType.DATE)
 	private LocalDate fin;
 
-	@ManyToOne
-	@JoinColumn(name = "contratstatut_id")
-	private ContratStatut contratStatut;
-
-	@ManyToOne
-	@JoinColumn(name = "contratcategorie_id")
-	private ContratCategorie contratCategorie;
-
-
-	@ManyToOne
-	@JoinColumn(name = "filiale_id")
-	private Filiale filiale;
-
-	@ManyToOne
-	@JoinColumn(name = "etablissement_id")
-	private Etablissement etablissement;
-
 
 	private String typeRecrutementRh;
 
@@ -77,10 +60,6 @@ public class Contrat extends AbstractEntity {
 
 	private Integer renumeration;
 
-	@ManyToOne
-	@JoinColumn(name = "devise_id")
-	private Devise devise;
-	
 	private Integer heuresHebdo;
 	
 	private String domiciliationBancaire;

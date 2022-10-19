@@ -11,11 +11,6 @@
 		<class>group.acensi.dafi.entities.BusinessUnit</class>
 		<class>group.acensi.dafi.entities.Collaborateur</class>
 		<class>group.acensi.dafi.entities.Contrat</class>
-		<class>group.acensi.dafi.entities.ContratCategorie</class>
-		<class>group.acensi.dafi.entities.ContratStatut</class>
-		<class>group.acensi.dafi.entities.Devise</class>
-		<class>group.acensi.dafi.entities.Etablissement</class>
-		<class>group.acensi.dafi.entities.Filiale</class>
 		<class>group.acensi.dafi.entities.Role</class>
 		<class>group.acensi.dafi.entities.Utilisateur</class>
 		<class>group.acensi.dafi.entities.Order</class>
