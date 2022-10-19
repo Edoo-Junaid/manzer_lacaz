@@ -8,7 +8,6 @@
 
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		
-		<class>group.acensi.dafi.entities.BusinessUnit</class>
 		<class>group.acensi.dafi.entities.Collaborateur</class>
 		<class>group.acensi.dafi.entities.Contrat</class>
 		<class>group.acensi.dafi.entities.Role</class>

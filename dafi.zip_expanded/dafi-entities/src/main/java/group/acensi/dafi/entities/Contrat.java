@@ -46,9 +46,6 @@ public class Contrat extends AbstractEntity {
 
 	private String typeRecrutementRh;
 
-	@ManyToOne
-	@JoinColumn(name = "bu_recrutement_id")
-	private BusinessUnit buRecrutement;
 
 	@ManyToOne
 	@JoinColumn(name = "rh_recruteur_id")
