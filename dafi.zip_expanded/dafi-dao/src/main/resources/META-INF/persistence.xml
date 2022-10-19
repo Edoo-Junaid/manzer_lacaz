@@ -17,10 +17,6 @@
 		<class>group.acensi.dafi.entities.Etablissement</class>
 		<class>group.acensi.dafi.entities.Filiale</class>
 		<class>group.acensi.dafi.entities.Role</class>
-		<class>group.acensi.dafi.entities.PeriodeEssai</class>
-		<class>group.acensi.dafi.entities.Poste</class>
-		<class>group.acensi.dafi.entities.Service</class>
-		<class>group.acensi.dafi.entities.Societe</class>
 		<class>group.acensi.dafi.entities.Utilisateur</class>
 		<class>group.acensi.dafi.entities.Order</class>
 		<class>group.acensi.dafi.entities.Menu</class>

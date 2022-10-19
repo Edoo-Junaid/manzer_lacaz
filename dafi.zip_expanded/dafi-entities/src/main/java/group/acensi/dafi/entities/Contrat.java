@@ -51,17 +51,6 @@ public class Contrat extends AbstractEntity {
 	@JoinColumn(name = "contratcategorie_id")
 	private ContratCategorie contratCategorie;
 
-	@OneToMany(mappedBy = "contrat")
-	private SortedSet<PeriodeEssai> periodeEssais = new TreeSet<>();
-
-
-	@ManyToOne
-	@JoinColumn(name = "poste_id")
-	private Poste poste;
-
-	@ManyToOne
-	@JoinColumn(name = "service_id")
-	private Service service;
 
 	@ManyToOne
 	@JoinColumn(name = "filiale_id")
@@ -71,9 +60,6 @@ public class Contrat extends AbstractEntity {
 	@JoinColumn(name = "etablissement_id")
 	private Etablissement etablissement;
 
-	@ManyToOne
-	@JoinColumn(name = "societe_id")
-	private Societe societe;
 
 	private String typeRecrutementRh;
 

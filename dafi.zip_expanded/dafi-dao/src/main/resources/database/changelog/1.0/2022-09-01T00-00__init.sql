@@ -81,14 +81,6 @@ CREATE SEQUENCE parametragecollaborateur_id_seq
     NO CYCLE;
 /
 
-CREATE SEQUENCE poste_id_seq
-    INCREMENT BY 1
-    MINVALUE 1
-    MAXVALUE 9223372036854775807
-    START 1
-    CACHE 1
-    NO CYCLE;
-/
 
 CREATE SEQUENCE role_id_seq
     INCREMENT BY 1
@@ -99,23 +91,6 @@ CREATE SEQUENCE role_id_seq
     NO CYCLE;
 /
 
-CREATE SEQUENCE service_id_seq
-    INCREMENT BY 1
-    MINVALUE 1
-    MAXVALUE 9223372036854775807
-    START 1
-    CACHE 1
-    NO CYCLE;
-/
-
-CREATE SEQUENCE societe_id_seq
-    INCREMENT BY 1
-    MINVALUE 1
-    MAXVALUE 9223372036854775807
-    START 1
-    CACHE 1
-    NO CYCLE;
-/
 
 CREATE SEQUENCE utilisateur_id_seq
     INCREMENT BY 1
@@ -221,44 +196,12 @@ CREATE TABLE filiale (
 /
 
 
-
-CREATE TABLE poste (
-    id bigserial NOT NULL,
-    created timestamp(6) NULL,
-    lastmodified timestamp(6) NULL,
-    nom varchar(255) NULL,
-    CONSTRAINT poste_pkey PRIMARY KEY (id)
-);
-/
-
-
-
 CREATE TABLE "role" (
     id bigserial NOT NULL,
     created timestamp(6) NULL,
     lastmodified timestamp(6) NULL,
     nom varchar(255) NULL,
     CONSTRAINT role_pkey PRIMARY KEY (id)
-);
-/
-
-
-CREATE TABLE service (
-    id bigserial NOT NULL,
-    created timestamp(6) NULL,
-    lastmodified timestamp(6) NULL,
-    nom varchar(255) NULL,
-    CONSTRAINT service_pkey PRIMARY KEY (id)
-);
-/
-
-
-CREATE TABLE societe (
-    id bigserial NOT NULL,
-    created timestamp(6) NULL,
-    lastmodified timestamp(6) NULL,
-    nom varchar(255) NULL,
-    CONSTRAINT societe_pkey PRIMARY KEY (id)
 );
 /
 
@@ -282,19 +225,13 @@ CREATE TABLE contrat (
     etablissement_id int8 NULL,
     filiale_id int8 NULL,
     manager_id int8 NULL,
-    poste_id int8 NULL,
     rh_recruteur_id int8 NULL,
-    service_id int8 NULL,
-    societe_id int8 NULL,
     CONSTRAINT contrat_pkey PRIMARY KEY (id),
-    CONSTRAINT fk5woepsjhl157033c4cxybstsf FOREIGN KEY (service_id) REFERENCES service(id),
     CONSTRAINT fk68pbrot8h3plsm93aj3b6gqgc FOREIGN KEY (bu_recrutement_id) REFERENCES businessunit(id),
     CONSTRAINT fk96rtqi2ya94vl8sr8f5tatur4 FOREIGN KEY (devise_id) REFERENCES devise(id),
-    CONSTRAINT fkci3n6np8fp36ag2c8lfvaddbo FOREIGN KEY (poste_id) REFERENCES poste(id),
     CONSTRAINT fkd715hjldloruihg6w1rduj9lx FOREIGN KEY (contratcategorie_id) REFERENCES contratcategorie(id),
     CONSTRAINT fkib2u7m8bveuru71rpukh5nx9g FOREIGN KEY (contratstatut_id) REFERENCES contratstatut(id),
     CONSTRAINT fkjqg5osn00plow6uprdquyf2ah FOREIGN KEY (filiale_id) REFERENCES filiale(id),
-    CONSTRAINT fkjscgkmf65ldeavovh490kti8q FOREIGN KEY (societe_id) REFERENCES societe(id),
     CONSTRAINT fkka15a6tc65t3p3lmyg73pa20i FOREIGN KEY (manager_id) REFERENCES collaborateur(id),
     CONSTRAINT fkkhtd3i1i4wwaxm8l5mstt5uaj FOREIGN KEY (rh_recruteur_id) REFERENCES collaborateur(id),
     CONSTRAINT fkphlgjuepct62pieyn3vwt7h0n FOREIGN KEY (etablissement_id) REFERENCES etablissement(id)
