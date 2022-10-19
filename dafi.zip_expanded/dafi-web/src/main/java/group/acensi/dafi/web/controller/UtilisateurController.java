@@ -36,6 +36,4 @@ public class UtilisateurController {
 		return this.utilisateurService.findAllUtilisateurs();
 	}
 	
-	
-	
 }

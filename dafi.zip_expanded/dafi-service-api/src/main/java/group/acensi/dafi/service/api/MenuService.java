@@ -12,4 +12,6 @@ public interface MenuService {
     public Menu createMenu(MenuDto menuDto);
     public List<MenuDto> listAllMenu();
     public int getCurrentWeekNumber();
+    public List<MenuDto> listCurrentMenu();
+    
 }

@@ -39,5 +39,11 @@ public class MenuServiceImpl implements MenuService{
         Calendar cal = Calendar.getInstance();
         return cal.get(Calendar.WEEK_OF_YEAR);
     }
+
+
+    @Override
+    public List<MenuDto> listCurrentMenu() {
+        return menurepository.findByWeekNum(this.getCurrentWeekNumber()).stream().map(MenuMapper.INSTANCE::toDto).toList();
+    }
     
 }
