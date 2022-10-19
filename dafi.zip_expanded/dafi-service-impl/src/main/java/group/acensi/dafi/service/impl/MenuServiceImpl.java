@@ -7,6 +7,7 @@ import group.acensi.dafi.service.dto.MenuDto;
 import group.acensi.dafi.service.mapper.MenuMapper;
 import group.acensi.dafi.service.mapper.UtilisateurMapper;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +23,21 @@ public class MenuServiceImpl implements MenuService{
     @Override
     public Menu createMenu(MenuDto menuDto) {
         Menu menu = MenuMapper.INSTANCE.toEntity(menuDto);
-          return menurepository.save(menu);
+        menu.setWeekNum(this.getCurrentWeekNumber());
+        return menurepository.save(menu);
     }
 
     
     @Override
     public List<MenuDto> listAllMenu() {
        return  menurepository.findAll().stream().map(MenuMapper.INSTANCE::toDto).toList();
+    }
+
+
+    @Override
+    public int getCurrentWeekNumber() {
+        Calendar cal = Calendar.getInstance();
+        return cal.get(Calendar.WEEK_OF_YEAR);
     }
     
 }

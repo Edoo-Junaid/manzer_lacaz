@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import group.acensi.dafi.service.api.MenuService;
 import group.acensi.dafi.service.dto.MenuDto;
 import group.acensi.dafi.service.mapper.MenuMapper;
+import group.acensi.dafi.web.payload.CreateMenuRequest;
 
 
 @RestController
@@ -33,11 +34,16 @@ public class MenuController {
 //    }
     
     @PostMapping("/addMenu")
-    public List<Menu> addMenu(@RequestBody List<Menu> menu){
-        List<Menu> returnMenuList = new ArrayList<>();
-        for(Menu menuInList: menu) {
-            MenuDto menuDto = MenuMapper.INSTANCE.toDto(menuInList);
-            returnMenuList.add(menuService.createMenu(menuDto));
+    public List<MenuDto> addMenu(@RequestBody List<CreateMenuRequest> menu){
+        List<MenuDto> returnMenuList = new ArrayList<>();
+        for(CreateMenuRequest menuInList: menu) {
+            MenuDto menuDto= new MenuDto();
+            menuDto.setDay(menuInList.day());
+            menuDto.setOption(menuInList.option());
+            menuDto.setPrice(menuInList.price());
+            menuDto.setDescription(menuInList.description());
+            menuDto.setWeekNum(menuService.getCurrentWeekNumber());
+            returnMenuList.add(MenuMapper.INSTANCE.toDto(menuService.createMenu(menuDto)));
         }
         return returnMenuList;
     }

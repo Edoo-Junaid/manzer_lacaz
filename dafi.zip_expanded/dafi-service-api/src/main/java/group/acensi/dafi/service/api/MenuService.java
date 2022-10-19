@@ -11,4 +11,5 @@ import group.acensi.dafi.service.dto.MenuDto;
 public interface MenuService {
     public Menu createMenu(MenuDto menuDto);
     public List<MenuDto> listAllMenu();
+    public int getCurrentWeekNumber();
 }

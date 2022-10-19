@@ -14,6 +14,5 @@ public class Order extends AbstractEntity {
     private long menu_id;
 	private long payment;
 	private String option;
-    private int weekNum;
-	
+
 }

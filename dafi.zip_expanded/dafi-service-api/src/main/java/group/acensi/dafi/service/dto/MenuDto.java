@@ -14,6 +14,8 @@ public class MenuDto {
     private String price;
     private String day;
     private String option;
+    private int weekNum;
+    
   
     @JsonFormat
     (shape = JsonFormat.Shape.STRING, pattern = DateTimeConstants.DATE_TIME_FORMAT)
