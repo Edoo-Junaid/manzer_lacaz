@@ -7,14 +7,7 @@ CREATE SEQUENCE collaborateur_id_seq
     NO CYCLE;
 /
 
-CREATE SEQUENCE contrat_id_seq
-    INCREMENT BY 1
-    MINVALUE 1
-    MAXVALUE 9223372036854775807
-    START 1
-    CACHE 1
-    NO CYCLE;
-/
+
 
 
 CREATE SEQUENCE parametragecollaborateur_id_seq
@@ -87,26 +80,6 @@ CREATE TABLE "role" (
 /
 
 
-CREATE TABLE contrat (
-    id bigserial NOT NULL,
-    created timestamp(6) NULL,
-    lastmodified timestamp(6) NULL,
-    codebic varchar(255) NULL,
-    debut date NULL,
-    domiciliationbancaire varchar(255) NULL,
-    fin date NULL,
-    heureshebdo int4 NULL,
-    iban varchar(255) NULL,
-    renumeration int4 NULL,
-    typerecrutementrh varchar(255) NULL,
-    bu_recrutement_id int8 NULL,
-    manager_id int8 NULL,
-    rh_recruteur_id int8 NULL,
-    CONSTRAINT contrat_pkey PRIMARY KEY (id),
-    CONSTRAINT fkka15a6tc65t3p3lmyg73pa20i FOREIGN KEY (manager_id) REFERENCES collaborateur(id),
-    CONSTRAINT fkkhtd3i1i4wwaxm8l5mstt5uaj FOREIGN KEY (rh_recruteur_id) REFERENCES collaborateur(id)
-);
-/
 
 
 
