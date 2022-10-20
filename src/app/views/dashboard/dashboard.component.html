@@ -1,515 +1,503 @@
-<app-widgets-dropdown></app-widgets-dropdown>
-<c-card class="mb-4">
-  <c-card-body>
-    <c-row>
-      <c-col sm="5">
-        <h4 class="card-title mb-0" id="traffic">
-          Traffic
-        </h4>
-        <div class="small text-medium-emphasis">January - December 2021</div>
-      </c-col>
-      <c-col class="d-none d-md-block" sm="7">
-        <button cButton class="float-end" color="primary">
-          <svg cIcon name="cilCloudDownload"></svg>
-        </button>
-        <form [formGroup]="trafficRadioGroup">
-          <c-button-group class="float-end me-3" role="group">
-            <input
-              class="btn-check"
-              formControlName="trafficRadio"
-              type="radio"
-              value="Day"
-            />
-            <label
-              (click)="setTrafficPeriod('Day')"
-              cButton
-              cFormCheckLabel
-              color="secondary"
-              variant="outline"
-            >Day</label>
+<!--<c-row>-->
+<!--  <c-col xs>-->
+<!--    <c-card class="mb-4">-->
+<!--      <c-card-body>-->
+<!--        <c-row>-->
+<!--          <hr class="mt-0"/>-->
 
-            <input
-              class="btn-check"
-              formControlName="trafficRadio"
-              type="radio"
-              value="Month"
-            />
-            <label
-              (click)="setTrafficPeriod('Month')"
-              cButton
-              cFormCheckLabel
-              color="secondary"
-              variant="outline"
-            >Month</label>
+<!--&lt;!&ndash;          Labels&ndash;&gt;-->
+<!--          <c-col md="2" xl="2" xs="2">-->
+<!--&lt;!&ndash;          <c-col md="4" xl="4" xs="8">&ndash;&gt;-->
+<!--&lt;!&ndash;Changed xs from 12 to 8&ndash;&gt;-->
 
-            <input
-              class="btn-check"
-              formControlName="trafficRadio"
-              type="radio"
-              value="Year"
-            />
-            <label
-              (click)="setTrafficPeriod('Year')"
-              cButton
-              cFormCheckLabel
-              color="secondary"
-              variant="outline"
-            >Year</label>
-          </c-button-group>
-        </form>
-      </c-col>
-    </c-row>
-    <c-chart [data]="mainChart.data"
-             [height]="300"
-             [ngStyle]="{'marginTop.px': 40}"
-             [options]="mainChart.options"
-             [type]="mainChart.type">
-      Main chart
-    </c-chart>
-  </c-card-body>
-  <c-card-footer>
-    <c-row class="text-center" [md]="5" [xs]="1">
-      <c-col class="mb-sm-2 mb-0">
-        <div class="text-medium-emphasis">Visits</div>
-        <strong>29.703 Users (40%)</strong>
-        <c-progress class="mt-2" thin>
-          <c-progress-bar color="success" value="40"></c-progress-bar>
-        </c-progress>
-      </c-col>
-      <c-col class="mb-sm-2 mb-0">
-        <div class="text-medium-emphasis">Unique</div>
-        <strong>24.093 Users (20%)</strong>
-        <c-progress class="mt-2" thin>
-          <c-progress-bar color="info" value="20"></c-progress-bar>
-        </c-progress>
-      </c-col>
-      <c-col class="mb-sm-2 mb-0">
-        <div class="text-medium-emphasis">Page views</div>
-        <strong>78.706 Views (60%)</strong>
-        <c-progress class="mt-2" thin>
-          <c-progress-bar color="warning" value="60"></c-progress-bar>
-        </c-progress>
-      </c-col>
-      <c-col class="mb-sm-2 mb-0">
-        <div class="text-medium-emphasis">New Users</div>
-        <strong>22.123 Users (80%)</strong>
-        <c-progress class="mt-2" thin>
-          <c-progress-bar color="danger" value="80"></c-progress-bar>
-        </c-progress>
-      </c-col>
-      <c-col class="mb-sm-2 mb-0">
-        <div class="text-medium-emphasis">Bounce Rate</div>
-        <strong>Average Rate (40.15%)</strong>
-        <c-progress class="mt-2" thin>
-          <c-progress-bar value="40"></c-progress-bar>
-        </c-progress>
-      </c-col>
-    </c-row>
-  </c-card-footer>
-</c-card>
+<!--            <div class="progress-group mb-4">-->
+<!--              <b class="text-medium-emphasis small">Day</b>-->
+<!--            </div>-->
 
-<app-widgets-brand [withCharts]="true"></app-widgets-brand>
+<!--            <div class="progress-group mb-4">-->
+<!--              <span class="text-medium-emphasis small">Monday</span>-->
+<!--            </div>-->
 
+<!--            <div class="progress-group mb-4">-->
+<!--              <span class="text-medium-emphasis small">Tuesday</span>-->
+<!--            </div>-->
+
+<!--            <div class="progress-group mb-4">-->
+<!--              <span class="text-medium-emphasis small">Wednesday</span>-->
+<!--            </div>-->
+
+<!--            <div class="progress-group mb-4">-->
+<!--              <span class="text-medium-emphasis small">Thursday</span>-->
+<!--            </div>-->
+
+<!--            <div class="progress-group mb-4">-->
+<!--              <span class="text-medium-emphasis small">Friday</span>-->
+<!--            </div>-->
+
+<!--&lt;!&ndash;            Total&ndash;&gt;-->
+<!--            <div class="progress-group mb-4">-->
+<!--              <span class="text-medium-emphasis small">Total</span>-->
+<!--            </div>-->
+
+<!--&lt;!&ndash;            key&ndash;&gt;-->
+<!--            <div class="legend text-center" ngPreserveWhitespaces>-->
+<!--              <small>-->
+<!--                <sup>-->
+<!--                  <span class="badge badge-pill badge-sm bg-info">&nbsp;</span>-->
+<!--                </sup>-->
+<!--                <span>Veg</span>-->
+<!--                &nbsp;&nbsp;-->
+<!--                <sup-->
+<!--                ><span class="badge badge-pill badge-sm bg-danger"-->
+<!--                >&nbsp;</span-->
+<!--                ></sup-->
+<!--                >-->
+<!--                <span>Non-veg</span>-->
+<!--              </small>-->
+<!--            </div>-->
+<!--          </c-col>-->
+
+<!--&lt;!&ndash;          Descriptions&ndash;&gt;-->
+<!--          <c-col md="4" xl="4" xs="4">-->
+<!--            <div class="progress-group mb-4">-->
+<!--              <b class="text-medium-emphasis small">Menu Description</b>-->
+<!--            </div>-->
+
+<!--            <div class="progress-group mb-4">-->
+<!--              <span class="text-medium-emphasis small">Menu Description for Monday</span>-->
+<!--            </div>-->
+
+<!--            <div class="progress-group mb-4">-->
+<!--              <span class="text-medium-emphasis small">Menu Description for Tuesday</span>-->
+<!--            </div>-->
+
+<!--            <div class="progress-group mb-4">-->
+<!--              <span class="text-medium-emphasis small">Menu Description for Wednesday</span>-->
+<!--            </div>-->
+
+<!--            <div class="progress-group mb-4">-->
+<!--              <span class="text-medium-emphasis small">Menu Description for Thursday</span>-->
+<!--            </div>-->
+
+<!--            <div class="progress-group mb-4">-->
+<!--              <span class="text-medium-emphasis small">Menu Description for Friday</span>-->
+<!--            </div>-->
+
+<!--          </c-col>-->
+
+<!--&lt;!&ndash;          Options&ndash;&gt;-->
+<!--          <c-col md="6" xl="6" xs="6">-->
+
+<!--            <div class="progress-group mb-4">-->
+<!--              <b class="text-medium-emphasis small">Options</b>-->
+<!--            </div>-->
+
+<!--                 <form [formGroup]="form" (ngSubmit)="submit()"> -->
+<!--      -->
+<!--      &lt;!&ndash;              Monday&ndash;&gt;-->
+<!--              <div class="progress-group mb-4">-->
+<!--                <div class="form-group">-->
+<!--                  <input id="vegMon" type="radio" value="veg" name="veg" formControlName="optionMon">-->
+<!--                  <input class="radioBtn" id="non vegMon" type="radio" value="non veg" name="non veg" formControlName="optionMon">-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--              <br>-->
+<!--&lt;!&ndash;              Tuesday&ndash;&gt;-->
+<!--              <div class="progress-group mb-4">-->
+<!--                <div class="form-group">-->
+<!--                  <input id="vegTue" type="radio" value="veg" name="veg" formControlName="optionTue">-->
+<!--                  <input class="radioBtn" id="non vegTue" type="radio" value="non veg" name="non veg" formControlName="optionTue">-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--              <br>-->
+<!--&lt;!&ndash;              Wednesday&ndash;&gt;-->
+<!--              <div class="progress-group mb-4">-->
+<!--                <div class="form-group">-->
+<!--                  <input id="vegWed" type="radio" value="veg" name="veg" formControlName="optionWed">-->
+<!--                  <input class="radioBtn" id="non vegWed" type="radio" value="non veg" name="non veg" formControlName="optionWed">-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--              <br>-->
+<!--&lt;!&ndash;              Thursday&ndash;&gt;-->
+<!--              <div class="progress-group mb-4">-->
+<!--                <div class="form-group">-->
+<!--                  <input id="vegThu" type="radio" value="veg" name="veg" formControlName="optionThu">-->
+<!--                  <input class="radioBtn" id="non vegThu" type="radio" value="non veg" name="non veg" formControlName="optionThu">-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--              <br>-->
+<!--&lt;!&ndash;              Friday&ndash;&gt;-->
+<!--              <div class="progress-group mb-4">-->
+<!--                <div class="form-group">-->
+<!--                  <input type="radio" id="vegFri"  value="veg" name="veg" formControlName="optionFri">-->
+<!--                  <input type="radio" class="radioBtn" id="nonvegFri"  value="nonveg" name="nonveg" formControlName="optionFri">-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--              <br>-->
+
+<!--              <hr class="mt-0"/>-->
+<!--              <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Save</button>-->
+<!--            </form> -->
+
+<!--&lt;!&ndash;            Male&ndash;&gt;-->
+<!--            <div class="progress-group mb-4">-->
+<!--              <div class="progress-group-header">-->
+<!--                <svg cIcon class="icon icon-lg me-2" name="cilUser"></svg>-->
+<!--                <span>Male</span>-->
+<!--                <span class="ms-auto font-semibold">43%</span>-->
+<!--              </div>-->
+<!--              <div class="progress-group-bars">-->
+<!--                <c-progress thin>-->
+<!--                  <c-progress-bar-->
+<!--                    color="warning"-->
+<!--                    value="43"-->
+<!--                  ></c-progress-bar>-->
+<!--                </c-progress>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--&lt;!&ndash;            Female&ndash;&gt;-->
+<!--            <div class="progress-group mb-5">-->
+<!--              <div class="progress-group-header">-->
+<!--                <svg cIcon class="icon icon-lg me-2" name="cilUserFemale"></svg>-->
+<!--                <span>Female</span>-->
+<!--                <span class="ms-auto font-semibold">37%</span>-->
+<!--              </div>-->
+<!--              <div class="progress-group-bars">-->
+<!--                <c-progress thin>-->
+<!--                  <c-progress-bar-->
+<!--                    color="warning"-->
+<!--                    value="37"-->
+<!--                  ></c-progress-bar>-->
+<!--                </c-progress>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <c-row>-->
+<!--              <c-col sm="6">-->
+<!--                <div-->
+<!--                  class="border-start border-start-4 border-start-info py-1 px-3"-->
+<!--                >-->
+<!--                  <div class="text-medium-emphasis small">New Clients</div>-->
+<!--                  <div class="fs-5 fw-semibold">9,123</div>-->
+<!--                </div>-->
+<!--              </c-col>-->
+<!--              <c-col sm="6">-->
+<!--                <div-->
+<!--                  class="border-start border-start-4 border-start-danger py-1 px-3 mb-3"-->
+<!--                >-->
+<!--                  <div class="text-medium-emphasis small">-->
+<!--                    Recurring Clients-->
+<!--                  </div>-->
+<!--                  <div class="fs-5 fw-semibold">22,643</div>-->
+<!--                </div>-->
+<!--              </c-col>-->
+<!--            </c-row>-->
+
+<!--          </c-col>-->
+<!--        </c-row>-->
+<!--      </c-card-body>-->
+<!--    </c-card>-->
+<!--  </c-col>-->
+<!--</c-row>-->
+<!--<c-row>-->
+<!--  <c-col xs>-->
+<!--    <c-card class="mb-4">-->
+<!--      <c-card-body>-->
+<!--        <table-->
+<!--          [hover]="true"-->
+<!--          [responsive]="true"-->
+<!--          [striped]="true"-->
+<!--          align="middle"-->
+<!--          cTable-->
+<!--          class="mb-0 border"-->
+<!--        >-->
+<!--          <thead cTableColor="light">-->
+<!--          <tr>-->
+<!--            <th class="text-center">Day</th>-->
+<!--            <th class="text-center">Menu Description</th>-->
+<!--            <th class="text-center">Veg</th>-->
+<!--            <th class="text-center">Non-Veg</th>-->
+<!--            <th class="text-center">Payment</th>-->
+<!--          </tr>-->
+<!--          </thead>-->
+<!--          <tbody>-->
+<!--          <tr *ngFor="let user of users; index as i">-->
+
+<!--            <td>-->
+<!--              <div>{{ user.day }}</div>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              <div class="clearfix">-->
+<!--                <div class="float-end">-->
+<!--                  <small class="text-medium-emphasis">-->
+<!--                    {{ user.period }}-->
+<!--                  </small>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </td>-->
+<!--            <td class="text-center">-->
+<!--              <div class="form-group">-->
+<!--                <input id="veg" type="radio" value="veg" name="veg">-->
+<!--              </div>-->
+<!--            </td>-->
+<!--            <td class="text-center">-->
+<!--              <div class="form-group">-->
+<!--                <input class="tableRadioBtn" id="non veg" type="radio" value="non veg" name="non veg">-->
+<!--              </div>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              <div class="small text-medium-emphasis">Last login</div>-->
+<!--              <strong>{{ user.activity }}</strong>-->
+<!--            </td>-->
+<!--          </tr>-->
+<!--          </tbody>-->
+<!--        </table>-->
+<!--      </c-card-body>-->
+<!--    </c-card>-->
+<!--  </c-col>-->
+<!--</c-row>-->
+
+<!--Trial-->
 <c-row>
   <c-col xs>
     <c-card class="mb-4">
-      <c-card-header>Traffic {{ "&" }} Sales</c-card-header>
-      <c-card-body>
-        <c-row>
-          <c-col md="6" xl="6" xs="12">
-            <c-row>
-              <c-col sm="6">
-                <div
-                  class="border-start border-start-4 border-start-info py-1 px-3"
-                >
-                  <div class="text-medium-emphasis small">New Clients</div>
-                  <div class="fs-5 fw-semibold">9,123</div>
-                </div>
-              </c-col>
-              <c-col sm="6">
-                <div
-                  class="border-start border-start-4 border-start-danger py-1 px-3 mb-3"
-                >
-                  <div class="text-medium-emphasis small">
-                    Recurring Clients
-                  </div>
-                  <div class="fs-5 fw-semibold">22,643</div>
-                </div>
-              </c-col>
-            </c-row>
-
-            <hr class="mt-0"/>
-
-            <div class="progress-group mb-4">
-              <div class="progress-group-prepend">
-                <span class="text-medium-emphasis small">Monday</span>
-              </div>
-              <div class="progress-group-bars">
-                <c-progress thin>
-                  <c-progress-bar
-                    color="info"
-                    value="34"
-                  ></c-progress-bar>
-                </c-progress>
-                <c-progress thin>
-                  <c-progress-bar
-                    color="danger"
-                    value="78"
-                  ></c-progress-bar>
-                </c-progress>
-              </div>
-            </div>
-            <div class="progress-group mb-4">
-              <div class="progress-group-prepend">
-                <span class="text-medium-emphasis small">Tuesday</span>
-              </div>
-              <div class="progress-group-bars">
-                <c-progress thin>
-                  <c-progress-bar
-                    color="info"
-                    value="56"
-                  ></c-progress-bar>
-                </c-progress>
-                <c-progress thin>
-                  <c-progress-bar
-                    color="danger"
-                    value="94"
-                  ></c-progress-bar>
-                </c-progress>
-              </div>
-            </div>
-            <div class="progress-group mb-4">
-              <div class="progress-group-prepend">
-                <span class="text-medium-emphasis small">Wednesday</span>
-              </div>
-              <div class="progress-group-bars">
-                <c-progress thin>
-                  <c-progress-bar
-                    color="info"
-                    value="12"
-                  ></c-progress-bar>
-                </c-progress>
-                <c-progress thin>
-                  <c-progress-bar
-                    color="danger"
-                    value="67"
-                  ></c-progress-bar>
-                </c-progress>
-              </div>
-            </div>
-            <div class="progress-group mb-4">
-              <div class="progress-group-prepend">
-                <span class="text-medium-emphasis small">Thursday</span>
-              </div>
-              <div class="progress-group-bars">
-                <c-progress thin>
-                  <c-progress-bar
-                    color="info"
-                    value="43"
-                  ></c-progress-bar>
-                </c-progress>
-                <c-progress thin>
-                  <c-progress-bar
-                    color="danger"
-                    value="91"
-                  ></c-progress-bar>
-                </c-progress>
-              </div>
-            </div>
-            <div class="progress-group mb-4">
-              <div class="progress-group-prepend">
-                <span class="text-medium-emphasis small">Friday</span>
-              </div>
-              <div class="progress-group-bars">
-                <c-progress thin>
-                  <c-progress-bar
-                    color="info"
-                    value="22"
-                  ></c-progress-bar>
-                </c-progress>
-                <c-progress thin>
-                  <c-progress-bar
-                    color="danger"
-                    value="73"
-                  ></c-progress-bar>
-                </c-progress>
-              </div>
-            </div>
-            <div class="progress-group mb-4">
-              <div class="progress-group-prepend">
-                <span class="text-medium-emphasis small">Saturday</span>
-              </div>
-              <div class="progress-group-bars">
-                <c-progress thin>
-                  <c-progress-bar
-                    color="info"
-                    value="53"
-                  ></c-progress-bar>
-                </c-progress>
-                <c-progress thin>
-                  <c-progress-bar
-                    color="danger"
-                    value="82"
-                  ></c-progress-bar>
-                </c-progress>
-              </div>
-            </div>
-            <div class="progress-group mb-4">
-              <div class="progress-group-prepend">
-                <span class="text-medium-emphasis small">Sunday</span>
-              </div>
-              <div class="progress-group-bars">
-                <c-progress thin>
-                  <c-progress-bar
-                    color="info"
-                    value="9"
-                  ></c-progress-bar>
-                </c-progress>
-                <c-progress thin>
-                  <c-progress-bar
-                    color="danger"
-                    value="69"
-                  ></c-progress-bar>
-                </c-progress>
-              </div>
-            </div>
-            <div class="legend text-center" ngPreserveWhitespaces>
-              <small>
-                <sup
-                ><span class="badge badge-pill badge-sm bg-info"
-                >&nbsp;</span
-                ></sup
-                >
-                <span>New clients</span>
-                &nbsp;&nbsp;
-                <sup
-                ><span class="badge badge-pill badge-sm bg-danger"
-                >&nbsp;</span
-                ></sup
-                >
-                <span>Recurring clients</span>
-              </small>
-            </div>
-          </c-col>
-
-          <c-col md="6" xl="6" xs="12">
-            <c-row>
-              <c-col sm="6">
-                <div
-                  class="border-start border-start-4 border-start-warning py-1 px-3 mb-3"
-                >
-                  <div class="text-medium-emphasis small">Page views</div>
-                  <div class="fs-5 fw-semibold">78,623</div>
-                </div>
-              </c-col>
-              <c-col sm="6">
-                <div
-                  class="border-start border-start-4 border-start-success py-1 px-3 mb-3"
-                >
-                  <div class="text-medium-emphasis small">Organic</div>
-                  <div class="fs-5 fw-semibold">49,123</div>
-                </div>
-              </c-col>
-            </c-row>
-
-            <hr class="mt-0"/>
-
-            <div class="progress-group mb-4">
-              <div class="progress-group-header">
-                <svg cIcon class="icon icon-lg me-2" name="cilUser"></svg>
-                <span>Male</span>
-                <span class="ms-auto font-semibold">43%</span>
-              </div>
-              <div class="progress-group-bars">
-                <c-progress thin>
-                  <c-progress-bar
-                    color="warning"
-                    value="43"
-                  ></c-progress-bar>
-                </c-progress>
-              </div>
-            </div>
-            <div class="progress-group mb-5">
-              <div class="progress-group-header">
-                <svg cIcon class="icon icon-lg me-2" name="cilUserFemale"></svg>
-                <span>Female</span>
-                <span class="ms-auto font-semibold">37%</span>
-              </div>
-              <div class="progress-group-bars">
-                <c-progress thin>
-                  <c-progress-bar
-                    color="warning"
-                    value="37"
-                  ></c-progress-bar>
-                </c-progress>
-              </div>
-            </div>
-
-            <div class="progress-group">
-              <div class="progress-group-header">
-                <svg cIcon class="icon icon-lg me-2" name="cibGoogle"></svg>
-                <span>Organic Search</span>
-                <span class="ms-auto font-semibold">
-                  191,235 <span class="text-medium-emphasis small">(56%)</span>
-                </span>
-              </div>
-              <div class="progress-group-bars">
-                <c-progress thin>
-                  <c-progress-bar
-                    color="success"
-                    value="56"
-                  ></c-progress-bar>
-                </c-progress>
-              </div>
-            </div>
-            <div class="progress-group">
-              <div class="progress-group-header">
-                <svg cIcon class="icon icon-lg me-2" name="cibFacebook"></svg>
-                <span>Facebook</span>
-                <span class="ms-auto font-semibold">
-                  51,223 <span class="text-medium-emphasis small">(15%)</span>
-                </span>
-              </div>
-              <div class="progress-group-bars">
-                <c-progress thin>
-                  <c-progress-bar
-                    color="success"
-                    value="15"
-                  ></c-progress-bar>
-                </c-progress>
-              </div>
-            </div>
-            <div class="progress-group">
-              <div class="progress-group-header">
-                <svg cIcon class="icon icon-lg me-2" name="cibTwitter"></svg>
-                <span>Twitter</span>
-                <span class="ms-auto font-semibold">
-                  37,564 <span class="text-medium-emphasis small">(11%)</span>
-                </span>
-              </div>
-              <div class="progress-group-bars">
-                <c-progress thin>
-                  <c-progress-bar
-                    color="success"
-                    value="11"
-                  ></c-progress-bar>
-                </c-progress>
-              </div>
-            </div>
-            <div class="progress-group">
-              <div class="progress-group-header">
-                <svg cIcon class="icon icon-lg me-2" name="cibLinkedin"></svg>
-                <span>LinkedIn</span>
-                <span class="ms-auto font-semibold">
-                  27,319 <span class="text-medium-emphasis small">(8%)</span>
-                </span>
-              </div>
-              <div class="progress-group-bars">
-                <c-progress thin>
-                  <c-progress-bar
-                    color="success"
-                    value="8"
-                  ></c-progress-bar>
-                </c-progress>
-              </div>
-            </div>
-            <div class="divider d-flex justify-content-center">
-              <button
-                cButton
-                class="text-muted btn-link"
-                color="transparent"
-                size="sm"
-                type="button"
-              >
-                <svg cIcon name="cil-options"></svg>
-              </button>
-            </div>
-          </c-col>
-        </c-row>
-      </c-card-body>
-    </c-card>
-  </c-col>
-</c-row>
-<c-row>
-  <c-col xs>
-    <c-card class="mb-4">
-      <c-card-header>Users</c-card-header>
       <c-card-body>
         <table
-          [hover]="true"
+          borderless cTable hover
           [responsive]="true"
-          [striped]="true"
-          align="middle"
-          cTable
           class="mb-0 border"
         >
           <thead cTableColor="light">
           <tr>
-            <th class="text-center">
-              <svg cIcon name="cilPeople"></svg>
-            </th>
-            <th>User</th>
-            <th class="text-center">Country</th>
-            <th>Usage</th>
-            <th class="text-center">Payment Method</th>
-            <th>Activity</th>
+            <th class="text-center">Day</th>
+            <th class="text-center">Menu Description</th>
+<!--            <th>-->
+<!--              <div>-->
+<!--                <th class="text-center">Veg</th>-->
+<!--                <th class="text-center">Non-Veg</th>-->
+<!--              </div>-->
+<!--            </th>-->
+            <th class="text-center">Veg</th>
+            <th class="text-center">Non-Veg</th>
+            <th class="text-center">Payment</th>
           </tr>
           </thead>
+
           <tbody>
-          <tr *ngFor="let user of users; index as i">
+
+<!--          Monday-->
+          <tr>
             <td class="text-center">
-              <c-avatar
-                size="md"
-                src="{{ user.avatar }}"
-                status="{{ user.status }}"
-              ></c-avatar>
+              <small class="text-medium-emphasis">
+                Monday
+              </small>
             </td>
-            <td>
-              <div>{{ user.name }}</div>
-              <div class="small text-medium-emphasis">
-                <span>{{ user.state }}</span> | Registered:
-                {{ user.registered }}
+            <td class="text-center">
+              <small class="text-medium-emphasis">
+                Monday Menu
+              </small>
+            </td>
+            <td class="text-center">
+              <div class="form-group">
+                <input id="vegT1" type="radio" value="veg" name="veg">
               </div>
             </td>
             <td class="text-center">
-              <svg cIcon
-                id="{{ user.country + user.name }}"
-                name="cif{{ user.country }}"
-                size="xl"
-                title="{{ user.country }}"
-              ></svg>
-            </td>
-            <td>
-              <div class="clearfix">
-                <div class="float-start">
-                  <strong>{{ user.usage }}%</strong>
-                </div>
-                <div class="float-end">
-                  <small class="text-medium-emphasis">
-                    {{ user.period }}
-                  </small>
-                </div>
+              <div class="form-group">
+                <input id="nonvegT1" type="radio" value="nonveg" name="nonveg">
               </div>
-              <c-progress thin
-              >
-                <c-progress-bar
-                  [value]="user.usage"
-                  color="{{ user.color }}"
-                ></c-progress-bar
-                >
-              </c-progress>
             </td>
             <td class="text-center">
-              <svg cIcon name="cibCc{{ user.payment }}" size="xl"></svg>
-            </td>
-            <td>
-              <div class="small text-medium-emphasis">Last login</div>
-              <strong>{{ user.activity }}</strong>
+              <div class="form-group">
+                <input class="tableCheckboxBtn" id="paymentT1" type="checkbox" value="payment" name="payment">
+              </div>
             </td>
           </tr>
+
+<!--          Tuesday-->
+          <tr>
+            <td class="text-center">
+              <small class="text-medium-emphasis">
+                Tuesday
+              </small>
+            </td>
+            <td class="text-center">
+              <small class="text-medium-emphasis">
+                Tuesday Menu
+              </small>
+            </td>
+            <td class="text-center">
+              <div class="form-group">
+                <input id="vegT2" type="radio" value="veg" name="veg">
+              </div>
+            </td>
+            <td class="text-center">
+              <div class="form-group">
+                <input id="non vegT2" type="radio" value="nonveg" name="nonveg" >
+              </div>
+            </td>
+            <td class="text-center">
+              <div class="form-group">
+                <input class="tableCheckboxBtn" id="paymentT2" type="checkbox" value="payment" name="payment">
+              </div>
+            </td>
+          </tr>
+
+<!--          Wednesday-->
+          <tr>
+            <td class="text-center">
+              <small class="text-medium-emphasis">
+                Wednesday
+              </small>
+            </td>
+            <td class="text-center">
+              <small class="text-medium-emphasis">
+                Wednesday Menu
+              </small>
+            </td>
+            <td class="text-center">
+              <div class="form-group">
+                <input id="vegT3" type="radio" value="veg" name="veg" >
+              </div>
+            </td>
+            <td class="text-center">
+              <div class="form-group">
+                <input id="nonvegT3" type="radio" value="nonveg" name="nonveg" >
+              </div>
+            </td>
+            <td class="text-center">
+              <div class="form-group">
+                <input class="tableCheckboxBtn" id="paymentT3" type="checkbox" value="payment" name="payment">
+              </div>
+            </td>
+          </tr>
+
+<!--          Thursday-->
+          <tr>
+            <td class="text-center">
+              <small class="text-medium-emphasis">
+                Thursday
+              </small>
+            </td>
+            <td class="text-center">
+              <small class="text-medium-emphasis">
+                Thursday Menu
+              </small>
+            </td>
+            <td class="text-center">
+              <div class="form-group">
+                <input id="vegT4" type="radio" value="veg" name="veg" >
+              </div>
+            </td>
+            <td class="text-center">
+              <div class="form-group">
+                <input id="nonvegT4" type="radio" value="nonveg" name="nonveg" >
+              </div>
+            </td>
+            <td class="text-center">
+              <div class="form-group">
+                <input class="tableCheckboxBtn" id="paymentT4" type="checkbox" value="payment" name="payment" >
+              </div>
+            </td>
+          </tr>
+
+<!--          Friday-->
+          <tr>
+            <td class="text-center">
+              <small class="text-medium-emphasis">
+                Friday
+              </small>
+            </td>
+            <td class="text-center">
+              <small class="text-medium-emphasis">
+                Friday Menu
+              </small>
+            </td>
+            <td class="text-center">
+              <div class="form-group">
+                <input id="vegT5" type="radio" value="veg" name="veg">
+              </div>
+            </td>
+            <td class="text-center">
+              <div class="form-group">
+                <input id="nonvegT5" type="radio" value="nonveg" name="nonveg">
+              </div>
+            </td>
+            <td class="text-center">
+              <div class="form-group">
+                <input  class="tableCheckboxBtn" id="paymentT5" type="checkbox" value="payment" name="payment">
+              </div>
+            </td>
+          </tr>
+
           </tbody>
+
+          <tfoot class="table-group-divider">
+            <!--          Total-->
+            <tr>
+              <td class="text-center">
+                <small class="text-medium-emphasis">
+                  Total
+                </small>
+              </td>
+              <td class="text-center">
+
+              </td>
+              <td class="text-center">
+                <small class="text-medium-emphasis">
+                  5
+                </small>
+              </td>
+              <td class="text-center">
+                <small class="text-medium-emphasis">
+                  15
+                </small>
+              </td>
+              <td class="text-center">
+                <small class="text-medium-emphasis">
+                  Rs xxx
+                </small>
+              </td>
+            </tr>
+          </tfoot>
         </table>
+
+        <br>
+
+<!--        <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())">-->
+<!--          <div class="button">-->
+<!--            <button type="submit" [disabled]="!formData.valid">Edit</button>-->
+<!--            <button class="btn btn-primary" type="submit" [disabled]="!formData.valid">Save</button>-->
+<!--          </div>-->
+<!--        </form>-->
+
+        <!--            key-->
+                    <div class="legend text-center" ngPreserveWhitespaces>
+                      <small>
+                        <sup>
+                          <span class="badge badge-pill badge-sm bg-info">&nbsp;</span>
+                        </sup>
+                        <span>Veg</span>
+                        &nbsp;&nbsp;
+                        <sup
+                        ><span class="badge badge-pill badge-sm bg-danger"
+                        >&nbsp;</span
+                        ></sup
+                        >
+                        <span>Non-veg</span>
+                      </small>
+                    </div>
+
       </c-card-body>
     </c-card>
   </c-col>
 </c-row>
+
+<!--&lt;!&ndash;<app-widgets-dropdown></app-widgets-dropdown>&ndash;&gt;-->
+<!--<app-widgets-brand [withCharts]="true"></app-widgets-brand>-->

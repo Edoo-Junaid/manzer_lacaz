@@ -4,4 +4,18 @@
       font-size: x-small;
     }
   }
+
+  .form-group{
+    display: inline-block;
+  }
+
+  .button{
+    display: flex;
+    text-align: right;
+    border: 0;
+  }
+
+  .btn btn-primary{
+    margin-left: 50px;
+  }
 }

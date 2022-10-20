@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
-
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { DashboardChartsData, IChartProps } from './dashboard-charts-data';
+import {UserService} from "../../user/user.service";
 
 interface IUser {
-  name: string;
+  day: string;
   state: string;
   registered: string;
   country: string;
@@ -22,12 +23,34 @@ interface IUser {
   styleUrls: ['dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  constructor(private chartsData: DashboardChartsData) {
+  option!: string;
+  payment!: string;
+  formData!: FormGroup;
+
+
+
+  // form = new FormGroup({
+  //   optionMon: new FormControl('', Validators.required),
+  //   optionTue: new FormControl('', Validators.required),
+  //   optionWed: new FormControl('', Validators.required),
+  //   optionThu: new FormControl('', Validators.required),
+  //   optionFri: new FormControl('', Validators.required)
+  // });
+  //
+  // get f(){
+  //   return this.form.controls;
+  // }
+  //
+  // submit(){
+  //   console.log(this.form.value);
+  // }
+
+  constructor(private chartsData: DashboardChartsData, public userService: UserService) {
   }
 
-  public users: IUser[] = [
+  public uorder: IUser[] = [
     {
-      name: 'Yiorgos Avraamu',
+      day: 'Monday',
       state: 'New',
       registered: 'Jan 1, 2021',
       country: 'Us',
@@ -38,71 +61,6 @@ export class DashboardComponent implements OnInit {
       avatar: './assets/img/avatars/1.jpg',
       status: 'success',
       color: 'success'
-    },
-    {
-      name: 'Avram Tarasios',
-      state: 'Recurring ',
-      registered: 'Jan 1, 2021',
-      country: 'Br',
-      usage: 10,
-      period: 'Jun 11, 2021 - Jul 10, 2021',
-      payment: 'Visa',
-      activity: '5 minutes ago',
-      avatar: './assets/img/avatars/2.jpg',
-      status: 'danger',
-      color: 'info'
-    },
-    {
-      name: 'Quintin Ed',
-      state: 'New',
-      registered: 'Jan 1, 2021',
-      country: 'In',
-      usage: 74,
-      period: 'Jun 11, 2021 - Jul 10, 2021',
-      payment: 'Stripe',
-      activity: '1 hour ago',
-      avatar: './assets/img/avatars/3.jpg',
-      status: 'warning',
-      color: 'warning'
-    },
-    {
-      name: 'Enéas Kwadwo',
-      state: 'Sleep',
-      registered: 'Jan 1, 2021',
-      country: 'Fr',
-      usage: 98,
-      period: 'Jun 11, 2021 - Jul 10, 2021',
-      payment: 'Paypal',
-      activity: 'Last month',
-      avatar: './assets/img/avatars/4.jpg',
-      status: 'secondary',
-      color: 'danger'
-    },
-    {
-      name: 'Agapetus Tadeáš',
-      state: 'New',
-      registered: 'Jan 1, 2021',
-      country: 'Es',
-      usage: 22,
-      period: 'Jun 11, 2021 - Jul 10, 2021',
-      payment: 'ApplePay',
-      activity: 'Last week',
-      avatar: './assets/img/avatars/5.jpg',
-      status: 'success',
-      color: 'primary'
-    },
-    {
-      name: 'Friderik Dávid',
-      state: 'New',
-      registered: 'Jan 1, 2021',
-      country: 'Pl',
-      usage: 43,
-      period: 'Jun 11, 2021 - Jul 10, 2021',
-      payment: 'Amex',
-      activity: 'Yesterday',
-      avatar: './assets/img/avatars/6.jpg',
-      status: 'info',
-      color: 'dark'
     }
   ];
   public mainChart: IChartProps = {};
@@ -112,7 +70,53 @@ export class DashboardComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    //Form variables
+    this.formData = new FormGroup({
+      //Radio buttons: veg & non-veg
+      optionMon: new FormControl(),
+      optionTue: new FormControl(),
+      optionWed: new FormControl(),
+      optionThu: new FormControl(),
+      optionFri: new FormControl()
+    });
+
     this.initCharts();
+  }
+
+  //Submit btn
+  onClickSubmit(data: any) {
+    //so that the values do not remain null
+    //mapping
+    const order ={
+      id: 2,
+      //Radio buttons: veg & non-veg
+      optionMon: data.optionMon,
+      optionTue: data.optionTu,
+      optionWed: data.optionWed,
+      optionThu: data.optionThu,
+      optionFri: data.optionFri
+    };
+
+    //to test
+    console.log(order)
+
+    // faire appel à l'api
+    // this.userService.postOrder(order).subscribe((data: any) => {
+    //   console.log('message::::', data);
+    //   this.user.nom = data.nom,
+    //     this.user.prenom = data.prenom,
+    //     this.user.sexe = data.sexe,
+    //     this.user.dateDeNaissance = data.dateDeNaissance,
+    //     //to get the response inside DetailsDeces => data.detailsDeces....
+    //     this.user.codelieuDeNaissance = data.detailsDeces.codeLieuDeNaissance,
+    //     this.user.communeDeNaissance = data.detailsDeces.communeDeNaissance,
+    //     this.user.paysDeNaissance = data.detailsDeces.paysDeNaissance,
+    //     this.user.dateDeDeces = data.detailsDeces.dateDeDeces,
+    //     this.user.codeLieuDeDeces = data.detailsDeces.codeLieuDeDeces,
+    //     this.user.acteDeDeces = data.detailsDeces.acteDeDeces
+    //
+    //   this.formData.reset();
+    // });
   }
 
   initCharts(): void {
