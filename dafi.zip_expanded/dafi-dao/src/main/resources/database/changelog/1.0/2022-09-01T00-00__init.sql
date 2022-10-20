@@ -43,6 +43,6 @@ CREATE TABLE utilisateur (
     role_id int8 NULL,
     CONSTRAINT uk_66vu1vfh4m2fw682xmd4lobqy UNIQUE (username),
     CONSTRAINT utilisateur_pkey PRIMARY KEY (id),
-    CONSTRAINT fk4gj83vcjpifherbm85but3cco FOREIGN KEY (role_id) REFERENCES "role"(id),
+    CONSTRAINT fk4gj83vcjpifherbm85but3cco FOREIGN KEY (role_id) REFERENCES "role"(id)
 );
 /
