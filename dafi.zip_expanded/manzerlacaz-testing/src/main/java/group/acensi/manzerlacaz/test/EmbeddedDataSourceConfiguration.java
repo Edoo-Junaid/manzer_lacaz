@@ -65,7 +65,7 @@ public class EmbeddedDataSourceConfiguration {
 		dataSource.setDriverClassName("org.postgresql.Driver");
 		dataSource.setUsername("root");
 		dataSource.setPassword("root");
-		dataSource.setUrl("jdbc:postgresql://localhost:35432/dafi");
+		dataSource.setUrl("jdbc:postgresql://localhost:35432/manzerlacaz");
 		return dataSource;
 	}
 

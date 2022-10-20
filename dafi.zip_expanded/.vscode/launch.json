@@ -9,6 +9,16 @@
             "projectName": "dafi-web",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ManzerlacazWebApplication<manzerlacaz-web>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "group.acensi.manzerlacaz.web.ManzerlacazWebApplication",
+            "projectName": "manzerlacaz-web",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
