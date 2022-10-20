@@ -16,7 +16,7 @@ spring:
   thymeleaf:
     check-template-location: 'false'
   datasource:
-    name: dafi-datasource
+    name: manzerlacaz-datasource
     driver-class-name: org.postgresql.Driver
     url: 'jdbc:postgresql://localhost:5432/manzerlacaz'
     username: postgres

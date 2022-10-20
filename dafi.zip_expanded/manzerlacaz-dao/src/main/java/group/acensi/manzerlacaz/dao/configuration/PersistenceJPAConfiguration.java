@@ -26,7 +26,7 @@ import liquibase.integration.spring.SpringLiquibase;
  * @author Nadeem Nayeck <nadeem.nayeck@acensi.group>
  */
 @Configuration
-@EnableJpaRepositories(basePackages = "group.acensi.dafi.dao")
+@EnableJpaRepositories(basePackages = "group.acensi.manzerlacaz.dao")
 public class PersistenceJPAConfiguration {
 	
 	@Bean("springLiquibase")
