@@ -77,7 +77,7 @@ public class EmbeddedDataSourceConfiguration {
 		int localPort = 35432;
 		DockerImageName postgres = DockerImageName.parse("postgres:14.5");
 		PostgreSQLContainer postgresContainer = new PostgreSQLContainer<>(postgres)
-				.withDatabaseName("dafi")
+				.withDatabaseName("manzerlacaz")
 				.withUsername("root")
 				.withPassword("root")
 				.withExposedPorts(containerPort)

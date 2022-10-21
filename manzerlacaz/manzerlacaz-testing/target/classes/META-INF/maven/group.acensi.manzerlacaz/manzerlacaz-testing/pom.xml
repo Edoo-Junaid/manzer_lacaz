@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>manzerlacaz-testing</artifactId>
 	<name>manzerlacaz-testing</name>
-	<description>Acensi Group DAFI Testing module</description>
+	<description>Acensi Group MANZERLACAZ Testing module</description>
 	<packaging>jar</packaging>
 	<properties>
 		<junit.jupiter.version>5.9.0</junit.jupiter.version>

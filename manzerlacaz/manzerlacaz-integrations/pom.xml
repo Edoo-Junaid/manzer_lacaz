@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>manzerlacaz-integrations</artifactId>
 	<name>manzerlacaz-integrations</name>
-	<description>Acensi Group DAFI Integrations with external systems</description>
+	<description>Acensi Group MANZERLACAZ Integrations with external systems</description>
 	<packaging>jar</packaging>
 
 	<properties>

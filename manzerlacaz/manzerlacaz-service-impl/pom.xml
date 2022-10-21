@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>manzerlacaz-service-impl</artifactId>
 	<name>manzerlacaz-service-impl</name>
-	<description>Acensi Group DAFI Service Layer</description>
+	<description>Acensi Group MANZERLACAZ Service Layer</description>
 	<packaging>jar</packaging>
 	<dependencies>
 		<dependency>

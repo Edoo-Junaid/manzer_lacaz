@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>manzerlacaz-service-api</artifactId>
 	<name>manzerlacaz-service-api</name>
-	<description>Acensi Group DAFI Service API definitions</description>
+	<description>Acensi Group MANZERLACAZ Service API definitions</description>
 	<packaging>jar</packaging>
 
 	<dependencies>

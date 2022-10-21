@@ -11,7 +11,7 @@
 	</parent>
 	<artifactId>manzerlacaz-entities</artifactId>
 	<name>manzerlacaz-entities</name>
-	<description>Acensi Group DAFI Persistent Entities</description>
+	<description>Acensi Group MANZERLACAZ Persistent Entities</description>
 	<packaging>jar</packaging>
 
 	<dependencies>

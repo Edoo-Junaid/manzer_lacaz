@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>manzerlacaz-dao</artifactId>
 	<name>manzerlacaz-dao</name>
-	<description>Acensi Group DAFI Data Access Objects / Layer</description>
+	<description>Acensi Group MANZERLACAZ Data Access Objects / Layer</description>
 	<packaging>jar</packaging>
 	<properties>
 		<hibernate-ehcache.version>5.6.10.Final</hibernate-ehcache.version>
