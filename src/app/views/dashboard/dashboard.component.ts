@@ -1,21 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import {UntypedFormControl, UntypedFormGroup} from '@angular/forms';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { DashboardChartsData, IChartProps } from './dashboard-charts-data';
 import {UserService} from "../../user/user.service";
 
-interface IUser {
-  day: string;
-  state: string;
-  registered: string;
-  country: string;
-  usage: number;
-  period: string;
-  payment: string;
-  activity: string;
-  avatar: string;
-  status: string;
-  color: string;
+interface IOrder {
+  user_id: number;
+  menu_id: number;
+  payment: number;
+  option: string
 }
 
 @Component({
@@ -27,40 +20,15 @@ export class DashboardComponent implements OnInit {
   payment!: string;
   formData!: FormGroup;
 
-
-
-  // form = new FormGroup({
-  //   optionMon: new FormControl('', Validators.required),
-  //   optionTue: new FormControl('', Validators.required),
-  //   optionWed: new FormControl('', Validators.required),
-  //   optionThu: new FormControl('', Validators.required),
-  //   optionFri: new FormControl('', Validators.required)
-  // });
-  //
-  // get f(){
-  //   return this.form.controls;
-  // }
-  //
-  // submit(){
-  //   console.log(this.form.value);
-  // }
-
   constructor(private chartsData: DashboardChartsData, public userService: UserService) {
   }
 
-  public uorder: IUser[] = [
+  public userOrder: IOrder[] = [
     {
-      day: 'Monday',
-      state: 'New',
-      registered: 'Jan 1, 2021',
-      country: 'Us',
-      usage: 50,
-      period: 'Jun 11, 2021 - Jul 10, 2021',
-      payment: 'Mastercard',
-      activity: '10 sec ago',
-      avatar: './assets/img/avatars/1.jpg',
-      status: 'success',
-      color: 'success'
+      user_id: 0,
+      menu_id: 0,
+      payment: 0,
+      option: ''
     }
   ];
   public mainChart: IChartProps = {};
@@ -77,10 +45,21 @@ export class DashboardComponent implements OnInit {
       optionTue: new FormControl(),
       optionWed: new FormControl(),
       optionThu: new FormControl(),
-      optionFri: new FormControl()
+      optionFri: new FormControl(),
+      //Checkbox paid
+      paymentMon: new FormControl(),
+      paymentTue: new FormControl(),
+      paymentWed: new FormControl(),
+      paymentThu: new FormControl(),
+      paymentFri: new FormControl()
     });
 
     this.initCharts();
+  }
+
+  //Reset btn
+  onClickReset(data: any){
+    this.formData.reset();
   }
 
   //Submit btn
@@ -91,19 +70,26 @@ export class DashboardComponent implements OnInit {
       id: 2,
       //Radio buttons: veg & non-veg
       optionMon: data.optionMon,
-      optionTue: data.optionTu,
+      optionTue: data.optionTue,
       optionWed: data.optionWed,
       optionThu: data.optionThu,
-      optionFri: data.optionFri
+      optionFri: data.optionFri,
+      //Checkbox paid
+      paymentMon: data.paymentMon,
+      paymentTue: data.paymentTue,
+      paymentWed: data.paymentWed,
+      paymentThu: data.paymentThu,
+      paymentFri: data.paymentFri
     };
 
     //to test
     console.log(order)
 
     // faire appel à l'api
-    // this.userService.postOrder(order).subscribe((data: any) => {
-    //   console.log('message::::', data);
-    //   this.user.nom = data.nom,
+    this.userService.postOrder(order).subscribe((data: IOrder[]) => {
+      console.log('message::::', data);
+      this.userOrder = data
+
     //     this.user.prenom = data.prenom,
     //     this.user.sexe = data.sexe,
     //     this.user.dateDeNaissance = data.dateDeNaissance,
@@ -116,16 +102,16 @@ export class DashboardComponent implements OnInit {
     //     this.user.acteDeDeces = data.detailsDeces.acteDeDeces
     //
     //   this.formData.reset();
-    // });
+    });
   }
 
   initCharts(): void {
     this.mainChart = this.chartsData.mainChart;
   }
 
-  setTrafficPeriod(value: string): void {
-    this.trafficRadioGroup.setValue({ trafficRadio: value });
-    this.chartsData.initMainChart(value);
-    this.initCharts();
-  }
+  // setTrafficPeriod(value: string): void {
+  //   this.trafficRadioGroup.setValue({ trafficRadio: value });
+  //   this.chartsData.initMainChart(value);
+  //   this.initCharts();
+  // }
 }

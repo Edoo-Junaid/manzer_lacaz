@@ -11,6 +11,6 @@ export class UserService {
   rootURL = 'http://localhost:8080';
 
   postOrder(order: any) {
-    return this.http.post<any>(this.rootURL + '/addOrder', order);
+    return this.http.post<any>(this.rootURL + '/api/auth/order/addWeekOrder', order);
   }
 }
