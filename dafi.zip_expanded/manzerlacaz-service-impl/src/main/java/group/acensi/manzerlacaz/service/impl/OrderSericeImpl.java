@@ -26,19 +26,8 @@ public class OrderSericeImpl implements OrderService {
     
     @Override
     public Order createOrder(OrderDto orderDto) {
-        LocalTime time = LocalTime.now();
-        String preSetValue = "10:00:00";
-        LocalTime preSet = LocalTime.parse(preSetValue);
-        LocalDate date= LocalDate.parse("2021/06/09");
-        if (time.isBefore(preSet)&& LocalDate.now()==date) {
-
-            Order order = OrderMapper.INSTANCE.toEntity(orderDto);
-            return orderRepository.save(order);
-        } else {
-            return null;
-        }
-      
-        
+        Order order = OrderMapper.INSTANCE.toEntity(orderDto);
+        return orderRepository.save(order);
     }
 
     

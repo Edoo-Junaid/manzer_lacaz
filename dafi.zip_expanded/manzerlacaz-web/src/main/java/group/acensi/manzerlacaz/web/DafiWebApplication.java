@@ -11,9 +11,9 @@ import org.springframework.context.annotation.ComponentScan;
 	    HibernateJpaAutoConfiguration.class
 	})
 @ComponentScan(basePackages = "group.acensi.manzerlacaz")
-public class ManzerlacazWebApplication {
+public class DafiWebApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ManzerlacazWebApplication.class, args);
+		SpringApplication.run(DafiWebApplication.class, args);
 	}
 }

@@ -29,7 +29,7 @@ import group.acensi.manzerlacaz.service.configuration.TransactionConfiguration;
  * @author Nadeem Nayeck <nadeem.nayeck@acensi.group>
  */
 @ExtendWith(SpringExtension.class)
-@EnableJpaRepositories(basePackages = { "group.acensi.dafi.dao" })
+@EnableJpaRepositories(basePackages = { "group.acensi.manzerlacaz.dao" })
 @ContextConfiguration(classes = { PersistenceJPAConfiguration.class,
 		group.acensi.manzerlacaz.test.EmbeddedDataSourceConfiguration.class, TransactionConfiguration.class}, loader = AnnotationConfigContextLoader.class)
 class UtilisateurServiceTest {
