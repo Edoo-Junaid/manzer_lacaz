@@ -1,0 +1,62 @@
+# ===================================================================
+# Spring Boot configuration.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+debug: 'false'
+
+spring:
+  application:
+    name: ManzerLacaz
+  profiles:
+    active: default
+  banner:
+    location: static/banner.txt
+  thymeleaf:
+    check-template-location: 'false'
+  datasource:
+    name: manzerlacaz-datasource
+    driver-class-name: org.postgresql.Driver
+    url: 'jdbc:postgresql://localhost:5432/manzerlacaz'
+    username: postgres
+    password: edoo@1232
+  jackson:
+    serialization:
+      write-date-keys-as-timestamps: false
+      write-dates-as-timestamps: false
+
+# ===================================================================
+# Swagger
+# ===================================================================
+springdoc:
+  show-actuator: 'false'
+  show-login-endpoint: 'true'
+  swagger-ui:
+    path: /swagger-ui.html
+    
+# ===================================================================
+# Metrics and monitoring
+# ===================================================================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+# ===================================================================
+# App instance configuration
+# ===================================================================
+server:
+  port: '8080'
+
+# ===================================================================
+# JWT configuration - expiration set to 10 mins
+# ===================================================================
+jwt:
+  secret: 51EAE1E0CD6D72F7E1B6CDF46DD463A3FEFF8DC2BF72335652790499EE6D75E6
+  expiration: 600000
+    

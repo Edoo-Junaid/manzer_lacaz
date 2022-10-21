@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+group.acensi.manzerlacaz.dao.configuration.PersistenceJPAConfiguration
