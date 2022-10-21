@@ -1,8 +1,6 @@
 package group.acensi.manzerlacaz.service.impl;
 
 import java.util.Calendar;
-import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,13 +43,13 @@ public class OrderSericeImpl implements OrderService {
     
     
     @Override
-    public int findOrder(int user_id,int menu_id){
+    public int findOrderId(int user_id,int menu_id){
         return orderRepository.findOrderById(user_id, menu_id);
     }
     
     @Override 
     public void deleteOrder(int user_id,int menu_id) {
-        orderRepository.deleteById((long) findOrder(user_id,menu_id));
+        orderRepository.deleteById((long) findOrderId(user_id,menu_id));
         
     }
 
