@@ -1,0 +1,6 @@
+group\acensi\manzerlacaz\dao\configuration\PersistenceJPAConfiguration.class
+group\acensi\manzerlacaz\dao\RoleRepository.class
+group\acensi\manzerlacaz\dao\MenuRepository.class
+group\acensi\manzerlacaz\dao\OrderRepository.class
+group\acensi\manzerlacaz\dao\GroupeRepository.class
+group\acensi\manzerlacaz\dao\UtilisateurRepository.class
