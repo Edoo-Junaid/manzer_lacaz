@@ -8,7 +8,7 @@ debug: 'false'
 
 spring:
   application:
-    name: ManzerLacaz
+    name: Manzerlacaz v2
   profiles:
     active: default
   banner:
@@ -20,7 +20,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: 'jdbc:postgresql://localhost:5432/manzerlacaz'
     username: postgres
-    password: edoo@1232
+    password: diksha1234
   jackson:
     serialization:
       write-date-keys-as-timestamps: false

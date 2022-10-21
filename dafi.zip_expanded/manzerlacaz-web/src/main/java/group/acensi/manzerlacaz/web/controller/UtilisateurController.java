@@ -35,5 +35,5 @@ public class UtilisateurController {
 	public List<UtilisateurDto> listUtilisateurs() {
 		return this.utilisateurService.findAllUtilisateurs();
 	}
-	
+
 }

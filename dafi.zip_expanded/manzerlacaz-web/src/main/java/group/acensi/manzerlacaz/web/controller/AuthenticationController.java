@@ -50,29 +50,28 @@ public class AuthenticationController {
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
-
+	
 	@Autowired
 	private UtilisateurService utilisateurService;
 
 	@Autowired
 	private JwtUtils jwtUtils;
-
+	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
 	@PostMapping("/login")
-	public ResponseEntity<JwtResponse> authenticateUser(@Valid @RequestBody LoginRequest loginRequest,
-			HttpServletRequest request) {
-
+	public ResponseEntity<JwtResponse> authenticateUser(@Valid @RequestBody LoginRequest loginRequest, HttpServletRequest request) {
+		
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(loginRequest.username(), loginRequest.password()));
-
+		
 		SecurityContextHolder.getContext().setAuthentication(authentication);
-
+		
 		String token = jwtUtils.generateJwtToken(authentication, request);
 
 		UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-
+		
 		JwtResponse jwtResponse = new JwtResponse(
 				token,
 				null,
@@ -82,49 +81,44 @@ public class AuthenticationController {
 				userDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList(),
 				userDetails.getRole(),
 				token.length(),
-				this.jwtUtils.getCompressionCodec() == null ? null
-						: this.jwtUtils.getCompressionCodec().getAlgorithmName(),
-				ZonedDateTime.now());
+				this.jwtUtils.getCompressionCodec() == null? null: this.jwtUtils.getCompressionCodec().getAlgorithmName(),
+				ZonedDateTime.now()
+				);
 
+		
 		return ResponseEntity.ok(jwtResponse);
 	}
-
+	
 	@PostMapping("/createUser")
 	public Long createUser(@Valid @RequestBody CreateUserRequest createUserRequest) {
-
+		
 		UtilisateurDto utilisateurDto = new UtilisateurDto();
 		utilisateurDto.setUsername(createUserRequest.username());
 		utilisateurDto.setPassword(passwordEncoder.encode(createUserRequest.password()));
 		RoleDto roleDto = new RoleDto();
 		roleDto.setNom(createUserRequest.role());
 		utilisateurDto.setRole(roleDto);
-
+		
 		return this.utilisateurService.createUtilisateur(utilisateurDto);
 
 	}
-
+	
 	@GetMapping("/refreshToken")
 	public ResponseEntity<String> refreshToken(HttpServletRequest request) {
-		return ResponseEntity
-				.ok(this.jwtUtils.generateJwtToken(SecurityContextHolder.getContext().getAuthentication(), request));
+		return ResponseEntity.ok(this.jwtUtils.generateJwtToken(SecurityContextHolder.getContext().getAuthentication(), request));
 	}
-
+	
 	@GetMapping("/decodeJwtToken")
 	public ResponseEntity<Jws<Claims>> decodeJwtToken(@RequestParam String token) {
-
+		
 		return ResponseEntity.ok(jwtUtils.parseToken(token));
-
+		
 	}
-
+	
 	@GetMapping("/logout")
 	public void logout(HttpServletRequest request) {
 		jwtUtils.invalidateToken(request);
-
-	}
-
-	@GetMapping("triaal")
-	public String getHello() {
-		return "hello world";
+		
 	}
 
 }

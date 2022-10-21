@@ -9,7 +9,6 @@
 package group.acensi.manzerlacaz.web.mapper;
 
 import org.mapstruct.factory.Mappers;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import group.acensi.manzerlacaz.service.dto.UtilisateurDto;
@@ -32,10 +31,10 @@ public interface UserDetailsMapper {
 		userDetails.setAccountNonExpired(dto.isAccountNonExpired());
 		userDetails.setAccountNonLocked(userDetails.isAccountNonLocked());
 		userDetails.setId(dto.getId());
-		if (dto.getRole() != null ){//&& dto.getRole().getDroits() != null) {
+		if (dto.getRole() != null) {
 			
 			userDetails.setRole(dto.getRole().getNom());
-			
+
 		}
 		
 		userDetails.setCredentialsNonExpired(dto.isCredentialsNonExpired());
