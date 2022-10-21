@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import group.acensi.manzerlacaz.entities.Order;
 import group.acensi.manzerlacaz.service.api.OrderService;
 import group.acensi.manzerlacaz.service.dto.OrderDto;
+import group.acensi.manzerlacaz.web.payload.DeleteOrderRequest;
 import group.acensi.manzerlacaz.web.payload.OrderOptionCountRequest;
 
 @RestController
@@ -46,6 +48,10 @@ public class OrderController {
     public Long getOrderOptionCountByDay(@RequestBody OrderOptionCountRequest o) {
         return orderService.getOrderOptionCountByDay(o.option(), o.day());
     }
+    @PostMapping("/deleteOrder")
+    public void findOrders(@RequestBody DeleteOrderRequest o){
+         orderService.deleteOrder(o.user_id(), o.menu_id());
+         System.out.println("deleted");
+    }
 
- 
 }

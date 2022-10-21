@@ -44,6 +44,10 @@ public class MenuServiceImpl implements MenuService{
     @Override
     public List<MenuDto> listCurrentMenu() {
         return menurepository.findByWeekNum(this.getCurrentWeekNumber()).stream().map(MenuMapper.INSTANCE::toDto).toList();
+        
     }
+    
+    
+    
     
 }
