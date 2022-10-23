@@ -1,17 +1,9 @@
 package group.acensi.manzerlacaz.service.impl;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.ZoneId;
-import java.time.temporal.IsoFields;
-import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.WeekFields;
 import java.util.Calendar;
-
-import javax.print.attribute.standard.DateTimeAtCompleted;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,7 +80,7 @@ public class OrderSericeImpl implements OrderService {
         LocalTime time = LocalTime.now();
         String preSetValue = "10:00:00";
         LocalTime preSet = LocalTime.parse(preSetValue);
-        if (dateCurrent.toString().equals(menuDate.toString()) && time.isAfter(preSet)) {
+        if ((dateCurrent.toString().equals(menuDate.toString()) && time.isAfter(preSet))|| dateCurrent.isAfter(menuDate)) {
             System.out.println("order time elapsed");
             return null;
         } else {
