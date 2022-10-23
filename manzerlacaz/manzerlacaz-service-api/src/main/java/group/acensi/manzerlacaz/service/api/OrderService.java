@@ -1,5 +1,8 @@
 package group.acensi.manzerlacaz.service.api;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import group.acensi.manzerlacaz.entities.Order;
 import group.acensi.manzerlacaz.service.dto.OrderDto;
 
@@ -15,5 +18,9 @@ public interface OrderService {
     public int findOrderId(int user_id, int menu_id);
 
     public void deleteOrder(int user_id, int menu_id);
+
+    Order createTrialOrder(OrderDto orderDto);
+
+    LocalDate calculateDate(int id);
 
 }
