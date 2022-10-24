@@ -8,7 +8,6 @@
  */
 package group.acensi.manzerlacaz.service.mapper;
 
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import group.acensi.manzerlacaz.entities.Role;

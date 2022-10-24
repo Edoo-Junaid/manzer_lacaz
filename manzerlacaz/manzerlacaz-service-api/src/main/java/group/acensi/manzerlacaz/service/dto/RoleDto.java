@@ -8,8 +8,6 @@
  */
 package group.acensi.manzerlacaz.service.dto;
 
-import java.util.List;
-
 import lombok.Data;
 
 /**

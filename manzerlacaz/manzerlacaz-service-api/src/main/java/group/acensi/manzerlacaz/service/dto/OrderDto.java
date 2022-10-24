@@ -4,8 +4,6 @@ import java.time.ZonedDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import group.acensi.manzerlacaz.entities.Menu;
-import group.acensi.manzerlacaz.entities.Utilisateur;
 import group.acensi.manzerlacaz.service.DateTimeConstants;
 import lombok.Data;
 
