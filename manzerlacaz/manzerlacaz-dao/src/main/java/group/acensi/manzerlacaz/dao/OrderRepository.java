@@ -19,6 +19,8 @@ public interface OrderRepository extends JpaRepository<Order,Long>{
     @Query("SELECT COUNT(o) FROM Order o  INNER JOIN Menu m ON m.id=o.menu_id WHERE o.option=?1 AND m.weekNum = ?2 AND m.day = ?3")
     public Long countOrdersOptionByDayAndWeekNum(String option,int weekNum, String day);
     
+    @Query("SELECT EXISTS(SELECT 1 FROM Order WHERE user_id=?1 AND menu_id=?2)")
+    public boolean checkIfOrderExists(int user_id,int menu_id);
 
     
 

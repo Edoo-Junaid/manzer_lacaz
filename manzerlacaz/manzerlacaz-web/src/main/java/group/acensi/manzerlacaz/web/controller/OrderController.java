@@ -58,5 +58,12 @@ public class OrderController {
     public ResponseEntity<Order> addTrialMenu(@RequestBody OrderDto orderDto) {
         return new ResponseEntity<Order>(orderService.createTrialOrder(orderDto), HttpStatus.CREATED);
     }
+    
+    //checking if order exists need to change name deleteOrderRequest
+    @PostMapping("/existOrNotOrder")
+    public void checkIfExistOrders(@RequestBody DeleteOrderRequest o) {
+        orderService.checkOrderExists(o.user_id(), o.menu_id());
+
+    }
 
 }

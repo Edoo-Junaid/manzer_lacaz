@@ -22,4 +22,6 @@ public interface OrderService {
 
     LocalDate calculateDate(int id);
 
+   void checkOrderExists(int user_id, int menu_id);
+
 }
