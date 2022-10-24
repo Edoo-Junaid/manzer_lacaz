@@ -80,7 +80,8 @@ public class OrderSericeImpl implements OrderService {
         LocalTime time = LocalTime.now();
         String preSetValue = "10:00:00";
         LocalTime preSet = LocalTime.parse(preSetValue);
-        if ((dateCurrent.toString().equals(menuDate.toString()) && time.isAfter(preSet))|| dateCurrent.isAfter(menuDate)) {
+        if ((dateCurrent.toString().equals(menuDate.toString()) && time.isAfter(preSet))
+                || dateCurrent.isAfter(menuDate)) {
             System.out.println("order time elapsed");
             return null;
         } else {
@@ -88,6 +89,18 @@ public class OrderSericeImpl implements OrderService {
             return orderRepository.save(order);
         }
 
+    }
+    
+    @Override
+    public void checkOrderExists(int user_id,int menu_id) {
+        
+        if(orderRepository.checkIfOrderExists(user_id, menu_id)==true) {
+            System.out.println("exists");
+        }else {
+            System.out.println("not exists");
+        }
+       
+        
     }
 
 }
