@@ -23,6 +23,7 @@ import group.acensi.manzerlacaz.service.dto.RoleDto;
 @org.mapstruct.Mapper
 public interface RoleMapper {
 	
+    
 	RoleMapper INSTANCE = Mappers.getMapper(RoleMapper.class);
 
 
