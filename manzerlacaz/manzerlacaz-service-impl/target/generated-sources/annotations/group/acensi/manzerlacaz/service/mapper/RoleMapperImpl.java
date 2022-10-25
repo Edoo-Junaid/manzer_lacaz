@@ -6,7 +6,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-23T16:24:09+0400",
+    date = "2022-10-25T11:47:03+0400",
     comments = "version: 1.5.2.Final, compiler: Eclipse JDT (IDE) 1.4.100.v20220318-0906, environment: Java 17.0.3 (Eclipse Adoptium)"
 )
 public class RoleMapperImpl implements RoleMapper {
@@ -22,5 +22,18 @@ public class RoleMapperImpl implements RoleMapper {
         roleDto.setNom( role.getNom() );
 
         return roleDto;
+    }
+
+    @Override
+    public Role toEntity(RoleDto roleDto) {
+        if ( roleDto == null ) {
+            return null;
+        }
+
+        Role role = new Role();
+
+        role.setNom( roleDto.getNom() );
+
+        return role;
     }
 }
