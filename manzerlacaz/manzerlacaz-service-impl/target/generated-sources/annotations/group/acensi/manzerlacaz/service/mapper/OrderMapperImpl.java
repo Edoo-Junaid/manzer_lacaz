@@ -6,13 +6,8 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-<<<<<<< HEAD
-    date = "2022-10-25T14:16:23+0400",
+    date = "2022-10-25T14:34:35+0400",
     comments = "version: 1.5.2.Final, compiler: Eclipse JDT (IDE) 1.4.100.v20220318-0906, environment: Java 17.0.3 (Eclipse Adoptium)"
-=======
-    date = "2022-10-24T17:12:45+0400",
-    comments = "version: 1.5.2.Final, compiler: Eclipse JDT (IDE) 1.4.200.v20220802-0458, environment: Java 17.0.4.1 (Eclipse Adoptium)"
->>>>>>> f2bbc8c5a1d55269167190a3ba5fefab28e50b64
 )
 public class OrderMapperImpl implements OrderMapper {
 
