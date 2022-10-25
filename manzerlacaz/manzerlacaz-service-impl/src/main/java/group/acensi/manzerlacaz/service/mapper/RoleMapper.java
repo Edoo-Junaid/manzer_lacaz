@@ -23,7 +23,6 @@ import group.acensi.manzerlacaz.service.dto.RoleDto;
 @org.mapstruct.Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface RoleMapper {
 
-    
     RoleMapper INSTANCE = Mappers.getMapper(RoleMapper.class);
 
     RoleDto toDto(Role role);
