@@ -8,9 +8,6 @@
  */
 package group.acensi.manzerlacaz.service.mapper;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 

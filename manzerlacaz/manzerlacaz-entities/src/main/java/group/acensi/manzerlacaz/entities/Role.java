@@ -9,13 +9,8 @@
 
 package group.acensi.manzerlacaz.entities;
 
-import java.util.List;
-
 import group.acensi.manzerlacaz.entities.base.AbstractEntity;
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
