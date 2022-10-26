@@ -54,7 +54,7 @@ public class OrderController {
     public void findOrders(@RequestBody ManageOrderRequest o) {
         orderService.deleteOrder(o.user_id(), o.menu_id());
     }
-
+    
     @PostMapping("/trialAddOrder")
     public ResponseEntity<Order> addTrialMenu(@RequestBody OrderDto orderDto) {
         return new ResponseEntity<Order>(orderService.createTrialOrder(orderDto), HttpStatus.CREATED);
@@ -65,6 +65,10 @@ public class OrderController {
         orderService.checkOrderExists(o.user_id(), o.menu_id());
     }
 
-
-
+    @PostMapping("deleteOrders")
+    public void deleteOrders(@RequestBody List<ManageOrderRequest> orders) {
+        for (ManageOrderRequest order : orders) {
+            orderService.deleteOrder(order.user_id(), order.menu_id());
+        }
+    }
 }
