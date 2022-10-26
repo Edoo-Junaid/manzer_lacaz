@@ -18,6 +18,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,6 +47,7 @@ import jakarta.validation.Valid;
  */
 @RestController
 @RequestMapping("/api/auth")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class AuthenticationController {
 
 	@Autowired
@@ -84,8 +86,7 @@ public class AuthenticationController {
 				this.jwtUtils.getCompressionCodec() == null? null: this.jwtUtils.getCompressionCodec().getAlgorithmName(),
 				ZonedDateTime.now()
 				);
-
-		
+				
 		return ResponseEntity.ok(jwtResponse);
 	}
 	
