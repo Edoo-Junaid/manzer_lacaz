@@ -3,6 +3,7 @@ package group.acensi.manzerlacaz.web.controller;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +17,8 @@ import group.acensi.manzerlacaz.web.payload.CreateMenuRequest;
 
 
 @RestController
-@RequestMapping("/api/auth/menu")
+@RequestMapping("/api/menu")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class MenuController {
 	
     @Autowired
@@ -37,6 +39,20 @@ public class MenuController {
         return returnMenuList;
     }
     
+    @PostMapping("/addOneMenu")
+    public MenuDto addOneMenu(@RequestBody CreateMenuRequest menu){
+    
+
+            MenuDto menuDto= new MenuDto();
+            menuDto.setDay(menu.day());
+            menuDto.setOption(menu.option());
+            menuDto.setPrice(menu.price());
+            menuDto.setDescription(menu.description());
+            menuDto.setWeekNum(menuService.getCurrentWeekNumber());
+       return  MenuMapper.INSTANCE.toDto(menuService.createMenu(menuDto));
+      
+      
+    }
 	@GetMapping("/getAllMenu")
 	public List<MenuDto> getMenu() {
         return menuService.listAllMenu();
@@ -47,6 +63,9 @@ public class MenuController {
         return menuService.listCurrentMenu();
     }
     
-    
-	
+    @GetMapping("/hello")
+    public String hello(){
+        System.out.println("hello was called");
+        return "hello";
+    }
 }

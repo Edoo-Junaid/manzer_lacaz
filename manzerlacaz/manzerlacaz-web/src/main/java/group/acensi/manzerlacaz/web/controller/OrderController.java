@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,8 @@ import group.acensi.manzerlacaz.web.payload.DeleteOrderRequest;
 import group.acensi.manzerlacaz.web.payload.OrderOptionCountRequest;
 
 @RestController
-@RequestMapping("/api/auth/order")
+@RequestMapping("/api/order")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class OrderController {
 
     @Autowired
@@ -63,7 +65,6 @@ public class OrderController {
     @PostMapping("/existOrNotOrder")
     public void checkIfExistOrders(@RequestBody DeleteOrderRequest o) {
         orderService.checkOrderExists(o.user_id(), o.menu_id());
-
     }
 
 }

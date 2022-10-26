@@ -28,8 +28,6 @@ public interface UtilisateurMapper {
 
 	Utilisateur toEntity(UtilisateurDto dto);
 
-
-
 	UtilisateurDto toDto(Utilisateur findbyUsername);
 	
 
