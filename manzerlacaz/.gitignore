@@ -1,3 +1,1 @@
-*.log
-/pom.properties
 /manzerlacaz-web/target/classes/application.yml
