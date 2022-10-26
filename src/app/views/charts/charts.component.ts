@@ -24,66 +24,6 @@ export class ChartsComponent {
   //   maintainAspectRatio: false,
   // };
 
-  chartLineData = {
-    labels: [...this.months].slice(0, 7),
-    datasets: [
-      {
-        label: 'My First dataset',
-        backgroundColor: 'rgba(220, 220, 220, 0.2)',
-        borderColor: 'rgba(220, 220, 220, 1)',
-        pointBackgroundColor: 'rgba(220, 220, 220, 1)',
-        pointBorderColor: '#fff',
-        data: [this.randomData, this.randomData, this.randomData, this.randomData, this.randomData, this.randomData, this.randomData]
-      },
-      {
-        label: 'My Second dataset',
-        backgroundColor: 'rgba(151, 187, 205, 0.2)',
-        borderColor: 'rgba(151, 187, 205, 1)',
-        pointBackgroundColor: 'rgba(151, 187, 205, 1)',
-        pointBorderColor: '#fff',
-        data: [this.randomData, this.randomData, this.randomData, this.randomData, this.randomData, this.randomData, this.randomData]
-      }
-    ]
-  };
-
-  chartLineOptions = {
-    maintainAspectRatio: false,
-  };
-
-  chartDoughnutData = {
-    labels: ['VueJs', 'EmberJs', 'ReactJs', 'Angular'],
-    datasets: [
-      {
-        backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-        data: [40, 20, 80, 10]
-      }
-    ]
-  };
-
-  // chartDoughnutOptions = {
-  //   aspectRatio: 1,
-  //   responsive: true,
-  //   maintainAspectRatio: false,
-  //   radius: '100%'
-  // };
-
-  chartPieData = {
-    labels: ['Red', 'Green', 'Yellow'],
-    datasets: [
-      {
-        data: [300, 50, 100],
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-        hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
-      }
-    ]
-  };
-
-  // chartPieOptions = {
-  //   aspectRatio: 1,
-  //   responsive: true,
-  //   maintainAspectRatio: false,
-  //   radius: '100%'
-  // };
 
   chartPolarAreaData = {
     labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue'],
