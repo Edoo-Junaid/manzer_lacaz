@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5e460fb0-d5cd-4e04-8405-cb12838b00fe" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/coreui-free-angular-admin-template/src/app/services/user/user.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coreui-free-angular-admin-template/src/app/views/dashboard/Menu.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/.factorypath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/.settings/org.eclipse.jdt.apt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/src/main/resources/META-INF/spring.factories" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/classes/META-INF/ehcache.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/classes/META-INF/spring.factories" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/classes/database/changelog/1.0/2022-09-01T00-00__init.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/classes/database/changelog/changelog-master.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/classes/group/acensi/manzerlacaz/dao/GroupeRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/classes/group/acensi/manzerlacaz/dao/MenuRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/classes/group/acensi/manzerlacaz/dao/OrderRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/classes/group/acensi/manzerlacaz/dao/RoleRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/classes/group/acensi/manzerlacaz/dao/UtilisateurRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/classes/group/acensi/manzerlacaz/dao/configuration/PersistenceJPAConfiguration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/manzerlacaz-dao-2.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/test-classes/META-INF/persistence-test.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/test-classes/group/acensi/manzerlacaz/dao/test/LiquibaseTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/test-classes/group/acensi/manzerlacaz/dao/test/SimpleDaoTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/target/test-classes/group/acensi/manzerlacaz/dao/test/TransactionConfiguration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/.factorypath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/.settings/org.eclipse.jdt.apt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/target/classes/group/acensi/manzerlacaz/entities/Menu.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/target/classes/group/acensi/manzerlacaz/entities/Order.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/target/classes/group/acensi/manzerlacaz/entities/Role.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/target/classes/group/acensi/manzerlacaz/entities/Utilisateur.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/target/classes/group/acensi/manzerlacaz/entities/base/AbstractEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/target/classes/group/acensi/manzerlacaz/entities/base/AbstractKeyValueEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/target/classes/group/acensi/manzerlacaz/entities/listener/EntityListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/target/classes/group/acensi/manzerlacaz/entities/types/Adresse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/target/classes/group/acensi/manzerlacaz/entities/types/Civilite.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/target/classes/group/acensi/manzerlacaz/entities/types/Email.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/target/classes/group/acensi/manzerlacaz/entities/types/Naissance.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/target/classes/group/acensi/manzerlacaz/entities/types/Telephone.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/target/manzerlacaz-entities-2.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-integrations/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-integrations/.factorypath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-integrations/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-integrations/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-integrations/.settings/org.eclipse.jdt.apt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-integrations/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-integrations/target/classes/group/acensi/manzerlacaz/integrations/IntracensIntegration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-integrations/target/manzerlacaz-integrations-2.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-integrations/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-integrations/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-integrations/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-parent/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-parent/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/.factorypath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/.settings/org.eclipse.jdt.apt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/target/classes/group/acensi/manzerlacaz/service/DateTimeConstants.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/target/classes/group/acensi/manzerlacaz/service/api/MenuService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/target/classes/group/acensi/manzerlacaz/service/api/OrderService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/target/classes/group/acensi/manzerlacaz/service/api/UtilisateurService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/target/classes/group/acensi/manzerlacaz/service/dto/MenuDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/target/classes/group/acensi/manzerlacaz/service/dto/OrderDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/target/classes/group/acensi/manzerlacaz/service/dto/RoleDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/target/classes/group/acensi/manzerlacaz/service/dto/UtilisateurDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/target/classes/group/acensi/manzerlacaz/service/exception/UserNotfoundException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/target/manzerlacaz-service-api-2.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/.factorypath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/.settings/org.eclipse.jdt.apt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/src/main/java/group/acensi/manzerlacaz/service/impl/OrderSericeImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/src/main/resources/META-INF/spring.factories" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/classes/META-INF/spring.factories" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/classes/group/acensi/manzerlacaz/service/configuration/TransactionConfiguration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/classes/group/acensi/manzerlacaz/service/impl/MenuServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/classes/group/acensi/manzerlacaz/service/impl/OrderSericeImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/classes/group/acensi/manzerlacaz/service/impl/UtilisateurServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/classes/group/acensi/manzerlacaz/service/mapper/MenuMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/classes/group/acensi/manzerlacaz/service/mapper/MenuMapperImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/classes/group/acensi/manzerlacaz/service/mapper/OrderMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/classes/group/acensi/manzerlacaz/service/mapper/OrderMapperImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/classes/group/acensi/manzerlacaz/service/mapper/RoleMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/classes/group/acensi/manzerlacaz/service/mapper/RoleMapperImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/classes/group/acensi/manzerlacaz/service/mapper/UtilisateurMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/classes/group/acensi/manzerlacaz/service/mapper/UtilisateurMapperImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/generated-sources/annotations/group/acensi/manzerlacaz/service/mapper/MenuMapperImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/generated-sources/annotations/group/acensi/manzerlacaz/service/mapper/OrderMapperImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/generated-sources/annotations/group/acensi/manzerlacaz/service/mapper/RoleMapperImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/generated-sources/annotations/group/acensi/manzerlacaz/service/mapper/UtilisateurMapperImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/manzerlacaz-service-impl-2.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/target/test-classes/group/acensi/manzerlacaz/service/test/UtilisateurServiceTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-testing/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-testing/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-testing/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-testing/.settings/org.eclipse.jdt.apt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-testing/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-testing/target/classes/group/acensi/manzerlacaz/test/EmbeddedDataSourceConfiguration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-testing/target/classes/logback-test.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-testing/target/manzerlacaz-testing-2.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-testing/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-testing/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-testing/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/.apt_generated/group/acensi/dafi/web/mapper/UserDetailsMapperImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/.settings/org.springframework.ide.eclipse.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/META-INF/additional-spring-configuration-metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/META-INF/build-info.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/dafi/web/mapper/UserDetailsMapperImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/ManzerlacazWebApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/configuration/SwaggerConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/configuration/WebConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/configuration/WebSecurityConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/controller/AuthenticationController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/controller/ExceptionAdvice.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/controller/MenuController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/controller/OrderController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/controller/UtilisateurController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/mapper/UserDetailsMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/mapper/UserDetailsMapperImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/payload/CreateMenuRequest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/payload/CreateUserRequest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/payload/JwtResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/payload/LoginRequest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/payload/OrderOptionCountRequest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/security/AuthTokenFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/security/JwtUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/security/SecurityUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/security/UserDetailsImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/group/acensi/manzerlacaz/web/security/UserDetailsManagerImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/classes/static/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/generated-sources/annotations/group/acensi/manzerlacaz/web/mapper/UserDetailsMapperImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/manzerlacaz-web-2.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/manzerlacaz-web-2.0.0-SNAPSHOT.jar.original" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/test-classes/group/acensi/manzerlacaz/web/ObjectMapperTests$TestPojoSerialization.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/target/test-classes/group/acensi/manzerlacaz/web/ObjectMapperTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ManzerLacaz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ManzerLacaz.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui-free-angular-admin-template" beforeDir="false" afterPath="$PROJECT_DIR$/coreui-free-angular-admin-template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui-free-angular-admin-template/src/app/admin/admin.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui-free-angular-admin-template/src/app/services/admin/admin.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui-free-angular-admin-template/src/app/admin/admin.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui-free-angular-admin-template/src/app/services/admin/admin.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui-free-angular-admin-template/src/app/user/user.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui-free-angular-admin-template/src/app/services/user/user.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui-free-angular-admin-template/src/app/user/user.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui-free-angular-admin-template/src/app/views/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coreui-free-angular-admin-template/src/app/views/dashboard/dashboard.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui-free-angular-admin-template/src/app/views/dashboard/dashboard.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/coreui-free-angular-admin-template/src/app/views/dashboard/dashboard.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coreui-free-angular-admin-template/src/app/views/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coreui-free-angular-admin-template/src/app/views/dashboard/dashboard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-dao/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-dao/src/main/java/group/acensi/dafi/dao/GroupeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/src/main/java/group/acensi/manzerlacaz/dao/GroupeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-dao/src/main/java/group/acensi/dafi/dao/MenuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/src/main/java/group/acensi/manzerlacaz/dao/MenuRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-dao/src/main/java/group/acensi/dafi/dao/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/src/main/java/group/acensi/manzerlacaz/dao/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-dao/src/main/java/group/acensi/dafi/dao/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/src/main/java/group/acensi/manzerlacaz/dao/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-dao/src/main/java/group/acensi/dafi/dao/UtilisateurRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/src/main/java/group/acensi/manzerlacaz/dao/UtilisateurRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-dao/src/main/java/group/acensi/dafi/dao/configuration/PersistenceJPAConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/src/main/java/group/acensi/manzerlacaz/dao/configuration/PersistenceJPAConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-dao/src/main/resources/META-INF/ehcache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/src/main/resources/META-INF/ehcache.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-dao/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-dao/src/main/resources/META-INF/spring.factories" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-dao/src/main/resources/database/changelog/1.0/2022-09-01T00-00__init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/src/main/resources/database/changelog/1.0/2022-09-01T00-00__init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-dao/src/main/resources/database/changelog/changelog-master.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/src/main/resources/database/changelog/changelog-master.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-dao/src/test/java/group/acensi/dafi/dao/test/LiquibaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/src/test/java/group/acensi/manzerlacaz/dao/test/LiquibaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-dao/src/test/java/group/acensi/dafi/dao/test/SimpleDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/src/test/java/group/acensi/manzerlacaz/dao/test/SimpleDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-dao/src/test/java/group/acensi/dafi/dao/test/TransactionConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/src/test/java/group/acensi/manzerlacaz/dao/test/TransactionConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-dao/src/test/resources/META-INF/persistence-test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-dao/src/test/resources/META-INF/persistence-test.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-entities/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-entities/src/main/java/group/acensi/dafi/entities/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/src/main/java/group/acensi/manzerlacaz/entities/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-entities/src/main/java/group/acensi/dafi/entities/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/src/main/java/group/acensi/manzerlacaz/entities/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-entities/src/main/java/group/acensi/dafi/entities/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/src/main/java/group/acensi/manzerlacaz/entities/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-entities/src/main/java/group/acensi/dafi/entities/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/src/main/java/group/acensi/manzerlacaz/entities/Utilisateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-entities/src/main/java/group/acensi/dafi/entities/base/AbstractEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/src/main/java/group/acensi/manzerlacaz/entities/base/AbstractEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-entities/src/main/java/group/acensi/dafi/entities/base/AbstractKeyValueEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/src/main/java/group/acensi/manzerlacaz/entities/base/AbstractKeyValueEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-entities/src/main/java/group/acensi/dafi/entities/listener/EntityListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/src/main/java/group/acensi/manzerlacaz/entities/listener/EntityListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-entities/src/main/java/group/acensi/dafi/entities/types/Adresse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/src/main/java/group/acensi/manzerlacaz/entities/types/Adresse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-entities/src/main/java/group/acensi/dafi/entities/types/Civilite.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/src/main/java/group/acensi/manzerlacaz/entities/types/Civilite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-entities/src/main/java/group/acensi/dafi/entities/types/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/src/main/java/group/acensi/manzerlacaz/entities/types/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-entities/src/main/java/group/acensi/dafi/entities/types/Naissance.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/src/main/java/group/acensi/manzerlacaz/entities/types/Naissance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-entities/src/main/java/group/acensi/dafi/entities/types/Telephone.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-entities/src/main/java/group/acensi/manzerlacaz/entities/types/Telephone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-integrations/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-integrations/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-integrations/src/main/java/group/acensi/dafi/integrations/IntracensIntegration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-integrations/src/main/java/group/acensi/manzerlacaz/integrations/IntracensIntegration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-parent/buildAll.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-parent/buildAll.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-parent/cyclonedx.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-parent/cyclonedx.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-parent/owasp-dependency-check.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-parent/owasp-dependency-check.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-parent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-parent/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-api/src/main/java/group/acensi/dafi/service/DateTimeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/src/main/java/group/acensi/manzerlacaz/service/DateTimeConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-api/src/main/java/group/acensi/dafi/service/api/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/src/main/java/group/acensi/manzerlacaz/service/api/MenuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-api/src/main/java/group/acensi/dafi/service/api/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/src/main/java/group/acensi/manzerlacaz/service/api/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-api/src/main/java/group/acensi/dafi/service/api/UtilisateurService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/src/main/java/group/acensi/manzerlacaz/service/api/UtilisateurService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-api/src/main/java/group/acensi/dafi/service/dto/MenuDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/src/main/java/group/acensi/manzerlacaz/service/dto/MenuDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-api/src/main/java/group/acensi/dafi/service/dto/OrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/src/main/java/group/acensi/manzerlacaz/service/dto/OrderDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-api/src/main/java/group/acensi/dafi/service/dto/RoleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/src/main/java/group/acensi/manzerlacaz/service/dto/RoleDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-api/src/main/java/group/acensi/dafi/service/dto/UtilisateurDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/src/main/java/group/acensi/manzerlacaz/service/dto/UtilisateurDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-api/src/main/java/group/acensi/dafi/service/exception/UserNotfoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-api/src/main/java/group/acensi/manzerlacaz/service/exception/UserNotfoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-impl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-impl/src/main/java/group/acensi/dafi/service/configuration/TransactionConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/src/main/java/group/acensi/manzerlacaz/service/configuration/TransactionConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-impl/src/main/java/group/acensi/dafi/service/impl/MenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/src/main/java/group/acensi/manzerlacaz/service/impl/MenuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-impl/src/main/java/group/acensi/dafi/service/impl/OrderSericeImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-impl/src/main/java/group/acensi/dafi/service/impl/UtilisateurServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/src/main/java/group/acensi/manzerlacaz/service/impl/UtilisateurServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-impl/src/main/java/group/acensi/dafi/service/mapper/MenuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/src/main/java/group/acensi/manzerlacaz/service/mapper/MenuMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-impl/src/main/java/group/acensi/dafi/service/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/src/main/java/group/acensi/manzerlacaz/service/mapper/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-impl/src/main/java/group/acensi/dafi/service/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/src/main/java/group/acensi/manzerlacaz/service/mapper/RoleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-impl/src/main/java/group/acensi/dafi/service/mapper/UtilisateurMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/src/main/java/group/acensi/manzerlacaz/service/mapper/UtilisateurMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-impl/src/main/resources/META-INF/spring.factories" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-service-impl/src/test/java/group/acensi/dafi/service/test/UtilisateurServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-service-impl/src/test/java/group/acensi/manzerlacaz/service/test/UtilisateurServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-testing/dafi2-soapui-endpoints.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-testing/dafi2-soapui-endpoints.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-testing/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-testing/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-testing/src/main/java/group/acensi/dafi/test/EmbeddedDataSourceConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-testing/src/main/java/group/acensi/manzerlacaz/test/EmbeddedDataSourceConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-testing/src/main/resources/logback-test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-testing/src/main/resources/logback-test.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/.apt_generated/group/acensi/dafi/web/mapper/UserDetailsMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/.apt_generated/group/acensi/manzerlacaz/web/mapper/UserDetailsMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/HELP.md" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/HELP.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/DafiWebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/ManzerlacazWebApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/configuration/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/configuration/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/configuration/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/configuration/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/configuration/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/configuration/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/controller/ExceptionAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/controller/ExceptionAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/controller/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/controller/UtilisateurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/controller/UtilisateurController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/mapper/UserDetailsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/mapper/UserDetailsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/payload/CreateMenuRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/payload/CreateMenuRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/payload/CreateUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/payload/CreateUserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/payload/JwtResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/payload/JwtResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/payload/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/payload/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/payload/OrderOptionCountRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/payload/OrderOptionCountRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/security/AuthTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/security/AuthTokenFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/security/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/security/JwtUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/security/SecurityUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/security/SecurityUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/security/UserDetailsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/security/UserDetailsImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/java/group/acensi/dafi/web/security/UserDetailsManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/java/group/acensi/manzerlacaz/web/security/UserDetailsManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/resources/META-INF/additional-spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/resources/META-INF/additional-spring-configuration-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/main/resources/static/banner.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/main/resources/static/banner.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dafi.zip_expanded/dafi-web/src/test/java/group/acensi/dafi/web/ObjectMapperTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dafi.zip_expanded/manzerlacaz-web/src/test/java/group/acensi/manzerlacaz/web/ObjectMapperTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/coreui-free-angular-admin-template" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2G4IcszOnZYbeBqJFRABGcGCdTH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Tools/workspaces/ManzerLacaz/manzer_lacaz/ManzerLacazFrontEnd&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Tools\workspaces\ManzerLacaz\manzer_lacaz\ManzerLacazFrontEnd\coreui-free-angular-admin-template\src\app\services" />
+      <recent name="C:\Tools\workspaces\ManzerLacaz\manzer_lacaz\ManzerLacazFrontEnd\coreui-free-angular-admin-template\src\app\views" />
+      <recent name="C:\Tools\workspaces\ManzerLacaz\manzer_lacaz\ManzerLacazFrontEnd\coreui-free-angular-admin-template\src\app\token-storage" />
+      <recent name="C:\Tools\workspaces\ManzerLacaz\manzer_lacaz\ManzerLacazFrontEnd\coreui-free-angular-admin-template\src\app\auth" />
+      <recent name="C:\Users\Aliya T\IdeaProjects\ManzerLacaz\coreui-free-angular-admin-template\src\app" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="ManzerLacaz" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="ManzerLacaz" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/coreui-free-angular-admin-template/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5e460fb0-d5cd-4e04-8405-cb12838b00fe" name="Changes" comment="" />
+      <created>1665641512280</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665641512280</updated>
+      <workItem from="1665641514009" duration="7403000" />
+      <workItem from="1665727707238" duration="9090000" />
+      <workItem from="1665982953163" duration="30140000" />
+      <workItem from="1666168858784" duration="3325000" />
+      <workItem from="1666253547869" duration="4878000" />
+      <workItem from="1666260995089" duration="23268000" />
+      <workItem from="1666632962799" duration="1223000" />
+      <workItem from="1666634256082" duration="36000" />
+      <workItem from="1666634307653" duration="7243000" />
+      <workItem from="1666677020560" duration="617000" />
+      <workItem from="1666677798972" duration="1868000" />
+      <workItem from="1666682583584" duration="9699000" />
+      <workItem from="1666699154734" duration="724000" />
+      <workItem from="1666762827909" duration="6199000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
