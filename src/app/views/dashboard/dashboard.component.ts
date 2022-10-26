@@ -2,35 +2,37 @@ import { Component, OnInit } from '@angular/core';
 import {UntypedFormControl, UntypedFormGroup} from '@angular/forms';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { DashboardChartsData, IChartProps } from './dashboard-charts-data';
-import {UserService} from "../../user/user.service";
-
-interface IOrder {
-  user_id: number;
-  menu_id: number;
-  payment: number;
-  option: string
-}
+import {UserService} from "../../services/user/user.service";
+import {Order} from "./Order";
+import {Menu} from "./Menu";
+import {DailyConfirmation} from "./DailyConfirmation";
 
 @Component({
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  option!: string;
-  payment!: string;
+
+  menu!: Menu[] ;
+  menuDescriptions!:string[];
+  //menu id
+  menuMonDesc!: string;
+  menuTueDesc!: string;
+  menuWedDesc!: string;
+  menuThuDesc!: string;
+  menuFriDesc!: string;
+
+  menuMon!: Menu;
+  menuTue!: Menu;
+  menuWed!: Menu;
+  menuThu!: Menu;
+  menuFri!: Menu;
+
   formData!: FormGroup;
 
   constructor(private chartsData: DashboardChartsData, public userService: UserService) {
   }
 
-  public userOrder: IOrder[] = [
-    {
-      user_id: 0,
-      menu_id: 0,
-      payment: 0,
-      option: ''
-    }
-  ];
   public mainChart: IChartProps = {};
   public chart: Array<IChartProps> = [];
   public trafficRadioGroup = new UntypedFormGroup({
@@ -38,8 +40,21 @@ export class DashboardComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    //Displaying menus according to id
+    this.userService.getMenus().subscribe((data: Array<Menu>) => {
+      this.menu=[data[0],data[1],data[2],data[3],data[4]];
+      this.menuDescriptions=[data[0].description,data[1].description,data[2].description,data[3].description,data[4].description,]
+      console.log(this.menu)
+    });
+
     //Form variables
     this.formData = new FormGroup({
+      //Checkbox confirmation
+      confirmMon: new FormControl(),
+      confirmTue: new FormControl(),
+      confirmWed: new FormControl(),
+      confirmThu: new FormControl(),
+      confirmFri: new FormControl(),
       //Radio buttons: veg & non-veg
       optionMon: new FormControl(),
       optionTue: new FormControl(),
@@ -54,7 +69,7 @@ export class DashboardComponent implements OnInit {
       paymentFri: new FormControl()
     });
 
-    this.initCharts();
+    // this.initCharts();
   }
 
   //Reset btn
@@ -64,50 +79,56 @@ export class DashboardComponent implements OnInit {
 
   //Submit btn
   onClickSubmit(data: any) {
-    //so that the values do not remain null
-    //mapping
-    const order ={
-      id: 2,
-      //Radio buttons: veg & non-veg
-      optionMon: data.optionMon,
-      optionTue: data.optionTue,
-      optionWed: data.optionWed,
-      optionThu: data.optionThu,
-      optionFri: data.optionFri,
-      //Checkbox paid
-      paymentMon: data.paymentMon,
-      paymentTue: data.paymentTue,
-      paymentWed: data.paymentWed,
-      paymentThu: data.paymentThu,
-      paymentFri: data.paymentFri
-    };
+    //array to store confirmation from checkbox => True or false values.
+    var confirmation:any[]= new Array(data.confirmMon,data.confirmTue,data.confirmWed,data.confirmThu,data.confirmFri);
+
+    //array to store payment from checkbox => Simplified if to convert true to 1 and false to 0
+    var payment:any[] = new Array( data.confirmMon?1:0,data.confirmTue?1:0,data.confirmWed?1:0,data.confirmThu?1:0,data.confirmFri?1:0)
+
+    //array to store option from radio Button=> Veg or Non-Veg
+    var option:any[] = new Array(data.optionMon,data.optionTue,data.optionWed,data.optionThu,data.optionFri)
+
+    //array to store orders
+    var orders = new Array<Order>;
+
+    //array to store orders to be deleted
+    var deleteRequests = new Array<DailyConfirmation>;
+
+    //looping throug all orders
+    for(var i in confirmation){
+
+      //if checkbox for confimation is selected => Order is added to orders array to be saved
+      //if not selected goes into else branch => Order is added to deleteRequests to be deleted
+      if(confirmation[i]){
+        let  order= new Order(1,this.menu[i].id,payment[i],option[i]);
+        orders.push(order);
+      }else{
+        let dailyConfimation = new DailyConfirmation(1,this.menu[i].id);
+        deleteRequests.push(dailyConfimation);
+      }
+    }
 
     //to test
-    console.log(order)
+    console.log("These are orders")
+    console.log(orders)
+    console.log("These are orders")
 
     // faire appel à l'api
-    this.userService.postOrder(order).subscribe((data: IOrder[]) => {
+    //saving orders
+    this.userService.postOrder(orders).subscribe((data) => {
       console.log('message::::', data);
-      this.userOrder = data
-
-    //     this.user.prenom = data.prenom,
-    //     this.user.sexe = data.sexe,
-    //     this.user.dateDeNaissance = data.dateDeNaissance,
-    //     //to get the response inside DetailsDeces => data.detailsDeces....
-    //     this.user.codelieuDeNaissance = data.detailsDeces.codeLieuDeNaissance,
-    //     this.user.communeDeNaissance = data.detailsDeces.communeDeNaissance,
-    //     this.user.paysDeNaissance = data.detailsDeces.paysDeNaissance,
-    //     this.user.dateDeDeces = data.detailsDeces.dateDeDeces,
-    //     this.user.codeLieuDeDeces = data.detailsDeces.codeLieuDeDeces,
-    //     this.user.acteDeDeces = data.detailsDeces.acteDeDeces
-    //
-    //   this.formData.reset();
     });
+
+    //removing orders
+    this.userService.removeOrder(deleteRequests).subscribe((data)=>{
+      console.log(data);
+    })
+
   }
 
-  initCharts(): void {
-    this.mainChart = this.chartsData.mainChart;
-  }
+  // initCharts(): void {
+  //   this.mainChart = this.chartsData.mainChart;
+  // }
 
   // setTrafficPeriod(value: string): void {
   //   this.trafficRadioGroup.setValue({ trafficRadio: value });
