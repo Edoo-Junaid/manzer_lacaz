@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import group.acensi.manzerlacaz.entities.Order;
 import group.acensi.manzerlacaz.service.api.OrderService;
 import group.acensi.manzerlacaz.service.dto.OrderDto;
-import group.acensi.manzerlacaz.web.payload.DeleteOrderRequest;
+import group.acensi.manzerlacaz.web.payload.ManageOrderRequest;
 import group.acensi.manzerlacaz.web.payload.OrderOptionCountRequest;
 
 @RestController
@@ -51,7 +51,7 @@ public class OrderController {
     }
 
     @PostMapping("/deleteOrder")
-    public void findOrders(@RequestBody DeleteOrderRequest o) {
+    public void findOrders(@RequestBody ManageOrderRequest o) {
         orderService.deleteOrder(o.user_id(), o.menu_id());
 
     }
@@ -60,11 +60,12 @@ public class OrderController {
     public ResponseEntity<Order> addTrialMenu(@RequestBody OrderDto orderDto) {
         return new ResponseEntity<Order>(orderService.createTrialOrder(orderDto), HttpStatus.CREATED);
     }
-    
-    //checking if order exists need to change name deleteOrderRequest
+
     @PostMapping("/existOrNotOrder")
-    public void checkIfExistOrders(@RequestBody DeleteOrderRequest o) {
+    public void checkIfExistOrders(@RequestBody ManageOrderRequest o) {
         orderService.checkOrderExists(o.user_id(), o.menu_id());
     }
+
+
 
 }

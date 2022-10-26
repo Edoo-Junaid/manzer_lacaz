@@ -5,6 +5,7 @@ group\acensi\manzerlacaz\web\payload\OrderOptionCountRequest.class
 group\acensi\manzerlacaz\web\security\JwtUtils.class
 group\acensi\manzerlacaz\web\mapper\UserDetailsMapper.class
 group\acensi\manzerlacaz\web\configuration\WebConfig.class
+group\acensi\manzerlacaz\web\controller\RoleController.class
 group\acensi\manzerlacaz\web\controller\ExceptionAdvice.class
 group\acensi\manzerlacaz\web\configuration\WebSecurityConfig.class
 group\acensi\manzerlacaz\web\configuration\SwaggerConfig.class
@@ -14,6 +15,7 @@ group\acensi\manzerlacaz\web\mapper\UserDetailsMapperImpl.class
 group\acensi\manzerlacaz\web\payload\CreateUserRequest.class
 group\acensi\manzerlacaz\web\security\UserDetailsImpl.class
 group\acensi\manzerlacaz\web\controller\OrderController.class
+group\acensi\manzerlacaz\web\payload\ManageOrderRequest.class
 group\acensi\manzerlacaz\web\controller\UtilisateurController.class
 group\acensi\manzerlacaz\web\security\AuthTokenFilter.class
 group\acensi\manzerlacaz\web\payload\LoginRequest.class

@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.temporal.WeekFields;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Optional;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,8 @@ import group.acensi.manzerlacaz.service.mapper.OrderMapper;
 
 @Service
 public class OrderSericeImpl implements OrderService {
+    HashMap<Integer, String>Days=new HashMap<>();
+   
 
     @Autowired
     private OrderRepository orderRepository;
@@ -87,6 +91,7 @@ public class OrderSericeImpl implements OrderService {
         } else {
             Order order = OrderMapper.INSTANCE.toEntity(orderDto);
             return orderRepository.save(order);
+          
         }
 
     }
@@ -102,5 +107,10 @@ public class OrderSericeImpl implements OrderService {
        
         
     }
+    
 
 }
+    
+  
+
+

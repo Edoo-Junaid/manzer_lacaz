@@ -1,5 +1,6 @@
 group\acensi\manzerlacaz\service\dto\MenuDto.class
 group\acensi\manzerlacaz\service\api\OrderService.class
+group\acensi\manzerlacaz\service\api\RoleService.class
 group\acensi\manzerlacaz\service\api\MenuService.class
 group\acensi\manzerlacaz\service\dto\RoleDto.class
 group\acensi\manzerlacaz\service\api\UtilisateurService.class

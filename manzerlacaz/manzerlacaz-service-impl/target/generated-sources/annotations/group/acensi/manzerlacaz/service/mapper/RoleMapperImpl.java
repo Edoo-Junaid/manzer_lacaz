@@ -23,4 +23,17 @@ public class RoleMapperImpl implements RoleMapper {
 
         return roleDto;
     }
+
+    @Override
+    public Role toEntity(RoleDto roleDto) {
+        if ( roleDto == null ) {
+            return null;
+        }
+
+        Role role = new Role();
+
+        role.setNom( roleDto.getNom() );
+
+        return role;
+    }
 }

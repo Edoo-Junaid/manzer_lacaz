@@ -8,6 +8,9 @@
  */
 package group.acensi.manzerlacaz.service.mapper;
 
+
+import org.mapstruct.ReportingPolicy;
+
 import org.mapstruct.factory.Mappers;
 
 import group.acensi.manzerlacaz.entities.Role;
@@ -19,13 +22,14 @@ import group.acensi.manzerlacaz.service.dto.RoleDto;
  * @author Nadeem Nayeck <nadeem.nayeck@acensi.group>
  *
  */
-@org.mapstruct.Mapper
+@org.mapstruct.Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface RoleMapper {
-	
-	RoleMapper INSTANCE = Mappers.getMapper(RoleMapper.class);
 
+    RoleMapper INSTANCE = Mappers.getMapper(RoleMapper.class);
 
-	RoleDto toDto(Role role);
-	
+    RoleDto toDto(Role role);
+
+    
+    Role toEntity(RoleDto roleDto);
 
 }
