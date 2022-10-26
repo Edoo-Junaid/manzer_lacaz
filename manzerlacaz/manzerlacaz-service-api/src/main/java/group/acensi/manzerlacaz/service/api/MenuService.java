@@ -13,5 +13,6 @@ public interface MenuService {
     public List<MenuDto> listAllMenu();
     public int getCurrentWeekNumber();
     public List<MenuDto> listCurrentMenu();
-    
+    public boolean checkIfMenuExists(String day);
+    public Long getIdFromDayAndWeekNum(String day);
 }

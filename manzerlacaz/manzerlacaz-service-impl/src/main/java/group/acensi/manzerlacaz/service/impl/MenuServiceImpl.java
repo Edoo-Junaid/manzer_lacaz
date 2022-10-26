@@ -23,30 +23,40 @@ public class MenuServiceImpl implements MenuService{
     public Menu createMenu(MenuDto menuDto) {
         Menu menu = MenuMapper.INSTANCE.toEntity(menuDto);
         menu.setWeekNum(this.getCurrentWeekNumber());
-        return menurepository.save(menu);
+        if(checkIfMenuExists(menu.getDay())){
+            menurepository.deleteById(this.getIdFromDayAndWeekNum(menu.getDay()));
+           System.out.println("I am inside delete");
+            return menurepository.save(menu);
+        }else{
+            System.out.println("I am inside create");
+            return menurepository.save(menu);
+        }
     }
 
-    
     @Override
     public List<MenuDto> listAllMenu() {
        return  menurepository.findAll().stream().map(MenuMapper.INSTANCE::toDto).toList();
     }
-
 
     @Override
     public int getCurrentWeekNumber() {
         Calendar cal = Calendar.getInstance();
         return cal.get(Calendar.WEEK_OF_YEAR);
     }
-
-
+    
     @Override
     public List<MenuDto> listCurrentMenu() {
         return menurepository.findByWeekNum(this.getCurrentWeekNumber()).stream().map(MenuMapper.INSTANCE::toDto).toList();
-        
     }
-    
-    
-    
+
+    @Override
+    public boolean checkIfMenuExists(String day) {
+        return menurepository.checkIfOrderExists(this.getCurrentWeekNumber(), day);
+    }
+
+    @Override
+    public Long getIdFromDayAndWeekNum(String day) {
+        return menurepository.getIdFromDayAndWeekNum(this.getCurrentWeekNumber(), day);
+    }
     
 }
