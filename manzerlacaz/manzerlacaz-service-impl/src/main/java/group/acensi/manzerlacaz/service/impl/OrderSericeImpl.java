@@ -61,7 +61,9 @@ public class OrderSericeImpl implements OrderService {
 
     @Override
     public void deleteOrder(Long user_id, Long menu_id) {
-        orderRepository.deleteById((long) findOrderId(user_id, menu_id));
+        if(orderRepository.checkIfOrderExists(user_id, menu_id)){
+            orderRepository.deleteById(this.findOrderId(user_id, menu_id));
+        }
     }
 
     @Override
