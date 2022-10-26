@@ -10,7 +10,7 @@ import group.acensi.manzerlacaz.entities.Order;
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
     @Query("SELECT id FROM Order where user_id=?1 AND menu_id=?2")
-    public int findOrderById(int user_id, int menu_id);
+    public int findOrderById(Long user_id, Long menu_id);
 
     @Query("SELECT COUNT(o) FROM Order o INNER JOIN Menu m ON m.id=o.menu_id WHERE m.weekNum = ?1 AND m.day = ?2")
     public Long countOrdersByDayAndWeekNum(int weekNum, String day);
@@ -20,9 +20,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     
     @Query("SELECT EXISTS(SELECT 1 FROM Order WHERE user_id=?1 AND menu_id=?2)")
-    public boolean checkIfOrderExists(int user_id, int menu_id);
-
-    
- 
+    public boolean checkIfOrderExists(Long user_id, Long menu_id);
 
 }

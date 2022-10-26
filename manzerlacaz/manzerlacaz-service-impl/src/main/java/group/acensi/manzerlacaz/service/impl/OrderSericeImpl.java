@@ -5,7 +5,6 @@ import java.time.LocalTime;
 import java.time.temporal.WeekFields;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Optional;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +19,8 @@ import group.acensi.manzerlacaz.service.mapper.OrderMapper;
 
 @Service
 public class OrderSericeImpl implements OrderService {
-    HashMap<Integer, String>Days=new HashMap<>();
+    HashMap<Integer, String> Days=new HashMap<>();
    
-
     @Autowired
     private OrderRepository orderRepository;
 
@@ -31,6 +29,9 @@ public class OrderSericeImpl implements OrderService {
 
     @Override
     public Order createOrder(OrderDto orderDto) {
+        if(orderRepository.checkIfOrderExists(orderDto.getUser_id(),orderDto.getMenu_id())){
+            orderDto.setId(this.findOrderId(orderDto.getUser_id(), orderDto.getMenu_id()));
+        }
         Order order = OrderMapper.INSTANCE.toEntity(orderDto);
         return orderRepository.save(order);
     }
@@ -54,14 +55,13 @@ public class OrderSericeImpl implements OrderService {
     }
 
     @Override
-    public int findOrderId(int user_id, int menu_id) {
+    public long findOrderId(Long user_id, Long menu_id) {
         return orderRepository.findOrderById(user_id, menu_id);
     }
 
     @Override
-    public void deleteOrder(int user_id, int menu_id) {
+    public void deleteOrder(Long user_id, Long menu_id) {
         orderRepository.deleteById((long) findOrderId(user_id, menu_id));
-
     }
 
     @Override
@@ -91,24 +91,18 @@ public class OrderSericeImpl implements OrderService {
         } else {
             Order order = OrderMapper.INSTANCE.toEntity(orderDto);
             return orderRepository.save(order);
-          
         }
-
     }
     
     @Override
-    public void checkOrderExists(int user_id,int menu_id) {
+    public void checkOrderExists(Long user_id,Long menu_id) {
         
         if(orderRepository.checkIfOrderExists(user_id, menu_id)==true) {
             System.out.println("exists");
         }else {
             System.out.println("not exists");
         }
-       
-        
     }
-    
-
 }
     
   

@@ -14,19 +14,15 @@ public interface OrderService {
 
     public Long getOrderOptionCountByDay(String option, String day);
 
-    public int findOrderId(int user_id, int menu_id);
+    public long findOrderId(Long user_id, Long menu_id);
 
-    public void deleteOrder(int user_id, int menu_id);
+    public void deleteOrder(Long user_id, Long menu_id);
 
     Order createTrialOrder(OrderDto orderDto);
 
     LocalDate calculateDate(int id);
 
-    void checkOrderExists(int user_id, int menu_id);
-
- 
-
-
+    void checkOrderExists(Long user_id, Long menu_id);
 
 
 }

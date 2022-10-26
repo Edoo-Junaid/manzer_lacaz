@@ -53,7 +53,6 @@ public class OrderController {
     @PostMapping("/deleteOrder")
     public void findOrders(@RequestBody ManageOrderRequest o) {
         orderService.deleteOrder(o.user_id(), o.menu_id());
-
     }
 
     @PostMapping("/trialAddOrder")
