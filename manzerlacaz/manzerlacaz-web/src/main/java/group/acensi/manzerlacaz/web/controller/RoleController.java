@@ -19,6 +19,7 @@ public class RoleController {
     @Autowired
     private RoleService roleService;
 
+    //Add a Role 
     @PostMapping("/addRole")
     public ResponseEntity<Role> addMenu(@RequestBody RoleDto roleDto) {
         return new ResponseEntity<Role>(roleService.createRole(roleDto), HttpStatus.CREATED);
