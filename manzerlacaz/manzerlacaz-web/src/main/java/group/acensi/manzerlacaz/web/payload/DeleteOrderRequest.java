@@ -1,5 +1,5 @@
 package group.acensi.manzerlacaz.web.payload;
 
-public record ManageOrderRequest(Long user_id,Long menu_id) {
+public record DeleteOrderRequest(Long user_id,Long menu_id) {
 
 }
