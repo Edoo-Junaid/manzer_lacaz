@@ -27,6 +27,7 @@ public class OrderSericeImpl implements OrderService {
     @Autowired
     private MenuRepository menuRepository;
 
+    //update order if exists else create
     @Override
     public Order createOrder(OrderDto orderDto) {
         if(orderRepository.checkIfOrderExists(orderDto.getUser_id(),orderDto.getMenu_id())){
