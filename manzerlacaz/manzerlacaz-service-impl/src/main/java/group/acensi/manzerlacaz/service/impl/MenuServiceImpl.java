@@ -51,7 +51,7 @@ public class MenuServiceImpl implements MenuService{
 
     @Override
     public boolean checkIfMenuExists(String day) {
-        return menurepository.checkIfOrderExists(this.getCurrentWeekNumber(), day);
+        return menurepository.checkIfMenuExists(this.getCurrentWeekNumber(), day);
     }
 
     @Override

@@ -19,7 +19,7 @@ public interface MenuRepository extends JpaRepository<Menu, Long> {
     public String weekDay(int id);
 
     @Query("SELECT EXISTS(SELECT 1 FROM Menu WHERE weekNum=?1 AND day=?2)")
-    public boolean checkIfOrderExists(int weekNumn,String day);
+    public boolean checkIfMenuExists(int weekNumn,String day);
 
     @Query("SELECT id FROM Menu WHERE weekNum=?1 AND day=?2")
     public Long getIdFromDayAndWeekNum(int weekNum, String day);
