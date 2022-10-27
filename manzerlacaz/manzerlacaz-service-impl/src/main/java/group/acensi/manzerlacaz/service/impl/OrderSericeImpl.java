@@ -30,19 +30,26 @@ public class OrderSericeImpl implements OrderService {
     @Override
     public Order createOrder(OrderDto orderDto) {
         LocalDate dateOfMenu = calculateDate(orderDto.getMenu_id().intValue());
+        System.out.println("date of menu: " +dateOfMenu);
         LocalDate dateCurrent = LocalDate.now();
+        System.out.println("date current: " +dateCurrent);
         LocalTime time = LocalTime.now();
         String preSetValue = "10:00:00";
+        System.out.println(orderDto);
         LocalTime preSet = LocalTime.parse(preSetValue);
         if ((dateCurrent.toString().equals(dateOfMenu.toString()) && time.isAfter(preSet))
                 || dateCurrent.isAfter(dateOfMenu)) {
+            
             System.out.println("order time elapsed");
             return null;
         } else {
             if (orderRepository.checkIfOrderExists(orderDto.getUser_id(), orderDto.getMenu_id())) {
+                System.out.println("order exists");
                 orderDto.setId(this.findOrderId(orderDto.getUser_id(), orderDto.getMenu_id()));
             }
+            System.out.println("order created");
             Order order = OrderMapper.INSTANCE.toEntity(orderDto);
+            System.out.println(order);
             return orderRepository.save(order);
         }
 
@@ -67,7 +74,6 @@ public class OrderSericeImpl implements OrderService {
         return orderRepository.countOrdersOptionByDayAndWeekNum(option, this.getCurrentWeekNumber(), day);
     }
 
-    
     @Override
     public long findOrderId(Long user_id, Long menu_id) {
         return orderRepository.findOrderById(user_id, menu_id);

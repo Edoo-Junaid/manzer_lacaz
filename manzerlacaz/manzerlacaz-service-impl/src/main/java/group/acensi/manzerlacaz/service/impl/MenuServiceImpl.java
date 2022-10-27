@@ -44,7 +44,7 @@ public class MenuServiceImpl implements MenuService{
     @Override
     public int getCurrentWeekNumber() {
         Calendar cal = Calendar.getInstance();
-        return cal.get(Calendar.WEEK_OF_YEAR);
+        return cal.get(Calendar.WEEK_OF_YEAR)-1;
     }
     
     //Method to list the current menu
