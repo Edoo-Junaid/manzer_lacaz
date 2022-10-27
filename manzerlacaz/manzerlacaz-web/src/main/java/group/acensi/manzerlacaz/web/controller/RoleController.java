@@ -24,6 +24,4 @@ public class RoleController {
         return new ResponseEntity<Role>(roleService.createRole(roleDto), HttpStatus.CREATED);
     }
 
-
-
 }
