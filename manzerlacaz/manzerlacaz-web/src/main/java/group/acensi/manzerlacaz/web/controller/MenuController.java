@@ -17,7 +17,7 @@ import group.acensi.manzerlacaz.web.payload.CreateMenuRequest;
 
 
 @RestController
-@RequestMapping("/api/auth/menu")
+@RequestMapping("/api/menu")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class MenuController {
 	
