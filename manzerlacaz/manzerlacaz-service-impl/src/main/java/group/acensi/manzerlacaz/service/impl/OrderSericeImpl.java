@@ -56,13 +56,11 @@ public class OrderSericeImpl implements OrderService {
 
     @Override
     public Long getOrderCountByDay(String day) {
-        System.out.println(this.getCurrentWeekNumber() + " " + day);
         return orderRepository.countOrdersByDayAndWeekNum(this.getCurrentWeekNumber(), day);
     }
 
     @Override
     public Long getOrderOptionCountByDay(String option, String day) {
-        System.out.println(this.getCurrentWeekNumber() + " " + day);
         return orderRepository.countOrdersOptionByDayAndWeekNum(option, this.getCurrentWeekNumber(), day);
     }
 

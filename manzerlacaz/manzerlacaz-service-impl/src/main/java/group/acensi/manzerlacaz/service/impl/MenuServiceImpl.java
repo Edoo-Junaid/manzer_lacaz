@@ -21,16 +21,12 @@ public class MenuServiceImpl implements MenuService{
 
     @Override
     public Menu createMenu(MenuDto menuDto) {
-        Menu menu = MenuMapper.INSTANCE.toEntity(menuDto);
-        menu.setWeekNum(this.getCurrentWeekNumber());
-        if(checkIfMenuExists(menu.getDay())){
-            menurepository.deleteById(this.getIdFromDayAndWeekNum(menu.getDay()));
-           System.out.println("I am inside delete");
-            return menurepository.save(menu);
-        }else{
-            System.out.println("I am inside create");
-            return menurepository.save(menu);
+        menuDto.setWeekNum(this.getCurrentWeekNumber());
+        if(checkIfMenuExists(menuDto.getDay())){
+            menuDto.setId(this.getIdFromDayAndWeekNum(menuDto.getDay()));
         }
+        Menu menu = MenuMapper.INSTANCE.toEntity(menuDto);
+        return menurepository.save(menu);
     }
 
     @Override
