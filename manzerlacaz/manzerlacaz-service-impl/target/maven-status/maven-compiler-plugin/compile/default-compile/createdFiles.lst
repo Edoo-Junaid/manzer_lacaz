@@ -10,4 +10,5 @@ group\acensi\manzerlacaz\service\mapper\MenuMapperImpl.class
 group\acensi\manzerlacaz\service\mapper\OrderMapperImpl.class
 group\acensi\manzerlacaz\service\mapper\UtilisateurMapperImpl.class
 group\acensi\manzerlacaz\service\configuration\TransactionConfiguration.class
+group\acensi\manzerlacaz\service\impl\OrderSericeImpl$1.class
 group\acensi\manzerlacaz\service\impl\MenuServiceImpl.class
