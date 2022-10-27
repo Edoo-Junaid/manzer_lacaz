@@ -7,6 +7,7 @@ C:\Users\diksh\OneDrive\Desktop\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\mai
 C:\Users\diksh\OneDrive\Desktop\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\payload\JwtResponse.java
 C:\Users\diksh\OneDrive\Desktop\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\controller\OrderController.java
 C:\Users\diksh\OneDrive\Desktop\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\controller\ExceptionAdvice.java
+C:\Users\diksh\OneDrive\Desktop\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\payload\DeleteOrderRequest.java
 C:\Users\diksh\OneDrive\Desktop\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\payload\OrderOptionCountRequest.java
 C:\Users\diksh\OneDrive\Desktop\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\controller\RoleController.java
 C:\Users\diksh\OneDrive\Desktop\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\security\AuthTokenFilter.java
@@ -15,7 +16,6 @@ C:\Users\diksh\OneDrive\Desktop\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\mai
 C:\Users\diksh\OneDrive\Desktop\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\configuration\WebConfig.java
 C:\Users\diksh\OneDrive\Desktop\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\security\SecurityUtils.java
 C:\Users\diksh\OneDrive\Desktop\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\configuration\WebSecurityConfig.java
-C:\Users\diksh\OneDrive\Desktop\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\payload\ManageOrderRequest.java
 C:\Users\diksh\OneDrive\Desktop\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\security\JwtUtils.java
 C:\Users\diksh\OneDrive\Desktop\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\mapper\UserDetailsMapper.java
 C:\Users\diksh\OneDrive\Desktop\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\payload\CreateUserRequest.java

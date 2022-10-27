@@ -63,9 +63,4 @@ public class MenuController {
         return menuService.listCurrentMenu();
     }
     
-    @GetMapping("/hello")
-    public String hello(){
-        System.out.println("hello was called");
-        return "hello";
-    }
 }

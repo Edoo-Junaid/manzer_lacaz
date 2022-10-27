@@ -49,21 +49,21 @@ public class OrderController {
 
     //Get total count of veg or non-veg orders in a day 
     @PostMapping("/getOrderOptionCountByDay")
-    public Long getOrderOptionCountByDay(@RequestBody OrderOptionCountRequest o) {
-        return orderService.getOrderOptionCountByDay(o.option(), o.day());
+    public Long getOrderOptionCountByDay(@RequestBody OrderOptionCountRequest orderOptionCountRequest) {
+        return orderService.getOrderOptionCountByDay(orderOptionCountRequest.option(), orderOptionCountRequest.day());
     }
 
     //Delete an order
     @PostMapping("/deleteOrder")
-    public void findOrders(@RequestBody DeleteOrderRequest o) {
-        orderService.deleteOrder(o.user_id(), o.menu_id());
+    public void findOrders(@RequestBody DeleteOrderRequest deleteOrderRequest) {
+        orderService.deleteOrder(deleteOrderRequest.user_id(), deleteOrderRequest.menu_id());
     }
     
 
     //Check if order exist or not in database
     @PostMapping("/existOrNotOrder")
-    public void checkIfExistOrders(@RequestBody DeleteOrderRequest o) {
-        orderService.checkOrderExists(o.user_id(), o.menu_id());
+    public void checkIfExistOrders(@RequestBody DeleteOrderRequest deleteOrderRequest) {
+        orderService.checkOrderExists(deleteOrderRequest.user_id(), deleteOrderRequest.menu_id());
     }
 
     //Delete a list of orders
