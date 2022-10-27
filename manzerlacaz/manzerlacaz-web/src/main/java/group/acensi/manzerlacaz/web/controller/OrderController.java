@@ -55,10 +55,6 @@ public class OrderController {
         orderService.deleteOrder(o.user_id(), o.menu_id());
     }
     
-    @PostMapping("/trialAddOrder")
-    public ResponseEntity<Order> addTrialMenu(@RequestBody OrderDto orderDto) {
-        return new ResponseEntity<Order>(orderService.createTrialOrder(orderDto), HttpStatus.CREATED);
-    }
 
     @PostMapping("/existOrNotOrder")
     public void checkIfExistOrders(@RequestBody ManageOrderRequest o) {

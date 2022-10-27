@@ -18,8 +18,6 @@ public interface OrderService {
 
     public void deleteOrder(Long user_id, Long menu_id);
 
-    Order createTrialOrder(OrderDto orderDto);
-
     LocalDate calculateDate(int id);
 
     void checkOrderExists(Long user_id, Long menu_id);

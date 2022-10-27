@@ -29,11 +29,23 @@ public class OrderSericeImpl implements OrderService {
 
     @Override
     public Order createOrder(OrderDto orderDto) {
-        if(orderRepository.checkIfOrderExists(orderDto.getUser_id(),orderDto.getMenu_id())){
-            orderDto.setId(this.findOrderId(orderDto.getUser_id(), orderDto.getMenu_id()));
+        LocalDate menuDate = calculateDate(orderDto.getMenu_id().intValue());
+        LocalDate dateCurrent = LocalDate.now();
+        LocalTime time = LocalTime.now();
+        String preSetValue = "10:00:00";
+        LocalTime preSet = LocalTime.parse(preSetValue);
+        if ((dateCurrent.toString().equals(menuDate.toString()) && time.isAfter(preSet))
+                || dateCurrent.isAfter(menuDate)) {
+            System.out.println("order time elapsed");
+            return null;
+        } else {
+            if(orderRepository.checkIfOrderExists(orderDto.getUser_id(),orderDto.getMenu_id())){
+                orderDto.setId(this.findOrderId(orderDto.getUser_id(), orderDto.getMenu_id()));
+            }
+            Order order = OrderMapper.INSTANCE.toEntity(orderDto);
+            return orderRepository.save(order);
         }
-        Order order = OrderMapper.INSTANCE.toEntity(orderDto);
-        return orderRepository.save(order);
+
     }
 
     @Override
@@ -79,22 +91,7 @@ public class OrderSericeImpl implements OrderService {
         return date;
     }
 
-    @Override
-    public Order createTrialOrder(OrderDto orderDto) {
-        LocalDate menuDate = calculateDate(orderDto.getMenu_id().intValue());
-        LocalDate dateCurrent = LocalDate.now();
-        LocalTime time = LocalTime.now();
-        String preSetValue = "10:00:00";
-        LocalTime preSet = LocalTime.parse(preSetValue);
-        if ((dateCurrent.toString().equals(menuDate.toString()) && time.isAfter(preSet))
-                || dateCurrent.isAfter(menuDate)) {
-            System.out.println("order time elapsed");
-            return null;
-        } else {
-            Order order = OrderMapper.INSTANCE.toEntity(orderDto);
-            return orderRepository.save(order);
-        }
-    }
+
     
     @Override
     public void checkOrderExists(Long user_id,Long menu_id) {
