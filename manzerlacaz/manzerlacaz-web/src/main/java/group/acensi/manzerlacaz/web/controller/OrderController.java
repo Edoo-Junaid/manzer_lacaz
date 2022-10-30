@@ -14,33 +14,49 @@ import org.springframework.web.bind.annotation.RestController;
 
 import group.acensi.manzerlacaz.entities.Order;
 import group.acensi.manzerlacaz.service.api.OrderService;
+import group.acensi.manzerlacaz.service.dto.MenuDto;
 import group.acensi.manzerlacaz.service.dto.OrderDto;
+import group.acensi.manzerlacaz.service.mapper.MenuMapper;
+import group.acensi.manzerlacaz.web.payload.CreateMenuRequest;
+import group.acensi.manzerlacaz.web.payload.CreateOrderRequest;
 import group.acensi.manzerlacaz.web.payload.DeleteOrderRequest;
 import group.acensi.manzerlacaz.web.payload.OrderOptionCountRequest;
 
 @RestController
-@RequestMapping("/api/auth/order")
+@RequestMapping("/api/order")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class OrderController {
 
     @Autowired
     private OrderService orderService;
-//Add an order
+    //Add an order
     @PostMapping("/addOrder")
-    public ResponseEntity<Order> addMenu(@RequestBody OrderDto orderDto) {
-        return new ResponseEntity<Order>(orderService.createOrder(orderDto), HttpStatus.CREATED);
+    public ResponseEntity<OrderDto> addMenu(@RequestBody CreateOrderRequest createOrderRequest) {
+        OrderDto orderDto = new OrderDto();
+        orderDto.setUser_id(createOrderRequest.user_id());
+        orderDto.setMenu_id(createOrderRequest.menu_id());
+        orderDto.setPayment(createOrderRequest.payment());
+        orderDto.setOption(createOrderRequest.option());
+        return new ResponseEntity<OrderDto>(orderService.createOrder(orderDto), HttpStatus.CREATED);
     }
 
     // Add orders for a week
     @PostMapping("/addWeekOrder")
-    public List<Order> addWeekOrder(@RequestBody List<OrderDto> orders) {
-        List<Order> ordersSaved = new ArrayList<Order>();
-        for (OrderDto order : orders) {
-            ordersSaved.add(orderService.createOrder(order));
+    public List<ResponseEntity<OrderDto>> addWeekOrder(@RequestBody List<CreateOrderRequest> orders) {
+        List<ResponseEntity<OrderDto>> ordersSaved = new ArrayList<>();
+        for (CreateOrderRequest createOrderRequest : orders) {
+            OrderDto orderDto = new OrderDto();
+            orderDto.setUser_id(createOrderRequest.user_id());
+            orderDto.setMenu_id(createOrderRequest.menu_id());
+            orderDto.setPayment(createOrderRequest.payment());
+            orderDto.setOption(createOrderRequest.option());
+            ordersSaved.add(new ResponseEntity<OrderDto>(orderService.createOrder(orderDto), HttpStatus.CREATED));
         }
+        System.out.println(ordersSaved);
         return ordersSaved;
     }
 
+    
     //Get total count of orders in a day
     @PostMapping("/getOrderCountByDay")
     public Long getOrderCountByDay(@RequestBody String day) {

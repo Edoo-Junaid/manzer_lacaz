@@ -6,7 +6,7 @@ import group.acensi.manzerlacaz.entities.Order;
 import group.acensi.manzerlacaz.service.dto.OrderDto;
 
 public interface OrderService {
-    public Order createOrder(OrderDto orderDto); //creating an order
+    public OrderDto createOrder(OrderDto orderDto); //creating an order
 
     public int getCurrentWeekNumber(); //calculating current week number
 
@@ -20,7 +20,7 @@ public interface OrderService {
 
     LocalDate calculateDate(int id); //to find date of a menu record in database
 
-    void checkOrderExists(Long user_id, Long menu_id); //checks if order exists in database
+    public boolean checkOrderExists(Long user_id, Long menu_id); //checks if order exists in database
 
 
 }
