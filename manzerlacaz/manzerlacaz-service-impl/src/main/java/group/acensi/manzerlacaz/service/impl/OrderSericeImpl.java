@@ -6,7 +6,6 @@ import java.time.temporal.WeekFields;
 import java.util.Calendar;
 import java.util.HashMap;
 
-import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
