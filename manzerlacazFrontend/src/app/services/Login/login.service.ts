@@ -1,0 +1,19 @@
+import { Injectable } from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {LoginRequest} from "./LoginRequest";
+import {Observable} from "rxjs";
+@Injectable({
+  providedIn: 'root'
+})
+export class LoginService {
+  private url ='http://localhost:8080/api/';
+  constructor(private http:HttpClient) { }
+
+  login(loginRequest:LoginRequest):Observable<any>{
+    const contType="application/json"
+    const headers = { 'content-type': contType}
+    const body=JSON.stringify(loginRequest);
+    return this.http.post(this.url+'auth/login',body,{'headers':headers})
+  }
+
+}
