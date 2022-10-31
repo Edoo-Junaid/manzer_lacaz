@@ -4,8 +4,8 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-27T10:17:13+0400",
-    comments = "version: 1.5.2.Final, compiler: Eclipse JDT (IDE) 1.4.200.v20220802-0458, environment: Java 17.0.4.1 (Eclipse Adoptium)"
+    date = "2022-10-30T10:47:00+0400",
+    comments = "version: 1.5.2.Final, compiler: Eclipse JDT (IDE) 1.4.200.v20221012-0724, environment: Java 17.0.4.1 (Eclipse Adoptium)"
 )
 public class UserDetailsMapperImpl implements UserDetailsMapper {
 }
