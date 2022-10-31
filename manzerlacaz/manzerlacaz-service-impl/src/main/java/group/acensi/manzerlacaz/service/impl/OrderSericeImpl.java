@@ -10,8 +10,10 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import group.acensi.manzerlacaz.dao.ConfigRepository;
 import group.acensi.manzerlacaz.dao.MenuRepository;
 import group.acensi.manzerlacaz.dao.OrderRepository;
+import group.acensi.manzerlacaz.entities.Config;
 import group.acensi.manzerlacaz.entities.Order;
 import group.acensi.manzerlacaz.service.api.OrderService;
 import group.acensi.manzerlacaz.service.dto.OrderDto;
@@ -25,29 +27,30 @@ public class OrderSericeImpl implements OrderService {
 
     @Autowired
     private MenuRepository menuRepository;
+    @Autowired
+    private ConfigRepository configRepository;
 
     // Update order if exists else create
     @Override
     public Order createOrder(OrderDto orderDto) {
         LocalDate dateOfMenu = calculateDate(orderDto.getMenu_id().intValue());
-        System.out.println("date of menu: " +dateOfMenu);
+
         LocalDate dateCurrent = LocalDate.now();
-        System.out.println("date current: " +dateCurrent);
+
         LocalTime time = LocalTime.now();
-        String preSetValue = "10:00:00";
-        System.out.println(orderDto);
+        String preSetValue = configRepository.presetTime();
+        System.out.println(configRepository.presetTime());
         LocalTime preSet = LocalTime.parse(preSetValue);
         if ((dateCurrent.toString().equals(dateOfMenu.toString()) && time.isAfter(preSet))
                 || dateCurrent.isAfter(dateOfMenu)) {
-            
-            System.out.println("order time elapsed");
+
             return null;
         } else {
             if (orderRepository.checkIfOrderExists(orderDto.getUser_id(), orderDto.getMenu_id())) {
-                System.out.println("order exists");
+
                 orderDto.setId(this.findOrderId(orderDto.getUser_id(), orderDto.getMenu_id()));
             }
-            System.out.println("order created");
+
             Order order = OrderMapper.INSTANCE.toEntity(orderDto);
             System.out.println(order);
             return orderRepository.save(order);
@@ -55,20 +58,20 @@ public class OrderSericeImpl implements OrderService {
 
     }
 
-    //Get current week number calendar
+    // Get current week number calendar
     @Override
     public int getCurrentWeekNumber() {
         Calendar cal = Calendar.getInstance();
         return cal.get(Calendar.WEEK_OF_YEAR);
     }
 
-    //Get total number of orders in a day
+    // Get total number of orders in a day
     @Override
     public Long getOrderCountByDay(String day) {
         return orderRepository.countOrdersByDayAndWeekNum(this.getCurrentWeekNumber(), day);
     }
 
-    //Get total veg or non-veg orders in a day
+    // Get total veg or non-veg orders in a day
     @Override
     public Long getOrderOptionCountByDay(String option, String day) {
         return orderRepository.countOrdersOptionByDayAndWeekNum(option, this.getCurrentWeekNumber(), day);
@@ -79,7 +82,7 @@ public class OrderSericeImpl implements OrderService {
         return orderRepository.findOrderById(user_id, menu_id);
     }
 
-    //Finding an order by its id and Deleting the order
+    // Finding an order by its id and Deleting the order
     @Override
     public void deleteOrder(Long user_id, Long menu_id) {
         if (orderRepository.checkIfOrderExists(user_id, menu_id)) {
@@ -87,7 +90,7 @@ public class OrderSericeImpl implements OrderService {
         }
     }
 
-    //Calculate date using week number and day of the week
+    // Calculate date using week number and day of the week
     @Override
     public LocalDate calculateDate(int id) {
         HashMap<String, Integer> Days = new HashMap<>() {
@@ -112,7 +115,7 @@ public class OrderSericeImpl implements OrderService {
         return date;
     }
 
-    //Check if order exists in database
+    // Check if order exists in database
     @Override
     public void checkOrderExists(Long user_id, Long menu_id) {
 
