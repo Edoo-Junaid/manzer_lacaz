@@ -1,76 +1,90 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from "@angular/forms";
+import {MenuService} from "../../services/Menu/menu.service";
+import {MenuCreation} from "../charts/MenuCreation";
+import {Order} from "../dashboard/Order";
 
 @Component({
   selector: 'app-charts',
   templateUrl: './charts.component.html',
   styleUrls: ['./charts.component.scss']
 })
-export class ChartsComponent {
+export class ChartsComponent implements OnInit{
 
-  months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  formData!: FormGroup;
 
-  chartBarData = {
-    labels: [...this.months].slice(0, 7),
-    datasets: [
-      {
-        label: 'GitHub Commits',
-        backgroundColor: '#f87979',
-        data: [40, 20, 12, 39, 17, 42, 79]
-      }
-    ]
-  };
-
-  // chartBarOptions = {
-  //   maintainAspectRatio: false,
-  // };
-
-
-  chartPolarAreaData = {
-    labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue'],
-    datasets: [
-      {
-        data: [11, 16, 7, 3, 14],
-        backgroundColor: ['#FF6384', '#4BC0C0', '#FFCE56', '#E7E9ED', '#36A2EB']
-      }
-    ]
-  };
-
-  chartRadarData = {
-    labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
-    datasets: [
-      {
-        label: '2020',
-        backgroundColor: 'rgba(179,181,198,0.2)',
-        borderColor: 'rgba(179,181,198,1)',
-        pointBackgroundColor: 'rgba(179,181,198,1)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgba(179,181,198,1)',
-        tooltipLabelColor: 'rgba(179,181,198,1)',
-        data: [65, 59, 90, 81, 56, 55, 40]
-      },
-      {
-        label: '2021',
-        backgroundColor: 'rgba(255,99,132,0.2)',
-        borderColor: 'rgba(255,99,132,1)',
-        pointBackgroundColor: 'rgba(255,99,132,1)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgba(255,99,132,1)',
-        tooltipLabelColor: 'rgba(255,99,132,1)',
-        data: [this.randomData, this.randomData, this.randomData, this.randomData, this.randomData, this.randomData, this.randomData]
-      }
-    ]
-  };
-
-  // chartRadarOptions = {
-  //   aspectRatio: 1.5,
-  //   responsive: true,
-  //   maintainAspectRatio: false,
-  // };
-
-  get randomData() {
-    return Math.round(Math.random() * 100);
+  constructor(public menuService: MenuService) {
   }
 
+  ngOnInit(): void {
+    //Form variables
+    this.formData = new FormGroup({
+      //Text area- input menus
+      menuMon: new FormControl(),
+      menuTue: new FormControl(),
+      menuWed: new FormControl(),
+      menuThu: new FormControl(),
+      menuFri: new FormControl(),
+
+      //Text area- input price
+      priceMon: new FormControl(),
+      priceTue: new FormControl(),
+      priceWed: new FormControl(),
+      priceThu: new FormControl(),
+      priceFri: new FormControl(),
+
+      //Checkbox: veg & non-veg
+      optionMonVeg: new FormControl(),
+      optionMonNonVeg: new FormControl(),
+
+      optionTueVeg: new FormControl(),
+      optionTueNonVeg: new FormControl(),
+
+      optionWedVeg: new FormControl(),
+      optionWedNonVeg: new FormControl(),
+
+      optionThuVeg: new FormControl(),
+      optionThuNonVeg: new FormControl(),
+
+      optionFriVeg: new FormControl(),
+      optionFriNonVeg: new FormControl()
+    });
+  }
+
+  //Reset btn
+  onClickReset(data: any){
+    this.formData.reset();
+  }
+
+  //Submit btn
+  onClickSubmit(data: any) {
+
+    //array to store the following
+    var menuDesc:string[] = new Array( data.menuMon,data.menuTue,data.menuWed,data.menuThu,data.menuFri)
+    var price:string[] = new Array( data.priceMon,data.priceTue,data.priceWed,data.priceThu,data.priceFri)
+    var day:string[] = new Array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+    var optionVeg:string[] = new Array(data.optionMonVeg? "Veg":"",data.optionTueVeg? "Veg":"",data.optionWedVeg? "Veg":"",data.optionThuVeg? "Veg":"",data.optionFriVeg? "Veg":"")
+    var optionNonVeg:string[] = new Array(data.optionMonNonVeg? "NonVeg":"",data.optionTueNonVeg? "NonVeg":"",data.optionWedNonVeg? "NonVeg":"",data.optionThuNonVeg? "NonVeg":"",data.optionFriNonVeg? "NonVeg":"")
+    var option:string
+    //array to store all menus
+    var menus = new Array<MenuCreation>;
+
+    //looping through all orders
+    for (var i in menuDesc) {
+      if (!(optionVeg[i] == "" && optionNonVeg[i] == "")){
+        //Concat to obtain option
+        option = optionVeg[i] + ';' + optionNonVeg[i]
+      }
+      // @ts-ignore
+      let  menu= new MenuCreation(menuDesc[i], price[i], day[i], option);
+      menus.push(menu);
+    }
+
+    // faire appel à l'api
+    //saving menus
+    this.menuService.postMenu(menus).subscribe((data: any) => {
+      console.log('message::::', data);
+    });
+
+  }
 }

@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import { Order } from '../../views/dashboard/Order';
 import { Observable } from 'rxjs';
-import { Menu } from '../../views/dashboard/Menu';
 import { DailyConfirmation } from '../../views/dashboard/DailyConfirmation';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class OrderService {
 
   constructor(private http: HttpClient) { }
 
@@ -39,14 +38,9 @@ export class UserService {
     return this.http.post<any>(this.rootURL + '/order/addWeekOrder', body,{'headers': headers});
   }
 
-  //Displaying menus
-  getMenus(){
-    return this.http.get<Array<Menu>>(this.rootURL + '/menu/getCurrentMenu');
-  }
-
   removeOrder(daily: Array<DailyConfirmation>) :Observable<any>{
     const headers ={'content-type':'application/json'};
     const body = JSON.stringify(daily);
-    return this.http.post<any>(this.rootURL + '/order/deleteOrder', body,{'headers': headers});
+    return this.http.post<any>(this.rootURL + '/order/deleteOrders', body,{'headers': headers});
   }
 }

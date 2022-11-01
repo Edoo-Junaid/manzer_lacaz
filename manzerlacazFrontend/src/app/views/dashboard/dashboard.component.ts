@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {UntypedFormControl, UntypedFormGroup} from '@angular/forms';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { DashboardChartsData, IChartProps } from './dashboard-charts-data';
-import {UserService} from "../../services/user/user.service";
 import {Order} from "./Order";
 import {Menu} from "./Menu";
 import {DailyConfirmation} from "./DailyConfirmation";
 import {MenuService} from "../../services/Menu/menu.service";
+import {OrderService} from "../../services/Order/order.service";
 
 @Component({
   templateUrl: 'dashboard.component.html',
@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
 
   formData!: FormGroup;
 
-  constructor(private chartsData: DashboardChartsData, public userService: UserService,public menuService: MenuService) {
+  constructor(private chartsData: DashboardChartsData, public orderService: OrderService,public menuService: MenuService) {
   }
 
   public mainChart: IChartProps = {};
@@ -94,24 +94,6 @@ export class DashboardComponent implements OnInit {
 
     //array to store orders to be deleted
     var deleteRequests = new Array<DailyConfirmation>;
-
-
-
-    //to test
-    console.log("These are orders")
-    console.log(orders)
-    console.log("These are orders")
-
-    // faire appel à l'api
-    //saving orders
-    this.userService.postOrder(orders).subscribe((data) => {
-      console.log('message::::', data);
-    });
-
-    //removing orders
-    this.userService.removeOrder(deleteRequests).subscribe((data)=>{
-      console.log(data);
-    })
 
   }
 

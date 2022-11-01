@@ -1,267 +1,264 @@
-<!--<c-row>-->
-<!--  <c-col xs>-->
-<!--    <c-card class="mb-4">-->
-<!--      <c-card-body>-->
-<!--        <c-row>-->
-<!--          <hr class="mt-0"/>-->
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-body>
+        <c-row>
 
-<!--          &lt;!&ndash;          Confirmation&ndash;&gt;-->
-<!--          <c-col md="2" xl="2" xs="2">-->
+          <label>Week No.</label>
+          <input type="number" value="1">
 
-<!--            <div class="progress-group mb-4">-->
-<!--              <b class="text-medium-emphasis small">Confirm</b>-->
-<!--            </div>-->
+          <hr class="mt-0"/>
 
-<!--            <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" >-->
+          <!--          Labels-->
+          <c-col md="2" xl="2" xs="2">
+            <!--          <c-col md="4" xl="4" xs="8">-->
+            <!--Changed xs from 12 to 8-->
 
-<!--              &lt;!&ndash;              Monday&ndash;&gt;-->
-<!--              <div class="progress-group mb-4">-->
-<!--                <div class="form-group">-->
-<!--                  <input class="tableCheckboxBtn" id="confirmMon" type="checkbox" value="confirm" formControlName="confirmMon" name="confirmMon">-->
-<!--                </div>-->
-<!--              </div>-->
+            <div class="progress-group mb-4">
+              <b class="text-medium-emphasis small">Day</b>
+            </div>
 
-<!--              &lt;!&ndash;              Tuesday&ndash;&gt;-->
-<!--              <div class="progress-group mb-4">-->
-<!--                <div class="form-group">-->
-<!--                  <input class="tableCheckboxBtn" id="confirmTue" type="checkbox" value="confirm" formControlName="confirmTue" name="confirmTue">-->
-<!--                </div>-->
-<!--              </div>-->
+            <div class="progress-group mb-4">
+              <span class="text-medium-emphasis small">Monday</span>
+            </div>
 
-<!--              &lt;!&ndash;              Wednesday&ndash;&gt;-->
-<!--              <div class="progress-group mb-4">-->
-<!--                <div class="form-group">-->
-<!--                  <input class="tableCheckboxBtn" id="confirmWed" type="checkbox" value="confirm" formControlName="confirmWed" name="confirmWed">-->
-<!--                </div>-->
-<!--              </div>-->
+            <div class="progress-group mb-4">
+              <span class="text-medium-emphasis small">Tuesday</span>
+            </div>
 
-<!--              &lt;!&ndash;              Thursday&ndash;&gt;-->
-<!--              <div class="progress-group mb-4">-->
-<!--                <div class="form-group">-->
-<!--                  <input class="tableCheckboxBtn" id="confirmThu" type="checkbox" value="confirm" formControlName="confirmThu" name="confirmThu">-->
-<!--                </div>-->
-<!--              </div>-->
+            <div class="progress-group mb-4">
+              <span class="text-medium-emphasis small">Wednesday</span>
+            </div>
 
-<!--              &lt;!&ndash;              Friday&ndash;&gt;-->
-<!--              <div class="progress-group mb-4">-->
-<!--                <div class="form-group">-->
-<!--                  <input class="tableCheckboxBtn" id="confirmFri" type="checkbox" value="confirm" formControlName="confirmFri" name="confirmFri">-->
-<!--                </div>-->
-<!--              </div>-->
+            <div class="progress-group mb-4">
+              <span class="text-medium-emphasis small">Thursday</span>
+            </div>
 
-<!--            </form>-->
-<!--          </c-col>-->
+            <div class="progress-group mb-4">
+              <span class="text-medium-emphasis small">Friday</span>
+            </div>
+          </c-col>
 
-<!--          &lt;!&ndash;          Labels&ndash;&gt;-->
-<!--          <c-col md="2" xl="2" xs="2">-->
-<!--            &lt;!&ndash;          <c-col md="4" xl="4" xs="8">&ndash;&gt;-->
-<!--            &lt;!&ndash;Changed xs from 12 to 8&ndash;&gt;-->
+          <!--          Descriptions-->
+          <c-col md="4" xl="4" xs="4">
+            <div class="progress-group mb-4">
+              <b class="text-medium-emphasis small">Menu</b>
+            </div>
 
-<!--            <div class="progress-group mb-4">-->
-<!--              <b class="text-medium-emphasis small">Day</b>-->
-<!--            </div>-->
+            <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" >
 
-<!--            <div class="progress-group mb-4">-->
-<!--              <span class="text-medium-emphasis small">Monday</span>-->
-<!--            </div>-->
+              <!--              Monday-->
+              <div class="progress-group mb-4">
+                <div [formGroup]="formData" class="form-group">
+                  <input class="text-medium-emphasis small" id="menuMon" type="text" sizing="sm" formControlName="menuMon" name="menuMon" maxlength="40" size="10">
+                </div>
+              </div>
 
-<!--            <div class="progress-group mb-4">-->
-<!--              <span class="text-medium-emphasis small">Tuesday</span>-->
-<!--            </div>-->
+              <!--              Tuesday-->
+              <div class="progress-group mb-4">
+                <div [formGroup]="formData" class="form-group">
+                  <input class="text-medium-emphasis small" id="menuTue" type="text" formControlName="menuTue" name="menuTue" maxlength="40" size="10">
+                </div>
+              </div>
 
-<!--            <div class="progress-group mb-4">-->
-<!--              <span class="text-medium-emphasis small">Wednesday</span>-->
-<!--            </div>-->
+              <!--              Wednesday-->
+              <div class="progress-group mb-4">
+                <div [formGroup]="formData" class="form-group">
+                  <input class="text-medium-emphasis small" id="menuWed" type="text" formControlName="menuWed" name="menuWed" maxlength="40" size="10">
+                </div>
+              </div>
 
-<!--            <div class="progress-group mb-4">-->
-<!--              <span class="text-medium-emphasis small">Thursday</span>-->
-<!--            </div>-->
+              <!--              Thursday-->
+              <div class="progress-group mb-4">
+                <div [formGroup]="formData" class="form-group">
+                  <input class="text-medium-emphasis small" id="menuThu" type="text" formControlName="menuThu" name="menuThu" maxlength="40" size="10">
+                </div>
+              </div>
 
-<!--            <div class="progress-group mb-4">-->
-<!--              <span class="text-medium-emphasis small">Friday</span>-->
-<!--            </div>-->
+              <!--              Friday-->
+              <div class="progress-group mb-4">
+                <div [formGroup]="formData" class="form-group">
+                  <input class="text-medium-emphasis small" id="menuFri" type="text" formControlName="menuFri" name="menuFri" maxlength="40" size="10">
+                </div>
+              </div>
 
-<!--            <br>-->
-<!--            &lt;!&ndash;            Total&ndash;&gt;-->
-<!--            <div class="progress-group mb-4">-->
-<!--              <span class="text-medium-emphasis small">Total</span>-->
-<!--            </div>-->
-<!--          </c-col>-->
+            </form>
 
-<!--          &lt;!&ndash;          Descriptions&ndash;&gt;-->
-<!--          <c-col md="3" xl="3" xs="3">-->
-<!--            <div class="progress-group mb-4">-->
-<!--              <b class="text-medium-emphasis small">Menu</b>-->
-<!--            </div>-->
+            <!--            key-->
+            <div class="legend text-center" ngPreserveWhitespaces>
+              <small>
+                <sup>
+                  <span class="badge badge-pill badge-sm bg-info">&nbsp;</span>
+                </sup>
+                <span>Veg</span>
+                &nbsp;&nbsp;
+                <sup
+                ><span class="badge badge-pill badge-sm bg-danger"
+                >&nbsp;</span
+                ></sup
+                >
+                <span>Non-veg</span>
+              </small>
+            </div>
 
-<!--            <div class="progress-group mb-4" *ngFor="let menuDesc of menuDescriptions; index as i">-->
-<!--              <span class="text-medium-emphasis small">{{menuDesc}}</span>-->
-<!--            </div>-->
+          </c-col>
 
-<!--            &lt;!&ndash;            key&ndash;&gt;-->
-<!--            <div class="legend text-center" ngPreserveWhitespaces>-->
-<!--              <small>-->
-<!--                <sup>-->
-<!--                  <span class="badge badge-pill badge-sm bg-info">&nbsp;</span>-->
-<!--                </sup>-->
-<!--                <span>Veg</span>-->
-<!--                &nbsp;&nbsp;-->
-<!--                <sup-->
-<!--                ><span class="badge badge-pill badge-sm bg-danger"-->
-<!--                >&nbsp;</span-->
-<!--                ></sup-->
-<!--                >-->
-<!--                <span>Non-veg</span>-->
-<!--              </small>-->
-<!--            </div>-->
+          <!--          Price-->
+          <c-col md="2" xl="2" xs="2">
+            <div class="progress-group mb-4">
+              <b class="text-medium-emphasis small">Price</b>
+            </div>
 
-<!--          </c-col>-->
+            <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" >
 
-<!--          &lt;!&ndash;          Options&ndash;&gt;-->
-<!--          <c-col md="3" xl="3" xs="3">-->
+              <!--              Monday-->
+              <div class="progress-group mb-4">
+                <div [formGroup]="formData" class="form-group">
+                  <input class="text-medium-emphasis small" id="priceMon" type="text" sizing="sm" formControlName="priceMon" name="priceMon" maxlength="4" size="2">
+                </div>
+              </div>
 
-<!--            <div class="progress-group mb-4">-->
-<!--              <b class="text-medium-emphasis small">Options</b>-->
-<!--            </div>-->
+              <!--              Tuesday-->
+              <div class="progress-group mb-4">
+                <div [formGroup]="formData" class="form-group">
+                  <input class="text-medium-emphasis small" id="priceTue" type="text" formControlName="priceTue" name="priceTue" maxlength="4" size="2">
+                </div>
+              </div>
 
-<!--            <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" >-->
+              <!--              Wednesday-->
+              <div class="progress-group mb-4">
+                <div [formGroup]="formData" class="form-group">
+                  <input class="text-medium-emphasis small" id="priceWed" type="text" formControlName="priceWed" name="priceWed" maxlength="4" size="2">
+                </div>
+              </div>
 
-<!--              &lt;!&ndash;              Monday&ndash;&gt;-->
-<!--              <div class="progress-group mb-4">-->
-<!--                <div [formGroup]="formData" class="form-group">-->
-<!--                  <input id="vegMon" type="radio" value="veg" formControlName="optionMon" name="optionMon">-->
-<!--                  <input class="radioBtn" id="nonvegMon" type="radio" value="nonveg" formControlName="optionMon" name="optionMon">-->
-<!--                </div>-->
-<!--              </div>-->
+              <!--              Thursday-->
+              <div class="progress-group mb-4">
+                <div [formGroup]="formData" class="form-group">
+                  <input class="text-medium-emphasis small" id="priceThu" type="text" formControlName="priceThu" name="priceThu" maxlength="4" size="2">
+                </div>
+              </div>
 
-<!--              &lt;!&ndash;              Tuesday&ndash;&gt;-->
-<!--              <div class="progress-group mb-4">-->
-<!--                <div [formGroup]="formData" class="form-group">-->
-<!--                  <input id="vegTue" type="radio" value="veg" formControlName="optionTue" name="optionTue">-->
-<!--                  <input class="radioBtn" id="nonvegTue" type="radio" value="nonveg" formControlName="optionTue" name="optionTue">-->
-<!--                </div>-->
-<!--              </div>-->
+              <!--              Friday-->
+              <div class="progress-group mb-4">
+                <div [formGroup]="formData" class="form-group">
+                  <input class="text-medium-emphasis small" id="priceFri" type="text" formControlName="priceFri" name="priceFri" maxlength="4" size="2">
+                </div>
+              </div>
 
-<!--              &lt;!&ndash;              Wednesday&ndash;&gt;-->
-<!--              <div class="progress-group mb-4">-->
-<!--                <div [formGroup]="formData" class="form-group">-->
-<!--                  <input id="vegWed" type="radio" value="veg" formControlName="optionWed" name="optionWed">-->
-<!--                  <input class="radioBtn" id="nonvegWed" type="radio" value="nonveg" formControlName="optionWed" name="optionWed">-->
-<!--                </div>-->
-<!--              </div>-->
+            </form>
 
-<!--              &lt;!&ndash;              Thursday&ndash;&gt;-->
-<!--              <div class="progress-group mb-4">-->
-<!--                <div [formGroup]="formData" class="form-group">-->
-<!--                  <input id="vegThu" type="radio" value="veg" formControlName="optionThu" name="optionThu">-->
-<!--                  <input class="radioBtn" id="nonvegThu" type="radio" value="nonveg" formControlName="optionThu" name="optionThu">-->
-<!--                </div>-->
-<!--              </div>-->
+          </c-col>
 
-<!--              &lt;!&ndash;              Friday&ndash;&gt;-->
-<!--              <div class="progress-group mb-4">-->
-<!--                <div [formGroup]="formData" class="form-group">-->
-<!--                  <input type="radio" id="vegFri"  value="veg" formControlName="optionFri" name="optionFri">-->
-<!--                  <input type="radio" class="radioBtn" id="nonvegFri"  value="nonveg" formControlName="optionFri" name="optionFri">-->
-<!--                </div>-->
-<!--              </div>-->
+          <!--          Options-->
+          <!--          Veg-->
+          <c-col md="2" xl="2" xs="2">
 
-<!--            </form>-->
+            <div class="progress-group mb-4">
+              <b class="text-medium-emphasis small">Veg</b>
+            </div>
 
-<!--          </c-col>-->
+            <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" >
 
-<!--          &lt;!&ndash;          Payment&ndash;&gt;-->
-<!--          <c-col md="2" xl="2" xs="2">-->
+              <!--              Monday-->
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <input id="vegMon" type="checkbox" value="veg" formControlName="optionMonVeg" name="optionMonVeg">
+                </div>
+              </div>
 
-<!--            <div class="progress-group mb-4">-->
-<!--              <b class="text-medium-emphasis small">Paid</b>-->
-<!--            </div>-->
+              <!--              Tuesday-->
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <input id="vegTue" type="checkbox" value="veg" formControlName="optionTueVeg" name="optionTueVeg">
+                </div>
+              </div>
 
-<!--            <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" >-->
+              <!--              Wednesday-->
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <input id="vegWed" type="checkbox" value="veg" formControlName="optionWedVeg" name="optionWedVeg">
+                </div>
+              </div>
 
-<!--              &lt;!&ndash;              Monday&ndash;&gt;-->
-<!--              <div class="progress-group mb-4">-->
-<!--                <div class="form-group">-->
-<!--                  <input class="tableCheckboxBtn" id="paymentMon" type="checkbox" value="payment" formControlName="paymentMon" name="paymentMon">-->
-<!--                </div>-->
-<!--              </div>-->
+              <!--              Thursday-->
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <input id="vegThu" type="checkbox" value="veg" formControlName="optionThuVeg" name="optionThuVeg">
+                </div>
+              </div>
 
-<!--              &lt;!&ndash;              Tuesday&ndash;&gt;-->
-<!--              <div class="progress-group mb-4">-->
-<!--                <div class="form-group">-->
-<!--                  <input class="tableCheckboxBtn" id="paymentTue" type="checkbox" value="payment" formControlName="paymentTue" name="paymentTue">-->
-<!--                </div>-->
-<!--              </div>-->
+              <!--              Friday-->
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <input type="checkbox" id="vegFri"  value="veg" formControlName="optionFriVeg" name="optionFriVeg">
+                </div>
+              </div>
 
-<!--              &lt;!&ndash;              Wednesday&ndash;&gt;-->
-<!--              <div class="progress-group mb-4">-->
-<!--                <div class="form-group">-->
-<!--                  <input class="tableCheckboxBtn" id="paymentWed" type="checkbox" value="payment" formControlName="paymentWed" name="paymentWed">-->
-<!--                </div>-->
-<!--              </div>-->
+            </form>
+          </c-col>
 
-<!--              &lt;!&ndash;              Thursday&ndash;&gt;-->
-<!--              <div class="progress-group mb-4">-->
-<!--                <div class="form-group">-->
-<!--                  <input class="tableCheckboxBtn" id="paymentThu" type="checkbox" value="payment" formControlName="paymentThu" name="paymentThu">-->
-<!--                </div>-->
-<!--              </div>-->
+          <!--          Non Veg-->
+          <c-col md="2" xl="2" xs="2">
 
-<!--              &lt;!&ndash;              Friday&ndash;&gt;-->
-<!--              <div class="progress-group mb-4">-->
-<!--                <div class="form-group">-->
-<!--                  <input class="tableCheckboxBtn" id="paymentFri" type="checkbox" value="payment" formControlName="paymentFri" name="paymentFri">-->
-<!--                </div>-->
-<!--              </div>-->
+            <div class="progress-group mb-4">
+              <b class="text-medium-emphasis small">NonVeg</b>
+            </div>
 
-<!--              <hr class="mt-0"/>-->
+            <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" >
 
-<!--              &lt;!&ndash;              Total amount&ndash;&gt;-->
-<!--              <div class="progress-group mb-4">-->
-<!--                <div class="form-group">-->
-<!--                  <span class="text-center">xxx</span>-->
-<!--                </div>-->
-<!--              </div>-->
+              <!--              Monday-->
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <input class="checkboxBtn" id="nonvegMon" type="checkbox" value="nonveg" formControlName="optionMonNonVeg" name="optionMonNonVeg">
+                </div>
+              </div>
 
-<!--            </form>-->
-<!--          </c-col>-->
+              <!--              Tuesday-->
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <input class="checkboxBtn" id="nonvegTue" type="checkbox" value="nonveg" formControlName="optionTueNonVeg" name="optionTueNonVeg">
+                </div>
+              </div>
 
-<!--          <hr class="mt-0"/>-->
+              <!--              Wednesday-->
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <input class="checkboxBtn" id="nonvegWed" type="checkbox" value="nonveg" formControlName="optionWedNonVeg" name="optionWedNonVeg">
+                </div>
+              </div>
 
-<!--&lt;!&ndash;          buttons&ndash;&gt;-->
-<!--          <div class="blockBtn">-->
-<!--            <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" class="submitBtn">-->
-<!--              <button class="btn btn-primary" type="submit" [disabled]="!formData.valid">Save</button>-->
-<!--            </form>-->
-<!--            <form [formGroup]="formData" (ngSubmit)="onClickReset(formData.getRawValue())" class="resetBtn">-->
-<!--              <button class="btn btn-primary" type="submit" [disabled]="!formData.valid">Reset</button>-->
-<!--            </form>-->
-<!--          </div>-->
-<!--        </c-row>-->
-<!--      </c-card-body>-->
-<!--    </c-card>-->
-<!--  </c-col>-->
-<!--</c-row>-->
+              <!--              Thursday-->
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <input class="checkboxBtn" id="nonvegThu" type="checkbox" value="nonveg" formControlName="optionThuNonVeg" name="optionThuNonVeg">
+                </div>
+              </div>
 
-<!--<c-row>-->
-<!--    <c-col xs="12" lg="6">-->
-<!--      <c-card class="mb-4">-->
-<!--        <c-card-header>-->
-<!--          Polar Area Chart-->
-<!--        </c-card-header>-->
-<!--        <c-card-body>-->
-<!--          <c-chart type="polarArea" [data]="chartPolarAreaData"></c-chart>-->
-<!--        </c-card-body>-->
-<!--      </c-card>-->
-<!--    </c-col>-->
-<!--    <c-col xs="12" lg="6">-->
-<!--      <c-card class="mb-4">-->
-<!--        <c-card-header>-->
-<!--          Radar Chart-->
-<!--        </c-card-header>-->
-<!--        <c-card-body>-->
-<!--          <c-chart type="radar" [data]="chartRadarData"></c-chart>-->
-<!--        </c-card-body>-->
-<!--      </c-card>-->
-<!--    </c-col>-->
-<!--  </c-row>-->
+              <!--              Friday-->
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <input type="checkbox" class="checkboxBtn" id="nonvegFri"  value="nonveg" formControlName="optionFriNonVeg" name="optionFriNonVeg">
+                </div>
+              </div>
+
+            </form>
+          </c-col>
+
+          <hr class="mt-0"/>
+
+          <!--          buttons-->
+          <div class="blockBtn">
+            <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" class="submitBtn">
+              <button class="btn btn-primary" type="submit" [disabled]="!formData.valid">Save</button>
+            </form>
+            <form [formGroup]="formData" (ngSubmit)="onClickReset(formData.getRawValue())" class="resetBtn">
+              <button class="btn btn-primary" type="submit" [disabled]="!formData.valid">Reset</button>
+            </form>
+          </div>
+        </c-row>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+
