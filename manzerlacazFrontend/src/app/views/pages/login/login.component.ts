@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
   username!: string;
   password!: string;
   formData!: FormGroup;
+  visible = false;
+  dismissible = true;
 
   ngOnInit(): void {
     localStorage.clear();
@@ -49,7 +51,9 @@ export class LoginComponent implements OnInit {
       (error)=>{
         console.log("error caugth");
         console.log(error);
-        this._router.navigateByUrl('404');
+
+          this.visible=!this.visible;
+
       })
   }
 }

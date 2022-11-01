@@ -6,6 +6,7 @@ import {UserService} from "../../services/user/user.service";
 import {Order} from "./Order";
 import {Menu} from "./Menu";
 import {DailyConfirmation} from "./DailyConfirmation";
+import {MenuService} from "../../services/Menu/menu.service";
 
 @Component({
   templateUrl: 'dashboard.component.html',
@@ -30,7 +31,7 @@ export class DashboardComponent implements OnInit {
 
   formData!: FormGroup;
 
-  constructor(private chartsData: DashboardChartsData, public userService: UserService) {
+  constructor(private chartsData: DashboardChartsData, public userService: UserService,public menuService: MenuService) {
   }
 
   public mainChart: IChartProps = {};
@@ -41,7 +42,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     //Displaying menus according to id
-    this.userService.getMenus().subscribe((data: Array<Menu>) => {
+
+    this.menuService.getMenus().subscribe((data:Array<Menu>)=>{
       this.menu=[data[0],data[1],data[2],data[3],data[4]];
       this.menuDescriptions=[data[0].description,data[1].description,data[2].description,data[3].description,data[4].description,]
       console.log(this.menu)
