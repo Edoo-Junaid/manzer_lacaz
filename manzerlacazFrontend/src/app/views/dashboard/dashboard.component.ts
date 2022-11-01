@@ -82,7 +82,6 @@ export class DashboardComponent implements OnInit {
   //Submit btn
   onClickSubmit(data: any) {
     //array to store confirmation from checkbox => True or false values.
-    var confirmation:any[]= new Array(data.confirmMon,data.confirmTue,data.confirmWed,data.confirmThu,data.confirmFri);
 
     //array to store payment from checkbox => Simplified if to convert true to 1 and false to 0
     var payment:any[] = new Array( data.confirmMon?1:0,data.confirmTue?1:0,data.confirmWed?1:0,data.confirmThu?1:0,data.confirmFri?1:0)
@@ -96,19 +95,7 @@ export class DashboardComponent implements OnInit {
     //array to store orders to be deleted
     var deleteRequests = new Array<DailyConfirmation>;
 
-    //looping throug all orders
-    for(var i in confirmation){
 
-      //if checkbox for confimation is selected => Order is added to orders array to be saved
-      //if not selected goes into else branch => Order is added to deleteRequests to be deleted
-      if(confirmation[i]){
-        let  order= new Order(1,this.menu[i].id,payment[i],option[i]);
-        orders.push(order);
-      }else{
-        let dailyConfimation = new DailyConfirmation(1,this.menu[i].id);
-        deleteRequests.push(dailyConfimation);
-      }
-    }
 
     //to test
     console.log("These are orders")
