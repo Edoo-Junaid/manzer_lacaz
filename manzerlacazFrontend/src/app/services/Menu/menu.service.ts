@@ -24,8 +24,12 @@ export class MenuService {
   //Admin page
   //weekly menus
   postMenu(menus:Array<MenuCreation>) :Observable<any>{
-    const headers ={'content-type':'application/json'};
+    const token =localStorage.getItem('token');
+    var header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  `Bearer ${token}`).set('content-type','application/json')
+    }
     const body = JSON.stringify(menus);
-    return this.http.post<any>(this.rootURL + '/menu/addMenu', body,{'headers': headers});
+    return this.http.post<any>(this.rootURL + 'addMenu', body,header);
   }
 }

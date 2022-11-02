@@ -40,9 +40,13 @@ export class LoginComponent implements OnInit {
         if (response.token) {
           localStorage.setItem('token', response.token);
           console.log("Token has been set");
-          if (data.role == 'admin') {
+          if (response.role == 'admin') {
+            localStorage.setItem('role','Admin');
+            console.log("logged in as admin")
             this._router.navigateByUrl('charts');
           } else {
+            localStorage.setItem('role','User');
+            console.log("logged in as user")
             this._router.navigateByUrl('dashboard');
           }
         }

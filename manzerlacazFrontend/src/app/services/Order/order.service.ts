@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { Order } from '../../views/dashboard/Order';
 import { Observable } from 'rxjs';
 import { DailyConfirmation } from '../../views/dashboard/DailyConfirmation';
@@ -11,7 +11,7 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  rootURL = 'http://localhost:8080/api/auth';
+  rootURL = 'http://localhost:8080/api/order/';
 
   // //Login- Avesh--------------------
   // getPublicContent(): Observable<any> {
@@ -33,14 +33,22 @@ export class OrderService {
   //Use cases- Aliya-----------------
   //weekly orders
   postOrder(orders:Array<Order>) :Observable<any>{
-    const headers ={'content-type':'application/json'};
+    const token =localStorage.getItem('token');
+    var header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  `Bearer ${token}`).set('content-type','application/json')
+    }
     const body = JSON.stringify(orders);
-    return this.http.post<any>(this.rootURL + '/order/addWeekOrder', body,{'headers': headers});
+    return this.http.post<any>(this.rootURL + 'addWeekOrder', body,header);
   }
 
   removeOrder(daily: Array<DailyConfirmation>) :Observable<any>{
-    const headers ={'content-type':'application/json'};
+    const token =localStorage.getItem('token');
+    var header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  `Bearer ${token}`).set('content-type','application/json')
+    }
     const body = JSON.stringify(daily);
-    return this.http.post<any>(this.rootURL + '/order/deleteOrders', body,{'headers': headers});
+    return this.http.post<any>(this.rootURL + 'deleteOrders', body,header);
   }
 }
