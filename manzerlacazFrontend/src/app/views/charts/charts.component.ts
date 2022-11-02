@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {MenuService} from "../../services/Menu/menu.service";
 import {MenuCreation} from "../charts/MenuCreation";
 import {Order} from "../dashboard/Order";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-charts',
@@ -10,13 +11,19 @@ import {Order} from "../dashboard/Order";
   styleUrls: ['./charts.component.scss']
 })
 export class ChartsComponent implements OnInit{
-
+ public modalVisibility =false;
   formData!: FormGroup;
 
-  constructor(public menuService: MenuService) {
+  constructor(public menuService: MenuService,private _router: Router) {
   }
 
   ngOnInit(): void {
+
+    if(localStorage.getItem('role')!='Admin'){
+      console.log(localStorage.getItem('role'))
+      console.log('modal should appear')
+      this.modalVisibility=true;
+    }
     //Form variables
     this.formData = new FormGroup({
       //Text area- input menus
@@ -57,6 +64,7 @@ export class ChartsComponent implements OnInit{
   }
 
   //Submit btn
+
   onClickSubmit(data: any) {
 
     //array to store the following
@@ -86,5 +94,16 @@ export class ChartsComponent implements OnInit{
       console.log('message::::', data);
     });
 
+  }
+
+
+  // For triggering PopUp for UserTypeValidation
+  toggleLiveDemo() {
+this.modalVisibility=!this.modalVisibility;
+  this._router.navigateByUrl('dashboard')
+  }
+
+  handleLiveDemoChange(event: boolean) {
+      this.modalVisibility=event;
   }
 }
