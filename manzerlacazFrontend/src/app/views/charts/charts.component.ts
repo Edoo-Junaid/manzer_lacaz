@@ -66,12 +66,12 @@ export class ChartsComponent implements OnInit{
   //Submit btn
 
   onClickSubmit(data: any) {
-
+    console.log(data);
     //array to store the following
     var menuDesc:string[] = new Array( data.menuMon,data.menuTue,data.menuWed,data.menuThu,data.menuFri)
     var price:string[] = new Array( data.priceMon,data.priceTue,data.priceWed,data.priceThu,data.priceFri)
     var day:string[] = new Array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
-    var optionVeg:string[] = new Array(data.optionMonVeg? "Veg":"",data.optionTueVeg? "Veg":"",data.optionWedVeg? "Veg":"",data.optionThuVeg? "Veg":"",data.optionFriVeg? "Veg":"")
+    var optionVeg:string[] = new Array(data.optionMonVeg? "Veg;":"",data.optionTueVeg? "Veg;":"",data.optionWedVeg? "Veg;":"",data.optionThuVeg? "Veg;":"",data.optionFriVeg? "Veg;":"")
     var optionNonVeg:string[] = new Array(data.optionMonNonVeg? "NonVeg":"",data.optionTueNonVeg? "NonVeg":"",data.optionWedNonVeg? "NonVeg":"",data.optionThuNonVeg? "NonVeg":"",data.optionFriNonVeg? "NonVeg":"")
     var option:string
     //array to store all menus
@@ -81,7 +81,7 @@ export class ChartsComponent implements OnInit{
     for (var i in menuDesc) {
       if (!(optionVeg[i] == "" && optionNonVeg[i] == "")){
         //Concat to obtain option
-        option = optionVeg[i] + ';' + optionNonVeg[i]
+        option = optionVeg[i] + '' + optionNonVeg[i]
       }
       // @ts-ignore
       let  menu= new MenuCreation(menuDesc[i], price[i], day[i], option);
@@ -90,6 +90,7 @@ export class ChartsComponent implements OnInit{
 
     // faire appel à l'api
     //saving menus
+    console.log(menus)
     this.menuService.postMenu(menus).subscribe((data: any) => {
       console.log('message::::', data);
     });
