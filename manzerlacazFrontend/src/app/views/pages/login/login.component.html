@@ -6,46 +6,63 @@
   </symbol>
 </svg>
 
-<div class="container">
-
-  <h1>User Login</h1>
-  <form [formGroup]="formData" (ngSubmit)="onClickLogin(formData.getRawValue())">
-
-    <div  [formGroup]="formData" class="form-group">
-
-      <label >Username</label><br>
-
-      <input type="text" class = "form-control" formControlName="username" name="username">
-
-    </div>
-
-    <pre></pre>
 
 
-    <div  [formGroup]="formData" class="form-group">
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-col md="8">
+        <c-card-group>
+          <c-card class="p-4">
+            <c-card-body>
+              <form cForm  [formGroup]="formData" (ngSubmit)="onClickLogin(formData.getRawValue())">
+                <h1>Login</h1>
+                <p class="text-medium-emphasis">Sign In to your account</p>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <input  class = "form-control" formControlName="username" name="username" autoComplete="username" cFormControl placeholder="Username" />
+                </c-input-group>
+                <c-input-group class="mb-4">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilLockLocked"></svg>
+                  </span>
+                  <input
+                    autoComplete="current-password"
+                    cFormControl
+                    placeholder="Password"
+                    type="password" class = "form-control" formControlName = "password"
+                  />
+                </c-input-group>
+                <c-row>
+                  <c-col xs="6">
+                    <button cButton class="px-4" color="primary" type="submit">
+                      Login
+                    </button>
+                  </c-col>
+                  <c-col class="text-right" xs="6">
+                    <button cButton class="px-0" color="link">
+                      Forgot password?
+                    </button>
+                  </c-col>
+                </c-row>
+                <hr>
+                <c-alert [(visible)]="visible"
+                         [dismissible]="dismissible"
+                         fade
+                         *ngIf="visible" color="danger" class="d-flex align-items-center">
+                  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                    <use xlink:href="#exclamation-triangle-fill" />
+                  </svg>
+                  <strong>Invalid Username or password. </strong>  Please try again.
+                </c-alert>
+              </form>
+            </c-card-body>
+          </c-card>
 
-      <label >Password</label><br>
-
-      <input type="text" class = "form-control" formControlName = "password" name="password">
-
-    </div>
-
-    <pre></pre>
-
-    <button class="btn btn-primary" type="submit">Submit</button>
-
-  </form>
-
-  <hr>
-  <c-alert [(visible)]="visible"
-           [dismissible]="dismissible"
-           fade
-           *ngIf="visible" color="danger" class="d-flex align-items-center">
-    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
-      <use xlink:href="#exclamation-triangle-fill" />
-    </svg>
-    <strong>Invalid Username or password. </strong>  Please try again.
-  </c-alert>
-
-
+        </c-card-group>
+      </c-col>
+    </c-row>
+  </c-container>
 </div>
