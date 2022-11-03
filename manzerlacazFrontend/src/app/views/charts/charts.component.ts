@@ -27,6 +27,9 @@ export class ChartsComponent implements OnInit{
     }
     //Form variables
     this.formData = new FormGroup({
+      //Number area-input week number
+      weekNo: new FormControl(),
+
       //Text area- input menus
       menuMon: new FormControl(),
       menuTue: new FormControl(),
@@ -85,7 +88,7 @@ export class ChartsComponent implements OnInit{
         option = optionVeg[i] + '' + optionNonVeg[i]
       }
       // @ts-ignore
-      let  menu= new MenuCreation(menuDesc[i], price[i], day[i], option);
+      let  menu= new MenuCreation(menuDesc[i], price[i], day[i], option, weekNum);
       menus.push(menu);
     }
 
