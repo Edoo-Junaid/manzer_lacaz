@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {LoginService} from "../../../services/Login/login.service";
 import {Router} from "@angular/router";
 import {LoginRequest} from "../../../services/Login/LoginRequest";
+import {fromEvent, map, merge, of, Subscription} from "rxjs";
+import {OnlineStatusService, OnlineStatusType} from "ngx-online-status";
 
 @Component({
   selector: 'app-login',
@@ -12,9 +14,12 @@ import {LoginRequest} from "../../../services/Login/LoginRequest";
 
 
 export class LoginComponent implements OnInit {
+  status: OnlineStatusType = 0; //Enum provided by ngx-online-status
+  onlineStatusCheck: any = OnlineStatusType;
+  constructor(private loginService: LoginService, private _router: Router,private onlineStatusService: OnlineStatusService) {
 
-  constructor(private loginService: LoginService, private _router: Router) {
   }
+
 
   token!: string;
   username!: string;
@@ -24,12 +29,19 @@ export class LoginComponent implements OnInit {
   dismissible = true;
 
   ngOnInit(): void {
+    this.onlineStatusService.status.subscribe((status: OnlineStatusType) => {
+      // Retrieve Online status Type
+      this.status = status;
+      console.log(status)
+    });
+    console.log(this.status);
     localStorage.clear();
     this.formData = new FormGroup({
       username: new FormControl(),
       password: new FormControl()
     })
   }
+
 
   onClickLogin(data: any) {
     console.log(data);
@@ -60,6 +72,7 @@ export class LoginComponent implements OnInit {
 
       })
   }
+
 }
 
 
