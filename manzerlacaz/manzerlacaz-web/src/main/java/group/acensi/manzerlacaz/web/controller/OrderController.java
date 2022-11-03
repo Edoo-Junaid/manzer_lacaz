@@ -19,7 +19,7 @@ import group.acensi.manzerlacaz.web.payload.DeleteOrderRequest;
 import group.acensi.manzerlacaz.web.payload.OrderOptionCountRequest;
 
 @RestController
-@RequestMapping("/api/order")
+@RequestMapping("/api/auth/order")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class OrderController {
 
@@ -28,6 +28,7 @@ public class OrderController {
     //Add an order
     @PostMapping("/addOrder")
     public ResponseEntity<OrderDto> addMenu(@RequestBody CreateOrderRequest createOrderRequest) {
+        System.out.println(createOrderRequest);
         OrderDto orderDto = new OrderDto();
         orderDto.setUser_id(createOrderRequest.user_id());
         orderDto.setMenu_id(createOrderRequest.menu_id());
@@ -62,7 +63,7 @@ public class OrderController {
     //Get total count of veg or non-veg orders in a day 
     @PostMapping("/getOrderOptionCountByDay")
     public Long getOrderOptionCountByDay(@RequestBody OrderOptionCountRequest orderOptionCountRequest) {
-        return orderService.getOrderOptionCountByDay(orderOptionCountRequest.option(), orderOptionCountRequest.day());
+        return orderService.getOrderOptionCountByDay(orderOptionCountRequest.option(), orderOptionCountRequest.day(),orderOptionCountRequest.weekNum());
     }
 
     //Delete an order

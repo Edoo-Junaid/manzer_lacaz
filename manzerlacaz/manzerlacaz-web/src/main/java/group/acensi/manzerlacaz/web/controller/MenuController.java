@@ -17,7 +17,7 @@ import group.acensi.manzerlacaz.web.payload.CreateMenuRequest;
 
 
 @RestController
-@RequestMapping("/api/menu")
+@RequestMapping("/api/auth/menu")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class MenuController {
 	
@@ -26,6 +26,8 @@ public class MenuController {
     
     @PostMapping("/addMenu")
     public List<MenuDto> addMenu(@RequestBody List<CreateMenuRequest> menu){
+        System.out.println("hello");
+        System.out.println(menu);
         List<MenuDto> returnMenuList = new ArrayList<>();
         for(CreateMenuRequest menuInList: menu) {
             MenuDto menuDto= new MenuDto();
@@ -33,7 +35,7 @@ public class MenuController {
             menuDto.setOption(menuInList.option());
             menuDto.setPrice(menuInList.price());
             menuDto.setDescription(menuInList.description());
-            menuDto.setWeekNum(menuService.getCurrentWeekNumber());
+            menuDto.setWeekNum(menuInList.weekNum());
             returnMenuList.add(MenuMapper.INSTANCE.toDto(menuService.createMenu(menuDto)));
         }
         return returnMenuList;
@@ -48,7 +50,7 @@ public class MenuController {
             menuDto.setOption(menu.option());
             menuDto.setPrice(menu.price());
             menuDto.setDescription(menu.description());
-            menuDto.setWeekNum(menuService.getCurrentWeekNumber());
+           menuDto.setWeekNum(menu.weekNum());
        return  MenuMapper.INSTANCE.toDto(menuService.createMenu(menuDto));
       
       

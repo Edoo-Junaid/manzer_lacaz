@@ -128,8 +128,8 @@ public class OrderSericeImpl implements OrderService {
 
     // Get total veg or non-veg orders in a day
     @Override
-    public Long getOrderOptionCountByDay(String option, String day) {
-        return orderRepository.countOrdersOptionByDayAndWeekNum(option, this.getCurrentWeekNumber(), day);
+    public Long getOrderOptionCountByDay(String option, String day,int weekNum) {
+        return orderRepository.countOrdersOptionByDayAndWeekNum(option, weekNum,day);
     }
 
     @Override

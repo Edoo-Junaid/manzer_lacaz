@@ -1,6 +1,6 @@
 package group.acensi.manzerlacaz.web.payload;
 
-public record OrderOptionCountRequest(String option,String day) {
+public record OrderOptionCountRequest(String option,String day,int weekNum) {
 	
 	
 

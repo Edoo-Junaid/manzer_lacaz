@@ -26,7 +26,8 @@ public class MenuServiceImpl implements MenuService{
     //Else create a new menu
     @Override
     public Menu createMenu(MenuDto menuDto) {
-        menuDto.setWeekNum(this.getCurrentWeekNumber());
+        System.out.println(menuDto);
+        //menuDto.setWeekNum(this.getCurrentWeekNumber());
         if(checkIfMenuExists(menuDto.getDay())){
             menuDto.setId(this.getIdFromDayAndWeekNum(menuDto.getDay()));
         }

@@ -4,5 +4,6 @@ public record CreateMenuRequest(Long id,
         String description,
         String price,
         String day,
-        String option) {
+        String option,
+        int weekNum) {
 }

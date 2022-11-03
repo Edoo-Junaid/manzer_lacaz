@@ -11,7 +11,7 @@ public interface OrderService {
 
     public Long getOrderCountByDay(String day); //get total number of orders in a day
 
-    public Long getOrderOptionCountByDay(String option, String day); // get total number of options(veg/non-veg in a day)
+    public Long getOrderOptionCountByDay(String option, String day,int weekNum); // get total number of options(veg/non-veg in a day)
 
     public long findOrderId(Long user_id, Long menu_id);//finding an order by id
 
