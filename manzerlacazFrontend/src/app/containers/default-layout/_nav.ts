@@ -11,6 +11,11 @@ export const navItems: INavData[] = [
     name: 'Add Menu',
     url: '/charts',
     iconComponent: { name: 'cil-chart-pie' }
-  }
+  },
+  {
+    name: 'View Order Count',
+    url: '/viewCount',
+    iconComponent: { name: 'cil-chart-pie' }
+  },
 
 ];

@@ -19,7 +19,7 @@ import group.acensi.manzerlacaz.web.payload.DeleteOrderRequest;
 import group.acensi.manzerlacaz.web.payload.OrderOptionCountRequest;
 
 @RestController
-@RequestMapping("/api/auth/order")
+@RequestMapping("/api/order")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class OrderController {
 

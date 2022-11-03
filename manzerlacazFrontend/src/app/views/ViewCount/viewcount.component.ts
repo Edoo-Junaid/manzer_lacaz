@@ -8,10 +8,10 @@ import {MenuService} from "../../services/menu/menu.service";
 
 @Component({
   selector: 'app-charts',
-  templateUrl: './charts.component.html',
-  styleUrls: ['./charts.component.scss']
+  templateUrl: './viewcount.html',
+  styleUrls: ['./viewcount.component.scss']
 })
-export class ChartsComponent implements OnInit{
+export class ViewcountComponent implements OnInit{
  public modalVisibility =false;
   formData!: FormGroup;
 
