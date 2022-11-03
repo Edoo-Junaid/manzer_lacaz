@@ -12,7 +12,7 @@
         size="lg"
       ></svg>
     </button>
-    <c-header-nav class="d-none d-lg-flex me-auto">
+    <c-header-nav class="d-lg-flex me-auto">
       <c-nav-item>
 
         <a cNavLink routerLink="/dashboard" routerLinkActive="active">
@@ -20,8 +20,8 @@
         </a>
 
       </c-nav-item>
-      <c-nav-item class="ms-auto">
-        <i class="cil-account-logout"></i>
+      <c-nav-item >
+        <img cImg ng-click="logOut()" style="text-align: right" height="35" width="35"  src="assets/img/brand/logout.png" />
       </c-nav-item>
     </c-header-nav>
 

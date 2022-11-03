@@ -15,4 +15,7 @@ export class DefaultLayoutComponent {
   };
 
   constructor() {}
+  logOut(){
+    console.log("hello");
+  }
 }
