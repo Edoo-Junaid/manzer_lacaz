@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import group.acensi.manzerlacaz.service.api.MenuService;
 import group.acensi.manzerlacaz.service.dto.MenuDto;
 import group.acensi.manzerlacaz.service.mapper.MenuMapper;
+import group.acensi.manzerlacaz.web.payload.CreateMenuListRequest;
 import group.acensi.manzerlacaz.web.payload.CreateMenuRequest;
 
 
@@ -60,10 +61,16 @@ public class MenuController {
         return menuService.listAllMenu();
 	}
 
-    @GetMapping("/getCurrentMenu")
-    public List<MenuDto> getCurrentMenu() {
-        return menuService.listCurrentMenu();
-    }
+//    @PostMapping("/getCurrentMenu")
+//    public List<MenuDto> getCurrentMenu(@RequestBody CreateMenuListRequest createMenuListRequest) {
+//        return menuService.listCurrentMenu(createMenuListRequest.weekNum());
+//    }
+    
 
+    @GetMapping("/getCurrentMenu")
+        public List<MenuDto> getCurrentMenu() {
+
+            return menuService.listCurrentMenu(47);
+        }
     
 }

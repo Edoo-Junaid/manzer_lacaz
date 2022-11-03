@@ -94,40 +94,40 @@
               <!--              Monday-->
               <div class="progress-group mb-4">
                 <div [formGroup]="formData" class="form-group">
-                  <input id="vegMon" type="radio" value="veg" formControlName="optionMon" name="optionMon">
-                  <input class="radioBtn" id="nonvegMon" type="radio" value="nonveg" formControlName="optionMon" name="optionMon">
+                  <input id="vegMon" type="radio" value="veg" formControlName="optionMon" name="optionMon" (change)="changeOption($event)">
+                  <input class="radioBtn" id="nonvegMon" type="radio" value="nonveg" formControlName="optionMon" name="optionMon" (change)="changeOption($event)">
                 </div>
               </div>
 
               <!--              Tuesday-->
               <div class="progress-group mb-4">
                 <div [formGroup]="formData" class="form-group">
-                  <input id="vegTue" type="radio" value="veg" formControlName="optionTue" name="optionTue">
-                  <input class="radioBtn" id="nonvegTue" type="radio" value="nonveg" formControlName="optionTue" name="optionTue">
+                  <input id="vegTue" type="radio" value="veg" formControlName="optionTue" name="optionTue" (change)="changeOption($event)">
+                  <input class="radioBtn" id="nonvegTue" type="radio" value="nonveg" formControlName="optionTue" name="optionTue" (change)="changeOption($event)">
                 </div>
               </div>
 
               <!--              Wednesday-->
               <div class="progress-group mb-4">
                 <div [formGroup]="formData" class="form-group">
-                  <input id="vegWed" type="radio" value="veg" formControlName="optionWed" name="optionWed">
-                  <input class="radioBtn" id="nonvegWed" type="radio" value="nonveg" formControlName="optionWed" name="optionWed">
+                  <input id="vegWed" type="radio" value="veg" formControlName="optionWed" name="optionWed" (change)="changeOption($event)">
+                  <input class="radioBtn" id="nonvegWed" type="radio" value="nonveg" formControlName="optionWed" name="optionWed" (change)="changeOption($event)">
                 </div>
               </div>
 
               <!--              Thursday-->
               <div class="progress-group mb-4">
                 <div [formGroup]="formData" class="form-group">
-                  <input id="vegThu" type="radio" value="veg" formControlName="optionThu" name="optionThu">
-                  <input class="radioBtn" id="nonvegThu" type="radio" value="nonveg" formControlName="optionThu" name="optionThu">
+                  <input id="vegThu" type="radio" value="veg" formControlName="optionThu" name="optionThu" (change)="changeOption($event)">
+                  <input class="radioBtn" id="nonvegThu" type="radio" value="nonveg" formControlName="optionThu" name="optionThu" (change)="changeOption($event)">
                 </div>
               </div>
 
               <!--              Friday-->
               <div class="progress-group mb-4">
                 <div [formGroup]="formData" class="form-group">
-                  <input type="radio" id="vegFri"  value="veg" formControlName="optionFri" name="optionFri">
-                  <input type="radio" class="radioBtn" id="nonvegFri"  value="nonveg" formControlName="optionFri" name="optionFri">
+                  <input type="radio" id="vegFri"  value="veg" formControlName="optionFri" name="optionFri" (change)="changeOption($event)">
+                  <input type="radio" class="radioBtn" id="nonvegFri"  value="nonveg" formControlName="optionFri" name="optionFri" (change)="changeOption($event)">
                 </div>
               </div>
 

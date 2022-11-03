@@ -8,7 +8,7 @@ import {MenuCreation} from "../../views/charts/MenuCreation";
   providedIn: 'root'
 })
 export class MenuService {
-  private rootURL ='http://localhost:8080/api/menu/';
+  private rootURL ='http://localhost:8080/api/auth/menu/';
   constructor(private http:HttpClient) { }
 
   getMenus(){

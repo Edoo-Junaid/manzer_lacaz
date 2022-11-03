@@ -50,8 +50,8 @@ public class MenuServiceImpl implements MenuService{
     
     //Method to list the current menu
     @Override
-    public List<MenuDto> listCurrentMenu() {
-        return menurepository.findByWeekNum(this.getCurrentWeekNumber()).stream().map(MenuMapper.INSTANCE::toDto).toList();
+    public List<MenuDto> listCurrentMenu(int weekNum) {
+        return menurepository.findByWeekNum(weekNum).stream().map(MenuMapper.INSTANCE::toDto).toList();
     }
 
     //Method to check if a menu exists

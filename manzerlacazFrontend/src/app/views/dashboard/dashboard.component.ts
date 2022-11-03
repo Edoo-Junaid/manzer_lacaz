@@ -7,6 +7,7 @@ import {MenuService} from "../../services/menu/menu.service";
 import {Order} from "./Order";
 import {Menu} from "./Menu";
 import {DailyConfirmation} from "./DailyConfirmation";
+import {A} from "@angular/cdk/keycodes";
 
 @Component({
   templateUrl: 'dashboard.component.html',
@@ -185,4 +186,22 @@ export class DashboardComponent implements OnInit {
   //   this.chartsData.initMainChart(value);
   //   this.initCharts();
   // }
+
+
+
+
+
+  changeOption(data:any) {
+
+    console.log(data.target.value)
+    var Options=new Array(data.optionMon, data.optionTue, data.optionWed, data.optionThu, data.optionFri),index=Options.length
+    //console.log(data.optionMon, data.optionTue, data.optionWed, data.optionThu, data.optionFri)
+    while (index-- && !Options[index]) {
+     //console.log(this.priceDescriptions[index]);
+      //console.log(Options)
+    }
+
+
+
+  }
 }
