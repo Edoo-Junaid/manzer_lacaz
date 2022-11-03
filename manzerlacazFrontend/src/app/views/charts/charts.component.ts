@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {MenuService} from "../../services/Menu/menu.service";
+
 import {MenuCreation} from "../charts/MenuCreation";
-import {Order} from "../dashboard/Order";
 import {Router} from "@angular/router";
+// @ts-ignore
+import {MenuService} from "../../services/menu/menu.service";
 
 @Component({
   selector: 'app-charts',

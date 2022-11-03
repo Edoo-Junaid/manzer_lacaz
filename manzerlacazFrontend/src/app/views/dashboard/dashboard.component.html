@@ -5,46 +5,44 @@
         <c-row>
           <hr class="mt-0"/>
 
-<!--          Confirmation-->
-
-<!--          Labels-->
+          <!--          Labels-->
           <c-col md="2" xl="2" xs="2">
-<!--          <c-col md="4" xl="4" xs="8">-->
-<!--Changed xs from 12 to 8-->
+            <!--          <c-col md="4" xl="4" xs="8">-->
+            <!--Changed xs from 12 to 8-->
 
             <div class="progress-group mb-4">
               <b class="text-medium-emphasis small">Day</b>
             </div>
 
             <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Monday</span>
+              <span class="text-medium-emphasis small">Mon</span>
             </div>
 
             <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Tuesday</span>
+              <span class="text-medium-emphasis small">Tue</span>
             </div>
 
             <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Wednesday</span>
+              <span class="text-medium-emphasis small">Wed</span>
             </div>
 
             <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Thursday</span>
+              <span class="text-medium-emphasis small">Thu</span>
             </div>
 
             <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Friday</span>
+              <span class="text-medium-emphasis small">Fri</span>
             </div>
 
             <br>
-<!--            Total-->
+            <!--            Total-->
             <div class="progress-group mb-4">
               <span class="text-medium-emphasis small">Total</span>
             </div>
           </c-col>
 
-<!--          Descriptions-->
-          <c-col md="3" xl="3" xs="3">
+          <!--          Descriptions-->
+          <c-col md="2" xl="2" xs="2">
             <div class="progress-group mb-4">
               <b class="text-medium-emphasis small">Menu</b>
             </div>
@@ -69,9 +67,22 @@
                 <span>Non-veg</span>
               </small>
             </div>
+
           </c-col>
 
-<!--          Options-->
+          <!--          Price-->
+          <c-col md="1" xl="1" xs="1">
+            <div class="progress-group mb-4">
+              <b class="text-medium-emphasis small">Price</b>
+            </div>
+
+            <div class="progress-group mb-4" *ngFor="let priceDesc of priceDescriptions; index as i">
+              <span class="text-medium-emphasis small">{{priceDesc}}</span>
+            </div>
+
+          </c-col>
+
+          <!--          Options-->
           <c-col md="3" xl="3" xs="3">
 
             <div class="progress-group mb-4">
@@ -80,7 +91,7 @@
 
             <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" >
 
-      <!--              Monday-->
+              <!--              Monday-->
               <div class="progress-group mb-4">
                 <div [formGroup]="formData" class="form-group">
                   <input id="vegMon" type="radio" value="veg" formControlName="optionMon" name="optionMon">
@@ -88,7 +99,7 @@
                 </div>
               </div>
 
-<!--              Tuesday-->
+              <!--              Tuesday-->
               <div class="progress-group mb-4">
                 <div [formGroup]="formData" class="form-group">
                   <input id="vegTue" type="radio" value="veg" formControlName="optionTue" name="optionTue">
@@ -96,7 +107,7 @@
                 </div>
               </div>
 
-<!--              Wednesday-->
+              <!--              Wednesday-->
               <div class="progress-group mb-4">
                 <div [formGroup]="formData" class="form-group">
                   <input id="vegWed" type="radio" value="veg" formControlName="optionWed" name="optionWed">
@@ -104,7 +115,7 @@
                 </div>
               </div>
 
-<!--              Thursday-->
+              <!--              Thursday-->
               <div class="progress-group mb-4">
                 <div [formGroup]="formData" class="form-group">
                   <input id="vegThu" type="radio" value="veg" formControlName="optionThu" name="optionThu">
@@ -112,7 +123,7 @@
                 </div>
               </div>
 
-<!--              Friday-->
+              <!--              Friday-->
               <div class="progress-group mb-4">
                 <div [formGroup]="formData" class="form-group">
                   <input type="radio" id="vegFri"  value="veg" formControlName="optionFri" name="optionFri">
@@ -124,12 +135,12 @@
 
           </c-col>
 
-<!--          Payment-->
+          <!--          Payment-->
           <c-col md="2" xl="2" xs="2">
 
-              <div class="progress-group mb-4">
-                <b class="text-medium-emphasis small">Paid</b>
-              </div>
+            <div class="progress-group mb-4">
+              <b class="text-medium-emphasis small">Paid</b>
+            </div>
 
             <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" >
 
@@ -170,7 +181,7 @@
 
               <hr class="mt-0"/>
 
-<!--              Total amount-->
+              <!--              Total amount-->
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <span class="text-center">xxx</span>
@@ -180,16 +191,69 @@
             </form>
           </c-col>
 
-          <hr class="mt-0"/>
+          <!--                    Cancel-->
+          <c-col md="2" xl="2" xs="2">
 
-          <div class="blockBtn">
-            <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" class="submitBtn">
-              <button class="btn btn-primary" type="submit" [disabled]="!formData.valid">Save</button>
+            <div class="progress-group mb-4">
+              <b class="text-medium-emphasis small">-</b>
+            </div>
+
+            <form [formGroup]="formData" (ngSubmit)="onClickResetMon(formData.getRawValue())" >
+
+              <!--              Monday-->
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <div class="icons">
+                    <input type="image" value="bin" name="binMon" id="binMon"  formControlName="binMon" src="assets/images/binIcon.png" width="20px" height="20px" >
+                  </div>
+                </div>
+              </div>
             </form>
-            <form [formGroup]="formData" (ngSubmit)="onClickReset(formData.getRawValue())" class="resetBtn">
-              <button class="btn btn-primary" type="submit" [disabled]="!formData.valid">Reset</button>
+
+            <!--              Tuesday-->
+            <form [formGroup]="formData" (ngSubmit)="onClickResetTue(formData.getRawValue())" >
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <div class="icons">
+                    <input type="image" id="binTue" formControlName="binTue" src="assets/images/binIcon.png" width="20px" height="20px">
+                  </div>
+                </div>
+              </div>
             </form>
-          </div>
+            <!--              Wednesday-->
+            <form [formGroup]="formData" (ngSubmit)="onClickResetWed(formData.getRawValue())" >
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <div class="icons">
+                    <input type="image" id="binWed" formControlName="binWed" src="assets/images/binIcon.png" width="20px" height="20px">
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <!--              Thursday-->
+            <form [formGroup]="formData" (ngSubmit)="onClickResetThu(formData.getRawValue())" >
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <div class="icons">
+                    <input type="image" id="binThu" formControlName="binThu" src="assets/images/binIcon.png" width="20px" height="20px">
+                  </div>
+                </div>
+              </div>
+            </form>
+            <!--              Friday-->
+            <form [formGroup]="formData" (ngSubmit)="onClickResetFri(formData.getRawValue())" >
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <div class="icons">
+                    <input type="image" id="binFri" formControlName="binFri" src="assets/images/binIcon.png" width="20px" height="20px">
+                  </div>
+                </div>
+              </div>
+            </form>
+
+          </c-col>
+
         </c-row>
       </c-card-body>
     </c-card>
