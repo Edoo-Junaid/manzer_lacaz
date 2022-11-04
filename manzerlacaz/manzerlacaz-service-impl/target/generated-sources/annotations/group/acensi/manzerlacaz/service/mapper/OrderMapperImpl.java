@@ -6,8 +6,8 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-11-04T10:07:48+0400",
-    comments = "version: 1.5.2.Final, compiler: Eclipse JDT (IDE) 1.4.200.v20221012-0724, environment: Java 17.0.4.1 (Eclipse Adoptium)"
+    date = "2022-11-04T14:51:57+0400",
+    comments = "version: 1.5.2.Final, compiler: javac, environment: Java 17.0.4.1 (Eclipse Adoptium)"
 )
 public class OrderMapperImpl implements OrderMapper {
 
@@ -19,17 +19,17 @@ public class OrderMapperImpl implements OrderMapper {
 
         Order order = new Order();
 
-        order.setCreated( dto.getCreated() );
         order.setId( dto.getId() );
         order.setLastModified( dto.getLastModified() );
-        if ( dto.getMenu_id() != null ) {
-            order.setMenu_id( dto.getMenu_id() );
-        }
-        order.setOption( dto.getOption() );
-        order.setPayment( dto.getPayment() );
+        order.setCreated( dto.getCreated() );
         if ( dto.getUser_id() != null ) {
             order.setUser_id( dto.getUser_id() );
         }
+        if ( dto.getMenu_id() != null ) {
+            order.setMenu_id( dto.getMenu_id() );
+        }
+        order.setPayment( dto.getPayment() );
+        order.setOption( dto.getOption() );
 
         return order;
     }
@@ -42,13 +42,13 @@ public class OrderMapperImpl implements OrderMapper {
 
         OrderDto orderDto = new OrderDto();
 
-        orderDto.setCreated( order.getCreated() );
         orderDto.setId( order.getId() );
-        orderDto.setLastModified( order.getLastModified() );
-        orderDto.setMenu_id( order.getMenu_id() );
-        orderDto.setOption( order.getOption() );
-        orderDto.setPayment( order.getPayment() );
         orderDto.setUser_id( order.getUser_id() );
+        orderDto.setMenu_id( order.getMenu_id() );
+        orderDto.setPayment( order.getPayment() );
+        orderDto.setOption( order.getOption() );
+        orderDto.setLastModified( order.getLastModified() );
+        orderDto.setCreated( order.getCreated() );
 
         return orderDto;
     }
