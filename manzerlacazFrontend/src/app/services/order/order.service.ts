@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { Order } from '../../views/dashboard/Order';
+import { Option } from '../../views/viewcount/Option';
 import { Observable } from 'rxjs';
 import { DailyConfirmation } from '../../views/dashboard/DailyConfirmation';
 
@@ -13,24 +14,6 @@ export class OrderService {
 
   rootURL = 'http://localhost:8080/api/order/';
 
-  // //Login- Avesh--------------------
-  // getPublicContent(): Observable<any> {
-  //   return this.http.get(this.rootURL + 'login', { responseType: 'text' });
-  // }
-  //
-  // getUserBoard(): Observable<any> {
-  //   return this.http.get(this.rootURL + 'user', { responseType: 'text' });
-  // }
-  //
-  // getModeratorBoard(): Observable<any> {
-  //   return this.http.get(this.rootURL + 'mod', { responseType: 'text' });
-  // }
-  //
-  // getAdminBoard(): Observable<any> {
-  //   return this.http.get(this.rootURL + 'admin', { responseType: 'text' });
-  // }
-
-  //Use cases- Aliya-----------------
   //weekly orders
   postOrder(orders:Array<Order>) :Observable<any>{
     const token =localStorage.getItem('token');
@@ -51,4 +34,17 @@ export class OrderService {
     const body = JSON.stringify(daily);
     return this.http.post<any>(this.rootURL + 'deleteOrders', body,header);
   }
+
+  //Retrieving count of options
+  getCount(count: Option) :Observable<any>{
+    const token =localStorage.getItem('token');
+    var header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  `Bearer ${token}`).set('content-type','application/json')
+    }
+    const body = JSON.stringify(count);
+    console.log(body);
+    return this.http.post<any>(this.rootURL + 'getOrderOptionCountByDay', body,header);
+  }
+
 }

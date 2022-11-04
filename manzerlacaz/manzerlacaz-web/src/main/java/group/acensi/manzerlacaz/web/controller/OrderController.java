@@ -29,6 +29,7 @@ public class OrderController {
     @PostMapping("/addOrder")
     public ResponseEntity<OrderDto> addMenu(@RequestBody CreateOrderRequest createOrderRequest) {
         System.out.println(createOrderRequest);
+        System.out.println(createOrderRequest);
         OrderDto orderDto = new OrderDto();
         orderDto.setUser_id(createOrderRequest.user_id());
         orderDto.setMenu_id(createOrderRequest.menu_id());
@@ -40,6 +41,7 @@ public class OrderController {
     // Add orders for a week
     @PostMapping("/addWeekOrder")
     public List<ResponseEntity<OrderDto>> addWeekOrder(@RequestBody List<CreateOrderRequest> orders) {
+        System.out.println(orders);
         List<ResponseEntity<OrderDto>> ordersSaved = new ArrayList<>();
         for (CreateOrderRequest createOrderRequest : orders) {
             OrderDto orderDto = new OrderDto();
@@ -63,6 +65,7 @@ public class OrderController {
     //Get total count of veg or non-veg orders in a day 
     @PostMapping("/getOrderOptionCountByDay")
     public Long getOrderOptionCountByDay(@RequestBody OrderOptionCountRequest orderOptionCountRequest) {
+        System.out.println(orderOptionCountRequest);
         return orderService.getOrderOptionCountByDay(orderOptionCountRequest.option(), orderOptionCountRequest.day(),orderOptionCountRequest.weekNum());
     }
 

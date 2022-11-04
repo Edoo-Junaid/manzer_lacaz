@@ -59,16 +59,16 @@ public class MenuController {
         return menuService.listAllMenu();
 	}
 
-//    @PostMapping("/getCurrentMenu")
-//    public List<MenuDto> getCurrentMenu(@RequestBody CreateMenuListRequest createMenuListRequest) {
-//        return menuService.listCurrentMenu(createMenuListRequest.weekNum());
-//    }
+    @PostMapping("/getCurrentMenu")
+    public List<MenuDto> getCurrentMenu(@RequestBody CreateMenuListRequest createMenuListRequest) {
+        return menuService.listCurrentMenu(createMenuListRequest.weekNum());
+    }
     
 
-    @GetMapping("/getCurrentMenu")
-        public List<MenuDto> getCurrentMenu() {
-
-            return menuService.listCurrentMenu(47);
-        }
+//    @GetMapping("/getCurrentMenu")
+//        public List<MenuDto> getCurrentMenu() {
+//
+//            return menuService.listCurrentMenu(47);
+//        }
     
 }

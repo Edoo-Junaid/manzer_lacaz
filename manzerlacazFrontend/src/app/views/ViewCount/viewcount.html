@@ -3,10 +3,12 @@
     <c-card class="mb-4">
       <c-card-body>
         <c-row>
+
+          <h4 style="text-align: center">Total Count Per Day For Veg & NonVeg Respectively </h4>
           <hr class="mt-0"/>
 
           <!--          Labels-->
-          <c-col md="2" xl="2" xs="2">
+          <c-col md="3" xl="3" xs="3">
             <!--          <c-col md="4" xl="4" xs="8">-->
             <!--Changed xs from 12 to 8-->
 
@@ -15,34 +17,29 @@
             </div>
 
             <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Mon</span>
+              <span class="text-medium-emphasis small">Monday</span>
             </div>
 
             <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Tue</span>
+              <span class="text-medium-emphasis small">Tuesday</span>
             </div>
 
             <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Wed</span>
+              <span class="text-medium-emphasis small">Wednesday</span>
             </div>
 
             <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Thu</span>
+              <span class="text-medium-emphasis small">Thursday</span>
             </div>
 
             <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Fri</span>
+              <span class="text-medium-emphasis small">Friday</span>
             </div>
 
-            <br>
-            <!--            Total-->
-            <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Total</span>
-            </div>
           </c-col>
 
           <!--          Descriptions-->
-          <c-col md="2" xl="2" xs="2">
+          <c-col md="4" xl="4" xs="4">
             <div class="progress-group mb-4">
               <b class="text-medium-emphasis small">Menu</b>
             </div>
@@ -51,46 +48,32 @@
               <span class="text-medium-emphasis small">{{menuDesc}}</span>
             </div>
 
-            <!--            key-->
-            <div class="legend text-center" ngPreserveWhitespaces>
-              <small>
-                <sup>
-                  <span class="badge badge-pill badge-sm bg-success">&nbsp;</span>
-                </sup>
-                <span>Veg</span>
-                &nbsp;&nbsp;
-                <sup
-                ><span class="badge badge-pill badge-sm bg-info"
-                >&nbsp;</span
-                ></sup
-                >
-                <span>Non-veg</span>
-              </small>
-            </div>
-
           </c-col>
 
           <!--          Options-->
-          <c-col md="3" xl="3" xs="3">
+          <!--          Veg-->
+          <c-col md="2" xl="2" xs="2">
 
             <div class="progress-group mb-4">
-              <!--            key-->
-              <div class="legend text-center" ngPreserveWhitespaces>
-                <small>
-                  <sup>
-                    <span class="badge badge-pill badge-sm bg-success">&nbsp;</span>
-                  </sup>
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <sup
-                  ><span class="badge badge-pill badge-sm bg-info"
-                  >&nbsp;</span
-                  ></sup>
-                </small>
-              </div>
+              <b class="text-medium-emphasis small">Veg</b>
             </div>
 
-            <div class="progress-group mb-4" *ngFor="let menuDesc of menuDescriptions; index as i">
-              <span class="text-medium-emphasis small">{{menuDesc}}</span>
+<!--            loop-->
+            <div class="progress-group mb-4" *ngFor="let count_veg of countVeg; index as i">
+              <span class="text-medium-emphasis small">{{count_veg}}</span>
+            </div>
+          </c-col>
+
+          <!--          NonVeg-->
+          <c-col md="2" xl="2" xs="2">
+
+            <div class="progress-group mb-4">
+              <b class="text-medium-emphasis small">NonVeg</b>
+            </div>
+
+<!--            loop-->
+            <div class="progress-group mb-4" *ngFor="let count_Nonveg of countNonVeg; index as i">
+              <span class="text-medium-emphasis small">{{count_Nonveg}}</span>
             </div>
           </c-col>
 

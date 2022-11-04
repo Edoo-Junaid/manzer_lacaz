@@ -68,7 +68,6 @@ export class ChartsComponent implements OnInit{
   }
 
   //Submit btn
-
   onClickSubmit(data: any) {
     console.log(data);
     //array to store the following
@@ -88,7 +87,7 @@ export class ChartsComponent implements OnInit{
         option = optionVeg[i] + '' + optionNonVeg[i]
       }
       // @ts-ignore
-      let  menu= new MenuCreation(menuDesc[i], price[i], day[i], option, weekNum);
+      let  menu= new MenuCreation(menuDesc[i], price[i], day[i], option, data.weekNo);
       menus.push(menu);
     }
 
@@ -100,7 +99,6 @@ export class ChartsComponent implements OnInit{
     });
 
   }
-
 
   // For triggering PopUp for UserTypeValidation
   toggleLiveDemo() {
