@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 
 import { ClassToggleService, HeaderComponent } from '@coreui/angular';
 import {LoginService} from "../../../services/Login/login.service";
@@ -13,9 +12,7 @@ export class DefaultHeaderComponent extends HeaderComponent implements OnInit{
 
   @Input() sidebarId: string = "sidebar";
   public userType!:any;
-  public newMessages = new Array(4)
-  public newTasks = new Array(5)
-  public newNotifications = new Array(5)
+
 
   constructor(private classToggler: ClassToggleService,private loginService: LoginService, private _router: Router) {
     super();
@@ -27,6 +24,7 @@ export class DefaultHeaderComponent extends HeaderComponent implements OnInit{
 
   Logout($event: MouseEvent) {
     this.loginService.logOut();
+    localStorage.clear();
     this._router.navigateByUrl('login')
     console.log($event)
   }

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UntypedFormControl, UntypedFormGroup} from '@angular/forms';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormGroup} from '@angular/forms';
 import {Router} from "@angular/router";
 import {Menu} from "../dashboard/Menu";
-// @ts-ignore
 import {MenuService} from "../../services/menu/menu.service";
 
 @Component({
