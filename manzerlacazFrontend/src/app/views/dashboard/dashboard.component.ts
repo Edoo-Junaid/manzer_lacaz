@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {UntypedFormControl, UntypedFormGroup} from '@angular/forms';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { DashboardChartsData, IChartProps } from './dashboard-charts-data';
@@ -9,11 +9,14 @@ import {Menu} from "./Menu";
 import {DailyConfirmation} from "./DailyConfirmation";
 import {A} from "@angular/cdk/keycodes";
 
+
+
 @Component({
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  public orderTotal!:number;
   private controlNamesMonday = ['optionMon', 'paymentMon'];
   private controlNamesTuesday = ['optionTue', 'paymentTue'];
   private controlNamesWednesday = ['optionWed', 'paymentWed'];
@@ -23,6 +26,8 @@ export class DashboardComponent implements OnInit {
 
 
 
+  option!:any[];
+  payment!:any[];
   menu!: Menu[] ;
   menuDescriptions!:string[];
   priceDescriptions!:string[];
@@ -91,47 +96,84 @@ export class DashboardComponent implements OnInit {
     // this.initCharts();
   }
 
+  calcPrice(data:any){
+    const radios = this.formData.getRawValue();
+    console.log(radios)
+    this.option=[radios.optionMon,radios.optionTue,radios.optionWed,radios.optionThu,radios.optionFri]
+    var count=0
+    var total=0;
+    while (count<this.option.length) {
+      if(this.option[count]!=null ||this.option[count]!=undefined ){
+        let numberValue = Number(this.priceDescriptions[count]);
+        total = total+numberValue
+      }
+      count++
+    }
+    console.log(total)
+    this.orderTotal=total;
+  }
+
+
   //Reset btn
   onClickResetMon(data: any) {
 
+    if(data.optionMon!=null){
+      let numberValue = Number(this.priceDescriptions[0]);
+      this.orderTotal=this.orderTotal-numberValue;
+    }
     // @ts-ignore
     this.controlNamesMonday.map((value: string) => this.formData.get(value).setValue(null));
   }
 
   onClickResetTue(data: any) {
-
+    if(data.optionTue!=null){
+      let numberValue = Number(this.priceDescriptions[1]);
+      this.orderTotal=this.orderTotal-numberValue;
+    }
     // @ts-ignore
     this.controlNamesTuesday.map((value: string) => this.formData.get(value).setValue(null));
   }
 
   onClickResetWed(data: any) {
+    if(data.optionWed!=null){
+      let numberValue = Number(this.priceDescriptions[2]);
+      this.orderTotal=this.orderTotal-numberValue;
+    }
     // @ts-ignore
     this.controlNamesWednesday.map((value: string) => this.formData.get(value).setValue(null));
   }
 
   onClickResetThu(data: any) {
-
+    if(data.optionThu!=null){
+      let numberValue = Number(this.priceDescriptions[3]);
+      this.orderTotal=this.orderTotal-numberValue;
+    }
     // @ts-ignore
     this.controlNamesThursday.map((value: string) => this.formData.get(value).setValue(null));
   }
 
   onClickResetFri(data: any) {
-    this.menuService.getMenus().subscribe((data: Array<Menu>) => {
-      this.priceDescriptions=[data[0].price,data[1].price,data[2].price,data[3].price,data[4].price,]
-    });
-    var option:any[] = new Array(data.optionMon,data.optionTue,data.optionWed,data.optionThu,data.optionFri), index=option.length
-    while (index-- && !option[index]);
-    console.log(this.priceDescriptions[index]);
-
+    if(data.optionFri!=null){
+      let numberValue = Number(this.priceDescriptions[4]);
+      this.orderTotal=this.orderTotal-numberValue;
+    }
     // @ts-ignore
     this.controlNamesFriday.map((value: string) => this.formData.get(value).setValue(null));
+
   }
+
+
+
+
+
+
+
 
 
 
   //Submit btn
   onClickSubmit(data: any) {
-    //console.log(data)
+
     //array to store confirmation from checkbox => True or false values.
     var confirmation:any[]= new Array(data.confirmMon,data.confirmTue,data.confirmWed,data.confirmThu,data.confirmFri);
 
@@ -139,7 +181,7 @@ export class DashboardComponent implements OnInit {
     var payment:any[] = new Array( data.paymentMon?1:0,data.paymentTue?1:0,data.paymentWed?1:0,data.paymentThu?1:0,data.paymentFri?1:0)
 
     //array to store option from radio Button=> Veg or Non-Veg
-    var option:any[] = new Array(data.optionMon,data.optionTue,data.optionWed,data.optionThu,data.optionFri)
+
 
     //array to store orders
     var orders = new Array<Order>;
@@ -148,32 +190,32 @@ export class DashboardComponent implements OnInit {
     var deleteRequests = new Array<DailyConfirmation>;
 
     //looping through all orders
-    for(var i in confirmation){
-
-      //if checkbox for confimation is selected => Order is added to orders array to be saved
-      //if not selected goes into else branch => Order is added to deleteRequests to be deleted
-      if(confirmation[i]){
-        let  order= new Order(1,this.menu[i].id,payment[i],option[i]);
-        orders.push(order);
-      }else{
-        let dailyConfimation = new DailyConfirmation(1,this.menu[i].id);
-        deleteRequests.push(dailyConfimation);
-      }
-    }
+    // for(var i in confirmation){
+    //
+    //   //if checkbox for confimation is selected => Order is added to orders array to be saved
+    //   //if not selected goes into else branch => Order is added to deleteRequests to be deleted
+    //   if(confirmation[i]){
+    //     let  order= new Order(1,this.menu[i].id,payment[i],option[i]);
+    //     orders.push(order);
+    //   }else{
+    //     let dailyConfimation = new DailyConfirmation(1,this.menu[i].id);
+    //     deleteRequests.push(dailyConfimation);
+    //   }
+    // }
 
     //to test
-    console.log(orders)
+    // console.log(orders)
 
     // faire appel à l'api
     //saving orders
-    this.orderService.postOrder(orders).subscribe((data) => {
-      console.log('message::::', data);
-    });
+    // this.orderService.postOrder(orders).subscribe((data) => {
+    //   console.log('message::::', data);
+    // });
 
     //removing orders
-    this.orderService.removeOrder(deleteRequests).subscribe((data)=>{
-      console.log(data);
-    })
+    // this.orderService.removeOrder(deleteRequests).subscribe((data)=>{
+    //   console.log(data);
+    // })
 
   }
 
@@ -188,20 +230,28 @@ export class DashboardComponent implements OnInit {
   // }
 
 
-
-
-
   changeOption(data:any) {
+this.calcPrice(data)
+  }
 
-    console.log(data.target.value)
-    var Options=new Array(data.optionMon, data.optionTue, data.optionWed, data.optionThu, data.optionFri),index=Options.length
-    //console.log(data.optionMon, data.optionTue, data.optionWed, data.optionThu, data.optionFri)
-    while (index-- && !Options[index]) {
-     //console.log(this.priceDescriptions[index]);
-      //console.log(Options)
-    }
-
-
+  onClickPaymentMon(data:any){
 
   }
+  onClickPaymentTue(data:any){
+
+  }
+  onClickPaymentWed(data:any){
+
+  }
+  onClickPaymentThu(data:any){
+
+  }
+  onClickPaymentFri(data:any){
+
+  }
+
+
+
+
+
 }

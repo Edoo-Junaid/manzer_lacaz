@@ -142,53 +142,61 @@
               <b class="text-medium-emphasis small">Paid</b>
             </div>
 
-            <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" >
+            <form [formGroup]="formData" (ngSubmit)="onClickPaymentMon(formData.getRawValue())" >
 
               <!--              Monday-->
               <div class="progress-group mb-4">
                 <div class="form-group">
-                  <input class="tableCheckboxBtn" id="paymentMon" type="checkbox" value="payment" formControlName="paymentMon" name="paymentMon">
+                  <input class="tableCheckboxBtn" id="paymentMon" type="checkbox" value="payment" formControlName="paymentMon" name="paymentMon"  >
                 </div>
               </div>
+            </form>
 
               <!--              Tuesday-->
+            <form [formGroup]="formData" (ngSubmit)="onClickPaymentTue(formData.getRawValue())" >
               <div class="progress-group mb-4">
                 <div class="form-group">
-                  <input class="tableCheckboxBtn" id="paymentTue" type="checkbox" value="payment" formControlName="paymentTue" name="paymentTue">
+                  <input class="tableCheckboxBtn" id="paymentTue" type="checkbox" value="payment" formControlName="paymentTue" name="paymentTue" >
                 </div>
               </div>
+            </form>
 
               <!--              Wednesday-->
+            <form [formGroup]="formData" (ngSubmit)="onClickPaymentWed(formData.getRawValue())" >
               <div class="progress-group mb-4">
                 <div class="form-group">
-                  <input class="tableCheckboxBtn" id="paymentWed" type="checkbox" value="payment" formControlName="paymentWed" name="paymentWed">
+                  <input class="tableCheckboxBtn" id="paymentWed" type="checkbox" value="payment" formControlName="paymentWed" name="paymentWed" >
                 </div>
               </div>
-
+            </form>
               <!--              Thursday-->
+            <form [formGroup]="formData" (ngSubmit)="onClickPaymentThu(formData.getRawValue())" >
               <div class="progress-group mb-4">
                 <div class="form-group">
-                  <input class="tableCheckboxBtn" id="paymentThu" type="checkbox" value="payment" formControlName="paymentThu" name="paymentThu">
+                  <input class="tableCheckboxBtn" id="paymentThu" type="checkbox" value="payment" formControlName="paymentThu" name="paymentThu" >
                 </div>
               </div>
+            </form>
 
               <!--              Friday-->
+            <form [formGroup]="formData" (ngSubmit)="onClickPaymentFri(formData.getRawValue())" >
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <input class="tableCheckboxBtn" id="paymentFri" type="checkbox" value="payment" formControlName="paymentFri" name="paymentFri">
                 </div>
               </div>
+            </form>
 
               <hr class="mt-0"/>
 
               <!--              Total amount-->
               <div class="progress-group mb-4">
                 <div class="form-group">
-                  <span class="text-center">xxx</span>
+                  <span class="text-center">{{orderTotal}}</span>
                 </div>
               </div>
 
-            </form>
+
           </c-col>
 
           <!--                    Cancel-->
