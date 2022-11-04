@@ -18,7 +18,7 @@ import group.acensi.manzerlacaz.web.payload.CreateMenuRequest;
 
 
 @RestController
-@RequestMapping("/api/menu")
+@RequestMapping("/api/auth/menu")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class MenuController {
 	
@@ -27,8 +27,6 @@ public class MenuController {
     
     @PostMapping("/addMenu")
     public List<MenuDto> addMenu(@RequestBody List<CreateMenuRequest> menu){
-        System.out.println("hello");
-        System.out.println(menu);
         List<MenuDto> returnMenuList = new ArrayList<>();
         for(CreateMenuRequest menuInList: menu) {
             MenuDto menuDto= new MenuDto();
