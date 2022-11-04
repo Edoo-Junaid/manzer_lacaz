@@ -1,12 +1,13 @@
 group\acensi\manzerlacaz\entities\Menu.class
 group\acensi\manzerlacaz\entities\Role.class
-group\acensi\manzerlacaz\entities\types\Civilite.class
-group\acensi\manzerlacaz\entities\types\Adresse.class
+group\acensi\manzerlacaz\entities\Config.class
 group\acensi\manzerlacaz\entities\listener\EntityListener.class
-group\acensi\manzerlacaz\entities\Utilisateur.class
 group\acensi\manzerlacaz\entities\Order.class
 group\acensi\manzerlacaz\entities\base\AbstractEntity.class
 group\acensi\manzerlacaz\entities\base\AbstractKeyValueEntity.class
-group\acensi\manzerlacaz\entities\types\Email.class
 group\acensi\manzerlacaz\entities\types\Naissance.class
+group\acensi\manzerlacaz\entities\types\Civilite.class
+group\acensi\manzerlacaz\entities\types\Adresse.class
+group\acensi\manzerlacaz\entities\Utilisateur.class
+group\acensi\manzerlacaz\entities\types\Email.class
 group\acensi\manzerlacaz\entities\types\Telephone.class

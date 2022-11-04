@@ -17,6 +17,9 @@ group\acensi\manzerlacaz\web\security\UserDetailsImpl.class
 group\acensi\manzerlacaz\web\controller\OrderController.class
 group\acensi\manzerlacaz\web\controller\UtilisateurController.class
 group\acensi\manzerlacaz\web\security\AuthTokenFilter.class
+group\acensi\manzerlacaz\web\payload\CreateOrderRequest.class
+group\acensi\manzerlacaz\web\controller\ConfigController.class
+group\acensi\manzerlacaz\web\payload\CreateMenuListRequest.class
 group\acensi\manzerlacaz\web\payload\DeleteOrderRequest.class
 group\acensi\manzerlacaz\web\payload\LoginRequest.class
 group\acensi\manzerlacaz\web\controller\AuthenticationController.class

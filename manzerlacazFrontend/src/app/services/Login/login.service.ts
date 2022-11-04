@@ -16,4 +16,9 @@ export class LoginService {
     return this.http.post(this.url+'auth/login',body,{'headers':headers})
   }
 
+  logOut():Observable<any>{
+    const contType="application/json"
+    const headers = { 'content-type': contType}
+    return this.http.get(this.url +'auth/logout',{'headers':headers});
+  }
 }
