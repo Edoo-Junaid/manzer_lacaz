@@ -88,7 +88,7 @@ export class ChartsComponent implements OnInit{
         option = optionVeg[i] + '' + optionNonVeg[i]
       }
       // @ts-ignore
-      let  menu= new MenuCreation(menuDesc[i], price[i], day[i], option, weekNum);
+      let  menu= new MenuCreation(menuDesc[i], price[i], day[i], option, 47);
       menus.push(menu);
     }
 
