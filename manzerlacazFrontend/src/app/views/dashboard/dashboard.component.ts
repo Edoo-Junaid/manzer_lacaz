@@ -38,13 +38,13 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     //Displaying menus according to id
     let weekNum = new GetMenuList(47);
-    this.menuService.getMenus(weekNum).subscribe((data: Array<Menu>) => {
-      for(let i in data){
-        if(data[i].day=="Monday") this.menu[0] = data[i];
-        if(data[i].day=="Tuesday") this.menu[1] = data[i];
-        if(data[i].day=="Wednesday") this.menu[2] = data[i];
-        if(data[i].day=="Thursday") this.menu[3] = data[i];
-        if(data[i].day=="Friday") this.menu[4] = data[i];
+    let subscription = this.menuService.getMenus(weekNum).subscribe((data: Array<Menu>) => {
+      for(const datum of data){
+        if(datum.day=="Monday") this.menu[0] = datum;
+        if(datum.day=="Tuesday") this.menu[1] = datum;
+        if(datum.day=="Wednesday") this.menu[2] = datum;
+        if(datum.day=="Thursday") this.menu[3] = datum;
+        if(datum.day=="Friday") this.menu[4] = datum;
       }
       this.menuDescriptions = [this.menu[0].description, this.menu[1].description, this.menu[2].description, this.menu[3].description, this.menu[4].description,]
       this.priceDescriptions = [this.menu[0].price, this.menu[1].price, this.menu[2].price, this.menu[3].price, this.menu[4].price,]
@@ -77,8 +77,7 @@ export class DashboardComponent implements OnInit {
     });
 
     // this.initCharts();
-    // @ts-ignore
-    this.formData.get("optionMon").setValue("veg");
+    this.formData.get("optionMon")?.setValue("veg");
   }
 
   calcPrice(data: any) {
@@ -106,8 +105,7 @@ export class DashboardComponent implements OnInit {
       let numberValue = Number(this.priceDescriptions[0]);
       this.orderTotal = this.orderTotal - numberValue;
     }
-    // @ts-ignore
-    this.controlNamesMonday.map((value: string) => this.formData.get(value).setValue(null));
+    this.controlNamesMonday.map((value: string) => this.formData.get(value)?.setValue(null));
   }
 
   onClickResetTue(data: any) {
@@ -115,8 +113,7 @@ export class DashboardComponent implements OnInit {
       let numberValue = Number(this.priceDescriptions[1]);
       this.orderTotal = this.orderTotal - numberValue;
     }
-    // @ts-ignore
-    this.controlNamesTuesday.map((value: string) => this.formData.get(value).setValue(null));
+    this.controlNamesTuesday.map((value: string) => this.formData.get(value)?.setValue(null));
   }
 
   onClickResetWed(data: any) {
@@ -124,8 +121,7 @@ export class DashboardComponent implements OnInit {
       let numberValue = Number(this.priceDescriptions[2]);
       this.orderTotal = this.orderTotal - numberValue;
     }
-    // @ts-ignore
-    this.controlNamesWednesday.map((value: string) => this.formData.get(value).setValue(null));
+    this.controlNamesWednesday.map((value: string) => this.formData.get(value)?.setValue(null));
   }
 
   onClickResetThu(data: any) {
@@ -133,8 +129,7 @@ export class DashboardComponent implements OnInit {
       let numberValue = Number(this.priceDescriptions[3]);
       this.orderTotal = this.orderTotal - numberValue;
     }
-    // @ts-ignore
-    this.controlNamesThursday.map((value: string) => this.formData.get(value).setValue(null));
+    this.controlNamesThursday.map((value: string) => this.formData.get(value)?.setValue(null));
   }
 
   onClickResetFri(data: any) {
@@ -142,11 +137,8 @@ export class DashboardComponent implements OnInit {
       let numberValue = Number(this.priceDescriptions[4]);
       this.orderTotal = this.orderTotal - numberValue;
     }
-    // @ts-ignore
-    this.controlNamesFriday.map((value: string) => this.formData.get(value).setValue(null));
-
+    this.controlNamesFriday.map((value: string) => this.formData.get(value)?.setValue(null));
   }
-
 
   changeOption(data: any) {
     this.calcPrice(data)
@@ -155,10 +147,21 @@ export class DashboardComponent implements OnInit {
   changeInForm($event: Event) {
     console.log(this.menu)
    // console.log(this.formData.getRawValue());
-    const formVal = this.formData.getRawValue();
+    const {
+      optionFri,
+      optionMon,
+      optionThu,
+      optionTue,
+      optionWed,
+      paymentFri,
+      paymentMon,
+      paymentThu,
+      paymentTue,
+      paymentWed
+    } = this.formData.getRawValue();
     //console.log(radios)
-    this.orderOption = [formVal.optionMon, formVal.optionTue, formVal.optionWed, formVal.optionThu, formVal.optionFri];
-    this.orderPayment=[formVal.paymentMon?1:0,formVal.paymentTue?1:0,formVal.paymentWed?1:0,formVal.paymentThu?1:0,formVal.paymentFri?1:0];
+    this.orderOption = [optionMon, optionTue, optionWed, optionThu, optionFri];
+    this.orderPayment=[paymentMon?1:0,paymentTue?1:0,paymentWed?1:0,paymentThu?1:0,paymentFri?1:0];
     let orders = new Array<Order>;
     for(let i in  this.orderOption){
       if(this.orderOption[i]!=null){
@@ -168,9 +171,7 @@ export class DashboardComponent implements OnInit {
     }
     console.log(orders);
    // saving orders
-    this.orderService.postOrder(orders).subscribe((data) => {
-      console.log('message::::', data);
-    });
+    this.orderService.postOrder(orders).subscribe((data) => console.log('message::::', data));
   }
 
 }
