@@ -8,6 +8,7 @@ import {Order} from "./Order";
 import {Menu} from "./Menu";
 import {DailyConfirmation} from "./DailyConfirmation";
 import {A} from "@angular/cdk/keycodes";
+import {GetMenuList} from "./GetMenuList";
 
 
 @Component({
@@ -27,21 +28,10 @@ export class DashboardComponent implements OnInit {
   orderOption!:string[];
   orderPayment!:number[];
   payment!: any[];
-  menu:Menu[] = new Array(5)
+  menu:Menu[] = new Array(5);
+  menuData!:Menu[];
   menuDescriptions!: string[];
   priceDescriptions!: string[];
-  //menu id
-  menuMonDesc!: string;
-  menuTueDesc!: string;
-  menuWedDesc!: string;
-  menuThuDesc!: string;
-  menuFriDesc!: string;
-
-  menuMon!: Menu;
-  menuTue!: Menu;
-  menuWed!: Menu;
-  menuThu!: Menu;
-  menuFri!: Menu;
   formData!: FormGroup;
 
 
@@ -56,7 +46,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     //Displaying menus according to id
-    this.menuService.getMenus().subscribe((data: Array<Menu>) => {
+    let weekNum = new GetMenuList(47);
+    this.menuService.getMenus(weekNum).subscribe((data: Array<Menu>) => {
       for(var i in data){
         if(data[i].day=="Monday"){
           this.menu[0]=data[i];
@@ -76,8 +67,9 @@ export class DashboardComponent implements OnInit {
       }
       this.menuDescriptions = [this.menu[0].description, this.menu[1].description, this.menu[2].description, this.menu[3].description, this.menu[4].description,]
       this.priceDescriptions = [this.menu[0].price, this.menu[1].price, this.menu[2].price, this.menu[3].price, this.menu[4].price,]
-      //   console.log(this.menu)
+
     });
+
 
     //Form variables
 
@@ -104,6 +96,8 @@ export class DashboardComponent implements OnInit {
     });
 
     // this.initCharts();
+    // @ts-ignore
+    this.formData.get("optionMon").setValue("veg");
   }
 
   calcPrice(data: any) {
@@ -237,13 +231,14 @@ export class DashboardComponent implements OnInit {
   }
 
   changeInForm($event: Event) {
+    console.log(this.menu)
    // console.log(this.formData.getRawValue());
     const formVal = this.formData.getRawValue();
     //console.log(radios)
     this.orderOption = [formVal.optionMon, formVal.optionTue, formVal.optionWed, formVal.optionThu, formVal.optionFri];
     this.orderPayment=[formVal.paymentMon?1:0,formVal.paymentTue?1:0,formVal.paymentWed?1:0,formVal.paymentThu?1:0,formVal.paymentFri?1:0];
-    var orders = new Array<Order>;
-    for(var i in  this.orderOption){
+    let orders = new Array<Order>;
+    for(let i in  this.orderOption){
       if(this.orderOption[i]!=null){
         let order = new Order(1,this.menu[i].id,this.orderPayment[i],this.orderOption[i]);
         orders.push(order);
@@ -256,4 +251,5 @@ export class DashboardComponent implements OnInit {
     });
 
   }
+
 }

@@ -17,10 +17,10 @@ public interface MenuService {
     public int getCurrentWeekNumber();
 
     // Method to check if a menu exists
-    public boolean checkIfMenuExists(String day);
+    public boolean checkIfMenuExists(String day,int weekNum);
 
     // Method to get the id of a menu from its day and week number
-    public Long getIdFromDayAndWeekNum(String day);
+    public Long getIdFromDayAndWeekNum(String day,int weekNum);
 
     // Method to list the current menu
     List<MenuDto> listCurrentMenu(int weekNum);

@@ -5,26 +5,33 @@ import {MenuCreation} from "../charts/MenuCreation";
 import {Router} from "@angular/router";
 // @ts-ignore
 import {MenuService} from "../../services/menu/menu.service";
+import {Menu} from "../dashboard/Menu";
+import {GetMenuList} from "../dashboard/GetMenuList";
 
 @Component({
   selector: 'app-charts',
   templateUrl: './charts.component.html',
   styleUrls: ['./charts.component.scss']
 })
-export class ChartsComponent implements OnInit{
- public modalVisibility =false;
+export class ChartsComponent implements OnInit {
+  public modalVisibility = false;
   formData!: FormGroup;
+  menu: Menu[] = [];
+  private existingMenuDescription = ['menuMon', 'menuTue', 'menuWed', 'menuThu', 'menuFri'];
+  menuDescriptions!: string[];
+  priceDescriptions!: string[];
 
-  constructor(public menuService: MenuService,private _router: Router) {
+  constructor(public menuService: MenuService, private _router: Router) {
   }
 
   ngOnInit(): void {
 
-    if(localStorage.getItem('role')!='Admin'){
+    if (localStorage.getItem('role') != 'Admin') {
       console.log(localStorage.getItem('role'))
       console.log('modal should appear')
-      this.modalVisibility=true;
+      this.modalVisibility = true;
     }
+
     //Form variables
     this.formData = new FormGroup({
       //Number area-input week number
@@ -60,10 +67,19 @@ export class ChartsComponent implements OnInit{
       optionFriVeg: new FormControl(),
       optionFriNonVeg: new FormControl()
     });
+    let currentdate = new Date();
+    var oneJan = new Date(currentdate.getFullYear(), 0, 1);
+    // @ts-ignore
+    var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
+    var result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
+
+    let weekNum = new GetMenuList(result);
+    this.formData.get("weekNo")?.setValue(result);
+    this.getWeekMenu(weekNum);
   }
 
   //Reset btn
-  onClickReset(data: any){
+  onClickReset(data: any) {
     this.formData.reset();
   }
 
@@ -72,23 +88,23 @@ export class ChartsComponent implements OnInit{
   onClickSubmit(data: any) {
     console.log(data);
     //array to store the following
-    var menuDesc:string[] = new Array( data.menuMon,data.menuTue,data.menuWed,data.menuThu,data.menuFri)
-    var price:string[] = new Array( data.priceMon,data.priceTue,data.priceWed,data.priceThu,data.priceFri)
-    var day:string[] = new Array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
-    var optionVeg:string[] = new Array(data.optionMonVeg? "Veg;":"",data.optionTueVeg? "Veg;":"",data.optionWedVeg? "Veg;":"",data.optionThuVeg? "Veg;":"",data.optionFriVeg? "Veg;":"")
-    var optionNonVeg:string[] = new Array(data.optionMonNonVeg? "NonVeg":"",data.optionTueNonVeg? "NonVeg":"",data.optionWedNonVeg? "NonVeg":"",data.optionThuNonVeg? "NonVeg":"",data.optionFriNonVeg? "NonVeg":"")
-    var option:string
+    var menuDesc: string[] = new Array(data.menuMon, data.menuTue, data.menuWed, data.menuThu, data.menuFri)
+    var price: string[] = new Array(data.priceMon, data.priceTue, data.priceWed, data.priceThu, data.priceFri)
+    var day: string[] = new Array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+    var optionVeg: string[] = new Array(data.optionMonVeg ? "Veg;" : "", data.optionTueVeg ? "Veg;" : "", data.optionWedVeg ? "Veg;" : "", data.optionThuVeg ? "Veg;" : "", data.optionFriVeg ? "Veg;" : "")
+    var optionNonVeg: string[] = new Array(data.optionMonNonVeg ? "NonVeg" : "", data.optionTueNonVeg ? "NonVeg" : "", data.optionWedNonVeg ? "NonVeg" : "", data.optionThuNonVeg ? "NonVeg" : "", data.optionFriNonVeg ? "NonVeg" : "")
+    var option: string
     //array to store all menus
     var menus = new Array<MenuCreation>;
 
     //looping through all orders
     for (var i in menuDesc) {
-      if (!(optionVeg[i] == "" && optionNonVeg[i] == "")){
+      if (!(optionVeg[i] == "" && optionNonVeg[i] == "")) {
         //Concat to obtain option
         option = optionVeg[i] + '' + optionNonVeg[i]
       }
       // @ts-ignore
-      let  menu= new MenuCreation(menuDesc[i], price[i], day[i], option, 47);
+      let menu = new MenuCreation(menuDesc[i], price[i], day[i], option, data.weekNo);
       menus.push(menu);
     }
 
@@ -98,17 +114,59 @@ export class ChartsComponent implements OnInit{
     this.menuService.postMenu(menus).subscribe((data: any) => {
       console.log('message::::', data);
     });
-
   }
 
 
   // For triggering PopUp for UserTypeValidation
   toggleLiveDemo() {
-this.modalVisibility=!this.modalVisibility;
-  this._router.navigateByUrl('dashboard')
+    this.modalVisibility = !this.modalVisibility;
+    this._router.navigateByUrl('dashboard')
   }
 
   handleLiveDemoChange(event: boolean) {
-      this.modalVisibility=event;
+    this.modalVisibility = event;
+  }
+
+  changeInWeekNum($event: Event) {
+    console.log("weekNum changes")
+    const formData = this.formData.getRawValue();
+    let weekNum = new GetMenuList(formData.weekNo);
+    this.getWeekMenu(weekNum);
+  }
+
+  getWeekMenu(weekNum: GetMenuList) {
+    this.menuService.getMenus(weekNum).subscribe((data: Array<Menu>) => {
+      console.log(data);
+      if (data.length == 0) {
+        this.menuDescriptions = ["", "", "", "", ""]
+        this.priceDescriptions = ["", "", "", "", ""]
+        for (var i in this.menuDescriptions) {
+          this.formData.get(this.existingMenuDescription[i])?.setValue(this.menuDescriptions[i]);
+        }
+      } else {
+        for (var i in data) {
+          if (data[i].day == "Monday") {
+            this.menu[0] = data[i];
+          }
+          if (data[i].day == "Tuesday") {
+            this.menu[1] = data[i];
+          }
+          if (data[i].day == "Wednesday") {
+            this.menu[2] = data[i];
+          }
+          if (data[i].day == "Thursday") {
+            this.menu[3] = data[i];
+          }
+          if (data[i].day == "Friday") {
+            this.menu[4] = data[i];
+          }
+        }
+        this.menuDescriptions = [this.menu[0].description, this.menu[1].description, this.menu[2].description, this.menu[3].description, this.menu[4].description,]
+        this.priceDescriptions = [this.menu[0].price, this.menu[1].price, this.menu[2].price, this.menu[3].price, this.menu[4].price,]
+        for (var i in this.menuDescriptions) {
+          this.formData.get(this.existingMenuDescription[i])?.setValue(this.menuDescriptions[i]);
+        }
+      }
+    });
   }
 }
