@@ -14,10 +14,10 @@ export class MenuService {
 
   getMenus(weekNum:GetMenuList):Observable<any>{
     const token =localStorage.getItem('token');
-    var header = {
+    const header = {
       headers: new HttpHeaders()
-        .set('Authorization',  `Bearer ${token}`).set('content-type','application/json')
-    }
+        .set('Authorization', `Bearer ${token}`).set('content-type', 'application/json')
+    };
     const body = JSON.stringify(weekNum);
     return this.http.post<Array<Menu>>(this.rootURL + 'getWeekMenu',body,header);
   }
@@ -27,10 +27,10 @@ export class MenuService {
   //weekly menus
   postMenu(menus:Array<MenuCreation>) :Observable<any>{
     const token =localStorage.getItem('token');
-    var header = {
+    const header = {
       headers: new HttpHeaders()
-        .set('Authorization',  `Bearer ${token}`).set('content-type','application/json')
-    }
+        .set('Authorization', `Bearer ${token}`).set('content-type', 'application/json')
+    };
     const body = JSON.stringify(menus);
     return this.http.post<any>(this.rootURL + 'addMenu', body,header);
   }

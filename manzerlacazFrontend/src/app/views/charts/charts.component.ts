@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 
-import {MenuCreation} from "../charts/MenuCreation";
+import {MenuCreation} from "./MenuCreation";
 import {Router} from "@angular/router";
 // @ts-ignore
 import {MenuService} from "../../services/menu/menu.service";
 import {Menu} from "../dashboard/Menu";
 import {GetMenuList} from "../dashboard/GetMenuList";
+import value from "*.json";
 
 @Component({
   selector: 'app-charts',
@@ -18,19 +19,20 @@ export class ChartsComponent implements OnInit {
   formData!: FormGroup;
   menu: Menu[] = [];
   private existingMenuDescription = ['menuMon', 'menuTue', 'menuWed', 'menuThu', 'menuFri'];
+  private existingPrice=['priceMon','priceTue','priceWed','priceThu','priceFri']
+  private existingVeg=['optionMonVeg','optionTueVeg','optionWedVeg','optionThuVeg','optionFriVeg']
+  private existingNonVeg=['optionMonNonVeg','optionTueNonVeg','optionWedNonVeg','optionThuNonVeg','optionFriNonVeg']
   menuDescriptions!: string[];
   priceDescriptions!: string[];
+  optionVeg!:string[];
+  optionNonVeg!:string[];
 
   constructor(public menuService: MenuService, private _router: Router) {
   }
 
   ngOnInit(): void {
 
-    if (localStorage.getItem('role') != 'Admin') {
-      console.log(localStorage.getItem('role'))
-      console.log('modal should appear')
-      this.modalVisibility = true;
-    }
+    if (localStorage.getItem('role') != 'Admin') this.modalVisibility = true;
 
     //Form variables
     this.formData = new FormGroup({
@@ -67,11 +69,11 @@ export class ChartsComponent implements OnInit {
       optionFriVeg: new FormControl(),
       optionFriNonVeg: new FormControl()
     });
-    let currentdate = new Date();
-    var oneJan = new Date(currentdate.getFullYear(), 0, 1);
+    let currentDate = new Date();
+    let oneJan = new Date(currentDate.getFullYear(), 0, 1);
     // @ts-ignore
-    var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
-    var result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
+    let numberOfDays = Math.floor((currentDate - oneJan) / (24 * 60 * 60 * 1000));
+    let result = Math.ceil((currentDate.getDay() + 1 + numberOfDays) / 7);
 
     let weekNum = new GetMenuList(result);
     this.formData.get("weekNo")?.setValue(result);
@@ -80,6 +82,7 @@ export class ChartsComponent implements OnInit {
 
   //Reset btn
   onClickReset(data: any) {
+
     this.formData.reset();
   }
 
@@ -88,21 +91,19 @@ export class ChartsComponent implements OnInit {
   onClickSubmit(data: any) {
     console.log(data);
     //array to store the following
-    var menuDesc: string[] = new Array(data.menuMon, data.menuTue, data.menuWed, data.menuThu, data.menuFri)
-    var price: string[] = new Array(data.priceMon, data.priceTue, data.priceWed, data.priceThu, data.priceFri)
-    var day: string[] = new Array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
-    var optionVeg: string[] = new Array(data.optionMonVeg ? "Veg;" : "", data.optionTueVeg ? "Veg;" : "", data.optionWedVeg ? "Veg;" : "", data.optionThuVeg ? "Veg;" : "", data.optionFriVeg ? "Veg;" : "")
-    var optionNonVeg: string[] = new Array(data.optionMonNonVeg ? "NonVeg" : "", data.optionTueNonVeg ? "NonVeg" : "", data.optionWedNonVeg ? "NonVeg" : "", data.optionThuNonVeg ? "NonVeg" : "", data.optionFriNonVeg ? "NonVeg" : "")
-    var option: string
+    let menuDesc: string[] = [data.menuMon, data.menuTue, data.menuWed, data.menuThu, data.menuFri]
+    let price: string[] = [data.priceMon, data.priceTue, data.priceWed, data.priceThu, data.priceFri]
+    let day: string[] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+    let optionVeg: string[] = [data.optionMonVeg ? "Veg;" : "", data.optionTueVeg ? "Veg;" : "", data.optionWedVeg ? "Veg;" : "", data.optionThuVeg ? "Veg;" : "", data.optionFriVeg ? "Veg;" : ""]
+    let optionNonVeg: string[] = [data.optionMonNonVeg ? "NonVeg" : "", data.optionTueNonVeg ? "NonVeg" : "", data.optionWedNonVeg ? "NonVeg" : "", data.optionThuNonVeg ? "NonVeg" : "", data.optionFriNonVeg ? "NonVeg" : ""]
+    let option: string
     //array to store all menus
-    var menus = new Array<MenuCreation>;
+    let menus = new Array<MenuCreation>;
 
     //looping through all orders
-    for (var i in menuDesc) {
-      if (!(optionVeg[i] == "" && optionNonVeg[i] == "")) {
-        //Concat to obtain option
-        option = optionVeg[i] + '' + optionNonVeg[i]
-      }
+    for (let i in menuDesc) {
+      //Concat to obtain option
+      if (!(optionVeg[i] == "" && optionNonVeg[i] == "")) option = optionVeg[i] + '' + optionNonVeg[i]
       // @ts-ignore
       let menu = new MenuCreation(menuDesc[i], price[i], day[i], option, data.weekNo);
       menus.push(menu);
@@ -111,16 +112,15 @@ export class ChartsComponent implements OnInit {
     // faire appel à l'api
     //saving menus
     console.log(menus)
-    this.menuService.postMenu(menus).subscribe((data: any) => {
-      console.log('message::::', data);
-    });
+    this.menuService.postMenu(menus).subscribe((data: any) => console.log('message::::', data));
   }
 
 
   // For triggering PopUp for UserTypeValidation
   toggleLiveDemo() {
     this.modalVisibility = !this.modalVisibility;
-    this._router.navigateByUrl('dashboard')
+    this._router.navigateByUrl('dashboard').then(() => {
+    })
   }
 
   handleLiveDemoChange(event: boolean) {
@@ -136,36 +136,50 @@ export class ChartsComponent implements OnInit {
 
   getWeekMenu(weekNum: GetMenuList) {
     this.menuService.getMenus(weekNum).subscribe((data: Array<Menu>) => {
-      console.log(data);
-      if (data.length == 0) {
-        this.menuDescriptions = ["", "", "", "", ""]
-        this.priceDescriptions = ["", "", "", "", ""]
-        for (var i in this.menuDescriptions) {
+      let i;
+
+      if (data.length != 0) {
+        for (i in data) switch (data[i].day) {
+          case "Monday":
+            this.menu[0] = data[i];
+            break;
+          case "Tuesday":
+            this.menu[1] = data[i];
+            break;
+          case "Wednesday":
+            this.menu[2] = data[i];
+            break;
+          case "Thursday":
+            this.menu[3] = data[i];
+            break;
+          case "Friday":
+            this.menu[4] = data[i];
+            break;
+        }
+        this.existingVeg.map((value:string)=>this.formData.get(value)?.setValue(null));
+        this.existingNonVeg.map((value:string)=>this.formData.get(value)?.setValue(null));
+        const {description, price} = this.menu[0];
+        const {description: description1, price: price1} = this.menu[1];
+        const {description: description2, price: price2} = this.menu[2];
+        const {description: description3, price: price3} = this.menu[3];
+        const {description: description4, price: price4} = this.menu[4];
+        this.menuDescriptions = [description, description1, description2, description3, description4,]
+        this.priceDescriptions = [price, price1, price2, price3, price4,]
+
+        for (i in this.menuDescriptions) {
+          let option = this.menu[i].option.split(";",2)
           this.formData.get(this.existingMenuDescription[i])?.setValue(this.menuDescriptions[i]);
+          this.formData.get(this.existingPrice[i])?.setValue(this.priceDescriptions[i]);
+          for(const j in option){
+            if(option[j]=='Veg') this.formData.get(this.existingVeg[i])?.setValue(true);
+            if(option[j]=='NonVeg') this.formData.get(this.existingNonVeg[i])?.setValue(true);
+          }
         }
       } else {
-        for (var i in data) {
-          if (data[i].day == "Monday") {
-            this.menu[0] = data[i];
-          }
-          if (data[i].day == "Tuesday") {
-            this.menu[1] = data[i];
-          }
-          if (data[i].day == "Wednesday") {
-            this.menu[2] = data[i];
-          }
-          if (data[i].day == "Thursday") {
-            this.menu[3] = data[i];
-          }
-          if (data[i].day == "Friday") {
-            this.menu[4] = data[i];
-          }
-        }
-        this.menuDescriptions = [this.menu[0].description, this.menu[1].description, this.menu[2].description, this.menu[3].description, this.menu[4].description,]
-        this.priceDescriptions = [this.menu[0].price, this.menu[1].price, this.menu[2].price, this.menu[3].price, this.menu[4].price,]
-        for (var i in this.menuDescriptions) {
-          this.formData.get(this.existingMenuDescription[i])?.setValue(this.menuDescriptions[i]);
-        }
+        this.existingPrice.map((value:string)=>this.formData.get(value)?.setValue(""))
+        this.existingMenuDescription.map((value:string)=>this.formData.get(value)?.setValue(""))
+        this.existingVeg.map((value:string)=>this.formData.get(value)?.setValue(null));
+        this.existingNonVeg.map((value:string)=>this.formData.get(value)?.setValue(null));
       }
     });
   }

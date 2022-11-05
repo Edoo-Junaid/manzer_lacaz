@@ -89,7 +89,7 @@
               <b class="text-medium-emphasis small">Options</b>
             </div>
 
-            <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" (change)="changeInForm($event)">
+            <form [formGroup]="formData"  (change)="changeInForm($event)">
 
               <!--              Monday-->
               <div class="progress-group mb-4">
@@ -211,7 +211,7 @@
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <div class="icons">
-                    <input type="image" value="bin" name="binMon" id="binMon"  formControlName="binMon" src="assets/images/binIcon.png" width="20px" height="20px" >
+                    <input type="image" value="bin" name="binMon" id="binMon"  formControlName="binMon" src="assets/images/binIcon.png" width="20px" height="20px"  alt="">
                   </div>
                 </div>
               </div>
@@ -222,7 +222,7 @@
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <div class="icons">
-                    <input type="image" id="binTue" formControlName="binTue" src="assets/images/binIcon.png" width="20px" height="20px">
+                    <input type="image" id="binTue" formControlName="binTue" src="assets/images/binIcon.png" width="20px" height="20px" alt="">
                   </div>
                 </div>
               </div>
@@ -243,7 +243,7 @@
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <div class="icons">
-                    <input type="image" id="binThu" formControlName="binThu" src="assets/images/binIcon.png" width="20px" height="20px">
+                    <input type="image" id="binThu" formControlName="binThu" src="assets/images/binIcon.png" width="20px" height="20px" alt="">
                   </div>
                 </div>
               </div>
@@ -253,7 +253,7 @@
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <div class="icons">
-                    <input type="image" id="binFri" formControlName="binFri" src="assets/images/binIcon.png" width="20px" height="20px">
+                    <input type="image" id="binFri" formControlName="binFri" src="assets/images/binIcon.png" width="20px" height="20px" alt="">
                   </div>
                 </div>
               </div>
