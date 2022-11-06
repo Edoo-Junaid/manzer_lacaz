@@ -17,20 +17,20 @@ export class OrderService {
   //weekly orders
   postOrder(orders:Array<Order>) :Observable<any>{
     const token =localStorage.getItem('token');
-    var header = {
+    const header = {
       headers: new HttpHeaders()
-        .set('Authorization',  `Bearer ${token}`).set('content-type','application/json')
-    }
+        .set('Authorization', `Bearer ${token}`).set('content-type', 'application/json')
+    };
     const body = JSON.stringify(orders);
     return this.http.post<any>(this.rootURL + 'addWeekOrder', body,header);
   }
 
   removeOrder(daily: Array<DailyConfirmation>) :Observable<any>{
     const token =localStorage.getItem('token');
-    var header = {
+    const header = {
       headers: new HttpHeaders()
-        .set('Authorization',  `Bearer ${token}`).set('content-type','application/json')
-    }
+        .set('Authorization', `Bearer ${token}`).set('content-type', 'application/json')
+    };
     const body = JSON.stringify(daily);
     return this.http.post<any>(this.rootURL + 'deleteOrders', body,header);
   }

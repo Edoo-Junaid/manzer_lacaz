@@ -28,8 +28,9 @@ public class MenuServiceImpl implements MenuService{
     public Menu createMenu(MenuDto menuDto) {
         System.out.println(menuDto);
         //menuDto.setWeekNum(this.getCurrentWeekNumber());
-        if(checkIfMenuExists(menuDto.getDay())){
-            menuDto.setId(this.getIdFromDayAndWeekNum(menuDto.getDay()));
+        if(checkIfMenuExists(menuDto.getDay(),menuDto.getWeekNum())){
+            System.out.println("hello"+menuDto);
+            menuDto.setId(this.getIdFromDayAndWeekNum(menuDto.getDay(),menuDto.getWeekNum()));
         }
         Menu menu = MenuMapper.INSTANCE.toEntity(menuDto);
         return menurepository.save(menu);
@@ -56,14 +57,14 @@ public class MenuServiceImpl implements MenuService{
 
     //Method to check if a menu exists
     @Override
-    public boolean checkIfMenuExists(String day) {
-        return menurepository.checkIfMenuExists(this.getCurrentWeekNumber(), day);
+    public boolean checkIfMenuExists(String day,int weekNum) {
+        return menurepository.checkIfMenuExists(weekNum, day);
     }
 
     //Method to get the id of a menu from its day and week number
     @Override
-    public Long getIdFromDayAndWeekNum(String day) {
-        return menurepository.getIdFromDayAndWeekNum(this.getCurrentWeekNumber(), day);
+    public Long getIdFromDayAndWeekNum(String day,int weekNum) {
+        return menurepository.getIdFromDayAndWeekNum(weekNum, day);
     }
     
 }
