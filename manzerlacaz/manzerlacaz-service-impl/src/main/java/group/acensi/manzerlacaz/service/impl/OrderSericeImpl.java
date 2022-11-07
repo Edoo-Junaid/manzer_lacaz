@@ -48,7 +48,6 @@ public class OrderSericeImpl implements OrderService {
             return null;
         } else {
             if (orderRepository.checkIfOrderExists(orderDto.getUser_id(), orderDto.getMenu_id())) {
-
                 orderDto.setId(this.findOrderId(orderDto.getUser_id(), orderDto.getMenu_id()));
             }
 
