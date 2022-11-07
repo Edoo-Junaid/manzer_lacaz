@@ -26,6 +26,10 @@ export class DashboardComponent implements OnInit {
 
 
 
+
+
+  option1!:any[];
+  payment1!:any[];
   option!:any[];
   payment!:any[];
   menu!: Menu[] ;
@@ -47,6 +51,8 @@ export class DashboardComponent implements OnInit {
 
 
   constructor(private chartsData: DashboardChartsData, public orderService: OrderService, public menuService: MenuService) {
+
+
   }
 
   public mainChart: IChartProps = {};
@@ -91,42 +97,29 @@ export class DashboardComponent implements OnInit {
       binWed: new FormControl(),
       binThu: new FormControl(),
       binFri: new FormControl()
+
     });
 
     // this.initCharts();
   }
 
-  calcPrice(data:any){
-    const radios = this.formData.getRawValue();
-    console.log(radios)
-    this.option=[radios.optionMon,radios.optionTue,radios.optionWed,radios.optionThu,radios.optionFri]
-    var count=0
-    var total=0;
-    while (count<this.option.length) {
-      if(this.option[count]!=null ||this.option[count]!=undefined ){
-        let numberValue = Number(this.priceDescriptions[count]);
-        total = total+numberValue
-      }
-      count++
-    }
-    console.log(total)
-    this.orderTotal=total;
-  }
 
 
-  //Reset btn
+//Bin icon: reset
+  //Reset btn: resets option radio, payment checkbox and minus price from total when bin is clicked
   onClickResetMon(data: any) {
 
-    if(data.optionMon!=null){
+    if(data.optionMon!=null && data.paymentMon!=true){
       let numberValue = Number(this.priceDescriptions[0]);
       this.orderTotal=this.orderTotal-numberValue;
+
     }
     // @ts-ignore
     this.controlNamesMonday.map((value: string) => this.formData.get(value).setValue(null));
   }
 
   onClickResetTue(data: any) {
-    if(data.optionTue!=null){
+    if(data.optionTue!=null && data.paymentTue!=true){
       let numberValue = Number(this.priceDescriptions[1]);
       this.orderTotal=this.orderTotal-numberValue;
     }
@@ -135,7 +128,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onClickResetWed(data: any) {
-    if(data.optionWed!=null){
+    if(data.optionWed!=null && data.paymentWed!=true){
       let numberValue = Number(this.priceDescriptions[2]);
       this.orderTotal=this.orderTotal-numberValue;
     }
@@ -144,7 +137,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onClickResetThu(data: any) {
-    if(data.optionThu!=null){
+    if(data.optionThu!=null && data.paymentThu!=true){
       let numberValue = Number(this.priceDescriptions[3]);
       this.orderTotal=this.orderTotal-numberValue;
     }
@@ -153,7 +146,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onClickResetFri(data: any) {
-    if(data.optionFri!=null){
+    if(data.optionFri!=null && data.paymentFri!=true){
       let numberValue = Number(this.priceDescriptions[4]);
       this.orderTotal=this.orderTotal-numberValue;
     }
@@ -166,6 +159,85 @@ export class DashboardComponent implements OnInit {
 
 
 
+  //option selection
+//When option is changed price is calculated taking into consideration if payment is made or not
+  changeOption(data:any) {
+    this.calcPrice(data)
+  }
+
+
+  calcPrice(data:any){
+    const radios = this.formData.getRawValue();
+    console.log(radios)
+    this.option=[radios.optionMon,radios.optionTue,radios.optionWed,radios.optionThu,radios.optionFri]
+    this.payment=[radios.paymentMon,radios.paymentTue,radios.paymentWed,radios.paymentThu,radios.paymentFri]
+    var count=0
+    var total=0;
+    while (count<this.option.length) {
+      if((this.option[count]!=null ||this.option[count]!=undefined) &&this.payment[count]==null){
+        let numberValue = Number(this.priceDescriptions[count]);
+        total =total+numberValue
+      }
+      count++
+    }
+    // console.log(total)
+    this.orderTotal=total;
+  }
+
+
+
+
+
+  //Payment checkbox when checked or unchecked
+  changePaymentMon(data:any){
+    this.onClickPaymentMon(data)
+
+  }
+  changePaymentTue(data:any){
+    this.onClickPaymentTue(data)
+
+  }
+  changePaymentWed(data:any){
+    this.onClickPaymentWed(data)
+  }
+  changePaymentThu(data:any){
+    this.onClickPaymentThu(data)
+
+  }
+  changePaymentFri(data:any){
+    this.onClickPaymentFri(data)
+
+  }
+
+  onClickPaymentMon(data:any){
+    this.funcPayment(0)
+  }
+  onClickPaymentTue(data:any){
+    this.funcPayment(1)
+
+  }
+  onClickPaymentWed(data:any){
+    this.funcPayment(2)
+  }
+  onClickPaymentThu(data:any){
+    this.funcPayment(3)
+
+  }
+  onClickPaymentFri(data:any){
+    this.funcPayment(4)
+  }
+
+
+funcPayment(num:number){
+  this.payment1 =[ this.formData.getRawValue().paymentMon,this.formData.getRawValue().paymentTue,this.formData.getRawValue().paymentWed,this.formData.getRawValue().paymentThu,this.formData.getRawValue().paymentFri]
+  this.option1=[this.formData.getRawValue().optionMon,this.formData.getRawValue().optionTue,this.formData.getRawValue().optionWed,this.formData.getRawValue().optionThu,this.formData.getRawValue().optionFri]
+  let numberValue = Number(this.priceDescriptions[num]);
+  if(this.payment1[num]!=false && this.option1[num]!=null){
+    this.orderTotal=this.orderTotal-numberValue
+  }else if(this.payment1[num]!=true  && this.option1[num]!=null){
+    this.orderTotal=this.orderTotal+numberValue
+  }
+}
 
 
 
@@ -228,30 +300,6 @@ export class DashboardComponent implements OnInit {
   //   this.chartsData.initMainChart(value);
   //   this.initCharts();
   // }
-
-
-  changeOption(data:any) {
-this.calcPrice(data)
-  }
-
-  onClickPaymentMon(data:any){
-
-  }
-  onClickPaymentTue(data:any){
-
-  }
-  onClickPaymentWed(data:any){
-
-  }
-  onClickPaymentThu(data:any){
-
-  }
-  onClickPaymentFri(data:any){
-
-  }
-
-
-
 
 
 }

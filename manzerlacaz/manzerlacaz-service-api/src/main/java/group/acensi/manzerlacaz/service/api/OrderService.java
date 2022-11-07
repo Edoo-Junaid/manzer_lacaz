@@ -2,6 +2,7 @@ package group.acensi.manzerlacaz.service.api;
 
 import java.time.LocalDate;
 
+import group.acensi.manzerlacaz.entities.Order;
 import group.acensi.manzerlacaz.service.dto.OrderDto;
 
 public interface OrderService {
@@ -20,6 +21,8 @@ public interface OrderService {
     LocalDate calculateDate(int id); //to find date of a menu record in database
 
     public boolean checkOrderExists(Long user_id, Long menu_id); //checks if order exists in database
+
+    OrderDto getExistingOrder(Long user_id, Long menu_id);
 
 
 }

@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 import group.acensi.manzerlacaz.service.api.OrderService;
 import group.acensi.manzerlacaz.service.dto.OrderDto;
 import group.acensi.manzerlacaz.web.payload.CreateOrderRequest;
-import group.acensi.manzerlacaz.web.payload.DeleteOrderRequest;
+import group.acensi.manzerlacaz.web.payload.OrderRequest;
 import group.acensi.manzerlacaz.web.payload.OrderOptionCountRequest;
 
 @RestController
-@RequestMapping("/api/auth/order")
+@RequestMapping("/api/order")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class OrderController {
 
@@ -68,22 +68,30 @@ public class OrderController {
 
     //Delete an order
     @PostMapping("/deleteOrder")
-    public void findOrders(@RequestBody DeleteOrderRequest deleteOrderRequest) {
-        orderService.deleteOrder(deleteOrderRequest.user_id(), deleteOrderRequest.menu_id());
+    public void findOrders(@RequestBody OrderRequest orderRequest) {
+        orderService.deleteOrder(orderRequest.user_id(), orderRequest.menu_id());
     }
     
 
     //Check if order exist or not in database
     @PostMapping("/existOrNotOrder")
-    public void checkIfExistOrders(@RequestBody DeleteOrderRequest deleteOrderRequest) {
-        orderService.checkOrderExists(deleteOrderRequest.user_id(), deleteOrderRequest.menu_id());
+    public void checkIfExistOrders(@RequestBody OrderRequest orderRequest) {
+        orderService.checkOrderExists(orderRequest.user_id(), orderRequest.menu_id());
     }
 
     //Delete a list of orders
-    @PostMapping("deleteOrders")
-    public void deleteOrders(@RequestBody List<DeleteOrderRequest> orders) {
-        for (DeleteOrderRequest order : orders) {
+    @PostMapping("/deleteOrders")
+    public void deleteOrders(@RequestBody List<OrderRequest> orders) {
+        for (OrderRequest order : orders) {
             orderService.deleteOrder(order.user_id(), order.menu_id());
         }
     }
+    
+    //get an existing order
+    @PostMapping("/getExistingOrder")
+    public OrderDto getExistingOrder(@RequestBody OrderRequest orderRequest) {
+       return orderService.getExistingOrder(orderRequest.user_id(), orderRequest.menu_id());
+        
+    }
+    
 }

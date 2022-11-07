@@ -8,8 +8,8 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-11-04T14:51:57+0400",
-    comments = "version: 1.5.2.Final, compiler: javac, environment: Java 17.0.4.1 (Eclipse Adoptium)"
+    date = "2022-11-04T18:47:52+0400",
+    comments = "version: 1.5.2.Final, compiler: Eclipse JDT (IDE) 1.4.100.v20220318-0906, environment: Java 17.0.3 (Eclipse Adoptium)"
 )
 public class UtilisateurMapperImpl implements UtilisateurMapper {
 
@@ -21,16 +21,16 @@ public class UtilisateurMapperImpl implements UtilisateurMapper {
 
         Utilisateur utilisateur = new Utilisateur();
 
+        utilisateur.setCreated( dto.getCreated() );
         utilisateur.setId( dto.getId() );
         utilisateur.setLastModified( dto.getLastModified() );
-        utilisateur.setCreated( dto.getCreated() );
-        utilisateur.setUsername( dto.getUsername() );
-        utilisateur.setPassword( dto.getPassword() );
-        utilisateur.setEnabled( dto.isEnabled() );
         utilisateur.setAccountNonExpired( dto.isAccountNonExpired() );
         utilisateur.setAccountNonLocked( dto.isAccountNonLocked() );
         utilisateur.setCredentialsNonExpired( dto.isCredentialsNonExpired() );
+        utilisateur.setEnabled( dto.isEnabled() );
+        utilisateur.setPassword( dto.getPassword() );
         utilisateur.setRole( roleDtoToRole( dto.getRole() ) );
+        utilisateur.setUsername( dto.getUsername() );
 
         return utilisateur;
     }
@@ -43,16 +43,16 @@ public class UtilisateurMapperImpl implements UtilisateurMapper {
 
         UtilisateurDto utilisateurDto = new UtilisateurDto();
 
-        utilisateurDto.setId( findbyUsername.getId() );
-        utilisateurDto.setRole( roleToRoleDto( findbyUsername.getRole() ) );
-        utilisateurDto.setPassword( findbyUsername.getPassword() );
-        utilisateurDto.setUsername( findbyUsername.getUsername() );
         utilisateurDto.setAccountNonExpired( findbyUsername.isAccountNonExpired() );
         utilisateurDto.setAccountNonLocked( findbyUsername.isAccountNonLocked() );
+        utilisateurDto.setCreated( findbyUsername.getCreated() );
         utilisateurDto.setCredentialsNonExpired( findbyUsername.isCredentialsNonExpired() );
         utilisateurDto.setEnabled( findbyUsername.isEnabled() );
+        utilisateurDto.setId( findbyUsername.getId() );
         utilisateurDto.setLastModified( findbyUsername.getLastModified() );
-        utilisateurDto.setCreated( findbyUsername.getCreated() );
+        utilisateurDto.setPassword( findbyUsername.getPassword() );
+        utilisateurDto.setRole( roleToRoleDto( findbyUsername.getRole() ) );
+        utilisateurDto.setUsername( findbyUsername.getUsername() );
 
         return utilisateurDto;
     }

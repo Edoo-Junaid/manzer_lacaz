@@ -13,7 +13,7 @@ import group.acensi.manzerlacaz.service.api.RoleService;
 import group.acensi.manzerlacaz.service.dto.RoleDto;
 
 @RestController
-@RequestMapping("/api/auth/role")
+@RequestMapping("/api/role")
 public class RoleController {
 
     @Autowired
