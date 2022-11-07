@@ -6,6 +6,7 @@ import {MenuService} from "../../services/menu/menu.service";
 import {Order} from "./Order";
 import {Menu} from "./Menu";
 import {GetMenuList} from "./GetMenuList";
+import {DailyConfirmation} from "./DailyConfirmation";
 
 
 @Component({
@@ -20,19 +21,17 @@ export class DashboardComponent implements OnInit {
   private controlNamesThursday = ['optionThu', 'paymentThu'];
   private controlNamesFriday = ['optionFri', 'paymentFri'];
 
-<<<<<<< HEAD
-
-
-
-
+  orderOption!:string[];
+  orderPayment!:number[];
 
   option1!:any[];
   payment1!:any[];
   option!:any[];
   payment!:any[];
-  menu!: Menu[] ;
+  menu:Menu[] = new Array(5);
   menuDescriptions!:string[];
   priceDescriptions!:string[];
+
   //menu id
   menuMonDesc!: string;
   menuTueDesc!: string;
@@ -48,30 +47,16 @@ export class DashboardComponent implements OnInit {
   formData!: FormGroup;
 
 
-  constructor(private chartsData: DashboardChartsData, public orderService: OrderService, public menuService: MenuService) {
-
-
-=======
-  option!: any[];
-  orderOption!:string[];
-  orderPayment!:number[];
-  payment!: any[];
-  menu:Menu[] = new Array(5);
-  menuDescriptions!: string[];
-  priceDescriptions!: string[];
-  formData!: FormGroup;
-
-
   constructor( public orderService: OrderService, public menuService: MenuService) {
->>>>>>> 8991ce894517b1473c3201496ec09e211d62fb82
-  }
 
-  public chart: Array<IChartProps> = [];
+
+  }
 
   ngOnInit(): void {
     //Displaying menus according to id
     let weekNum = new GetMenuList(47);
     let subscription = this.menuService.getMenus(weekNum).subscribe((data: Array<Menu>) => {
+      console.log(data)
       for(const datum of data){
         if(datum.day=="Monday") this.menu[0] = datum;
         if(datum.day=="Tuesday") this.menu[1] = datum;
@@ -114,51 +99,23 @@ export class DashboardComponent implements OnInit {
     this.formData.get("optionMon")?.setValue("veg");
   }
 
-<<<<<<< HEAD
-=======
-  calcPrice(data: any) {
-    const radios = this.formData.getRawValue();
-    //console.log(radios)
-    this.option = [radios.optionMon, radios.optionTue, radios.optionWed, radios.optionThu, radios.optionFri]
-    let count = 0;
-    let total = 0;
-    while (count < this.option.length) {
-      if (this.option[count] != null || this.option[count] != undefined) {
-        let numberValue = Number(this.priceDescriptions[count]);
-        total = total + numberValue
-      }
-      count++
-    }
-    //console.log(total)
-    this.orderTotal = total;
-  }
->>>>>>> 8991ce894517b1473c3201496ec09e211d62fb82
 
 
 //Bin icon: reset
   //Reset btn: resets option radio, payment checkbox and minus price from total when bin is clicked
   onClickResetMon(data: any) {
 
-<<<<<<< HEAD
     if(data.optionMon!=null && data.paymentMon!=true){
       let numberValue = Number(this.priceDescriptions[0]);
       this.orderTotal=this.orderTotal-numberValue;
 
-=======
-    if (data.optionMon != null) {
-      let numberValue = Number(this.priceDescriptions[0]);
-      this.orderTotal = this.orderTotal - numberValue;
->>>>>>> 8991ce894517b1473c3201496ec09e211d62fb82
     }
     this.controlNamesMonday.map((value: string) => this.formData.get(value)?.setValue(null));
   }
 
   onClickResetTue(data: any) {
-<<<<<<< HEAD
     if(data.optionTue!=null && data.paymentTue!=true){
-=======
-    if (data.optionTue != null) {
->>>>>>> 8991ce894517b1473c3201496ec09e211d62fb82
+
       let numberValue = Number(this.priceDescriptions[1]);
       this.orderTotal = this.orderTotal - numberValue;
     }
@@ -166,11 +123,8 @@ export class DashboardComponent implements OnInit {
   }
 
   onClickResetWed(data: any) {
-<<<<<<< HEAD
     if(data.optionWed!=null && data.paymentWed!=true){
-=======
-    if (data.optionWed != null) {
->>>>>>> 8991ce894517b1473c3201496ec09e211d62fb82
+
       let numberValue = Number(this.priceDescriptions[2]);
       this.orderTotal = this.orderTotal - numberValue;
     }
@@ -178,11 +132,9 @@ export class DashboardComponent implements OnInit {
   }
 
   onClickResetThu(data: any) {
-<<<<<<< HEAD
+
     if(data.optionThu!=null && data.paymentThu!=true){
-=======
-    if (data.optionThu != null) {
->>>>>>> 8991ce894517b1473c3201496ec09e211d62fb82
+
       let numberValue = Number(this.priceDescriptions[3]);
       this.orderTotal = this.orderTotal - numberValue;
     }
@@ -190,18 +142,14 @@ export class DashboardComponent implements OnInit {
   }
 
   onClickResetFri(data: any) {
-<<<<<<< HEAD
     if(data.optionFri!=null && data.paymentFri!=true){
-=======
-    if (data.optionFri != null) {
->>>>>>> 8991ce894517b1473c3201496ec09e211d62fb82
+
       let numberValue = Number(this.priceDescriptions[4]);
       this.orderTotal = this.orderTotal - numberValue;
     }
     this.controlNamesFriday.map((value: string) => this.formData.get(value)?.setValue(null));
   }
 
-<<<<<<< HEAD
 
 
 
@@ -276,6 +224,7 @@ export class DashboardComponent implements OnInit {
 
 
 funcPayment(num:number){
+    this.changeInForm()
   this.payment1 =[ this.formData.getRawValue().paymentMon,this.formData.getRawValue().paymentTue,this.formData.getRawValue().paymentWed,this.formData.getRawValue().paymentThu,this.formData.getRawValue().paymentFri]
   this.option1=[this.formData.getRawValue().optionMon,this.formData.getRawValue().optionTue,this.formData.getRawValue().optionWed,this.formData.getRawValue().optionThu,this.formData.getRawValue().optionFri]
   let numberValue = Number(this.priceDescriptions[num]);
@@ -348,12 +297,8 @@ funcPayment(num:number){
   //   this.initCharts();
   // }
 
-=======
-  changeOption(data: any) {
-    this.calcPrice(data)
-  }
 
-  changeInForm($event: Event) {
+  changeInForm() {
     console.log(this.menu)
    // console.log(this.formData.getRawValue());
     const {
@@ -382,6 +327,5 @@ funcPayment(num:number){
    // saving orders
     this.orderService.postOrder(orders).subscribe((data) => console.log('message::::', data));
   }
->>>>>>> 8991ce894517b1473c3201496ec09e211d62fb82
 
 }

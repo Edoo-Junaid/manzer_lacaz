@@ -1,4 +1,4 @@
-<c-row>
+<c-row xmlns="http://www.w3.org/1999/html">
   <c-col xs>
     <c-card class="mb-4">
       <c-card-body>
@@ -89,45 +89,55 @@
               <b class="text-medium-emphasis small">Options</b>
             </div>
 
-            <form [formGroup]="formData"  (change)="changeInForm($event)">
+            <form [formGroup]="formData" (change)="changeInForm()">
 
               <!--              Monday-->
               <div class="progress-group mb-4">
                 <div [formGroup]="formData" class="form-group">
-                  <input id="vegMon" type="radio" value="veg" formControlName="optionMon" name="optionMon" (change)="changeOption($event)">
-                  <input class="radioBtn" id="nonvegMon" type="radio" value="nonveg" formControlName="optionMon" name="optionMon" (change)="changeOption($event)">
+                  <input id="vegMon" type="radio" value="veg" formControlName="optionMon" name="optionMon"
+                         (change)="changeOption($event)">
+                  <input class="radioBtn" id="nonvegMon" type="radio" value="nonveg" formControlName="optionMon"
+                         name="optionMon" (change)="changeOption($event)">
                 </div>
               </div>
 
               <!--              Tuesday-->
               <div class="progress-group mb-4">
                 <div [formGroup]="formData" class="form-group">
-                  <input id="vegTue" type="radio" value="veg" formControlName="optionTue" name="optionTue" (change)="changeOption($event)">
-                  <input class="radioBtn" id="nonvegTue" type="radio" value="nonveg" formControlName="optionTue" name="optionTue" (change)="changeOption($event)">
+                  <input id="vegTue" type="radio" value="veg" formControlName="optionTue" name="optionTue"
+                         (change)="changeOption($event)">
+                  <input class="radioBtn" id="nonvegTue" type="radio" value="nonveg" formControlName="optionTue"
+                         name="optionTue" (change)="changeOption($event)">
                 </div>
               </div>
 
               <!--              Wednesday-->
               <div class="progress-group mb-4">
                 <div [formGroup]="formData" class="form-group">
-                  <input id="vegWed" type="radio" value="veg" formControlName="optionWed" name="optionWed" (change)="changeOption($event)">
-                  <input class="radioBtn" id="nonvegWed" type="radio" value="nonveg" formControlName="optionWed" name="optionWed" (change)="changeOption($event)">
+                  <input id="vegWed" type="radio" value="veg" formControlName="optionWed" name="optionWed"
+                         (change)="changeOption($event)">
+                  <input class="radioBtn" id="nonvegWed" type="radio" value="nonveg" formControlName="optionWed"
+                         name="optionWed" (change)="changeOption($event)">
                 </div>
               </div>
 
               <!--              Thursday-->
               <div class="progress-group mb-4">
                 <div [formGroup]="formData" class="form-group">
-                  <input id="vegThu" type="radio" value="veg" formControlName="optionThu" name="optionThu" (change)="changeOption($event)">
-                  <input class="radioBtn" id="nonvegThu" type="radio" value="nonveg" formControlName="optionThu" name="optionThu" (change)="changeOption($event)">
+                  <input id="vegThu" type="radio" value="veg" formControlName="optionThu" name="optionThu"
+                         (change)="changeOption($event)">
+                  <input class="radioBtn" id="nonvegThu" type="radio" value="nonveg" formControlName="optionThu"
+                         name="optionThu" (change)="changeOption($event)">
                 </div>
               </div>
 
               <!--              Friday-->
               <div class="progress-group mb-4">
                 <div [formGroup]="formData" class="form-group">
-                  <input type="radio" id="vegFri"  value="veg" formControlName="optionFri" name="optionFri" (change)="changeOption($event)">
-                  <input type="radio" class="radioBtn" id="nonvegFri"  value="nonveg" formControlName="optionFri" name="optionFri" (change)="changeOption($event)">
+                  <input type="radio" id="vegFri" value="veg" formControlName="optionFri" name="optionFri"
+                         (change)="changeOption($event)">
+                  <input type="radio" class="radioBtn" id="nonvegFri" value="nonveg" formControlName="optionFri"
+                         name="optionFri" (change)="changeOption($event)">
                 </div>
               </div>
 
@@ -142,82 +152,49 @@
               <b class="text-medium-emphasis small">Paid</b>
             </div>
 
-            <form [formGroup]="formData"   (change)="changeInForm($event)">
+            <form [formGroup]="formData" (change)="onClickPaymentMon(formData.getRawValue())">
 
               <!--              Monday-->
               <div class="progress-group mb-4">
                 <div class="form-group">
-<<<<<<< HEAD
-                  <input class="tableCheckboxBtn" id="paymentMon" type="checkbox" value="payment" formControlName="paymentMon" name="paymentMon" (change)="changePaymentMon($event)" >
-=======
-                  <input class="tableCheckboxBtn" id="paymentMon" type="checkbox"  formControlName="paymentMon" name="paymentMon"  >
->>>>>>> 8991ce894517b1473c3201496ec09e211d62fb82
+                  <input class="tableCheckboxBtn" id="paymentMon" type="checkbox" value="payment"
+                         formControlName="paymentMon" name="paymentMon" (change)="changePaymentMon($event)">
                 </div>
               </div>
-
-
-<<<<<<< HEAD
+            </form>
             <!--              Tuesday-->
-            <form [formGroup]="formData" (ngSubmit)="onClickPaymentTue(formData.getRawValue())" >
+            <form [formGroup]="formData" (ngSubmit)="onClickPaymentTue(formData.getRawValue())">
               <div class="progress-group mb-4">
                 <div class="form-group">
-                  <input class="tableCheckboxBtn" id="paymentTue" type="checkbox" value="payment" formControlName="paymentTue" name="paymentTue" (change)="changePaymentTue($event)" >
-=======
-              <!--              Tuesday-->
-
-              <div class="progress-group mb-4">
-                <div class="form-group">
-                  <input class="tableCheckboxBtn" id="paymentTue" type="checkbox" formControlName="paymentTue" name="paymentTue" >
->>>>>>> 8991ce894517b1473c3201496ec09e211d62fb82
+                  <input class="tableCheckboxBtn" id="paymentTue" type="checkbox" value="payment"
+                         formControlName="paymentTue" name="paymentTue" (change)="changePaymentTue($event)">
                 </div>
               </div>
-
-<<<<<<< HEAD
+            </form>
             <!--              Wednesday-->
-            <form [formGroup]="formData" (ngSubmit)="onClickPaymentWed(formData.getRawValue())" >
+            <form [formGroup]="formData" (ngSubmit)="onClickPaymentWed(formData.getRawValue())">
               <div class="progress-group mb-4">
                 <div class="form-group">
-                  <input class="tableCheckboxBtn" id="paymentWed" type="checkbox" value="payment" formControlName="paymentWed" name="paymentWed" (change)="changePaymentWed($event)">
+                  <input class="tableCheckboxBtn" id="paymentWed" type="checkbox" value="payment"
+                         formControlName="paymentWed" name="paymentWed" (change)="changePaymentWed($event)">
                 </div>
               </div>
             </form>
             <!--              Thursday-->
-            <form [formGroup]="formData" (ngSubmit)="onClickPaymentThu(formData.getRawValue())" >
+            <form [formGroup]="formData" (ngSubmit)="onClickPaymentThu(formData.getRawValue())">
               <div class="progress-group mb-4">
                 <div class="form-group">
-                  <input class="tableCheckboxBtn" id="paymentThu" type="checkbox" value="payment" formControlName="paymentThu" name="paymentThu" (change)="changePaymentThu($event)" >
-=======
-              <!--              Wednesday-->
-
-              <div class="progress-group mb-4">
-                <div class="form-group">
-                  <input class="tableCheckboxBtn" id="paymentWed" type="checkbox"  formControlName="paymentWed" name="paymentWed" >
+                  <input class="tableCheckboxBtn" id="paymentThu" type="checkbox" value="payment"
+                         formControlName="paymentThu" name="paymentThu" (change)="changePaymentThu($event)">
                 </div>
               </div>
-
-              <!--              Thursday-->
-
-              <div class="progress-group mb-4">
-                <div class="form-group">
-                  <input class="tableCheckboxBtn" id="paymentThu" type="checkbox"  formControlName="paymentThu" name="paymentThu" >
->>>>>>> 8991ce894517b1473c3201496ec09e211d62fb82
-                </div>
-              </div>
-
-
-<<<<<<< HEAD
+            </form>
             <!--              Friday-->
-            <form [formGroup]="formData" (ngSubmit)="onClickPaymentFri(formData.getRawValue())" >
+            <form [formGroup]="formData" (ngSubmit)="onClickPaymentFri(formData.getRawValue())">
               <div class="progress-group mb-4">
                 <div class="form-group">
-                  <input class="tableCheckboxBtn" id="paymentFri" type="checkbox" value="payment" formControlName="paymentFri" name="paymentFri" (change)="changePaymentFri($event)">
-=======
-              <!--              Friday-->
-
-              <div class="progress-group mb-4">
-                <div class="form-group">
-                  <input class="tableCheckboxBtn" id="paymentFri" type="checkbox"  formControlName="paymentFri" name="paymentFri">
->>>>>>> 8991ce894517b1473c3201496ec09e211d62fb82
+                  <input class="tableCheckboxBtn" id="paymentFri" type="checkbox" value="payment"
+                         formControlName="paymentFri" name="paymentFri" (change)="changePaymentFri($event)">
                 </div>
               </div>
             </form>
@@ -241,55 +218,60 @@
               <b class="text-medium-emphasis small">-</b>
             </div>
 
-            <form [formGroup]="formData" (ngSubmit)="onClickResetMon(formData.getRawValue())" >
+            <form [formGroup]="formData" (ngSubmit)="onClickResetMon(formData.getRawValue())">
 
               <!--              Monday-->
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <div class="icons">
-                    <input type="image" value="bin" name="binMon" id="binMon"  formControlName="binMon" src="assets/images/binIcon.png" width="20px" height="20px"  alt="">
+                    <input type="image" value="bin" name="binMon" id="binMon" formControlName="binMon"
+                           src="assets/images/binIcon.png" width="20px" height="20px" alt="">
                   </div>
                 </div>
               </div>
             </form>
 
             <!--              Tuesday-->
-            <form [formGroup]="formData" (ngSubmit)="onClickResetTue(formData.getRawValue())" >
+            <form [formGroup]="formData" (ngSubmit)="onClickResetTue(formData.getRawValue())">
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <div class="icons">
-                    <input type="image" id="binTue" formControlName="binTue" src="assets/images/binIcon.png" width="20px" height="20px" alt="">
+                    <input type="image" id="binTue" formControlName="binTue" src="assets/images/binIcon.png"
+                           width="20px" height="20px" alt="">
                   </div>
                 </div>
               </div>
             </form>
             <!--              Wednesday-->
-            <form [formGroup]="formData" (ngSubmit)="onClickResetWed(formData.getRawValue())" >
+            <form [formGroup]="formData" (ngSubmit)="onClickResetWed(formData.getRawValue())">
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <div class="icons">
-                    <input type="image" id="binWed" formControlName="binWed" src="assets/images/binIcon.png" width="20px" height="20px">
+                    <input type="image" id="binWed" formControlName="binWed" src="assets/images/binIcon.png"
+                           width="20px" height="20px">
                   </div>
                 </div>
               </div>
             </form>
 
             <!--              Thursday-->
-            <form [formGroup]="formData" (ngSubmit)="onClickResetThu(formData.getRawValue())" >
+            <form [formGroup]="formData" (ngSubmit)="onClickResetThu(formData.getRawValue())">
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <div class="icons">
-                    <input type="image" id="binThu" formControlName="binThu" src="assets/images/binIcon.png" width="20px" height="20px" alt="">
+                    <input type="image" id="binThu" formControlName="binThu" src="assets/images/binIcon.png"
+                           width="20px" height="20px" alt="">
                   </div>
                 </div>
               </div>
             </form>
             <!--              Friday-->
-            <form [formGroup]="formData" (ngSubmit)="onClickResetFri(formData.getRawValue())" >
+            <form [formGroup]="formData" (ngSubmit)="onClickResetFri(formData.getRawValue())">
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <div class="icons">
-                    <input type="image" id="binFri" formControlName="binFri" src="assets/images/binIcon.png" width="20px" height="20px" alt="">
+                    <input type="image" id="binFri" formControlName="binFri" src="assets/images/binIcon.png"
+                           width="20px" height="20px" alt="">
                   </div>
                 </div>
               </div>
