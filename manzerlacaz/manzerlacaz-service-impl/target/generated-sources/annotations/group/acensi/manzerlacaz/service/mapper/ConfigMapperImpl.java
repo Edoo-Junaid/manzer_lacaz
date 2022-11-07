@@ -6,8 +6,8 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-11-04T14:51:56+0400",
-    comments = "version: 1.5.2.Final, compiler: javac, environment: Java 17.0.4.1 (Eclipse Adoptium)"
+    date = "2022-11-04T18:47:52+0400",
+    comments = "version: 1.5.2.Final, compiler: Eclipse JDT (IDE) 1.4.100.v20220318-0906, environment: Java 17.0.3 (Eclipse Adoptium)"
 )
 public class ConfigMapperImpl implements ConfigMapper {
 
@@ -19,9 +19,9 @@ public class ConfigMapperImpl implements ConfigMapper {
 
         Config config = new Config();
 
+        config.setCreated( dto.getCreated() );
         config.setId( dto.getId() );
         config.setLastModified( dto.getLastModified() );
-        config.setCreated( dto.getCreated() );
         config.setName( dto.getName() );
         config.setValue( dto.getValue() );
 
@@ -36,11 +36,11 @@ public class ConfigMapperImpl implements ConfigMapper {
 
         ConfigDto configDto = new ConfigDto();
 
+        configDto.setCreated( config.getCreated() );
         configDto.setId( config.getId() );
+        configDto.setLastModified( config.getLastModified() );
         configDto.setName( config.getName() );
         configDto.setValue( config.getValue() );
-        configDto.setLastModified( config.getLastModified() );
-        configDto.setCreated( config.getCreated() );
 
         return configDto;
     }

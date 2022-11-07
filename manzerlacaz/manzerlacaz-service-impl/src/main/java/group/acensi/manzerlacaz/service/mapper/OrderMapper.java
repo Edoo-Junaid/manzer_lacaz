@@ -1,5 +1,7 @@
 package group.acensi.manzerlacaz.service.mapper;
 
+import java.util.Optional;
+
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
@@ -13,4 +15,6 @@ public interface OrderMapper {
 	Order toEntity(OrderDto dto);
 
 	OrderDto toDto(Order order);
+
+    OrderDto toDto(Optional<Order> order);
 }
