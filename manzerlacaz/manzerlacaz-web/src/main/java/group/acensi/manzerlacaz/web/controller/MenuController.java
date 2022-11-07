@@ -16,20 +16,19 @@ import group.acensi.manzerlacaz.service.mapper.MenuMapper;
 import group.acensi.manzerlacaz.web.payload.CreateMenuListRequest;
 import group.acensi.manzerlacaz.web.payload.CreateMenuRequest;
 
-
 @RestController
 @RequestMapping("/api/menu")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class MenuController {
-	
+
     @Autowired
     private MenuService menuService;
-    
+
     @PostMapping("/addMenu")
-    public List<MenuDto> addMenu(@RequestBody List<CreateMenuRequest> menu){
+    public List<MenuDto> addMenu(@RequestBody List<CreateMenuRequest> menu) {
         List<MenuDto> returnMenuList = new ArrayList<>();
-        for(CreateMenuRequest menuInList: menu) {
-            MenuDto menuDto= new MenuDto();
+        for (CreateMenuRequest menuInList : menu) {
+            MenuDto menuDto = new MenuDto();
             menuDto.setDay(menuInList.day());
             menuDto.setOption(menuInList.option());
             menuDto.setPrice(menuInList.price());
@@ -39,36 +38,33 @@ public class MenuController {
         }
         return returnMenuList;
     }
-    
+
     @PostMapping("/addOneMenu")
-    public MenuDto addOneMenu(@RequestBody CreateMenuRequest menu){
-    
+    public MenuDto addOneMenu(@RequestBody CreateMenuRequest menu) {
 
-            MenuDto menuDto= new MenuDto();
-            menuDto.setDay(menu.day());
-            menuDto.setOption(menu.option());
-            menuDto.setPrice(menu.price());
-            menuDto.setDescription(menu.description());
-           menuDto.setWeekNum(menu.weekNum());
-       return  MenuMapper.INSTANCE.toDto(menuService.createMenu(menuDto));
-      
-      
+        MenuDto menuDto = new MenuDto();
+        menuDto.setDay(menu.day());
+        menuDto.setOption(menu.option());
+        menuDto.setPrice(menu.price());
+        menuDto.setDescription(menu.description());
+        menuDto.setWeekNum(menu.weekNum());
+        return MenuMapper.INSTANCE.toDto(menuService.createMenu(menuDto));
+
     }
-	@GetMapping("/getAllMenu")
-	public List<MenuDto> getMenu() {
-        return menuService.listAllMenu();
-	}
 
-//    @PostMapping("/getCurrentMenu")
-//    public List<MenuDto> getCurrentMenu(@RequestBody CreateMenuListRequest createMenuListRequest) {
-//        return menuService.listCurrentMenu(createMenuListRequest.weekNum());
-//    }
-    
+    @GetMapping("/getAllMenu")
+    public List<MenuDto> getMenu() {
+        return menuService.listAllMenu();
+    }
+
+    @PostMapping("/getWeekMenu")
+    public List<MenuDto> getWeekMenu(@RequestBody CreateMenuListRequest createMenuListRequest) {
+        return menuService.listCurrentMenu(createMenuListRequest.weekNum());
+    }
 
     @GetMapping("/getCurrentMenu")
-        public List<MenuDto> getCurrentMenu() {
+    public List<MenuDto> getCurrentMenu() {
+        return menuService.listCurrentMenu(47);
+    }
 
-            return menuService.listCurrentMenu(47);
-        }
-    
 }

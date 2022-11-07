@@ -89,7 +89,7 @@
               <b class="text-medium-emphasis small">Options</b>
             </div>
 
-            <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" >
+            <form [formGroup]="formData"  (change)="changeInForm($event)">
 
               <!--              Monday-->
               <div class="progress-group mb-4">
@@ -142,25 +142,37 @@
               <b class="text-medium-emphasis small">Paid</b>
             </div>
 
-            <form [formGroup]="formData" (ngSubmit)="onClickPaymentMon(formData.getRawValue())" >
+            <form [formGroup]="formData"   (change)="changeInForm($event)">
 
               <!--              Monday-->
               <div class="progress-group mb-4">
                 <div class="form-group">
+<<<<<<< HEAD
                   <input class="tableCheckboxBtn" id="paymentMon" type="checkbox" value="payment" formControlName="paymentMon" name="paymentMon" (change)="changePaymentMon($event)" >
+=======
+                  <input class="tableCheckboxBtn" id="paymentMon" type="checkbox"  formControlName="paymentMon" name="paymentMon"  >
+>>>>>>> 8991ce894517b1473c3201496ec09e211d62fb82
                 </div>
               </div>
-            </form>
 
+
+<<<<<<< HEAD
             <!--              Tuesday-->
             <form [formGroup]="formData" (ngSubmit)="onClickPaymentTue(formData.getRawValue())" >
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <input class="tableCheckboxBtn" id="paymentTue" type="checkbox" value="payment" formControlName="paymentTue" name="paymentTue" (change)="changePaymentTue($event)" >
+=======
+              <!--              Tuesday-->
+
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <input class="tableCheckboxBtn" id="paymentTue" type="checkbox" formControlName="paymentTue" name="paymentTue" >
+>>>>>>> 8991ce894517b1473c3201496ec09e211d62fb82
                 </div>
               </div>
-            </form>
 
+<<<<<<< HEAD
             <!--              Wednesday-->
             <form [formGroup]="formData" (ngSubmit)="onClickPaymentWed(formData.getRawValue())" >
               <div class="progress-group mb-4">
@@ -174,15 +186,38 @@
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <input class="tableCheckboxBtn" id="paymentThu" type="checkbox" value="payment" formControlName="paymentThu" name="paymentThu" (change)="changePaymentThu($event)" >
+=======
+              <!--              Wednesday-->
+
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <input class="tableCheckboxBtn" id="paymentWed" type="checkbox"  formControlName="paymentWed" name="paymentWed" >
                 </div>
               </div>
-            </form>
 
+              <!--              Thursday-->
+
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <input class="tableCheckboxBtn" id="paymentThu" type="checkbox"  formControlName="paymentThu" name="paymentThu" >
+>>>>>>> 8991ce894517b1473c3201496ec09e211d62fb82
+                </div>
+              </div>
+
+
+<<<<<<< HEAD
             <!--              Friday-->
             <form [formGroup]="formData" (ngSubmit)="onClickPaymentFri(formData.getRawValue())" >
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <input class="tableCheckboxBtn" id="paymentFri" type="checkbox" value="payment" formControlName="paymentFri" name="paymentFri" (change)="changePaymentFri($event)">
+=======
+              <!--              Friday-->
+
+              <div class="progress-group mb-4">
+                <div class="form-group">
+                  <input class="tableCheckboxBtn" id="paymentFri" type="checkbox"  formControlName="paymentFri" name="paymentFri">
+>>>>>>> 8991ce894517b1473c3201496ec09e211d62fb82
                 </div>
               </div>
             </form>
@@ -212,7 +247,7 @@
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <div class="icons">
-                    <input type="image" value="bin" name="binMon" id="binMon"  formControlName="binMon" src="assets/images/binIcon.png" width="20px" height="20px" >
+                    <input type="image" value="bin" name="binMon" id="binMon"  formControlName="binMon" src="assets/images/binIcon.png" width="20px" height="20px"  alt="">
                   </div>
                 </div>
               </div>
@@ -223,7 +258,7 @@
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <div class="icons">
-                    <input type="image" id="binTue" formControlName="binTue" src="assets/images/binIcon.png" width="20px" height="20px">
+                    <input type="image" id="binTue" formControlName="binTue" src="assets/images/binIcon.png" width="20px" height="20px" alt="">
                   </div>
                 </div>
               </div>
@@ -244,7 +279,7 @@
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <div class="icons">
-                    <input type="image" id="binThu" formControlName="binThu" src="assets/images/binIcon.png" width="20px" height="20px">
+                    <input type="image" id="binThu" formControlName="binThu" src="assets/images/binIcon.png" width="20px" height="20px" alt="">
                   </div>
                 </div>
               </div>
@@ -254,7 +289,7 @@
               <div class="progress-group mb-4">
                 <div class="form-group">
                   <div class="icons">
-                    <input type="image" id="binFri" formControlName="binFri" src="assets/images/binIcon.png" width="20px" height="20px">
+                    <input type="image" id="binFri" formControlName="binFri" src="assets/images/binIcon.png" width="20px" height="20px" alt="">
                   </div>
                 </div>
               </div>

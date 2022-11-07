@@ -12,4 +12,5 @@ export class Menu{
     this.day = day;
     this.option = option;
   }
+
 }
