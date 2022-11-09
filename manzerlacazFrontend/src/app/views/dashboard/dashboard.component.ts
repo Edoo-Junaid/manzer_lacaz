@@ -122,6 +122,12 @@ export class DashboardComponent implements OnInit {
 
     }
     this.controlNamesMonday.map((value: string) => this.formData.get(value)?.setValue(null));
+    //delete order in database
+    var menuId=this.menu[0].id;
+    var userId=1;
+    this.deleteOrder(userId,menuId);
+
+
   }
 
   onClickResetTue(data: any) {
@@ -131,6 +137,10 @@ export class DashboardComponent implements OnInit {
       this.orderTotal = this.orderTotal - numberValue;
     }
     this.controlNamesTuesday.map((value: string) => this.formData.get(value)?.setValue(null));
+    //delete order in database
+    var menuId=this.menu[1].id;
+    var userId=1;
+    this.deleteOrder(userId,menuId);
   }
 
   onClickResetWed(data: any) {
@@ -140,6 +150,10 @@ export class DashboardComponent implements OnInit {
       this.orderTotal = this.orderTotal - numberValue;
     }
     this.controlNamesWednesday.map((value: string) => this.formData.get(value)?.setValue(null));
+    //delete order in database
+    var menuId=this.menu[2].id;
+    var userId=1;
+    this.deleteOrder(userId,menuId);
   }
 
   onClickResetThu(data: any) {
@@ -150,6 +164,10 @@ export class DashboardComponent implements OnInit {
       this.orderTotal = this.orderTotal - numberValue;
     }
     this.controlNamesThursday.map((value: string) => this.formData.get(value)?.setValue(null));
+    //delete order in database
+    var menuId=this.menu[3].id;
+    var userId=1;
+    this.deleteOrder(userId,menuId);
   }
 
   onClickResetFri(data: any) {
@@ -159,6 +177,10 @@ export class DashboardComponent implements OnInit {
       this.orderTotal = this.orderTotal - numberValue;
     }
     this.controlNamesFriday.map((value: string) => this.formData.get(value)?.setValue(null));
+    //delete order in database
+    var menuId=this.menu[4].id;
+    var userId=1;
+    this.deleteOrder(userId,menuId);
   }
 
 
@@ -346,10 +368,18 @@ funcPayment(num:number){
         }, 1500);
       },
       (error) => {
-        console.log("error caugttttth");
+        console.log("error caught");
         this.visibleError = true;
 
       }
     )
+  }
+
+  deleteOrder(userId:any,menuId:any){
+   let deleteRequest = new DailyConfirmation(userId,menuId)
+    this.orderService.removeOrder(deleteRequest).subscribe((response) => {
+      console.log(response)
+    });
+
   }
 }

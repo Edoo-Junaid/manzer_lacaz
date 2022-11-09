@@ -25,14 +25,14 @@ export class OrderService {
     return this.http.post<any>(this.rootURL + 'addWeekOrder', body,header);
   }
 
-  removeOrder(daily: Array<DailyConfirmation>) :Observable<any>{
+  removeOrder(daily: DailyConfirmation) :Observable<any>{
     const token =localStorage.getItem('token');
     const header = {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`).set('content-type', 'application/json')
     };
     const body = JSON.stringify(daily);
-    return this.http.post<any>(this.rootURL + 'deleteOrders', body,header);
+    return this.http.post<any>(this.rootURL + 'deleteOrder', body,header);
   }
 
   //Retrieving count of options
