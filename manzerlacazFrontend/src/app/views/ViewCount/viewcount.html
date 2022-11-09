@@ -4,7 +4,14 @@
       <c-card-body>
         <c-row>
 
-          <h4 style="text-align: center">Total Count Per Day For Veg & NonVeg Respectively </h4>
+          <form [formGroup]="formData">
+            <div class="numberSpinner">
+              <label>Week No. </label>
+              <input style="width: 40px; height:25px; margin-left: 10px" type="number" formControlName="weekNo" name="weekNo" value="1" maxlength="2">
+            </div>
+          </form>
+
+          <p></p>
           <hr class="mt-0"/>
 
           <!--          Labels-->

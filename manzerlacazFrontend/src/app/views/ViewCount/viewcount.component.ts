@@ -6,6 +6,7 @@ import {Option} from "../viewcount/Option";
 import {OrderService} from "../../services/order/order.service";
 import {MenuCreation} from "../charts/MenuCreation";
 import {WeekNum} from "../charts/WeekNum";
+import {GetMenuList} from "../dashboard/GetMenuList";
 
 @Component({
   selector: 'app-charts',
@@ -24,15 +25,16 @@ export class ViewcountComponent implements OnInit {
   menuWed!: Menu;
   menuThu!: Menu;
   menuFri!: Menu;
+  formData: any;
 
   constructor(public menuService: MenuService, public orderService: OrderService, private _router: Router) {
   }
 
   ngOnInit(): void {
 
-    let menu = new WeekNum(this.weekNum);
+    let weekNum = new GetMenuList(this.weekNum);
     //Displaying menus according to id
-    this.menuService.getMenus(menu).subscribe((data: Array<Menu>) => {
+    this.menuService.getMenus(weekNum).subscribe((data: Array<Menu>) => {
       this.menu = [data[0], data[1], data[2], data[3], data[4]];
       this.menuDescriptions = [data[0].description, data[1].description, data[2].description, data[3].description, data[4].description,]
       console.log(this.menu)

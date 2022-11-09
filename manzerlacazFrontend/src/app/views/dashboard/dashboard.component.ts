@@ -14,6 +14,17 @@ import {DailyConfirmation} from "./DailyConfirmation";
   styleUrls: ['dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  //----------------modal--
+  public dayArray: string[] = new Array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
+  public visible = false;
+  public visibleArr=[false,false,false,false,false];
+
+  toggleLiveDemo(index:any) {
+    this.visibleArr[index] = !this.visibleArr[index];
+  }
+
+
+  //------------
   public orderTotal!: number;
   private controlNamesMonday = ['optionMon', 'paymentMon'];
   private controlNamesTuesday = ['optionTue', 'paymentTue'];

@@ -4,7 +4,7 @@
       <c-card-body>
         <c-row>
 
-          <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" >
+          <form [formGroup]="formData" >
             <div class="numberSpinner">
               <label>Week No. </label>
               <input style="width: 40px; height:25px; margin-left: 10px" type="number" formControlName="weekNo" name="weekNo" value="1" maxlength="2">
@@ -15,84 +15,85 @@
           <hr class="mt-0"/>
 
           <!--          Labels-->
-          <c-col md="2" xl="2" xs="2">
+          <c-col md="4" xl="4" xs="4">
             <!--          <c-col md="4" xl="4" xs="8">-->
             <!--Changed xs from 12 to 8-->
 
             <div class="progress-group mb-4">
-              <b class="text-medium-emphasis small">Day</b>
+              <b class="text-medium-emphasis small">Details</b>
             </div>
 
-            <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Mon</span>
+<!--            Monday-->
+            <div class="progress-group mb-3" *ngFor="let menu of menuDescriptions ; index as i ">
+              <!--              pop up-->
+              <button (click)="toggleLiveDemo(i)" cButton color="link" size="sm">{{dayArray[i]}}</button>
+              <c-modal id="liveDemoModal" [visible]="visibleArr[i]" >
+                <c-modal-header>
+                  <h5 cModalTitle>Menu Details</h5>
+                  <button (click)="toggleLiveDemo(i)" cButtonClose></button>
+                </c-modal-header>
+
+                <c-modal-body>
+<!--                  Woohoo, you are reading this text in a modal!-->
+                  {{menuDescriptions[i]}}
+                  <p></p>
+                  Price: Rs {{priceDescriptions[i]}}
+<!--                  <span class="text-medium-emphasis small">{{menuDescriptions[i]}}</span>-->
+<!--                  <span class="text-medium-emphasis small">Price</span>-->
+<!--                  <span class="text-medium-emphasis small">{{priceDescriptions[i]}}</span>-->
+                </c-modal-body>
+              </c-modal>
             </div>
 
-            <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Tue</span>
-            </div>
-
-            <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Wed</span>
-            </div>
-
-            <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Thu</span>
-            </div>
-
-            <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Fri</span>
-            </div>
-
-            <br>
             <!--            Total-->
             <div class="progress-group mb-4">
               <span class="text-medium-emphasis small">Total</span>
             </div>
           </c-col>
 
-          <!--          Descriptions-->
-          <c-col md="2" xl="2" xs="2">
-            <div class="progress-group mb-4">
-              <b class="text-medium-emphasis small">Menu</b>
-            </div>
+<!--          &lt;!&ndash;          Descriptions&ndash;&gt;-->
+<!--          <c-col md="1" xl="1" xs="1">-->
+<!--            <div class="progress-group mb-4">-->
+<!--              <b class="text-medium-emphasis small">Menu</b>-->
+<!--            </div>-->
 
-            <div class="progress-group mb-4" *ngFor="let menuDesc of menuDescriptions; index as i">
-              <span class="text-medium-emphasis small">{{menuDesc}}</span>
-            </div>
+<!--            <div class="progress-group mb-4" *ngFor="let menuDesc of menuDescriptions; index as i">-->
+<!--              <span class="text-medium-emphasis small">{{menuDesc}}</span>-->
+<!--            </div>-->
 
-            <!--            key-->
-            <div class="legend text-center" ngPreserveWhitespaces>
-              <small>
-                <sup>
-                  <span class="badge badge-pill badge-sm bg-success">&nbsp;</span>
-                </sup>
-                <span>Veg</span>
-                &nbsp;&nbsp;
-                <sup
-                ><span class="badge badge-pill badge-sm bg-info"
-                >&nbsp;</span
-                ></sup
-                >
-                <span>Non-veg</span>
-              </small>
-            </div>
+<!--            &lt;!&ndash;            key&ndash;&gt;-->
+<!--            <div class="legend text-center" ngPreserveWhitespaces>-->
+<!--              <small>-->
+<!--                <sup>-->
+<!--                  <span class="badge badge-pill badge-sm bg-success">&nbsp;</span>-->
+<!--                </sup>-->
+<!--                <span>Veg</span>-->
+<!--                &nbsp;&nbsp;-->
+<!--                <sup-->
+<!--                ><span class="badge badge-pill badge-sm bg-info"-->
+<!--                >&nbsp;</span-->
+<!--                ></sup-->
+<!--                >-->
+<!--                <span>Non-veg</span>-->
+<!--              </small>-->
+<!--            </div>-->
 
-          </c-col>
+<!--          </c-col>-->
 
-          <!--          Price-->
-          <c-col md="1" xl="1" xs="1">
-            <div class="progress-group mb-4">
-              <b class="text-medium-emphasis small">Price</b>
-            </div>
+<!--          &lt;!&ndash;          Price&ndash;&gt;-->
+<!--          <c-col md="1" xl="1" xs="1">-->
+<!--            <div class="progress-group mb-4">-->
+<!--              <b class="text-medium-emphasis small">Price</b>-->
+<!--            </div>-->
 
-            <div class="progress-group mb-4" *ngFor="let priceDesc of priceDescriptions; index as i">
-              <span class="text-medium-emphasis small">{{priceDesc}}</span>
-            </div>
+<!--            <div class="progress-group mb-4" *ngFor="let priceDesc of priceDescriptions; index as i">-->
+<!--              <span class="text-medium-emphasis small">{{priceDesc}}</span>-->
+<!--            </div>-->
 
-          </c-col>
+<!--          </c-col>-->
 
           <!--          Options-->
-          <c-col md="3" xl="3" xs="3">
+          <c-col md="4" xl="4" xs="4">
 
             <div class="progress-group mb-4">
               <b class="text-medium-emphasis small">Options</b>
