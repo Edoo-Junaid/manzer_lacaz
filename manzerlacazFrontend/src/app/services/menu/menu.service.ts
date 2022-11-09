@@ -9,7 +9,7 @@ import {GetMenuList} from "../../views/dashboard/GetMenuList";
   providedIn: 'root'
 })
 export class MenuService {
-  private rootURL ='http://localhost:8080/api/menu/';
+  private rootURL ='http://192.168.31.83:8080/api/menu/';
   constructor(private http:HttpClient) { }
 
   getMenus(weekNum:GetMenuList):Observable<any>{

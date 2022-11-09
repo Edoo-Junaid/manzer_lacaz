@@ -150,7 +150,26 @@
                          name="optionFri" (change)="changeOption($event)">
                 </div>
               </div>
+              <c-alert [(visible)]="visible"
+                       [dismissible]="dismissible"
+                       fade
 
+                       *ngIf="visible" color="success" class="d-flex align-items-center">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                  <use xlink:href="#exclamation-triangle-fill" />
+                </svg>
+                <strong>Order saved </strong>
+              </c-alert>
+              <c-alert [(visible)]="visibleError"
+                       [dismissible]="dismissible"
+                       fade
+
+                       *ngIf="visibleError" color="danger" class="d-flex align-items-center">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                  <use xlink:href="#exclamation-triangle-fill" />
+                </svg>
+                <strong>Order Not Saved </strong>
+                      </c-alert>
             </form>
 
           </c-col>

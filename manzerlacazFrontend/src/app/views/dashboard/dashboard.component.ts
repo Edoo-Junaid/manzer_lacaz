@@ -16,7 +16,6 @@ import {DailyConfirmation} from "./DailyConfirmation";
 export class DashboardComponent implements OnInit {
   //----------------modal--
   public dayArray: string[] = new Array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
-  public visible = false;
   public visibleArr=[false,false,false,false,false];
 
   toggleLiveDemo(index:any) {
@@ -56,7 +55,8 @@ export class DashboardComponent implements OnInit {
   menuThu!: Menu;
   menuFri!: Menu;
   formData!: FormGroup;
-
+  visibleError!:boolean
+  visible:any;
 
   constructor( public orderService: OrderService, public menuService: MenuService) {
 
@@ -307,11 +307,13 @@ funcPayment(num:number){
   //   this.chartsData.initMainChart(value);
   //   this.initCharts();
   // }
+  dismissible: any;
+
 
 
   changeInForm() {
     console.log(this.menu)
-   // console.log(this.formData.getRawValue());
+    // console.log(this.formData.getRawValue());
     const {
       optionFri,
       optionMon,
@@ -326,17 +328,28 @@ funcPayment(num:number){
     } = this.formData.getRawValue();
     //console.log(radios)
     this.orderOption = [optionMon, optionTue, optionWed, optionThu, optionFri];
-    this.orderPayment=[paymentMon?1:0,paymentTue?1:0,paymentWed?1:0,paymentThu?1:0,paymentFri?1:0];
+    this.orderPayment = [paymentMon ? 1 : 0, paymentTue ? 1 : 0, paymentWed ? 1 : 0, paymentThu ? 1 : 0, paymentFri ? 1 : 0];
     let orders = new Array<Order>;
-    for(let i in  this.orderOption){
-      if(this.orderOption[i]!=null){
-        let order = new Order(1,this.menu[i].id,this.orderPayment[i],this.orderOption[i]);
+    for (let i in this.orderOption) {
+      if (this.orderOption[i] != null) {
+        let order = new Order(1, this.menu[i].id, this.orderPayment[i], this.orderOption[i]);
         orders.push(order);
       }
     }
     console.log(orders);
-   // saving orders
-    this.orderService.postOrder(orders).subscribe((data) => console.log('message::::', data));
-  }
+    // saving orders
+    this.orderService.postOrder(orders).subscribe((response) => {
+        console.log('message::::', response);
+        this.visible = true;
+        setTimeout(() => {
+          this.visible = false;
+        }, 1500);
+      },
+      (error) => {
+        console.log("error caugttttth");
+        this.visibleError = true;
 
+      }
+    )
+  }
 }

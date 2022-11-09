@@ -12,7 +12,7 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  rootURL = 'http://localhost:8080/api/order/';
+  rootURL = 'http://192.168.31.83:8080/api/order/';
 
   //weekly orders
   postOrder(orders:Array<Order>) :Observable<any>{
