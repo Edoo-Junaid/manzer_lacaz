@@ -1,5 +1,6 @@
 package group.acensi.manzerlacaz.web.controller;
 
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,7 @@ public class MenuController {
             menuDto.setPrice(menuInList.price());
             menuDto.setDescription(menuInList.description());
             menuDto.setWeekNum(menuInList.weekNum());
+            menuDto.setYear(Year.now().getValue());
             returnMenuList.add(MenuMapper.INSTANCE.toDto(menuService.createMenu(menuDto)));
         }
         return returnMenuList;

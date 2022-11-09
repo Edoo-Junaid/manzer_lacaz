@@ -26,5 +26,6 @@ public class Menu extends AbstractEntity {
 	private String day;
 	private String option;
 	private int weekNum;
+	 private int year;
 
 }

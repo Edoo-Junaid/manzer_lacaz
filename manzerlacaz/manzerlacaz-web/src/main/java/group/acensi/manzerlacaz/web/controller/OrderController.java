@@ -86,4 +86,9 @@ public class OrderController {
             orderService.deleteOrder(order.user_id(), order.menu_id());
         }
     }
+    @PostMapping("/getExistingOrder")
+    public OrderDto getExistingOrder(@RequestBody DeleteOrderRequest orderRequest) {
+       return orderService.getExistingOrder(orderRequest.user_id(), orderRequest.menu_id());
+        
+    }
 }

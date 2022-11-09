@@ -21,5 +21,5 @@ public interface OrderService {
 
     public boolean checkOrderExists(Long user_id, Long menu_id); //checks if order exists in database
 
-
+    OrderDto getExistingOrder(Long user_id, Long menu_id);
 }

@@ -47,30 +47,26 @@ export class LoginComponent implements OnInit {
     console.log(data);
     let loginRequest = new LoginRequest(data.username, data.password)
     this.loginService.login(loginRequest).subscribe((response) => {
-        console.log(response);
-        console.log("inside response");
-        if (response.token) {
-          localStorage.setItem('token', response.token);
-          console.log("Token has been set");
-          if (response.role == 'admin') {
-            localStorage.setItem('role','Admin');
-            console.log("logged in as admin")
-            this._router.navigateByUrl('charts');
-          } else {
-            localStorage.setItem('role','User');
-            console.log("logged in as user")
-            this._router.navigateByUrl('dashboard');
-          }
+      console.log(response);
+      console.log("inside response");
+      if (response.token) {
+        localStorage.setItem('token', response.token);
+        console.log("Token has been set");
+        if (response.role == 'admin') {
+          localStorage.setItem('role','Admin');
+          console.log("logged in as admin")
+          this._router.navigateByUrl('charts');
+        } else {
+          localStorage.setItem('role','User');
+          console.log("logged in as user")
+          this._router.navigateByUrl('dashboard');
         }
-      },
-
-      (error)=>{
-        console.log("error caugth");
-        console.log(error);
-
-          this.visible=!this.visible;
-
-      })
+      }
+    }, (error)=>{
+      console.log("error caugth");
+      console.log(error);
+      this.visible=!this.visible;
+    })
   }
 
 }

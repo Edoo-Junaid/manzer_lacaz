@@ -82,7 +82,6 @@ export class ChartsComponent implements OnInit {
 
   //Reset btn
   onClickReset(data: any) {
-
     this.formData.reset();
   }
 

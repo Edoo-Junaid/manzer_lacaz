@@ -2,11 +2,12 @@ package group.acensi.manzerlacaz.service.mapper;
 
 import group.acensi.manzerlacaz.entities.Order;
 import group.acensi.manzerlacaz.service.dto.OrderDto;
+import java.util.Optional;
 import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-11-04T14:51:57+0400",
+    date = "2022-11-09T08:27:42+0400",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 17.0.4.1 (Eclipse Adoptium)"
 )
 public class OrderMapperImpl implements OrderMapper {
@@ -49,6 +50,17 @@ public class OrderMapperImpl implements OrderMapper {
         orderDto.setOption( order.getOption() );
         orderDto.setLastModified( order.getLastModified() );
         orderDto.setCreated( order.getCreated() );
+
+        return orderDto;
+    }
+
+    @Override
+    public OrderDto toDto(Optional<Order> order) {
+        if ( order == null ) {
+            return null;
+        }
+
+        OrderDto orderDto = new OrderDto();
 
         return orderDto;
     }

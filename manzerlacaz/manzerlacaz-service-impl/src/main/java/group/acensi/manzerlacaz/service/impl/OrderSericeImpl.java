@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.time.temporal.WeekFields;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -176,5 +177,27 @@ public class OrderSericeImpl implements OrderService {
     public boolean checkOrderExists(Long user_id, Long menu_id) {
         return orderRepository.checkIfOrderExists(user_id, menu_id);
     }
+    
+    
+    @Override
+    public OrderDto getExistingOrder(Long user_id, Long menu_id) {
+        if (orderRepository.checkIfOrderExists(user_id, menu_id)) {
+            int id=orderRepository.findOrderById(user_id, menu_id);
+            Optional<Order> order=orderRepository.findById((long) id);
+            return OrderMapper.INSTANCE.toDto(order);
+
+        } else {
+            return null;
+        }
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 
 }

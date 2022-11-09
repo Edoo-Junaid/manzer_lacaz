@@ -15,6 +15,7 @@ public class MenuDto {
     private String day;
     private String option;
     private int weekNum;
+    private int year;
     
   
     @JsonFormat

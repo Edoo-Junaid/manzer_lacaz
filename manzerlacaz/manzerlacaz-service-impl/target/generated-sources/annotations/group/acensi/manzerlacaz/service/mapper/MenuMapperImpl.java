@@ -6,7 +6,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-11-04T14:51:56+0400",
+    date = "2022-11-09T08:27:42+0400",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 17.0.4.1 (Eclipse Adoptium)"
 )
 public class MenuMapperImpl implements MenuMapper {
@@ -27,6 +27,7 @@ public class MenuMapperImpl implements MenuMapper {
         menu.setDay( dto.getDay() );
         menu.setOption( dto.getOption() );
         menu.setWeekNum( dto.getWeekNum() );
+        menu.setYear( dto.getYear() );
 
         return menu;
     }
@@ -45,6 +46,7 @@ public class MenuMapperImpl implements MenuMapper {
         menuDto.setDay( menu.getDay() );
         menuDto.setOption( menu.getOption() );
         menuDto.setWeekNum( menu.getWeekNum() );
+        menuDto.setYear( menu.getYear() );
         menuDto.setLastModified( menu.getLastModified() );
         menuDto.setCreated( menu.getCreated() );
 
