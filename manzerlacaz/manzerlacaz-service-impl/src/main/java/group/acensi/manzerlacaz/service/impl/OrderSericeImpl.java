@@ -17,6 +17,7 @@ import group.acensi.manzerlacaz.entities.Config;
 import group.acensi.manzerlacaz.entities.Order;
 import group.acensi.manzerlacaz.service.api.OrderService;
 import group.acensi.manzerlacaz.service.dto.OrderDto;
+import group.acensi.manzerlacaz.service.mapper.MenuMapper;
 import group.acensi.manzerlacaz.service.mapper.OrderMapper;
 
 @Service
@@ -47,7 +48,6 @@ public class OrderSericeImpl implements OrderService {
             return null;
         } else {
             if (orderRepository.checkIfOrderExists(orderDto.getUser_id(), orderDto.getMenu_id())) {
-
                 orderDto.setId(this.findOrderId(orderDto.getUser_id(), orderDto.getMenu_id()));
             }
 
@@ -129,13 +129,13 @@ public class OrderSericeImpl implements OrderService {
 
     // Get total veg or non-veg orders in a day
     @Override
-    public Long getOrderOptionCountByDay(String option, String day,int weekNum) {
-        return orderRepository.countOrdersOptionByDayAndWeekNum(option, weekNum,day);
+    public Long getOrderOptionCountByDay(String option, String day, int weekNum) {
+        return orderRepository.countOrdersOptionByDayAndWeekNum(option, weekNum, day);
     }
 
     @Override
     public long findOrderId(Long user_id, Long menu_id) {
-        return orderRepository.findOrderById(user_id, menu_id);
+        return orderRepository.findIdOfOrder(user_id, menu_id);
     }
 
     // Finding an order by its id and Deleting the order
@@ -199,5 +199,20 @@ public class OrderSericeImpl implements OrderService {
     
     
     
+
+    @Override
+    public OrderDto getExistingOrder(Long user_id, Long menu_id) {
+        if (orderRepository.checkIfOrderExists(user_id, menu_id)) {
+            int id=orderRepository.findIdOfOrder(user_id, menu_id);
+            Optional<Order> order=orderRepository.findById((long) id);
+            return OrderMapper.INSTANCE.toDto(order);
+            
+
+        } else {
+            return null;
+        }
+     
+
+    }
 
 }

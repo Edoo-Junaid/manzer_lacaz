@@ -9,40 +9,11 @@
     display: inline-block;
   }
 
+  .title{
+    display: inline-block;
+  }
+
   .form-group{
     display: inline-block;
-  }
-
-  .checkboxBtn{
-    margin-left: 25px;
-    display: inline-block;
-  }
-
-  .button{
-    display: flex;
-    text-align: right;
-    border: 0;
-  }
-
-  .tableRadioBtn{
-    margin-left: 50px;
-  }
-
-  .submitBtn{
-    text-align: right;
-    display: inline-block;
-    //margin-left: 550px;
-  }
-  .resetBtn{
-    text-align: right;
-    display: inline-block;
-    margin-left: 25px;
-  }
-
-  .blockBtn{
-    display: inline-block;
-    text-align: right;
-    overflow:hidden;
-    margin: 0;
   }
 }

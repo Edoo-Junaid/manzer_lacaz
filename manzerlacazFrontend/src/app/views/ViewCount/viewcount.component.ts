@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup} from '@angular/forms';
 import {Router} from "@angular/router";
-import {Menu} from "../dashboard/Menu";
 import {MenuService} from "../../services/menu/menu.service";
+import {Menu} from "../dashboard/Menu";
+import {Option} from "../viewcount/Option";
+import {OrderService} from "../../services/order/order.service";
+import {MenuCreation} from "../charts/MenuCreation";
+import {WeekNum} from "../charts/WeekNum";
 import {GetMenuList} from "../dashboard/GetMenuList";
 
 @Component({
@@ -12,34 +15,52 @@ import {GetMenuList} from "../dashboard/GetMenuList";
 })
 export class ViewcountComponent implements OnInit {
   menu!: Menu[];
-  menuDescriptions!: string[];
-  priceDescriptions!: string[];
-  //menu id
-  menuMonDesc!: string;
-  menuTueDesc!: string;
-  menuWedDesc!: string;
-  menuThuDesc!: string;
-  menuFriDesc!: string;
+  weekNum!: number;
+  countVeg:any =[0,0,0,0,0];
+  countNonVeg:any =[0,0,0,0,0];
 
+  menuDescriptions!: string[];
   menuMon!: Menu;
   menuTue!: Menu;
   menuWed!: Menu;
   menuThu!: Menu;
   menuFri!: Menu;
-  formData!: FormGroup;
+  formData: any;
 
-  constructor(public menuService: MenuService, private _router: Router) {
+  constructor(public menuService: MenuService, public orderService: OrderService, private _router: Router) {
   }
 
   ngOnInit(): void {
+
+    let weekNum = new GetMenuList(this.weekNum);
     //Displaying menus according to id
-    let weekNum = new GetMenuList(47);
     this.menuService.getMenus(weekNum).subscribe((data: Array<Menu>) => {
       this.menu = [data[0], data[1], data[2], data[3], data[4]];
       this.menuDescriptions = [data[0].description, data[1].description, data[2].description, data[3].description, data[4].description,]
-      this.priceDescriptions = [data[0].price, data[1].price, data[2].price, data[3].price, data[4].price,]
       console.log(this.menu)
     });
+
+    //Displaying the count of options
+    //array for days
+    var day:string[] = new Array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+
+    for(var i in day){
+      let optionVeg = new Option("non-veg",day[i],this.weekNum);
+
+      console.log("************************")
+      this.orderService.getCount(optionVeg).subscribe((data: any) => {
+        console.log(data)
+        this.countVeg[i]=data;
+      });
+      console.log(this.countNonVeg);
+
+      let  optionNonVeg = new Option("veg",day[i],47);
+      this.orderService.getCount(optionNonVeg).subscribe((data: any) => {
+        console.log(data)
+        this.countNonVeg[i]=data;
+      });
+      console.log(this.countVeg)
+    }
   }
 }
 
