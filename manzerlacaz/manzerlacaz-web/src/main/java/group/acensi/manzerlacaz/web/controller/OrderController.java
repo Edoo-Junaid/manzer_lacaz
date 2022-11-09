@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import group.acensi.manzerlacaz.service.api.OrderService;
 import group.acensi.manzerlacaz.service.dto.OrderDto;
 import group.acensi.manzerlacaz.web.payload.CreateOrderRequest;
-import group.acensi.manzerlacaz.web.payload.DeleteOrderRequest;
 import group.acensi.manzerlacaz.web.payload.OrderOptionCountRequest;
+import group.acensi.manzerlacaz.web.payload.OrderRequest;
 
 @RestController
 @RequestMapping("/api/order")
@@ -68,26 +68,26 @@ public class OrderController {
 
     //Delete an order
     @PostMapping("/deleteOrder")
-    public void findOrders(@RequestBody DeleteOrderRequest deleteOrderRequest) {
+    public void findOrders(@RequestBody OrderRequest deleteOrderRequest) {
         orderService.deleteOrder(deleteOrderRequest.user_id(), deleteOrderRequest.menu_id());
     }
     
 
     //Check if order exist or not in database
     @PostMapping("/existOrNotOrder")
-    public void checkIfExistOrders(@RequestBody DeleteOrderRequest deleteOrderRequest) {
+    public void checkIfExistOrders(@RequestBody OrderRequest deleteOrderRequest) {
         orderService.checkOrderExists(deleteOrderRequest.user_id(), deleteOrderRequest.menu_id());
     }
 
     //Delete a list of orders
     @PostMapping("deleteOrders")
-    public void deleteOrders(@RequestBody List<DeleteOrderRequest> orders) {
-        for (DeleteOrderRequest order : orders) {
+    public void deleteOrders(@RequestBody List<OrderRequest> orders) {
+        for (OrderRequest order : orders) {
             orderService.deleteOrder(order.user_id(), order.menu_id());
         }
     }
     @PostMapping("/getExistingOrder")
-    public OrderDto getExistingOrder(@RequestBody DeleteOrderRequest orderRequest) {
+    public OrderDto getExistingOrder(@RequestBody OrderRequest orderRequest) {
        return orderService.getExistingOrder(orderRequest.user_id(), orderRequest.menu_id());
         
     }

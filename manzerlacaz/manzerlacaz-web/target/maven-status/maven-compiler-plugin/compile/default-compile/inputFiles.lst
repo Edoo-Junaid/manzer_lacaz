@@ -2,13 +2,13 @@ C:\Users\Junaid\Desktop\efwer\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\
 C:\Users\Junaid\Desktop\efwer\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\payload\LoginRequest.java
 C:\Users\Junaid\Desktop\efwer\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\security\UserDetailsManagerImpl.java
 C:\Users\Junaid\Desktop\efwer\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\mapper\UserDetailsMapper.java
-C:\Users\Junaid\Desktop\efwer\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\payload\DeleteOrderRequest.java
 C:\Users\Junaid\Desktop\efwer\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\configuration\WebConfig.java
 C:\Users\Junaid\Desktop\efwer\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\security\SecurityUtils.java
 C:\Users\Junaid\Desktop\efwer\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\controller\UtilisateurController.java
 C:\Users\Junaid\Desktop\efwer\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\security\JwtUtils.java
 C:\Users\Junaid\Desktop\efwer\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\security\AuthTokenFilter.java
 C:\Users\Junaid\Desktop\efwer\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\payload\CreateOrderRequest.java
+C:\Users\Junaid\Desktop\efwer\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\payload\OrderRequest.java
 C:\Users\Junaid\Desktop\efwer\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\payload\OrderOptionCountRequest.java
 C:\Users\Junaid\Desktop\efwer\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\configuration\SwaggerConfig.java
 C:\Users\Junaid\Desktop\efwer\manzer_lacaz\manzerlacaz\manzerlacaz-web\src\main\java\group\acensi\manzerlacaz\web\security\UserDetailsImpl.java

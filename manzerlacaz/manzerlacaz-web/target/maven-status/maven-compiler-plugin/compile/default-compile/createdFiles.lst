@@ -1,4 +1,5 @@
 group\acensi\manzerlacaz\web\controller\MenuController.class
+group\acensi\manzerlacaz\web\payload\OrderRequest.class
 group\acensi\manzerlacaz\web\security\SecurityUtils.class
 group\acensi\manzerlacaz\web\security\UserDetailsManagerImpl.class
 group\acensi\manzerlacaz\web\payload\OrderOptionCountRequest.class
@@ -20,7 +21,6 @@ group\acensi\manzerlacaz\web\security\AuthTokenFilter.class
 group\acensi\manzerlacaz\web\payload\CreateOrderRequest.class
 group\acensi\manzerlacaz\web\controller\ConfigController.class
 group\acensi\manzerlacaz\web\payload\CreateMenuListRequest.class
-group\acensi\manzerlacaz\web\payload\DeleteOrderRequest.class
 group\acensi\manzerlacaz\web\payload\LoginRequest.class
 group\acensi\manzerlacaz\web\controller\AuthenticationController.class
 group\acensi\manzerlacaz\web\payload\CreateMenuRequest.class
