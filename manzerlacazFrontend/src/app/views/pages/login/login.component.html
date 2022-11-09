@@ -8,14 +8,41 @@
 
 
 
+
+
+
 <div class="bg-light min-vh-100 d-flex flex-row align-items-center">
   <c-container>
+<!--   <h1 style="font-size:6vw; ">Welcome to</h1>-->
+
     <c-row class="justify-content-center">
       <c-col md="8">
-        <c-card-group>
+        <c-card-group >
           <c-card class="p-4">
+
             <c-card-body>
-              <form cForm  [formGroup]="formData" (ngSubmit)="onClickLogin(formData.getRawValue())">
+
+              <c-carousel [dark]="true" >
+<!--                <c-carousel-indicators></c-carousel-indicators>-->
+                <c-carousel-inner>
+                  <c-carousel-item *ngFor="let slide of slides">
+                    <img
+                      [src]="slide.src"
+                      alt="{{ slide.title }}"
+                      class="d-block w-100"
+                      loading="lazy" />
+                  </c-carousel-item>
+                </c-carousel-inner>
+
+                <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
+                <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>
+              </c-carousel>
+
+<!--              <img src="assets/img/brand/logoManzerLacazFinal.png" class="logo">-->
+
+              <br>
+
+              <form cForm  [formGroup]="formData" (ngSubmit)="onClickLogin(formData.getRawValue())" class="form" >
                 <h1>Login</h1>
                 <p class="text-medium-emphasis">Sign In to your account</p>
                 <c-input-group class="mb-3">
@@ -59,6 +86,7 @@
                   <strong>Invalid Username or password. </strong>  Please try again.
                 </c-alert>
               </form>
+
             </c-card-body>
           </c-card>
 
@@ -72,22 +100,3 @@
   [class.offline]="status === onlineStatusCheck.OFFLINE"
 ></div>
 
-<div style="text-align:center">
-  <h1>
-    Detect Internet Status Online Offline Demo
-  </h1>
-  <h2>
-    Use third party library :
-  </h2>
-  <a
-    href="https://www.npmjs.com/package/ngx-online-status"
-    rel="nofollow"
-    target="_blank"
-  >npm/ngx-online-status
-  </a>
-  <h3>Steps to test the functionality</h3>
-  <p>
-    Just turn <span style="color:#11d411">ON</span> and
-    <span style="color:rgb(231, 14, 14)">OFF</span> your Internet connection.
-  </p>
-</div>

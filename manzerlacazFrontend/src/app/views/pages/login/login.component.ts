@@ -14,6 +14,9 @@ import {OnlineStatusService, OnlineStatusType} from "ngx-online-status";
 
 
 export class LoginComponent implements OnInit {
+  // -----carousel
+  slides: any[] = new Array(2).fill({id: -1, src: '', title: '', subtitle: ''});
+  //------
   status: OnlineStatusType = 0; //Enum provided by ngx-online-status
   onlineStatusCheck: any = OnlineStatusType;
   constructor(private loginService: LoginService, private _router: Router,private onlineStatusService: OnlineStatusService) {
@@ -29,6 +32,15 @@ export class LoginComponent implements OnInit {
   dismissible = true;
 
   ngOnInit(): void {
+    //carousel
+    this.slides[0] = {
+      src: "assets/img/brand/logoManzerLacazFinal.png" ,
+    };
+    this.slides[1] = {
+      src: "assets/img/brand/logoManzerLacazFinal.png" ,
+    }
+    //----------
+
     this.onlineStatusService.status.subscribe((status: OnlineStatusType) => {
       // Retrieve Online status Type
       this.status = status;
