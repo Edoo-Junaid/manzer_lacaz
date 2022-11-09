@@ -34,10 +34,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     //carousel
     this.slides[0] = {
-      src: "assets/img/brand/logoManzerLacazFinal.png" ,
+      src: "assets/img/brand/logoManzerLacazSlide.png" ,
     };
     this.slides[1] = {
-      src: "assets/img/brand/logoManzerLacazFinal.png" ,
+      src: "assets/img/brand/mealPlate3.png" ,
     }
     //----------
 
