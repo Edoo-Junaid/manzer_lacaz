@@ -4,10 +4,10 @@
       <c-card-body>
         <c-row>
 
-          <form [formGroup]="formData" >
+          <form [formGroup]="formData">
             <div class="numberSpinner">
               <label>Week No. </label>
-              <input style="width: 40px; height:25px; margin-left: 10px" type="number" formControlName="weekNo" name="weekNo" value="1" maxlength="2">
+              <input style="width: 40px; height:25px; margin-left: 10px" type="number" formControlName="weekNo" name="weekNo" value="1" maxlength="2" (change)="changeInWeekNum($event)">
             </div>
           </form>
 
@@ -16,8 +16,6 @@
 
           <!--          Labels-->
           <c-col md="4" xl="4" xs="4">
-            <!--          <c-col md="4" xl="4" xs="8">-->
-            <!--Changed xs from 12 to 8-->
 
             <div class="progress-group mb-4">
               <b class="text-medium-emphasis small">Details</b>
@@ -28,8 +26,8 @@
               <!--              pop up-->
               <button (click)="toggleLiveDemo(i)" cButton color="link" size="sm">{{dayArray[i]}}</button>
               <c-modal id="liveDemoModal" [visible]="visibleArr[i]" >
-                <c-modal-header>
-                  <h5 cModalTitle>Menu Details</h5>
+                <c-modal-header style="background-color: #e5a653;">
+                  <h5 cModalTitle>{{dayArray[i]}} Menu Details</h5>
                   <button (click)="toggleLiveDemo(i)" cButtonClose></button>
                 </c-modal-header>
 

@@ -7,7 +7,7 @@
           <form [formGroup]="formData">
             <div class="numberSpinner">
               <label>Week No. </label>
-              <input style="width: 40px; height:25px; margin-left: 10px" type="number" formControlName="weekNo" name="weekNo" value="1" maxlength="2">
+              <input style="width: 40px; height:25px; margin-left: 10px" type="number" formControlName="weekNo" name="weekNo" value="1" maxlength="2" (change)="changeInWeekNum($event)">
             </div>
           </form>
 
@@ -16,31 +16,13 @@
 
           <!--          Labels-->
           <c-col md="3" xl="3" xs="3">
-            <!--          <c-col md="4" xl="4" xs="8">-->
-            <!--Changed xs from 12 to 8-->
 
             <div class="progress-group mb-4">
               <b class="text-medium-emphasis small">Day</b>
             </div>
 
-            <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Monday</span>
-            </div>
-
-            <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Tuesday</span>
-            </div>
-
-            <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Wednesday</span>
-            </div>
-
-            <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Thursday</span>
-            </div>
-
-            <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Friday</span>
+            <div class="progress-group mb-4" *ngFor="let day of dayArray ; index as i ">
+              <span class="text-medium-emphasis small">{{dayArray[i]}}</span>
             </div>
 
           </c-col>

@@ -25,25 +25,10 @@
               <b class="text-medium-emphasis small">Day</b>
             </div>
 
-            <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Monday</span>
+            <div class="progress-group mb-4" *ngFor="let day of dayArray ; index as i ">
+              <span class="text-medium-emphasis small">{{dayArray[i]}}</span>
             </div>
 
-            <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Tuesday</span>
-            </div>
-
-            <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Wednesday</span>
-            </div>
-
-            <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Thursday</span>
-            </div>
-
-            <div class="progress-group mb-4">
-              <span class="text-medium-emphasis small">Friday</span>
-            </div>
           </c-col>
 
           <!--          Descriptions-->
@@ -55,35 +40,35 @@
             <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" >
 
               <!--              Monday-->
-              <div class="progress-group mb-4">
+              <div class="progress-group mb-3">
                 <div [formGroup]="formData" class="form-group">
                   <input class="text-medium-emphasis small" id="menuMon" type="text" sizing="sm" formControlName="menuMon" name="menuMon" maxlength="40" size="10">
                 </div>
               </div>
 
               <!--              Tuesday-->
-              <div class="progress-group mb-4">
+              <div class="progress-group mb-3">
                 <div [formGroup]="formData" class="form-group">
                   <input class="text-medium-emphasis small" id="menuTue" type="text" formControlName="menuTue" name="menuTue" maxlength="40" size="10">
                 </div>
               </div>
 
               <!--              Wednesday-->
-              <div class="progress-group mb-4">
+              <div class="progress-group mb-3">
                 <div [formGroup]="formData" class="form-group">
                   <input class="text-medium-emphasis small" id="menuWed" type="text" formControlName="menuWed" name="menuWed" maxlength="40" size="10">
                 </div>
               </div>
 
               <!--              Thursday-->
-              <div class="progress-group mb-4">
+              <div class="progress-group mb-3">
                 <div [formGroup]="formData" class="form-group">
                   <input class="text-medium-emphasis small" id="menuThu" type="text" formControlName="menuThu" name="menuThu" maxlength="40" size="10">
                 </div>
               </div>
 
               <!--              Friday-->
-              <div class="progress-group mb-4">
+              <div class="progress-group mb-3">
                 <div [formGroup]="formData" class="form-group">
                   <input class="text-medium-emphasis small" id="menuFri" type="text" formControlName="menuFri" name="menuFri" maxlength="40" size="10">
                 </div>
@@ -119,35 +104,35 @@
             <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.getRawValue())" >
 
               <!--              Monday-->
-              <div class="progress-group mb-4">
+              <div class="progress-group mb-3">
                 <div [formGroup]="formData" class="form-group">
                   <input  class="text-medium-emphasis small" id="priceMon" type="text" sizing="sm" formControlName="priceMon" name="priceMon" maxlength="4" size="2">
                 </div>
               </div>
 
               <!--              Tuesday-->
-              <div class="progress-group mb-4">
+              <div class="progress-group mb-3">
                 <div [formGroup]="formData" class="form-group">
                   <input class="text-medium-emphasis small" id="priceTue" type="text" formControlName="priceTue" name="priceTue" maxlength="4" size="2">
                 </div>
               </div>
 
               <!--              Wednesday-->
-              <div class="progress-group mb-4">
+              <div class="progress-group mb-3">
                 <div [formGroup]="formData" class="form-group">
                   <input class="text-medium-emphasis small" id="priceWed" type="text" formControlName="priceWed" name="priceWed" maxlength="4" size="2">
                 </div>
               </div>
 
               <!--              Thursday-->
-              <div class="progress-group mb-4">
+              <div class="progress-group mb-3">
                 <div [formGroup]="formData" class="form-group">
                   <input class="text-medium-emphasis small" id="priceThu" type="text" formControlName="priceThu" name="priceThu" maxlength="4" size="2">
                 </div>
               </div>
 
               <!--              Friday-->
-              <div class="progress-group mb-4">
+              <div class="progress-group mb-3">
                 <div [formGroup]="formData" class="form-group">
                   <input class="text-medium-emphasis small" id="priceFri" type="text" formControlName="priceFri" name="priceFri" maxlength="4" size="2">
                 </div>

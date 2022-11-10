@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
-import { IChartProps} from './dashboard-charts-data';
 import {OrderService} from "../../services/order/order.service";
 import {MenuService} from "../../services/menu/menu.service";
 import {Order} from "./Order";
@@ -14,15 +13,14 @@ import {DailyConfirmation} from "./DailyConfirmation";
   styleUrls: ['dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  //----------------modal--
+  private existingMenuDescription = ['menuMon', 'menuTue', 'menuWed', 'menuThu', 'menuFri'];
+  //---modal----
   public dayArray: string[] = new Array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
   public visibleArr=[false,false,false,false,false];
 
   toggleLiveDemo(index:any) {
     this.visibleArr[index] = !this.visibleArr[index];
   }
-
-
   //------------
   public orderTotal!: number;
   private controlNamesMonday = ['optionMon', 'paymentMon'];
@@ -42,18 +40,6 @@ export class DashboardComponent implements OnInit {
   menuDescriptions!:string[];
   priceDescriptions!:string[];
 
-  //menu id
-  menuMonDesc!: string;
-  menuTueDesc!: string;
-  menuWedDesc!: string;
-  menuThuDesc!: string;
-  menuFriDesc!: string;
-
-  menuMon!: Menu;
-  menuTue!: Menu;
-  menuWed!: Menu;
-  menuThu!: Menu;
-  menuFri!: Menu;
   formData!: FormGroup;
   visibleError!:boolean
   visible:any;
@@ -64,26 +50,11 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //Displaying menus according to id
-    let weekNum = new GetMenuList(47);
-    let subscription = this.menuService.getMenus(weekNum).subscribe((data: Array<Menu>) => {
-      console.log(data)
-      for(const datum of data){
-        if(datum.day=="Monday") this.menu[0] = datum;
-        if(datum.day=="Tuesday") this.menu[1] = datum;
-        if(datum.day=="Wednesday") this.menu[2] = datum;
-        if(datum.day=="Thursday") this.menu[3] = datum;
-        if(datum.day=="Friday") this.menu[4] = datum;
-      }
-      this.menuDescriptions = [this.menu[0].description, this.menu[1].description, this.menu[2].description, this.menu[3].description, this.menu[4].description,]
-      this.priceDescriptions = [this.menu[0].price, this.menu[1].price, this.menu[2].price, this.menu[3].price, this.menu[4].price,]
-
-    });
-
 
     //Form variables
-
     this.formData = new FormGroup({
+      //Number area-input week number
+      weekNo: new FormControl(),
 
       //Radio buttons: veg & non-veg
       optionMon: new FormControl(),
@@ -106,11 +77,37 @@ export class DashboardComponent implements OnInit {
 
     });
 
-    // this.initCharts();
+    this.formData.get('weekNo')?.setValue(47);
+    this.changeInWeekNum(1)
     this.formData.get("optionMon")?.setValue("veg");
   }
 
-
+  changeInWeekNum($event: any) {
+    console.log("weekNum changes")
+    const formData = this.formData.getRawValue();
+    console.log(formData);
+    let weekNum = new GetMenuList(formData.weekNo);
+    console.log(weekNum);
+    let subscription = this.menuService.getMenus(weekNum).subscribe((data: Array<Menu>) => {
+      console.log(data)
+      if(data.length!=0) {
+        for (const datum of data) {
+          if (datum.day == "Monday") this.menu[0] = datum;
+          if (datum.day == "Tuesday") this.menu[1] = datum;
+          if (datum.day == "Wednesday") this.menu[2] = datum;
+          if (datum.day == "Thursday") this.menu[3] = datum;
+          if (datum.day == "Friday") this.menu[4] = datum;
+        }
+        this.menuDescriptions = [this.menu[0].description, this.menu[1].description, this.menu[2].description, this.menu[3].description, this.menu[4].description,]
+        this.priceDescriptions = [this.menu[0].price, this.menu[1].price, this.menu[2].price, this.menu[3].price, this.menu[4].price,]
+      }else{
+        for(var  i in this.menuDescriptions){
+          this.menuDescriptions[i]="";
+          this.priceDescriptions[i]="";
+        }
+      }
+    });
+  }
 
 //Bin icon: reset
   //Reset btn: resets option radio, payment checkbox and minus price from total when bin is clicked
@@ -129,7 +126,6 @@ export class DashboardComponent implements OnInit {
 
 
   }
-
   onClickResetTue(data: any) {
     if(data.optionTue!=null && data.paymentTue!=true){
 
@@ -142,7 +138,6 @@ export class DashboardComponent implements OnInit {
     var userId=1;
     this.deleteOrder(userId,menuId);
   }
-
   onClickResetWed(data: any) {
     if(data.optionWed!=null && data.paymentWed!=true){
 
@@ -155,7 +150,6 @@ export class DashboardComponent implements OnInit {
     var userId=1;
     this.deleteOrder(userId,menuId);
   }
-
   onClickResetThu(data: any) {
 
     if(data.optionThu!=null && data.paymentThu!=true){
@@ -169,7 +163,6 @@ export class DashboardComponent implements OnInit {
     var userId=1;
     this.deleteOrder(userId,menuId);
   }
-
   onClickResetFri(data: any) {
     if(data.optionFri!=null && data.paymentFri!=true){
 
@@ -183,16 +176,11 @@ export class DashboardComponent implements OnInit {
     this.deleteOrder(userId,menuId);
   }
 
-
-
-
-
   //option selection
 //When option is changed price is calculated taking into consideration if payment is made or not
   changeOption(data:any) {
     this.calcPrice(data)
   }
-
 
   calcPrice(data:any){
     const radios = this.formData.getRawValue();
@@ -211,9 +199,6 @@ export class DashboardComponent implements OnInit {
     // console.log(total)
     this.orderTotal=total;
   }
-
-
-
 
 
   //Payment checkbox when checked or unchecked
@@ -255,8 +240,7 @@ export class DashboardComponent implements OnInit {
     this.funcPayment(4)
   }
 
-
-funcPayment(num:number){
+  funcPayment(num:number){
     this.changeInForm()
   this.payment1 =[ this.formData.getRawValue().paymentMon,this.formData.getRawValue().paymentTue,this.formData.getRawValue().paymentWed,this.formData.getRawValue().paymentThu,this.formData.getRawValue().paymentFri]
   this.option1=[this.formData.getRawValue().optionMon,this.formData.getRawValue().optionTue,this.formData.getRawValue().optionWed,this.formData.getRawValue().optionThu,this.formData.getRawValue().optionFri]
@@ -268,70 +252,7 @@ funcPayment(num:number){
   }
 }
 
-
-
-
-
-  //Submit btn
-  onClickSubmit(data: any) {
-
-    //array to store confirmation from checkbox => True or false values.
-    var confirmation:any[]= new Array(data.confirmMon,data.confirmTue,data.confirmWed,data.confirmThu,data.confirmFri);
-
-    //array to store payment from checkbox => Simplified if to convert true to 1 and false to 0
-    var payment:any[] = new Array( data.paymentMon?1:0,data.paymentTue?1:0,data.paymentWed?1:0,data.paymentThu?1:0,data.paymentFri?1:0)
-
-    //array to store option from radio Button=> Veg or Non-Veg
-
-
-    //array to store orders
-    var orders = new Array<Order>;
-
-    //array to store orders to be deleted
-    var deleteRequests = new Array<DailyConfirmation>;
-
-    //looping through all orders
-    // for(var i in confirmation){
-    //
-    //   //if checkbox for confimation is selected => Order is added to orders array to be saved
-    //   //if not selected goes into else branch => Order is added to deleteRequests to be deleted
-    //   if(confirmation[i]){
-    //     let  order= new Order(1,this.menu[i].id,payment[i],option[i]);
-    //     orders.push(order);
-    //   }else{
-    //     let dailyConfimation = new DailyConfirmation(1,this.menu[i].id);
-    //     deleteRequests.push(dailyConfimation);
-    //   }
-    // }
-
-    //to test
-    // console.log(orders)
-
-    // faire appel à l'api
-    //saving orders
-    // this.orderService.postOrder(orders).subscribe((data) => {
-    //   console.log('message::::', data);
-    // });
-
-    //removing orders
-    // this.orderService.removeOrder(deleteRequests).subscribe((data)=>{
-    //   console.log(data);
-    // })
-
-  }
-
-  // initCharts(): void {
-  //   this.mainChart = this.chartsData.mainChart;
-  // }
-
-  // setTrafficPeriod(value: string): void {
-  //   this.trafficRadioGroup.setValue({ trafficRadio: value });
-  //   this.chartsData.initMainChart(value);
-  //   this.initCharts();
-  // }
   dismissible: any;
-
-
 
   changeInForm() {
     console.log(this.menu)
