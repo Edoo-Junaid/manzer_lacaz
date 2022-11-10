@@ -1,0 +1,12 @@
+group\acensi\manzerlacaz\service\dto\MenuDto.class
+group\acensi\manzerlacaz\service\api\OrderService.class
+group\acensi\manzerlacaz\service\api\RoleService.class
+group\acensi\manzerlacaz\service\api\MenuService.class
+group\acensi\manzerlacaz\service\dto\RoleDto.class
+group\acensi\manzerlacaz\service\api\UtilisateurService.class
+group\acensi\manzerlacaz\service\dto\OrderDto.class
+group\acensi\manzerlacaz\service\DateTimeConstants.class
+group\acensi\manzerlacaz\service\api\ConfigService.class
+group\acensi\manzerlacaz\service\dto\ConfigDto.class
+group\acensi\manzerlacaz\service\dto\UtilisateurDto.class
+group\acensi\manzerlacaz\service\exception\UserNotfoundException.class
