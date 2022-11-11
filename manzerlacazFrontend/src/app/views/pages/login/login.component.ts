@@ -63,6 +63,7 @@ export class LoginComponent implements OnInit {
       console.log("inside response");
       if (response.token) {
         localStorage.setItem('token', response.token);
+        localStorage.setItem('id',response.id);
         console.log("Token has been set");
         if (response.role == 'admin') {
           localStorage.setItem('role','Admin');

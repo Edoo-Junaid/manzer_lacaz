@@ -6,7 +6,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class LoginService {
-  private url ='http://localhost:8080/api/';
+  private url ='http://192.168.31.82:8080/api/';
   constructor(private http:HttpClient) { }
 
   login(loginRequest:LoginRequest):Observable<any>{
