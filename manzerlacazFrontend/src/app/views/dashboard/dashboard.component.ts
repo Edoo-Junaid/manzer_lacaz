@@ -39,6 +39,7 @@ export class DashboardComponent implements OnInit {
   menu:Menu[] = new Array(5);
   menuDescriptions!:string[];
   priceDescriptions!:string[];
+  optionDescriptions!: string[];
 
   formData!: FormGroup;
   visibleError!:boolean
@@ -100,10 +101,12 @@ export class DashboardComponent implements OnInit {
         }
         this.menuDescriptions = [this.menu[0].description, this.menu[1].description, this.menu[2].description, this.menu[3].description, this.menu[4].description,]
         this.priceDescriptions = [this.menu[0].price, this.menu[1].price, this.menu[2].price, this.menu[3].price, this.menu[4].price,]
+        this.optionDescriptions = [this.menu[0].option, this.menu[1].option, this.menu[2].option, this.menu[3].option, this.menu[4].option,]
       }else{
         for(var  i in this.menuDescriptions){
           this.menuDescriptions[i]="";
           this.priceDescriptions[i]="";
+          this.optionDescriptions[i]="";
         }
       }
     });

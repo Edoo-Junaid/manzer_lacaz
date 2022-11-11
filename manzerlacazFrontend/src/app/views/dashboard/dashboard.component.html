@@ -25,7 +25,7 @@
             <div class="progress-group mb-3" *ngFor="let menu of menuDescriptions ; index as i ">
               <!--              pop up-->
               <button (click)="toggleLiveDemo(i)" cButton color="link" size="sm">{{dayArray[i]}}</button>
-              <c-modal id="liveDemoModal" [visible]="visibleArr[i]" >
+              <c-modal id="liveDemoModal" alignment="center" [visible]="visibleArr[i]" >
                 <c-modal-header style="background-color: #e5a653;">
                   <h5 cModalTitle>{{dayArray[i]}} Menu Details</h5>
                   <button (click)="toggleLiveDemo(i)" cButtonClose></button>
@@ -34,6 +34,8 @@
                 <c-modal-body>
 <!--                  Woohoo, you are reading this text in a modal!-->
                   {{menuDescriptions[i]}}
+                  <p></p>
+                  Options available: {{optionDescriptions[i]}}
                   <p></p>
                   Price: Rs {{priceDescriptions[i]}}
 <!--                  <span class="text-medium-emphasis small">{{menuDescriptions[i]}}</span>-->
