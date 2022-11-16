@@ -13,6 +13,7 @@ import {DailyConfirmation} from "./DailyConfirmation";
   styleUrls: ['dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  userId=localStorage.getItem('id');
   private existingMenuDescription = ['menuMon', 'menuTue', 'menuWed', 'menuThu', 'menuFri'];
   //---modal for responsiveness----
   public dayArray: string[] = new Array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
@@ -124,8 +125,7 @@ export class DashboardComponent implements OnInit {
     this.controlNamesMonday.map((value: string) => this.formData.get(value)?.setValue(null));
     //delete order in database
     var menuId=this.menu[0].id;
-    var userId=1;
-    this.deleteOrder(userId,menuId);
+    this.deleteOrder(this.userId,menuId);
 
 
   }
@@ -138,8 +138,7 @@ export class DashboardComponent implements OnInit {
     this.controlNamesTuesday.map((value: string) => this.formData.get(value)?.setValue(null));
     //delete order in database
     var menuId=this.menu[1].id;
-    var userId=1;
-    this.deleteOrder(userId,menuId);
+    this.deleteOrder(this.userId,menuId);
   }
   onClickResetWed(data: any) {
     if(data.optionWed!=null && data.paymentWed!=true){
@@ -150,8 +149,7 @@ export class DashboardComponent implements OnInit {
     this.controlNamesWednesday.map((value: string) => this.formData.get(value)?.setValue(null));
     //delete order in database
     var menuId=this.menu[2].id;
-    var userId=1;
-    this.deleteOrder(userId,menuId);
+    this.deleteOrder(this.userId,menuId);
   }
   onClickResetThu(data: any) {
 
@@ -163,8 +161,7 @@ export class DashboardComponent implements OnInit {
     this.controlNamesThursday.map((value: string) => this.formData.get(value)?.setValue(null));
     //delete order in database
     var menuId=this.menu[3].id;
-    var userId=1;
-    this.deleteOrder(userId,menuId);
+    this.deleteOrder(this.userId,menuId);
   }
   onClickResetFri(data: any) {
     if(data.optionFri!=null && data.paymentFri!=true){
@@ -175,8 +172,8 @@ export class DashboardComponent implements OnInit {
     this.controlNamesFriday.map((value: string) => this.formData.get(value)?.setValue(null));
     //delete order in database
     var menuId=this.menu[4].id;
-    var userId=1;
-    this.deleteOrder(userId,menuId);
+
+    this.deleteOrder(this.userId,menuId);
   }
 
   //option selection
@@ -278,7 +275,7 @@ export class DashboardComponent implements OnInit {
     let orders = new Array<Order>;
     for (let i in this.orderOption) {
       if (this.orderOption[i] != null) {
-        let order = new Order(1, this.menu[i].id, this.orderPayment[i], this.orderOption[i]);
+        let order = new Order(Number(this.userId), this.menu[i].id, this.orderPayment[i], this.orderOption[i]);
         orders.push(order);
       }
     }
@@ -300,10 +297,9 @@ export class DashboardComponent implements OnInit {
   }
 
   deleteOrder(userId:any,menuId:any){
-   let deleteRequest = new DailyConfirmation(userId,menuId)
+   let deleteRequest = new DailyConfirmation(Number(userId),menuId)
     this.orderService.removeOrder(deleteRequest).subscribe((response) => {
       console.log(response)
     });
-
   }
 }
