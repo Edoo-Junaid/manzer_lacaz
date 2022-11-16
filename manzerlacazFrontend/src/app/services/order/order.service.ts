@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { Order } from '../../views/dashboard/Order';
-import { Option } from '../../views/viewcount/Option';
+import { Option } from '../../views/viewCount/Option';
 import { Observable } from 'rxjs';
 import { DailyConfirmation } from '../../views/dashboard/DailyConfirmation';
 

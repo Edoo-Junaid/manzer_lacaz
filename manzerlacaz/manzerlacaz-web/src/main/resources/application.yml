@@ -18,7 +18,7 @@ spring:
   datasource:
     name: manzerlacaz-datasource
     driver-class-name: org.postgresql.Driver
-    url: 'jdbc:postgresql://manzer-db:5432/manzerlacaz'
+    url: 'jdbc:postgresql://localhost:5432/manzerlacaz'
     username: postgres
     password: edoo@1232
   jackson:

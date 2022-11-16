@@ -87,11 +87,11 @@ export class DashboardComponent implements OnInit {
   changeInWeekNum($event: any) {
     console.log("weekNum changes")
     const formData = this.formData.getRawValue();
-    console.log(formData);
+   // console.log(formData);
     let weekNum = new GetMenuList(formData.weekNo);
-    console.log(weekNum);
+   // console.log(weekNum);
     let subscription = this.menuService.getMenus(weekNum).subscribe((data: Array<Menu>) => {
-      console.log(data)
+     // console.log(data)
       if(data.length!=0) {
         for (const datum of data) {
           if (datum.day == "Monday") this.menu[0] = datum;
@@ -255,7 +255,7 @@ export class DashboardComponent implements OnInit {
   dismissible: any;
 
   changeInForm() {
-    console.log(this.menu)
+   // console.log(this.menu)
     // console.log(this.formData.getRawValue());
     const {
       optionFri,
@@ -279,10 +279,18 @@ export class DashboardComponent implements OnInit {
         orders.push(order);
       }
     }
-    console.log(orders);
+  //  console.log(orders);
     // saving orders
     this.orderService.postOrder(orders).subscribe((response) => {
-        console.log('message::::', response);
+        let resSTR = JSON.stringify(response);
+        let resJSON = JSON.parse(resSTR);
+        console.log(response[2].body);
+       // console.log(response[1].body);
+       // console.log(response[2].body);
+       // console.log(response[3].body);
+       // console.log(response[4].body);
+     //   console.log(resJSON);
+       // console.log('message::::', response);
         this.visible = true;
         setTimeout(() => {
           this.visible = false;
@@ -299,7 +307,10 @@ export class DashboardComponent implements OnInit {
   deleteOrder(userId:any,menuId:any){
    let deleteRequest = new DailyConfirmation(Number(userId),menuId)
     this.orderService.removeOrder(deleteRequest).subscribe((response) => {
-      console.log(response)
+     //
+      //
+      //
+      // console.log(response)
     });
   }
 }

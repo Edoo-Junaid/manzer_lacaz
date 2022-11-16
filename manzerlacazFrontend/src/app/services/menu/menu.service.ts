@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {Menu} from "../../views/dashboard/Menu";
 import {MenuCreation} from "../../views/charts/MenuCreation";
 import {GetMenuList} from "../../views/dashboard/GetMenuList";
+
 @Injectable({
   providedIn: 'root'
 })

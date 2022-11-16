@@ -32,7 +32,7 @@ const routes: Routes = [
       },{
         path: 'viewCount',
         loadChildren: () =>
-          import('./views/ViewCount/viewcount.module').then((m) =>m.ViewcountModule)
+          import('./views/viewCount/viewcount.module').then((m) =>m.ViewcountModule)
       },
       {
         path: 'pages',

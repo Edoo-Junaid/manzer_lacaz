@@ -1,0 +1,60 @@
+# Stage 1: Compile and Build angular codebase
+
+# Use official node image as the base image
+FROM node:latest as build
+
+# Set the working directory
+WORKDIR /usr/local/app
+
+# Add the source code to app
+COPY ./ /usr/local/app/
+
+# Install all the dependencies
+RUN npm install
+
+# Generate the build of the application
+RUN npm run build
+
+
+# Stage 2: Serve app with nginx server
+
+# Use official nginx image as the base image
+FROM nginx:latest
+
+# Copy the build output to replace the default nginx contents.
+COPY --from=build /usr/local/app/dist/coreui-free-angular-admin-template /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
+
+The first stage uses the node image as the base image and installs all the dependencies and builds the application.
+
+The second stage uses the official nginx image as the base image and copies the build output from the first stage and replaces the default nginx contents.
+
+The final image will contain the built app and the nginx server to serve the app.
+
+Step 3: Build the docker image
+Run the following command to build the docker image.
+        $docker build -t <username>/<imageName>:<tag> .
+    Ex :$docker build -t edoojunaid/manzerfront:1.0 .
+
+The above command will build the docker image and tag it with the name edoojunaid/manzerfront:1.0 .
+The dot "." at the end of the command is important. It tells docker to look for the Dockerfile in the current directory.
+
+
+Step 4: Run the docker container
+
+docker run -d -p 4200:80 --name manzerlacazfront edoojunaid/manzerfront:1.0
+
+The above command will run the docker container and expose port 80 of the container to port 4200 of the host machine.
+
+Step 5: Access the app
+
+Navigate to http://localhost:4200 to access the app.
+
+
+To send the image to the docker server, run the following command.
+    $docker save <imageName>:<tag>  | bzip2 | pv | \ssh <serverUser>@<serverIp> 'bunzip2 | docker load'
+Ex : $docker save edoojunaid/manzerback:1.0 | bzip2 | pv | \ssh nadeem@192.168.31.83 'bunzip2 | docker load'
+$docker save edoojunaid/manzerfront:2.0 | bzip2 | pv | \ssh nadeem@192.168.31.82 'bunzip2 | docker load'
+
