@@ -1,0 +1,24 @@
+services:
+  manzer-db:
+    image: postgres:14.5
+    container_name: manzer-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: edoo@1232
+      POSTGRES_DB: manzerlacaz
+    ports:
+      - 5432:5432
+    networks:
+      - manzerNet
+  manzer-backend:
+    image: edoojunaid/manzerback:5.0
+    container_name: manzer-backend
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - manzerNet
+networks:
+  manzerNet:
+    driver: bridge

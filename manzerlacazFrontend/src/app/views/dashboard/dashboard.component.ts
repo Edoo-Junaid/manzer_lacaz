@@ -15,7 +15,7 @@ import {DailyConfirmation} from "./DailyConfirmation";
 export class DashboardComponent implements OnInit {
   userId=localStorage.getItem('id');
   private existingMenuDescription = ['menuMon', 'menuTue', 'menuWed', 'menuThu', 'menuFri'];
-  //---modal----
+  //---modal for responsiveness----
   public dayArray: string[] = new Array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
   public visibleArr=[false,false,false,false,false];
 
