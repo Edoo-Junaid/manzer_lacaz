@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {MenuService} from "../../services/menu/menu.service";
 import {Menu} from "../dashboard/Menu";
-import {Option} from "../viewcount/Option";
+import {Option} from ".//Option";
 import {OrderService} from "../../services/order/order.service";
 import {MenuCreation} from "../charts/MenuCreation";
 import {WeekNum} from "../charts/WeekNum";

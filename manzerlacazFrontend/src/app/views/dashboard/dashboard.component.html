@@ -4,7 +4,7 @@
       <c-card-body>
         <c-row>
 
-          <form [formGroup]="formData">
+          <form [formGroup]="formData" (change)="changeInWeekNum($event)">
             <div class="numberSpinner">
               <label>Week No. </label>
               <input style="width: 40px; height:25px; margin-left: 10px" type="number" formControlName="weekNo" name="weekNo" value="1" maxlength="2" (change)="changeInWeekNum($event)">

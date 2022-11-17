@@ -182,9 +182,12 @@ public class OrderSericeImpl implements OrderService {
     @Override
     public OrderDto getExistingOrder(Long user_id, Long menu_id) {
         if (orderRepository.checkIfOrderExists(user_id, menu_id)) {
-            int id=orderRepository.findIdOfOrder(user_id, menu_id);
-            Optional<Order> order=orderRepository.findById((long) id);
-            return OrderMapper.INSTANCE.toDto(order);
+            Long id=orderRepository.findIdOfOrder(user_id, menu_id);
+           //Order order = orderRepository.findByIda(id);
+           Optional<Order> o = orderRepository.findById(id);
+            Order a = o.get();
+            System.out.println(a);
+            return OrderMapper.INSTANCE.toDto(a);
 
         } else {
             return null;
@@ -193,7 +196,9 @@ public class OrderSericeImpl implements OrderService {
     }
     
     
-    
+    public  Order findOrderByUserAndMenu(Long user_id,Long menu_id) {
+        return orderRepository.findOrderByUserAndMenu(user_id, menu_id);
+    }
     
    
 
