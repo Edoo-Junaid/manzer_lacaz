@@ -124,7 +124,6 @@ export class DashboardComponent implements OnInit {
           this.menuDescriptions[i] = "";
           this.priceDescriptions[i] = "";
           this.optionDescriptions[i] = "";
-
         }
       }
     });
