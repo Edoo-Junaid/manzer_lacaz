@@ -9,6 +9,10 @@
     display: inline-block;
   }
 
+  .optionTitle{
+    display: flex;
+  }
+
   .radioBtn{
     margin-left: 25px;
     display: inline-block;
@@ -22,10 +26,6 @@
 
   .tableRadioBtn{
     margin-left: 50px;
-  }
-
-  .tableCheckboxBtn{
-    //margin-left: 50px;
   }
 
   .submitBtn{

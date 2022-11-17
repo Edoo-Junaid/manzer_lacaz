@@ -25,8 +25,11 @@ export class ChartsComponent implements OnInit {
   private existingNonVeg=['optionMonNonVeg','optionTueNonVeg','optionWedNonVeg','optionThuNonVeg','optionFriNonVeg']
   menuDescriptions!: string[];
   priceDescriptions!: string[];
-  optionVeg!:string[];
-  optionNonVeg!:string[];
+
+  // alerts
+  dismissible: any;
+  visibleMenuSave: any;
+  visibleMenuNotSave: any;
 
   constructor(public menuService: MenuService, private _router: Router) {
   }
@@ -113,7 +116,21 @@ export class ChartsComponent implements OnInit {
     // faire appel à l'api
     //saving menus
     console.log(menus)
-    this.menuService.postMenu(menus).subscribe((data: any) => console.log('message::::', data));
+    this.menuService.postMenu(menus).subscribe((data: any) => {
+
+        this.visibleMenuSave = true;
+        setTimeout(() => {
+          this.visibleMenuSave = false;
+        }, 1500);
+      },
+      (error) => {
+        console.log("error caught");
+        this.visibleMenuNotSave = true;
+        setTimeout(() => {
+          this.visibleMenuNotSave = false;
+        }, 1500);
+
+      });
   }
 
 

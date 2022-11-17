@@ -261,8 +261,33 @@
             <form [formGroup]="formData" (ngSubmit)="onClickReset(formData.getRawValue())" class="resetBtn">
               <button class="btn btn-primary" type="submit" [disabled]="!formData.valid">Reset</button>
             </form>
-
           </div>
+
+          <p></p>
+          <!--            menu saved-->
+          <c-alert [(visible)]="visibleMenuSave"
+                   [dismissible]="dismissible"
+
+                   fade
+
+                   *ngIf="visibleMenuSave" color="success" class="d-flex align-items-center">
+            <svg class="bi flex-shrink-0 me-2" width="14" height="14" role="img" aria-label="Info:">
+              <use xlink:href="" />
+            </svg>
+            <strong>Menu saved </strong>
+          </c-alert>
+          <!--            menu not saved-->
+          <c-alert [(visible)]="visibleMenuNotSave"
+                   [dismissible]="dismissible"
+                   fade
+
+                   *ngIf="visibleMenuNotSave" color="danger" class="d-flex align-items-center">
+            <svg class="bi flex-shrink-0 me-2" width="14" height="14" role="img" aria-label="Info:">
+              <use xlink:href="#exclamation-triangle-fill" />
+            </svg>
+            <strong>Menu Not Saved </strong>
+          </c-alert>
+
         </c-row>
       </c-card-body>
 

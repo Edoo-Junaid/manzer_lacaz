@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {BadgeModule, CardModule, GridModule, ModalModule} from '@coreui/angular';
+import {AlertModule, BadgeModule, CardModule, GridModule, ModalModule} from '@coreui/angular';
 import { ChartjsModule } from '@coreui/angular-chartjs';
 
 import { ChartsComponent } from './charts.component';
@@ -11,17 +11,18 @@ import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [ChartsComponent],
-  imports: [
-    CommonModule,
-    ChartsRoutingModule,
-    ChartjsModule,
-    CardModule,
-    GridModule,
-    BadgeModule,
-    DocsComponentsModule,
-    ReactiveFormsModule,
-    ModalModule
-  ]
+    imports: [
+        CommonModule,
+        ChartsRoutingModule,
+        ChartjsModule,
+        CardModule,
+        GridModule,
+        BadgeModule,
+        DocsComponentsModule,
+        ReactiveFormsModule,
+        ModalModule,
+        AlertModule
+    ]
 })
 export class ChartsModule {
 }
