@@ -8,6 +8,7 @@ import {MenuCreation} from "../charts/MenuCreation";
 import {WeekNum} from "../charts/WeekNum";
 import {GetMenuList} from "../dashboard/GetMenuList";
 import {FormControl, FormGroup} from "@angular/forms";
+import {GetOrderList} from "../dashboard/GetOrderList";
 
 @Component({
   selector: 'app-charts',
@@ -15,7 +16,7 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./viewcount.component.scss']
 })
 export class ViewcountComponent implements OnInit {
-  menu!: Menu[];
+  menu: Menu[] = new Array(5);
   weekNum!: number;
   countVeg:any =[0,0,0,0,0];
   countNonVeg:any =[0,0,0,0,0];
@@ -55,7 +56,7 @@ export class ViewcountComponent implements OnInit {
     //Displaying the count of options
     var day:string[] = new Array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
     for(var i in day){
-      let optionVeg = new Option("non-veg",day[i],this.weekNum);
+      let optionVeg = new Option("non-veg",day[i],47);
 
       console.log("************************")
       this.orderService.getCount(optionVeg).subscribe((data: any) => {
@@ -74,14 +75,15 @@ export class ViewcountComponent implements OnInit {
   }
 
   changeInWeekNum($event: any) {
+    console.log(this.countVeg);
     console.log("weekNum changes")
     const formData = this.formData.getRawValue();
-    console.log(formData);
+  //  console.log(formData);
     let weekNum = new GetMenuList(formData.weekNo);
     console.log(weekNum);
     let subscription = this.menuService.getMenus(weekNum).subscribe((data: Array<Menu>) => {
       console.log(data)
-      if(data.length!=0) {
+      if (data.length != 0) {
         for (const datum of data) {
           if (datum.day == "Monday") this.menu[0] = datum;
           if (datum.day == "Tuesday") this.menu[1] = datum;
@@ -91,11 +93,10 @@ export class ViewcountComponent implements OnInit {
         }
         this.menuDescriptions = [this.menu[0].description, this.menu[1].description, this.menu[2].description, this.menu[3].description, this.menu[4].description,]
         this.priceDescriptions = [this.menu[0].price, this.menu[1].price, this.menu[2].price, this.menu[3].price, this.menu[4].price,]
-      }
-      else{
-        for(var  i in this.menuDescriptions){
-          this.menuDescriptions[i]="";
-          this.priceDescriptions[i]="";
+      } else {
+        for (var i in this.menuDescriptions) {
+          this.menuDescriptions[i] = "";
+          this.priceDescriptions[i] = "";
         }
       }
     });
