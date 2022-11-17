@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit {
   menuDescriptions!: string[];
   priceDescriptions!: string[];
   optionDescriptions!: string[];
-
+  days:string[]= ['Monday','Tuesday','Wednesday','Thursday','Friday'];
   formData!: FormGroup;
   visibleError!: boolean
   visible: any;
@@ -104,19 +104,26 @@ export class DashboardComponent implements OnInit {
         this.menuDescriptions = [this.menu[0].description, this.menu[1].description, this.menu[2].description, this.menu[3].description, this.menu[4].description,]
         this.priceDescriptions = [this.menu[0].price, this.menu[1].price, this.menu[2].price, this.menu[3].price, this.menu[4].price,]
         this.optionDescriptions = [this.menu[0].option, this.menu[1].option, this.menu[2].option, this.menu[3].option, this.menu[4].option,]
+        for (var i in this.menu) {
+          let orders = new GetOrderList(Number(this.userId), this.menu[i].id);
+          this.getWeekOrder(orders, i);
+        }
       } else {
         for (var i in this.menuDescriptions) {
           this.menuDescriptions[i] = "";
           this.priceDescriptions[i] = "";
           this.optionDescriptions[i] = "";
+          this.formData.get("optionMon")?.setValue(null);
+          this.formData.get("optionTue")?.setValue(null);
+          this.formData.get("optionWed")?.setValue(null);
+          this.formData.get("optionThu")?.setValue(null);
+          this.formData.get("optionFri")?.setValue(null);
         }
       }
     });
 
-    for (var i in this.menu) {
-      let orders = new GetOrderList(Number(this.userId), this.menu[i].id);
-      this.getWeekOrder(orders, i);
-    }
+
+
   }
 
   getWeekOrder(orders: GetOrderList, index: any) {
@@ -124,25 +131,21 @@ export class DashboardComponent implements OnInit {
     this.orderService.getOrders(orders).subscribe((data: any) => {
       console.log(data);
       if (data != null) {
-        let order = new Order(data.user_id, data.menu_id, data.payment, data.option);
-        //  console.log(order)
-        // console.log(index)
-
-        if (index == 0) {
-          this.formData.get('optionMon')?.setValue(data.option)
-          this.formData.get('paymentMon')?.setValue(data.payment)
-        } else if (index == 1) {
-          this.formData.get('optionTue')?.setValue(data.option)
-          this.formData.get('paymentTue')?.setValue(data.payment)
-        } else if (index == 2) {
-          this.formData.get('optionWed')?.setValue(data.option)
-          this.formData.get('paymentWed')?.setValue(data.payment)
-        } else if (index == 3) {
-          this.formData.get('optionThu')?.setValue(data.option)
-          this.formData.get('paymentThu')?.setValue(data.payment)
-        } else if (index == 4) {
-          this.formData.get('optionFri')?.setValue(data.option)
-          this.formData.get('paymentFri')?.setValue(data.payment)
+        for (let i = 0; i < this.menu.length; i++) {
+          console.log(this.menu[i].id)
+          if (data.menu_id == this.menu[i].id) {
+            if(i==0){
+              this.formData.get('optionMon')?.setValue(data.option);
+            }else if(i==1){
+              this.formData.get('optionTue')?.setValue(data.option);
+            }else if(i==2){
+              this.formData.get('optionWed')?.setValue(data.option);
+            }else if(i==3){
+              this.formData.get('optionThu')?.setValue(data.option);
+            }else if (i == 4) {
+              this.formData.get('optionFri')?.setValue(data.option);
+            }
+          }
         }
       }
     });

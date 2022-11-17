@@ -12,9 +12,13 @@ import group.acensi.manzerlacaz.entities.Order;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
- 
+
+    
+    @Query("SELECT Order o FROM Order where user_id=?1 AND menu_id=?2")
+    public  Order findOrderByUserAndMenu(Long user_id,Long menu_id);
+    
     @Query("SELECT id FROM Order where user_id=?1 AND menu_id=?2")
-    public int findIdOfOrder(Long user_id, Long menu_id);
+    public Long findIdOfOrder(Long user_id, Long menu_id);
 
     @Query("SELECT COUNT(o) FROM Order o INNER JOIN Menu m ON m.id=o.menu_id WHERE m.weekNum = ?1 AND m.day = ?2")
     public Long countOrdersByDayAndWeekNum(int weekNum, String day);
