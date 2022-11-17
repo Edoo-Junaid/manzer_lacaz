@@ -120,8 +120,9 @@ export class DashboardComponent implements OnInit {
   }
 
   getWeekOrder(orders: GetOrderList, index: any) {
-    console.log(orders)
+    //console.log(orders)
     this.orderService.getOrders(orders).subscribe((data: any) => {
+      console.log(data);
       if (data != null) {
         let order = new Order(data.user_id, data.menu_id, data.payment, data.option);
         //  console.log(order)
