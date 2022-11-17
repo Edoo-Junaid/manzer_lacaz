@@ -10,6 +10,7 @@ export class LoginService {
   constructor(private http:HttpClient) { }
 
   login(loginRequest:LoginRequest):Observable<any>{
+    console.log("hello")
     const contType="application/json"
     const headers = { 'content-type': contType}
     const body=JSON.stringify(loginRequest);

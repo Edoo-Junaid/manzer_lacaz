@@ -56,5 +56,5 @@ Navigate to http://localhost:4200 to access the app.
 To send the image to the docker server, run the following command.
     $docker save <imageName>:<tag>  | bzip2 | pv | \ssh <serverUser>@<serverIp> 'bunzip2 | docker load'
 Ex : $docker save edoojunaid/manzerback:1.0 | bzip2 | pv | \ssh nadeem@192.168.31.83 'bunzip2 | docker load'
-$docker save edoojunaid/manzerfront:2.0 | bzip2 | pv | \ssh nadeem@192.168.31.82 'bunzip2 | docker load'
+$docker save edoojunaid/manzerfront:3.0 | bzip2 | pv | \ssh nadeem@192.168.31.82 'bunzip2 | docker load'
 
