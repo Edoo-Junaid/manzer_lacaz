@@ -86,6 +86,17 @@ export class DashboardComponent implements OnInit {
   }
 
   changeInWeekNum($event: any) {
+    this.formData.get("optionMon")?.setValue(null);
+    this.formData.get("optionTue")?.setValue(null);
+    this.formData.get("optionWed")?.setValue(null);
+    this.formData.get("optionThu")?.setValue(null);
+    this.formData.get("optionFri")?.setValue(null);
+    this.formData.get("paymentMon")?.setValue(null);
+    this.formData.get("paymentTue")?.setValue(null);
+    this.formData.get("paymentWed")?.setValue(null);
+    this.formData.get("paymentThu")?.setValue(null);
+    this.formData.get("paymentFri")?.setValue(null);
+
     console.log("weekNum changes")
     const formData = this.formData.getRawValue();
     // console.log(formData);
@@ -113,11 +124,7 @@ export class DashboardComponent implements OnInit {
           this.menuDescriptions[i] = "";
           this.priceDescriptions[i] = "";
           this.optionDescriptions[i] = "";
-          this.formData.get("optionMon")?.setValue(null);
-          this.formData.get("optionTue")?.setValue(null);
-          this.formData.get("optionWed")?.setValue(null);
-          this.formData.get("optionThu")?.setValue(null);
-          this.formData.get("optionFri")?.setValue(null);
+
         }
       }
     });
@@ -136,14 +143,19 @@ export class DashboardComponent implements OnInit {
           if (data.menu_id == this.menu[i].id) {
             if(i==0){
               this.formData.get('optionMon')?.setValue(data.option);
+              this.formData.get('paymentMon')?.setValue(data.payment)
             }else if(i==1){
               this.formData.get('optionTue')?.setValue(data.option);
+              this.formData.get('paymentTue')?.setValue(data.payment)
             }else if(i==2){
               this.formData.get('optionWed')?.setValue(data.option);
+              this.formData.get('paymentWed')?.setValue(data.payment)
             }else if(i==3){
               this.formData.get('optionThu')?.setValue(data.option);
+              this.formData.get('paymentThu')?.setValue(data.payment)
             }else if (i == 4) {
               this.formData.get('optionFri')?.setValue(data.option);
+              this.formData.get('paymentFri')?.setValue(data.payment)
             }
           }
         }
