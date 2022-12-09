@@ -3,7 +3,10 @@ pipeline {
         node {
             label 'slave01'
             }
-      }
+        }
+    options {
+        skipDefaultCheckout true
+        }
 
     stages {
         stage('Backup') {
