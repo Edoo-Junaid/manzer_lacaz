@@ -11,12 +11,14 @@ pipeline {
     stages {
         stage('Backup') {
             steps {
+                echo "The build number is ${env.BUILD_NUMBER}"
                 echo 'Backing up code'
                 sh '''
                 cd /home/jenkins/workspace
                 cp -r manzer_lacaz_pipeline /home/jenkins/backup
                 cd /home/jenkins/backup
-                mv manzer_lacaz_pipeline manzer_lacaz_$BUILD_NUMBER              echo "doing backup stuff.."
+                mv manzer_lacaz_pipeline manzer_lacaz_1
+                echo "doing backup stuff.."
                 '''
             }
         }
