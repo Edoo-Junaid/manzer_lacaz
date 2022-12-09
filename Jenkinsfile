@@ -14,7 +14,7 @@ pipeline {
                 echo 'Backing up code'
                 sh '''
                 cd /home/jenkins/workspace
-                cp -r manzer_lacaz /home/jenkins/backup
+                cp -r manzer_lacaz_pipeline /home/jenkins/backup
                 echo "doing backup stuff.."
                 '''
             }
