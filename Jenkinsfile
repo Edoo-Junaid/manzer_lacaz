@@ -6,21 +6,23 @@ pipeline {
       }
 
     stages {
+        stage('Backup') {
+            steps {
+                echo 'Backing up code'
+                sh '''
+                ls
+                echo "doing backup stuff.."
+            
+                '''
+            }
+        }
         stage('Checkout') {
             steps {
                 echo 'Checking out code from Git'
                 checkout scm
             }
         }
-        stage('Backup') {
-            steps {
-                echo 'Backing up code'
-                sh '''
-                echo "doing backup stuff.."
-            
-                '''
-            }
-        }
+
         stage('Build') {
             steps {
                 echo "Building.."
