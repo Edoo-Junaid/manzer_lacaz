@@ -15,7 +15,8 @@ pipeline {
                 sh '''
                 cd /home/jenkins/workspace
                 cp -r manzer_lacaz_pipeline /home/jenkins/backup
-                echo "doing backup stuff.."
+                cd /home/jenkins/backup
+                mv manzer_lacaz_pipeline manzer_lacaz_$BUILD_NUMBER              echo "doing backup stuff.."
                 '''
             }
         }
