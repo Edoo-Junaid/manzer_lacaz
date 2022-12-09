@@ -1,12 +1,12 @@
 pipeline {
-    agent { 
+    agent {
         node {
             label 'slave01'
-            }
         }
+    }
     options {
         skipDefaultCheckout true
-        }
+    }
 
     stages {
         stage('Backup') {
@@ -15,7 +15,7 @@ pipeline {
                 sh '''
                 ls
                 echo "doing backup stuff.."
-            
+
                 '''
             }
         }
@@ -28,19 +28,19 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo "Building.."
+                echo 'Building..'
                 sh '''
                 echo "doing build stuff.."
-            
+
                 '''
             }
         }
         stage('Test') {
             steps {
-                echo "Testing.."
+                echo 'Testing..'
                 sh '''
                 echo "doing test stuff.."
-            
+
                 '''
             }
         }
