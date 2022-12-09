@@ -34,7 +34,8 @@ pipeline {
                 echo 'Building..'
                 sh '''
                 echo "doing build stuff.."
-
+                cd /home/jenkins/workspace/manzer_lacaz_pipeline/manzerlacaz/manzerlacaz-parent
+                mvn clean install
                 '''
             }
         }
