@@ -37,7 +37,7 @@ pipeline {
                 mvn clean install
                 cd /home/jenkins/workspace/manzer_lacaz_pipeline/manzerlacaz/manzerlacaz-web
                 docker build -t edoojunaid/manzerback:$BUILD_NUMBER .
-                docker build -t edoojunaid/manzerback:lastest .
+                docker build -t edoojunaid/manzerback:latest .
                 '''
             }
         }
