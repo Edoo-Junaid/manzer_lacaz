@@ -28,7 +28,6 @@ pipeline {
                 checkout scm
             }
         }
-
         stage('Build') {
             steps {
                 echo 'Building..'
@@ -36,6 +35,9 @@ pipeline {
                 echo "doing build stuff.."
                 cd /home/jenkins/workspace/manzer_lacaz_pipeline/manzerlacaz/manzerlacaz-parent
                 mvn clean install
+                cd /home/jenkins/workspace/manzer_lacaz_pipeline/manzerlacaz/manzerlacaz-web
+                docker build -t edoojunaid/manzerback:$BUILD_NUMBER .
+                docker build edoojunaid/manzerback:lastest .
                 '''
             }
         }
@@ -47,5 +49,6 @@ pipeline {
                 '''
             }
         }
+
     }
 }
