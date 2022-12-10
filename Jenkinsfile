@@ -45,7 +45,8 @@ pipeline {
             steps {
                 echo 'Deliver....'
                 sh '''
-                echo "doing delivery stuff.."
+                cd /home/jenkins/workspace/manzer_lacaz_pipeline/
+                docker-compose up
                 '''
             }
         }
