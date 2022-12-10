@@ -6,8 +6,8 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-11-17T09:01:01+0400",
-    comments = "version: 1.5.2.Final, compiler: javac, environment: Java 17.0.4.1 (Eclipse Adoptium)"
+    date = "2022-12-10T10:28:07+0400",
+    comments = "version: 1.5.2.Final, compiler: Eclipse JDT (IDE) 1.4.200.v20221012-0724, environment: Java 17.0.5 (Eclipse Adoptium)"
 )
 public class MenuMapperImpl implements MenuMapper {
 
@@ -19,13 +19,13 @@ public class MenuMapperImpl implements MenuMapper {
 
         Menu menu = new Menu();
 
+        menu.setCreated( dto.getCreated() );
         menu.setId( dto.getId() );
         menu.setLastModified( dto.getLastModified() );
-        menu.setCreated( dto.getCreated() );
-        menu.setDescription( dto.getDescription() );
-        menu.setPrice( dto.getPrice() );
         menu.setDay( dto.getDay() );
+        menu.setDescription( dto.getDescription() );
         menu.setOption( dto.getOption() );
+        menu.setPrice( dto.getPrice() );
         menu.setWeekNum( dto.getWeekNum() );
         menu.setYear( dto.getYear() );
 
@@ -40,15 +40,15 @@ public class MenuMapperImpl implements MenuMapper {
 
         MenuDto menuDto = new MenuDto();
 
-        menuDto.setId( menu.getId() );
-        menuDto.setDescription( menu.getDescription() );
-        menuDto.setPrice( menu.getPrice() );
+        menuDto.setCreated( menu.getCreated() );
         menuDto.setDay( menu.getDay() );
+        menuDto.setDescription( menu.getDescription() );
+        menuDto.setId( menu.getId() );
+        menuDto.setLastModified( menu.getLastModified() );
         menuDto.setOption( menu.getOption() );
+        menuDto.setPrice( menu.getPrice() );
         menuDto.setWeekNum( menu.getWeekNum() );
         menuDto.setYear( menu.getYear() );
-        menuDto.setLastModified( menu.getLastModified() );
-        menuDto.setCreated( menu.getCreated() );
 
         return menuDto;
     }
