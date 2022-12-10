@@ -12,7 +12,7 @@ services:
     networks:
       - manzerNet
   manzer-backend:
-    image: edoojunaid/manzerback:5.0
+    image: edoojunaid/manzerback:latest
     container_name: manzer-backend
     restart: always
     ports:
