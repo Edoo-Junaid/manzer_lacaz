@@ -46,7 +46,7 @@ pipeline {
                 echo 'Deliver....'
                 sh '''
                 cd /home/jenkins/workspace/manzer_lacaz_pipeline/
-                docker-compose up
+                docker-compose up -d
                 '''
             }
         }
