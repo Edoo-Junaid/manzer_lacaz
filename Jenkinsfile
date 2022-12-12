@@ -15,9 +15,9 @@ pipeline {
                 echo 'Backing up code'
                 sh '''
                 cd /home/jenkins/workspace
-                cp -r manzer_lacaz_pipeline /home/jenkins/backup
+                cp -r manzerlacaz_pipeline /home/jenkins/backup
                 cd /home/jenkins/backup
-                mv manzer_lacaz_pipeline manzer_lacaz_backup_$BUILD_NUMBER
+                mv manzer_lacazpipeline manzer_lacaz_backup_$BUILD_NUMBER
                 echo "doing backup stuff.."
                 '''
             }
@@ -35,7 +35,7 @@ pipeline {
                 echo "doing build stuff.."
                 cd /home/jenkins/workspace/manzer_lacaz_pipeline/manzerlacaz/manzerlacaz-parent
                 mvn clean install
-                cd /home/jenkins/workspace/manzer_lacaz_pipeline/manzerlacaz/manzerlacaz-web
+                cd /home/jenkins/workspace/manzerlacaz_pipeline/manzerlacaz/manzerlacaz-web
                 docker build -t edoojunaid/manzerback:$BUILD_NUMBER .
                 docker build -t edoojunaid/manzerback:latest .
                 '''
@@ -45,7 +45,7 @@ pipeline {
             steps {
                 echo 'Deliver....'
                 sh '''
-                cd /home/jenkins/workspace/manzer_lacaz_pipeline/
+                cd /home/jenkins/workspace/manzerlacaz_pipeline/
                 docker-compose up -d
                 '''
             }
