@@ -34,7 +34,7 @@ pipeline {
                 sh '''
                 echo "doing build stuff.."
                 cd /home/jenkins/workspace/manzerlacaz_pipeline/manzerlacaz/manzerlacaz-parent
-                mvn clean install
+                mvn clean install -Dmaven.test.skip
                 cd /home/jenkins/workspace/manzerlacaz_pipeline/manzerlacaz/manzerlacaz-web
                 docker build -t edoojunaid/manzerback:$BUILD_NUMBER .
                 docker build -t edoojunaid/manzerback:latest .
