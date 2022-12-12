@@ -17,7 +17,7 @@ pipeline {
                 cd /home/jenkins/workspace
                 cp -r manzerlacaz_pipeline /home/jenkins/backup
                 cd /home/jenkins/backup
-                mv manzer_lacazpipeline manzer_lacaz_backup_$BUILD_NUMBER
+                mv manzerlacaz_pipeline manzer_lacaz_backup_$BUILD_NUMBER
                 echo "doing backup stuff.."
                 '''
             }
@@ -33,7 +33,7 @@ pipeline {
                 echo 'Building..'
                 sh '''
                 echo "doing build stuff.."
-                cd /home/jenkins/workspace/manzer_lacaz_pipeline/manzerlacaz/manzerlacaz-parent
+                cd /home/jenkins/workspace/manzerlacaz_pipeline/manzerlacaz/manzerlacaz-parent
                 mvn clean install
                 cd /home/jenkins/workspace/manzerlacaz_pipeline/manzerlacaz/manzerlacaz-web
                 docker build -t edoojunaid/manzerback:$BUILD_NUMBER .
