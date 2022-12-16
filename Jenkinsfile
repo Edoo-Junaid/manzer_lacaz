@@ -40,6 +40,7 @@ pipeline {
                 sh '''
                 echo "doing build stuff.."
                 cd /home/jenkins/workspace/manzerlacaz_pipeline_develop/manzerlacaz/manzerlacaz-parent
+                mvn --batch-mode release:update-versions -DdevelopmentVersion=1.$BUILD_NUMBER-SNAPSHOT
                 mvn clean install
                 '''
             }
