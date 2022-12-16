@@ -10,7 +10,7 @@ pipeline {
 
     stages {
         stage('Backup') {
-            when{
+            when {
                 branch 'main'
             }
             steps {
@@ -32,7 +32,7 @@ pipeline {
             }
         }
         stage('Build for devlopment') {
-            when{
+            when {
                 branch 'develop'
             }
             steps {
@@ -45,7 +45,7 @@ pipeline {
             }
         }
         stage('Build for production') {
-            when{
+            when {
                 branch 'main'
             }
             steps {
@@ -69,6 +69,5 @@ pipeline {
                 '''
             }
         }
-
     }
 }
