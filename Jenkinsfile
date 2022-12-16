@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Backup') {
             when{
-                branch 'master'
+                branch 'main'
             }
             steps {
                 echo "The build number is ${env.BUILD_NUMBER}"
