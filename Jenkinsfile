@@ -10,14 +10,17 @@ pipeline {
 
     stages {
         stage('Backup') {
+            when{
+                branch 'master'
+            }
             steps {
                 echo "The build number is ${env.BUILD_NUMBER}"
                 echo 'Backing up code'
                 sh '''
                 cd /home/jenkins/workspace
-                cp -r manzerlacaz_pipeline /home/jenkins/backup
-                cd /home/jenkins/backup
-                mv manzerlacaz_pipeline manzer_lacaz_backup_$BUILD_NUMBER
+                #cp -r manzerlacaz_pipeline /home/jenkins/backup
+                #cd /home/jenkins/backup
+                #mv manzerlacaz_pipeline manzer_lacaz_backup_$BUILD_NUMBER
                 echo "doing backup stuff.."
                 '''
             }
@@ -34,14 +37,14 @@ pipeline {
                 sh '''
                 echo "doing build stuff.."
                 cd /home/jenkins/workspace/manzerlacaz_pipeline/manzerlacaz/manzerlacaz-parent
-                mvn clean install -Dmaven.test.skip
-                cd /home/jenkins/workspace/manzerlacaz_pipeline/manzerlacaz/manzerlacaz-web
-                docker build -t edoojunaid/manzerback:$BUILD_NUMBER .
-                docker build -t edoojunaid/manzerback:latest .
+                mvn clean install
                 '''
             }
         }
         stage('Deliver') {
+            when{
+                branch 'master'
+            }
             steps {
                 echo 'Deliver....'
                 sh '''
