@@ -10,7 +10,7 @@ pipeline {
 
     stages {
         stage('Backup') {
-            when {
+            when{
                 branch 'main'
             }
             steps {
@@ -32,7 +32,7 @@ pipeline {
             }
         }
         stage('Build for devlopment') {
-            when {
+            when{
                 branch 'develop'
             }
             steps {
@@ -45,7 +45,7 @@ pipeline {
             }
         }
         stage('Build for production') {
-            when {
+            when{
                 branch 'main'
             }
             steps {
@@ -65,9 +65,10 @@ pipeline {
                 echo 'Deliver....'
                 sh '''
                 cd /home/jenkins/workspace/manzerlacaz_pipeline/
-                docker-compose up -d
+                echo "doing deploy stuff.."
                 '''
             }
         }
+
     }
 }
