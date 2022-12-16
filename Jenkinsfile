@@ -65,7 +65,7 @@ pipeline {
                 echo 'Deliver....'
                 sh '''
                 cd /home/jenkins/workspace/manzerlacaz_pipeline/
-                docker-compose up -d
+                echo "doing deploy stuff.."
                 '''
             }
         }
