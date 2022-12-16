@@ -18,7 +18,7 @@ pipeline {
                 echo 'Backing up code'
                 sh '''
                 cd /home/jenkins/workspace
-                #cp -r manzerlacaz_pipeline /home/jenkins/backup
+                #cp -r manzerlacaz_pipeline_main /home/jenkins/backup
                 #cd /home/jenkins/backup
                 #mv manzerlacaz_pipeline manzer_lacaz_backup_$BUILD_NUMBER
                 echo "doing backup stuff.."
@@ -31,19 +31,35 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build') {
+        stage('Build for devlopment') {
+            when{
+                branch 'develop'
+            }
             steps {
                 echo 'Building..'
                 sh '''
                 echo "doing build stuff.."
-                cd /home/jenkins/workspace/manzerlacaz_pipeline/manzerlacaz/manzerlacaz-parent
+                cd /home/jenkins/workspace/manzerlacaz_pipeline_develop/manzerlacaz/manzerlacaz-parent
                 mvn clean install
                 '''
             }
         }
-        stage('Deliver') {
+        stage('Build for production') {
             when{
-                branch 'master'
+                branch 'main'
+            }
+            steps {
+                echo 'Building..'
+                sh '''
+                echo "doing build stuff.."
+                cd /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-parent
+                mvn clean install
+                '''
+            }
+        }
+        stage('Deploy') {
+            when{
+                branch 'main'
             }
             steps {
                 echo 'Deliver....'
