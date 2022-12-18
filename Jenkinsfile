@@ -20,7 +20,7 @@ pipeline {
                 timestamp=$(date +%Y-%m-%d_%H-%M-%S)
                 mkdir /home/jenkins/backup/$timestamp
                 cd /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-web/target
-                find . -name "*.jar" -exec cp {} /home/jenkins/backup/timestamp
+                find . -name "*.jar" -exec cp {} /home/jenkins/backup/$timestamp\;a
                 #cd /home/jenkins/backup
                 #mv manzerlacaz_pipeline manzer_lacaz_backup_$BUILD_NUMBER
                 echo "doing backup stuff.."
