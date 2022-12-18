@@ -16,16 +16,16 @@ pipeline {
             steps {
                 echo "The build number is ${env.BUILD_NUMBER}"
                 echo 'Backing up code'
-                sh '''
-                timestamp=$(date +%Y-%m-%d_%H-%M-%S)
-                mkdir /home/jenkins/backup/$timestamp
-                cd /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-web/target
-                jar_file=$(find . -name "*.jar")
-                cp $jar_file /home/jenkins/backup/$timestamp
-                #cd /home/jenkins/backup
-                #mv manzerlacaz_pipeline manzer_lacaz_backup_$BUILD_NUMBER
-                echo "doing backup stuff.."
-                '''
+                script() {
+                    timestamp=$(date +%Y-%m-%d_%H-%M-%S)
+                    mkdir /home/jenkins/backup/$timestamp
+                    cd /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-web/target
+                    jar_file=$(find . -name "*.jar")
+                    cp $jar_file /home/jenkins/backup/$timestamp
+                    #cd /home/jenkins/backup
+                    #mv manzerlacaz_pipeline manzer_lacaz_backup_$BUILD_NUMBER
+                    echo "doing backup stuff.."
+                }
             }
         }
         stage('Checkout') {
