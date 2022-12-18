@@ -65,11 +65,10 @@ pipeline {
             steps {
                 echo 'Deliver....'
                 sh '''
-                cd /home/jenkins/workspace/manzerlacaz_pipeline/
+                cd /home/jenkins/workspace/manzerlacaz_pipeline_main/
                 echo "doing deploy stuff.."
                 '''
             }
         }
-
     }
 }
