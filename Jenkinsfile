@@ -17,8 +17,10 @@ pipeline {
                 echo "The build number is ${env.BUILD_NUMBER}"
                 echo 'Backing up code'
                 sh '''
-                cd /home/jenkins/workspace
-                #cp -r manzerlacaz_pipeline_main /home/jenkins/backup
+                timestamp=$(date +%Y-%m-%d_%H-%M-%S)
+                mkdir /home/jenkins/backup/timestamp
+                cd /home/jenkins/workspacemanzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-web/target
+                find . -name "*.jar" -exec cp {} /home/jenkins/backup/timestamp
                 #cd /home/jenkins/backup
                 #mv manzerlacaz_pipeline manzer_lacaz_backup_$BUILD_NUMBER
                 echo "doing backup stuff.."
@@ -46,10 +48,11 @@ pipeline {
             }
         }
         stage('Build for production') {
-            when{
+            when {
                 branch 'main'
             }
             steps {
+                /* groovylint-disable-next-line DuplicateStringLiteral */
                 echo 'Building..'
                 sh '''
                 echo "doing build stuff.."
@@ -59,7 +62,7 @@ pipeline {
             }
         }
         stage('Deploy') {
-            when{
+            when {
                 branch 'main'
             }
             steps {
