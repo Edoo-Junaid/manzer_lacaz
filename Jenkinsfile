@@ -9,14 +9,15 @@ pipeline {
     }
 
     stages {
+        stages {
         stage('Backup') {
             when{
                 branch 'main'
             }
             steps {
-                echo "The build number is ${env.BUILD_NUMBER}"
-                echo 'Backing up code'
-                script() {
+                script {
+                    echo "The build number is ${env.BUILD_NUMBER}"
+                    echo 'Backing up code'
                     timestamp=$(date +%Y-%m-%d_%H-%M-%S)
                     mkdir /home/jenkins/backup/$timestamp
                     cd /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-web/target
@@ -73,6 +74,7 @@ pipeline {
                 echo "doing deploy stuff.."
                 '''
             }
+        }
         }
     }
 }
