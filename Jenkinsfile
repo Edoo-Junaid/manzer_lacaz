@@ -53,11 +53,11 @@ pipeline {
                 branch 'main'
             }
             steps {
-                /* groovylint-disable-next-line DuplicateStringLiteral */
                 echo 'Building..'
                 sh '''
                 echo "doing build stuff.."
                 cd /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-parent
+                mvn --batch-mode release:update-versions -DdevelopmentVersion=1.$BUILD_NUMBER
                 mvn clean install
                 '''
             }
