@@ -72,7 +72,7 @@ pipeline {
             steps {
                 echo 'Deliver....'
                 sh '''
-                jar_file = $(find /home/jenkins/workspace/manzerlacaz_pipeline/manzerlacaz/manzerlacaz-web/target -name "*.jar")
+                jar_file = $(find /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-web/target -name "*.jar")
                 java -jar "${jar_file}"
                 echo "doing deploy stuff.."
                 '''
