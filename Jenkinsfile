@@ -40,9 +40,9 @@ pipeline {
                 sh '''
                 echo "doing build stuff.."
                 cd /home/jenkins/workspace/manzerlacaz_pipeline_develop/manzerlacaz/manzerlacaz-parent
-                mvn versions:set -DnewVersion=1.0.$BUILD_NUMBER
+                mvn versions:set -DnewVersion=1.0.$BUILD_NUMBER-SNAPSHOT
                 cd /home/jenkins/workspace/manzerlacaz_pipeline_develop/manzerlacaz/manzerlacaz-web
-                mvn versions:set -DnewVersion=1.0.$BUILD_NUMBER
+                mvn versions:set -DnewVersion=1.0.$BUILD_NUMBER-SNAPSHOT
                 cd /home/jenkins/workspace/manzerlacaz_pipeline_develop/manzerlacaz/manzerlacaz-parent
                 mvn clean install
                 '''
@@ -57,9 +57,9 @@ pipeline {
                 sh '''
                 echo "doing build stuff.."
                 cd /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-parent
-                mvn versions:set -DnewVersion=1.0.$BUILD_NUMBER-SNAPSHOT
+                mvn versions:set -DnewVersion=1.0.$BUILD_NUMBER
                 cd /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-web
-                mvn versions:set -DnewVersion=1.0.$BUILD_NUMBER-SNAPSHOT
+                mvn versions:set -DnewVersion=1.0.$BUILD_NUMBER
                 cd /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-parent
                 mvn clean install
                 '''
