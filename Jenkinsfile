@@ -7,8 +7,8 @@ pipeline {
         stage('Prompt for branch name') {
             steps {
                 script {
-                    def branch = input message: 'Enter the branch name:', parameters: [string(name: 'branch_name', defaultValue: 'master')]
-                    println "Branch name entered: ${branch}"
+                    def branchName = input message: 'Enter the branch name:', parameters: [string(name: 'branch_name', defaultValue: 'master')]
+                    println "Branch name entered: ${branchName}"
                     if (checkBranchExists(branchName)) {
                         git branch: branchName, checkout: true
                     } else {
