@@ -25,18 +25,6 @@ pipeline {
                 }
             }
         }
-        stage('Check branch existence') {
-            steps {
-                script {
-                    def result = sh(script: "git ls-remote --heads origin ${branch}", returnStdout: true)
-                    if (result == '') {
-                        error "Branch '${branch}' does not exist."
-          } else {
-                        println "Branch '${branch}' exists."
-                    }
-                }
-            }
-        }
         stage('Backup') {
             when {
                 branch 'main'
