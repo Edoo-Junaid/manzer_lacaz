@@ -9,23 +9,15 @@ pipeline {
                 script {
                     def branch = input message: 'Enter the branch name:', parameters: [string(name: 'branch_name', defaultValue: 'master')]
                     println "Branch name entered: ${branch}"
-                }
-            }
-        }
-        stage('Check branch existence') {
-            steps {
-                script {
-                    def branchName = ${branch}
-                    git branch: '--all', name: 'allBranches'
-                    def branchExists = allBranches.contains(branchName)
-                    if (branchExists) {
-                        echo "${branchName} exists!"
+                    if (checkBranchExists(branchName)) {
+                        git branch: branchName, checkout: true
                     } else {
-                        echo "${branchName} does not exist."
-                    }
+                        error "Branch ${branchName} does not exist."
                 }
-            }
+                }
+                }
         }
+
         stage('Backup') {
             when {
                 branch 'main'
