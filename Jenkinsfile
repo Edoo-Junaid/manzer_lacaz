@@ -13,9 +13,10 @@ pipeline {
                         git branch: branchName, checkout: true
                     } else {
                         error "Branch ${branchName} does not exist."
+                    }
+                    println "Branch name entered: aaaaaa"
                 }
-                }
-                }
+            }
         }
 
         stage('Backup') {
