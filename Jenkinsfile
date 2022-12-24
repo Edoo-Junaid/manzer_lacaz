@@ -9,12 +9,7 @@ pipeline {
                 script {
                     def branchName = input message: 'Enter the branch name:', parameters: [string(name: 'branch_name', defaultValue: 'master')]
                     println "Branch name entered: ${branchName}"
-                    if (checkBranchExists(branchName)) {
-                        git branch: branchName, checkout: true
-                    } else {
-                        error "Branch ${branchName} does not exist."
-                    }
-                    println "Branch name entered: aaaaaa"
+                    git branch: branchName, checkout: true
                 }
             }
         }
