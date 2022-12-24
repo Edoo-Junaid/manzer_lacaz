@@ -15,13 +15,13 @@ pipeline {
         stage('Check branch existence') {
             steps {
                 script {
-                    def result = sh(script: "git branch --list ${branch}", returnStdout: true)
-                    /* groovylint-disable-next-line NestedBlockDepth */
-                    if (result == '') {
-                        error "Branch '${branch}' does not exist."
-                    /* groovylint-disable-next-line NestedBlockDepth */
+                    def branchName = 'my-branch'
+                    git branch: '--all', name: 'allBranches'
+                    def branchExists = allBranches.contains(branchName)
+                    if (branchExists) {
+                        echo "${branchName} exists!"
                     } else {
-                        println "Branch '${branch}' exists."
+                        echo "${branchName} does not exist."
                     }
                 }
             }
@@ -95,5 +95,5 @@ pipeline {
                 '''
             }
         }
+        }
     }
-}
