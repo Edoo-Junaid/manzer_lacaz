@@ -9,7 +9,7 @@ pipeline {
                 script {
                     def branchName = input message: 'Enter the branch name:', parameters: [string(name: 'branch_name', defaultValue: 'master')]
                     println "Branch name entered: ${branchName}"
-                    git branch: branchName, checkout: true
+                    git branch -a
                 }
             }
         }
