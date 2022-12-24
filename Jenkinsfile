@@ -15,7 +15,7 @@ pipeline {
         stage('Check branch existence') {
             steps {
                 script {
-                    def branchName = 'my-branch'
+                    def branchName = ${branch}
                     git branch: '--all', name: 'allBranches'
                     def branchExists = allBranches.contains(branchName)
                     if (branchExists) {
