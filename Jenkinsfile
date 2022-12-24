@@ -9,7 +9,7 @@ pipeline {
                 script {
                     def branchName = input message: 'Enter the branch name:', parameters: [string(name: 'branch_name', defaultValue: 'master')]
                     println "Branch name entered: ${branchName}"
-                    git branch : branchName, url : 'git@github.com:Edoo-Junaid/manzer_lacaz.git'
+                    git credentialsId: 'manzer_key', url: 'git@github.com:my-organization/my-repo.git'
                 }
             }
         }
