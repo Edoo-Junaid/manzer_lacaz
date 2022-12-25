@@ -24,7 +24,7 @@ pipeline {
                 sh '''
                 timestamp=$(date +%Y-%m-%d_%H-%M-%S)
                 backup_dir="/home/jenkins/backup/$timestamp"
-                mkdir "${backup_dir}"
+                mkdir -p "${backup_dir}"
                 jar_file=$(find /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-web/target -name "*.jar")
                 cp "${jar_file}" "${backup_dir}"
                 '''
