@@ -3,28 +3,17 @@ pipeline {
     options {
         skipDefaultCheckout true
     }
-
     stages {
         stage('Prompt for branch name') {
             steps {
                 script {
-                    def branch = input message: 'Enter the branch name:', parameters: [string(name: 'branch_name', defaultValue: 'master')]
-                    println "Branch name entered: ${branch}"
+                    def branchName = input message: 'Enter the branch name:', parameters: [string(name: 'branch_name', defaultValue: 'master')]
+                    println "Branch name entered: ${branchName}"
+                    git credentialsId: 'manzer_key', url: 'git@github.com:Edoo-Junaid/manzer_lacaz.git', branch: branchName
                 }
             }
         }
-        stage('Check branch existence') {
-            steps {
-                script {
-                    def result = sh(script: "git ls-remote --heads origin ${branch}", returnStdout: true)
-                    if (result == '') {
-                        error "Branch '${branch}' does not exist."
-          } else {
-                        println "Branch '${branch}' exists."
-                    }
-                }
-            }
-        }
+
         stage('Backup') {
             when {
                 branch 'main'
@@ -89,10 +78,10 @@ pipeline {
                 echo 'Deliver....'
                 sh '''
                 cd /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-web/target
-                java -jar manzerlacaz-web-1.0.$BUILD_NUMBER.jar 
+                java -jar manzerlacaz-web-1.0.$BUILD_NUMBER.jar
                 echo "doing deploy stuff.."
                 '''
             }
         }
+        }
     }
-}
