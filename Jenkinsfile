@@ -1,9 +1,13 @@
 pipeline {
-    agent any
-    options {
+    agent {
+        node {
+            label 'slave01'
+        }
+    }
+        options {
         skipDefaultCheckout true
     }
-    stages {
+     stages {
         stage('Prompt for branch name') {
             steps {
                 script {
@@ -84,4 +88,4 @@ pipeline {
             }
         }
         }
-    }
+}
