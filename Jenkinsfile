@@ -17,15 +17,6 @@ pipeline {
                 }
             }
         }
-        stage('Prompt for version number'){
-            steps{
-                script{
-                    println "AAAAAAAAAAAAAAAAAAAAAAABranch name entered: ${branchName}"
-                    def versionNumber = input message: 'Enter the version number:', parameters: [string(name: 'version_number', defaultValue: '1.0.0')]
-                    println "Version number entered: ${versionNumber}"
-                }
-            }
-        }
         stage('Backup') {
             when {
                 branch 'main'
