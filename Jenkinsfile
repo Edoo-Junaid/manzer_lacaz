@@ -4,10 +4,10 @@ pipeline {
             label 'slave01'
         }
     }
-        options {
+    options {
         skipDefaultCheckout true
     }
-     stages {
+    stages {
         stage('Prompt for branch name') {
             steps {
                 script {
@@ -88,4 +88,4 @@ pipeline {
             }
         }
         }
-}
+    }
