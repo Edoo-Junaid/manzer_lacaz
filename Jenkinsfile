@@ -17,7 +17,15 @@ pipeline {
                 }
             }
         }
-
+        stage('Prompt for version number'){
+            steps{
+                script{
+                    def versionNumber = input message: 'Enter the version number:', parameters: [string(name: 'version_number', defaultValue: '1.0.0')]
+                    println "Version number entered: ${versionNumber}"
+                    sh "echo ${versionNumber} > version.txt"
+                }
+            }
+        }
         stage('Backup') {
             when {
                 branch 'main'
