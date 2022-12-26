@@ -1,0 +1,129 @@
+Prerequisites: To add an ssh key to github repo and create a jenkins credentials for the ssh key.
+
+pipeline {
+
+    **** agent on which to run the pipeline ****
+    agent {
+        node {
+            label 'slave01'
+        }
+    }
+
+
+    options {
+        skipDefaultCheckout true
+    }
+    stages {
+
+        **** Prompt for branch name ****
+        **** This stage will prompt for the branch name to checkout ****
+        **** The branch name will be used to checkout the code from the repo ****
+        **** Currently, the branch is cloned but we cannot check if the branch name is for develop or release because the branch name is stored as a local variable for this stage only****
+        **** to do : make branch name a global variable and then check if the branch name contains devlop or release keyword then run the build accordingly ****
+
+
+        stage('Prompt for branch name') {
+            steps {
+                script {
+                    def branchName = input message: 'Enter the branch name:', parameters: [string(name: 'branch_name', defaultValue: 'master')]
+                    println "Branch name entered: ${branchName}"
+                    git credentialsId: 'manzer_key', url: 'git@github.com:Edoo-Junaid/manzer_lacaz.git', branch: branchName
+                }
+            }
+        }
+        to do:
+        **** to prompt for release number ****
+        **** This stage will prompt for the release number to checkout ****
+        **** The release number will be used to build the jar file ****
+        stage("prompt for release number") {
+            steps {
+                script {
+                    def releaseNumber = input message: 'Enter the release number:', parameters: [string(name: 'release_number', defaultValue: '1.0.0')]
+                    println "Release number entered: ${releaseNumber}"
+                }
+            }
+        }
+        stage('Backup') {
+
+        **** To remove "when" and put if statement to check if the branch name contains develop or release ****
+        **** Then do actions accordingly ****
+        **** This stage will backup the jar file to a directory with the current timestamp****
+
+            when {
+                branch 'main'
+            }
+            steps {
+
+                echo "The build number is ${env.BUILD_NUMBER}"
+                echo 'Backing up code'
+                sh '''
+                timestamp=$(date +%Y-%m-%d_%H-%M-%S)
+                backup_dir="/home/jenkins/backup/$timestamp"
+                mkdir -p "${backup_dir}"
+                jar_file=$(find /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-web/target -name "*.jar")
+                cp "${jar_file}" "${backup_dir}"
+                '''
+            }
+        }
+
+        **** To remove "when" and put if statement to check if the branch name contains develop or release ****
+        ****This stage will go to the directory of parent and change the version number ****
+        **** Then go to the directory of web and change the version number ****
+        **** Then go to the directory of parent and build the jar file ****
+        ****To do : TO use the build number that was input on the previous stage ****
+
+        stage('Build for devlopment') {
+            when {
+                branch 'develop'
+            }
+            steps {
+                echo 'Building..'
+                sh '''
+                echo "doing build stuff.."
+                cd /home/jenkins/workspace/manzerlacaz_pipeline_develop/manzerlacaz/manzerlacaz-parent
+                mvn versions:set -DnewVersion=1.0.$BUILD_NUMBER-SNAPSHOT
+                cd /home/jenkins/workspace/manzerlacaz_pipeline_develop/manzerlacaz/manzerlacaz-web
+                mvn versions:set -DnewVersion=1.0.$BUILD_NUMBER-SNAPSHOT
+                cd /home/jenkins/workspace/manzerlacaz_pipeline_develop/manzerlacaz/manzerlacaz-parent
+                mvn clean install
+                '''
+            }
+        }
+        stage('Build for production') {
+            when {
+                branch 'main'
+            }
+            steps {
+                echo 'Building..'
+                sh '''
+                echo "doing build stuff.."
+                cd /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-parent
+                mvn versions:set -DnewVersion=1.0.$BUILD_NUMBER
+                cd /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-web
+                mvn versions:set -DnewVersion=1.0.$BUILD_NUMBER
+                cd /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-parent
+                mvn clean install
+                '''
+            }
+        }
+
+        **** To remove "when" and put if statement to check if the branch name contains develop or release ****
+        **** Then do actions accordingly ****
+        **** This stage will deploy the jar file to the server ****
+        **** To do : TO use the build number that was input on the previous stage ****
+        
+        stage('Deploy') {
+            when {
+                branch 'main'
+            }
+            steps {
+                echo 'Deliver....'
+                sh '''
+                cd /home/jenkins/workspace/manzerlacaz_pipeline_main/manzerlacaz/manzerlacaz-web/target
+                java -jar manzerlacaz-web-1.0.$BUILD_NUMBER.jar
+                echo "doing deploy stuff.."
+                '''
+            }
+        }
+    }
+}
